@@ -7,10 +7,9 @@
 using System;
 using Microsoft.ML.Data;
 
-namespace ShaderGraphML.Model.DataModels
+namespace PFVR.DataModels
 {
-    public class ModelOutput
-    {
+    public class StringPrediction {
         // ColumnName attribute is used to change the column name from
         // its default value, which is the name of the field.
         [ColumnName("PredictedLabel")]

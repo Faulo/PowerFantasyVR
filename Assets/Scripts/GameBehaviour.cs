@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Microsoft.ML;
-using ShaderGraphML.Model.DataModels;
+using PFVR.DataModels;
 using System.Diagnostics;
 using System.IO;
 
@@ -16,7 +16,7 @@ public class GameBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //*
+        /*
         MLContext mlContext = new MLContext();
 
         // Training code used by ML.NET CLI and AutoML to generate the model
@@ -43,6 +43,7 @@ public class GameBehaviour : MonoBehaviour
         sw.Stop();
 
         UnityEngine.Debug.Log(predictionResult.Prediction);
+        //*/
     }
 
     // Update is called once per frame
