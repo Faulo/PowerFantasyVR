@@ -8,14 +8,9 @@ using System.IO;
 
 public class GameBehaviour : MonoBehaviour
 {
-    private const string MODEL_FILEPATH = @"MLModel.zip";
+    private const string MODEL_FILEPATH = @"/Models/manus.zip";
     public static string GetAbsolutePath(string relativePath) {
-        FileInfo _dataRoot = new FileInfo(typeof(GameBehaviour).Assembly.Location);
-        string assemblyFolderPath = _dataRoot.Directory.FullName;
-
-        string fullPath = Path.Combine(assemblyFolderPath, relativePath);
-        UnityEngine.Debug.Log(fullPath);
-        return fullPath;
+        return Application.dataPath + relativePath;
     }
     
     // Start is called before the first frame update
