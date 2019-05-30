@@ -1,7 +1,7 @@
 {
     "name": "PFVR.Tests",
     "references": [
-        "PFVR.DataModels"
+        "PFVR"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
