@@ -8,7 +8,7 @@ namespace PFVR.Tracking {
     public class GestureRecognizer {
         private string modelPath {
             get {
-                return Application.dataPath + @"/Models/manus.zip";
+                return Application.dataPath + @"/Models/gestures.zip";
             }
         }
 
