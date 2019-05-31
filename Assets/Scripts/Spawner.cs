@@ -2,24 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spawner : MonoBehaviour
-{
-    [SerializeField]
-    private float delay = 1;
+namespace PFVR {
 
-    [SerializeField]
-    private GameObject entity;
+    public class Spawner : MonoBehaviour {
+        [SerializeField]
+        private float delay = 1;
 
-    private float countdown;
+        [SerializeField]
+        private GameObject entity;
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (entity) {
-            countdown += Time.deltaTime;
-            while (countdown > delay) {
-                countdown -= delay;
-                Instantiate(entity, transform);
+        private float countdown;
+
+        // Update is called once per frame
+        void Update() {
+            if (entity) {
+                countdown += Time.deltaTime;
+                while (countdown > delay) {
+                    countdown -= delay;
+                    Instantiate(entity, transform);
+                }
             }
         }
     }

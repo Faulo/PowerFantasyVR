@@ -8,7 +8,7 @@ using UnityEngine;
 namespace PFVR.Tracking {
     public class GestureConnector : MonoBehaviour {
         [SerializeField]
-        private GestureSet gestureSet;
+        public GestureSet gestureSet;
 
         public Gesture leftHand { get; private set; }
         public Gesture rightHand { get; private set; }
