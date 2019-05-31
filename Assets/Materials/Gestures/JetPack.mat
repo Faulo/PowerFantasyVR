@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Orange
-  m_Shader: {fileID: -6465566751694194690, guid: 3a85d0a9eee00f444abae5d797004880,
+  m_Name: JetPack
+  m_Shader: {fileID: -6465566751694194690, guid: 5d5ba80f12a049b4d96941298f58b50a,
     type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -74,5 +74,5 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.6792453, g: 0.04743428, b: 0, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
