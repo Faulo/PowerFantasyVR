@@ -17,3 +17,5 @@ MonoBehaviour:
     material: {fileID: 2100000, guid: 1e444666a2a5dca4c9bfd6b834066620, type: 2}
   - id: JetPack
     material: {fileID: 2100000, guid: d1b8147847566bc478dbf547585c3f01, type: 2}
+  - id: Fist
+    material: {fileID: 2100000, guid: d1b8147847566bc478dbf547585c3f01, type: 2}
