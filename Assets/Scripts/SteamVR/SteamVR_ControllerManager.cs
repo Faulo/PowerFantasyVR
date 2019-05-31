@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using PFVR.Tracking;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Valve.VR;
@@ -6,12 +7,12 @@ using Valve.VR;
 public class SteamVR_ControllerManager : MonoBehaviour {
     public GameObject left {
         get {
-            return FindObjectOfType<SteamVR_PlayArea>().transform.Find("Controller (left)").gameObject;
+            return FindObjectOfType<SteamConnector>().leftHand;
         }
     }
     public GameObject right {
         get {
-            return FindObjectOfType<SteamVR_PlayArea>().transform.Find("Controller (right)").gameObject;
+            return FindObjectOfType<SteamConnector>().rightHand;
         }
     }
 }

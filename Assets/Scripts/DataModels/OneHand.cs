@@ -1,41 +1,51 @@
 ﻿using Microsoft.ML.Data;
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace PFVR.DataModels {
     [Serializable]
     public class OneHand {
         [ColumnName("PinkyProximal"), LoadColumn(0)]
-        public float PinkyProximal { get; set; }
+        public float pinkyProximal { get; set; }
 
         [ColumnName("PinkyMedial"), LoadColumn(1)]
-        public float PinkyMedial { get; set; }
+        public float pinkyMedial { get; set; }
 
         [ColumnName("RingProximal"), LoadColumn(2)]
-        public float RingProximal { get; set; }
+        public float ringProximal { get; set; }
 
         [ColumnName("RingMedial"), LoadColumn(3)]
-        public float RingMedial { get; set; }
+        public float ringMedial { get; set; }
 
         [ColumnName("MiddleProximal"), LoadColumn(4)]
-        public float MiddleProximal { get; set; }
+        public float middleProximal { get; set; }
 
         [ColumnName("MiddleMedial"), LoadColumn(5)]
-        public float MiddleMedial { get; set; }
+        public float middleMedial { get; set; }
 
         [ColumnName("IndexProximal"), LoadColumn(6)]
-        public float IndexProximal { get; set; }
+        public float indexProximal { get; set; }
 
         [ColumnName("IndexMedial"), LoadColumn(7)]
-        public float IndexMedial { get; set; }
+        public float indexMedial { get; set; }
 
         [ColumnName("ThumbProximal"), LoadColumn(8)]
-        public float ThumbProximal { get; set; }
+        public float thumbProximal { get; set; }
 
         [ColumnName("ThumbMedial"), LoadColumn(9)]
-        public float ThumbMedial { get; set; }
+        public float thumbMedial { get; set; }
+        
+        [ColumnName("WristX"), LoadColumn(10)]
+        public float wristX { get; set; }
 
-        [ColumnName("Gesture"), LoadColumn(10)]
-        public string Gesture { get; set; }
+        [ColumnName("WristY"), LoadColumn(11)]
+        public float wristY { get; set; }
+
+        [ColumnName("WristZ"), LoadColumn(12)]
+        public float wristZ { get; set; }
+
+        [ColumnName("Gesture"), LoadColumn(14)]
+        public string gesture { get; set; }
     }
 }

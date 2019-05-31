@@ -32,7 +32,7 @@ namespace PFVR.Tracking {
             if (timer > 3) {
                 Debug.Log("RECORDING!");
                 var model = manus.leftHand;
-                model.Gesture = gestureToRecord;
+                model.gesture = gestureToRecord;
                 writer.Append(model);
                 return;
             }

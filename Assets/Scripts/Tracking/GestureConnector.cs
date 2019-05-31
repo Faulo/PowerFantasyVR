@@ -31,12 +31,12 @@ namespace PFVR.Tracking {
             manus.onLeftHandData += (OneHand hand) => {
                 var gesture = recognizer.Guess(hand);
                 leftHand = gestureSet[gesture];
-                onLeftGesture(leftHand);
+                onLeftGesture?.Invoke(leftHand);
             };
             manus.onRightHandData += (OneHand hand) => {
                 var gesture = recognizer.Guess(hand);
                 rightHand = gestureSet[gesture];
-                onRightGesture(rightHand);
+                onRightGesture?.Invoke(rightHand);
             };
         }
     }

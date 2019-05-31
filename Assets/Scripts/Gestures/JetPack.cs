@@ -1,5 +1,7 @@
-﻿using PFVR;
+﻿using ManusVR.Core.Apollo;
+using PFVR;
 using PFVR.Gestures;
+using PFVR.Tracking;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,13 +11,35 @@ namespace PFVR.Gestures {
         [SerializeField]
         private float propulsionForce = 1000;
 
-        public void OnEnter(PlayerBehaviour player) {
-            Debug.Log("JetPack" + player.transform.position);
+        [SerializeField, Range(1, 1000)]
+        private ushort rumbleDuration = 100;
+
+        [SerializeField, Range(0f, 1f)]
+        private float rumbleForce = 0.5f;
+
+        private GameObject particles;
+        private Coroutine rumbleRoutine;
+
+        private void Awake() {
+            particles = transform.Find("Particles").gameObject;
         }
-        public void OnExit(PlayerBehaviour player) {
+
+        public void OnEnter(PlayerBehaviour player, Hand hand) {
+            rumbleRoutine = StartCoroutine(CreateRumbleRoutine(hand.side));
+            particles.SetActive(true);
         }
-        public void OnUpdate(PlayerBehaviour player) {
-            player.GetComponent<Rigidbody>().AddForce(Vector3.up * propulsionForce * Time.deltaTime);
+        public void OnExit(PlayerBehaviour player, Hand hand) {
+            StopCoroutine(rumbleRoutine);
+            particles.SetActive(false);
+        }
+        public void OnUpdate(PlayerBehaviour player, Hand hand) {
+            player.rigidbody.AddForce(hand.tracker.transform.forward * propulsionForce * Time.deltaTime);
+        }
+        private IEnumerator CreateRumbleRoutine(GloveLaterality side) {
+            while (true) {
+                Apollo.rumble(side, rumbleDuration, (ushort) (rumbleForce * ushort.MaxValue));
+                yield return new WaitForSeconds(rumbleDuration / 1000f);
+            }
         }
     }
 }

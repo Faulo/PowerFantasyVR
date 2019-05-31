@@ -1,26 +1,28 @@
-﻿using PFVR.Tracking;
+﻿using ManusVR.Core.Apollo;
+using PFVR.Tracking;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Valve.VR;
 
 namespace PFVR {
 
     public class PlayerBehaviour : MonoBehaviour {
-        private Renderer leftControllerRenderer {
+        public new Rigidbody rigidbody {
             get {
-                return FindObjectOfType<SteamVR_ControllerManager>().left.transform.Find("Model").gameObject.GetComponentInChildren<Renderer>();
+                return GetComponent<Rigidbody>();
             }
         }
-        private Renderer rightControllerRenderer {
-            get {
-                return FindObjectOfType<SteamVR_ControllerManager>().right.transform.Find("Model").gameObject.GetComponentInChildren<Renderer>();
-            }
-        }
+        public Hand leftHand { get; private set; }
+        public Hand rightHand { get; private set; }
 
         private Gesture leftGesture;
         private Gesture rightGesture;
 
         void Start() {
+            leftHand = FindHand("Controller (left)", GloveLaterality.GLOVE_LEFT);
+            rightHand = FindHand("Controller (right)", GloveLaterality.GLOVE_RIGHT);
+
             var gestureConnector = FindObjectOfType<GestureConnector>();
 
             leftGesture = gestureConnector.gestureSet["Nothing"];
@@ -31,12 +33,12 @@ namespace PFVR {
                 if (leftGesture != gesture) {
                     Debug.Log("Left Hand: " + gesture.ToString());
 
-                    leftGesture.state.OnExit(this);
+                    leftHand[leftGesture].OnExit(this, leftHand);
                     leftGesture = gesture;
-                    leftGesture.state.OnEnter(this);
+                    leftHand[leftGesture].OnEnter(this, leftHand);
 
-                    if (leftControllerRenderer != null) {
-                        leftControllerRenderer.material = gesture.material;
+                    if (leftHand.renderer != null) {
+                        leftHand.renderer.material = gesture.material;
                     }
                 }
             };
@@ -44,20 +46,29 @@ namespace PFVR {
                 if (rightGesture != gesture) {
                     Debug.Log("Right Hand: " + gesture.ToString());
 
-                    rightGesture.state.OnExit(this);
+                    rightHand[rightGesture].OnExit(this, rightHand);
                     rightGesture = gesture;
-                    rightGesture.state.OnEnter(this);
+                    rightHand[rightGesture].OnEnter(this, rightHand);
 
-                    if (rightControllerRenderer != null) {
-                        rightControllerRenderer.material = gesture.material;
+                    if (rightHand.renderer != null) {
+                        rightHand.renderer.material = gesture.material;
                     }
                 }
             };
         }
 
         void Update() {
-            leftGesture.state.OnUpdate(this);
-            rightGesture.state.OnUpdate(this);
+            leftHand[leftGesture].OnUpdate(this, leftHand);
+            rightHand[rightGesture].OnUpdate(this, rightHand);
+        }
+
+        private Hand FindHand(string label, GloveLaterality side) {
+            var handTransform = FindObjectOfType<SteamVR_PlayArea>().transform.Find(label);
+            Hand hand = new Hand {
+                tracker = handTransform.gameObject,
+                side = side
+            };
+            return hand;
         }
     }
 

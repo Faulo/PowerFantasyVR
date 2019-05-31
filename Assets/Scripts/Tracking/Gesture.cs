@@ -11,13 +11,6 @@ namespace PFVR.Tracking {
         public Material material;
         public GameObject statePrefab;
 
-        public IGestureState state {
-            get {
-                Debug.Log(statePrefab.GetComponent<IGestureState>());
-                return statePrefab.GetComponent<IGestureState>();
-            }
-        }
-
         new public string ToString() {
             return id;
         }
