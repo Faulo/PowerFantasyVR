@@ -1,30 +1,41 @@
 ﻿using Microsoft.ML.Data;
+using System;
+using System.Collections.Generic;
 
 namespace PFVR.DataModels {
+    [Serializable]
     public class OneHand {
-        [ColumnName("Kleiner"), LoadColumn(0)]
-        public float Kleiner { get; set; }
+        [ColumnName("PinkyProximal"), LoadColumn(0)]
+        public float PinkyProximal { get; set; }
 
+        [ColumnName("PinkyMedial"), LoadColumn(1)]
+        public float PinkyMedial { get; set; }
 
-        [ColumnName("Ring"), LoadColumn(1)]
-        public float Ring { get; set; }
+        [ColumnName("RingProximal"), LoadColumn(2)]
+        public float RingProximal { get; set; }
 
+        [ColumnName("RingMedial"), LoadColumn(3)]
+        public float RingMedial { get; set; }
 
-        [ColumnName("Mittel"), LoadColumn(2)]
-        public float Mittel { get; set; }
+        [ColumnName("MiddleProximal"), LoadColumn(4)]
+        public float MiddleProximal { get; set; }
 
+        [ColumnName("MiddleMedial"), LoadColumn(5)]
+        public float MiddleMedial { get; set; }
 
-        [ColumnName("Zeige"), LoadColumn(3)]
-        public float Zeige { get; set; }
+        [ColumnName("IndexProximal"), LoadColumn(6)]
+        public float IndexProximal { get; set; }
 
+        [ColumnName("IndexMedial"), LoadColumn(7)]
+        public float IndexMedial { get; set; }
 
-        [ColumnName("Daumen"), LoadColumn(4)]
-        public float Daumen { get; set; }
+        [ColumnName("ThumbProximal"), LoadColumn(8)]
+        public float ThumbProximal { get; set; }
 
+        [ColumnName("ThumbMedial"), LoadColumn(9)]
+        public float ThumbMedial { get; set; }
 
-        [ColumnName("Geste"), LoadColumn(5)]
-        public string Geste { get; set; }
-
-
+        [ColumnName("Gesture"), LoadColumn(10)]
+        public string Gesture { get; set; }
     }
 }

@@ -22,10 +22,10 @@ namespace Tests
             MLContext mlContext = new MLContext();
 
             ITransformer mlModel = mlContext.Model.Load(GetAbsolutePath(MODEL_FILEPATH), out DataViewSchema inputSchema);
-            var predEngine = mlContext.Model.CreatePredictionEngine<OneHand, StringPrediction>(mlModel);
+            var predEngine = mlContext.Model.CreatePredictionEngine<OneHandOld, StringPrediction>(mlModel);
 
             // Create sample data to do a single prediction with it 
-            var sampleData = new OneHand {
+            var sampleData = new OneHandOld {
                 Kleiner = 0.9f,
                 Ring = 0.9f,
                 Mittel = 0.1f,
