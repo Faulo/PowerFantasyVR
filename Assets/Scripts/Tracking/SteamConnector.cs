@@ -23,5 +23,19 @@ namespace PFVR.Tracking {
             }
         }
         private GameObject rightHandCache;
+
+        public delegate void NewTrackerData(GameObject tracker);
+
+        public event NewTrackerData onLeftTrackerData;
+        public event NewTrackerData onRightTrackerData;
+
+        void Update() {
+            if (leftHand != null) {
+                onLeftTrackerData?.Invoke(leftHandCache);
+            }
+            if (rightHand != null) {
+                onRightTrackerData?.Invoke(rightHandCache);
+            }
+        }
     }
 }

@@ -38,7 +38,7 @@ namespace PFVR.Tracking {
         private bool TryToFetch(device_type_t gloveType, out OneHand outputHand) {
             if (HandDataManager.CanGetHandData(playerId, gloveType)) {
                 var data = HandDataManager.GetHandData(playerId, gloveType);
-                //var rotation = data.processedWristImu.eulerAngles;
+                var rotation = data.processedWristImu.eulerAngles;
                 //Debug.Log(tracker.transform.rotation.eulerAngles + " x " + data.processedWristImu.eulerAngles + " = " + rotation);
 
                 outputHand = new OneHand {
@@ -52,9 +52,10 @@ namespace PFVR.Tracking {
                     indexMedial = (float)data.fingers[(int)ApolloHandData.FingerName.Index].flexSensorRaw[(int)ApolloHandData.FlexSensorSegment.Medial],
                     thumbProximal = (float)data.fingers[(int)ApolloHandData.FingerName.Thumb].flexSensorRaw[(int)ApolloHandData.FlexSensorSegment.Proximal],
                     thumbMedial = (float)data.fingers[(int)ApolloHandData.FingerName.Thumb].flexSensorRaw[(int)ApolloHandData.FlexSensorSegment.Medial],
-                    //wristX = rotation.x,
-                    //wristY = rotation.y,
-                    //wristZ = rotation.z
+                    wrist = data.processedWristImu,
+                    wristX = rotation.x,
+                    wristY = rotation.y,
+                    wristZ = rotation.z
                 };
                 return true;
             } else {

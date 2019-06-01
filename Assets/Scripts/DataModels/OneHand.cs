@@ -36,16 +36,17 @@ namespace PFVR.DataModels {
         [ColumnName("thumbMedial"), LoadColumn(9)]
         public float thumbMedial { get; set; }
         
-        /*
-        [ColumnName("WristX"), LoadColumn(10)]
+        [ColumnName("wristX"), LoadColumn(10)]
         public float wristX { get; set; }
 
-        [ColumnName("WristY"), LoadColumn(11)]
+        [ColumnName("wristY"), LoadColumn(11)]
         public float wristY { get; set; }
 
-        [ColumnName("WristZ"), LoadColumn(12)]
+        [ColumnName("wristZ"), LoadColumn(12)]
         public float wristZ { get; set; }
-        //*/
+
+        [ColumnName("wrist"), LoadColumn(13)]
+        public Quaternion wrist { get; set; }
 
         [ColumnName("gesture"), LoadColumn(14)]
         public string gesture { get; set; }
