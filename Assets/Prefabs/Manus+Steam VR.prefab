@@ -31,7 +31,6 @@ Transform:
   - {fileID: 5397653112670786702}
   - {fileID: 5402606988427817292}
   - {fileID: 4175270799193705328}
-  - {fileID: 4780766279577565063}
   - {fileID: 2721115141880391915}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -62,46 +61,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!1001 &3808525425585056727
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 2673633039727702015}
-    m_Modifications:
-    - target: {fileID: 79410864785095556, guid: d269f4f629a728549b1276417685c8cc,
-        type: 3}
-      propertyPath: m_Name
-      value: SteamConnector
-      objectReference: {fileID: 0}
-    - target: {fileID: 8539431996758727760, guid: d269f4f629a728549b1276417685c8cc,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8539431996758727760, guid: d269f4f629a728549b1276417685c8cc,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8539431996758727760, guid: d269f4f629a728549b1276417685c8cc,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8539431996758727760, guid: d269f4f629a728549b1276417685c8cc,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: d269f4f629a728549b1276417685c8cc, type: 3}
---- !u!4 &4780766279577565063 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8539431996758727760, guid: d269f4f629a728549b1276417685c8cc,
-    type: 3}
-  m_PrefabInstance: {fileID: 3808525425585056727}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4175270799194164126
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -311,7 +270,7 @@ PrefabInstance:
     - target: {fileID: 5538715129334380418, guid: 56acb9cca244cbf49b8870b1dde32c00,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5538715129334380418, guid: 56acb9cca244cbf49b8870b1dde32c00,
         type: 3}

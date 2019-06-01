@@ -1,5 +1,5 @@
 ﻿using PFVR.DataModels;
-using PFVR.Tracking;
+using PFVR.DataModels;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -29,20 +29,13 @@ namespace PFVR {
             args["rightTracker"] = default;
             args["rightDelta"] = default;
 
-            var manus = FindObjectOfType<ManusConnector>();
-            manus.onLeftHandData += (OneHand data) => {
-                args["leftGlove"] = data.wrist; //new Vector3(data.wristX, data.wristY, data.wristZ);
+            ManusConnector.onLeftGloveData += (GloveData glove) => {
+                args["leftGlove"] = glove.wrist;
+                args["leftTracker"] = SteamConnector.leftTracker.rotation;
             };
-            manus.onRightHandData += (OneHand data) => {
-                args["rightGlove"] = data.wrist; //new Vector3(data.wristX, data.wristY, data.wristZ);
-            };
-
-            var steam = FindObjectOfType<SteamConnector>();
-            steam.onLeftTrackerData += (GameObject data) => {
-                args["leftTracker"] = data.transform.rotation;
-            };
-            steam.onRightTrackerData += (GameObject data) => {
-                args["rightTracker"] = data.transform.rotation;
+            ManusConnector.onRightGloveData += (GloveData glove) => {
+                args["rightGlove"] = glove.wrist;
+                args["leftTracker"] = SteamConnector.rightTracker.rotation;
             };
         }
 

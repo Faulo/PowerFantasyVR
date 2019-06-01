@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-namespace PFVR.Tracking {
+namespace PFVR.DataModels {
     public class GestureRecorder : MonoBehaviour {
         enum RecordState {
             Inactive,
@@ -14,18 +14,19 @@ namespace PFVR.Tracking {
         }
         [SerializeField]
         private string[] gesturesToRecord;
+        [SerializeField]
+        private int recordingTime = 10;
 
-        private ModelWriter<OneHand> writer;
+        private ModelWriter<GestureModel> writer;
         private string currentGesture;
         private RecordState state = RecordState.Inactive;
 
         // Start is called before the first frame update
         void Start() {
-            writer = new ModelWriter<OneHand>(Application.dataPath + "/Resources/Tracking");
+            writer = new ModelWriter<GestureModel>(Application.dataPath + "/Resources/Tracking");
 
-            var manus = FindObjectOfType<ManusConnector>();
-            manus.onLeftHandData += RecordHand;
-            manus.onRightHandData += RecordHand;
+            ManusConnector.onLeftGloveData += RecordGlove;
+            ManusConnector.onRightGloveData += RecordGlove;
 
             StartCoroutine(Record());
         }
@@ -42,7 +43,7 @@ namespace PFVR.Tracking {
                 yield return new WaitForSeconds(1);
                 Log("Recording '" + gesture + "' NOW!");
                 state = RecordState.Recording;
-                yield return new WaitForSeconds(10);
+                yield return new WaitForSeconds(recordingTime);
                 Log("Done recording '" + gesture + "'!");
                 yield return new WaitForSeconds(1);
             }
@@ -50,13 +51,14 @@ namespace PFVR.Tracking {
             Log("All done!");
             Application.Quit();
         }
-        private void RecordHand(OneHand model) {
+        private void RecordGlove(GloveData data) {
             switch (state) {
                 case RecordState.Inactive:
                     break;
                 case RecordState.Preparing:
                     break;
                 case RecordState.Recording:
+                    var model = data.ToGestureModel();
                     model.gesture = currentGesture;
                     writer.Append(model);
                     break;

@@ -1,41 +1,36 @@
-﻿using System.Collections;
+﻿using PFVR.DataModels;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Valve.VR;
 
-namespace PFVR.Tracking {
-    public class SteamConnector : MonoBehaviour {
-        public GameObject leftHand {
+namespace PFVR.DataModels {
+    public class SteamConnector {
+        public static Transform leftTracker {
             get {
-                if (leftHandCache == null) {
-                    leftHandCache = FindObjectOfType<SteamVR_PlayArea>().transform.Find("Controller (left)").gameObject;
+                if (leftTrackerCache == null) {
+                    try {
+                        leftTrackerCache = Object.FindObjectOfType<SteamVR_PlayArea>().transform.Find("Controller (left)");
+                    } catch(System.Exception e) {
+                        Debug.Log("Scene is missing either 'SteamVR_PlayArea' or 'Controller (left)', help!");
+                    }
                 }
-                return leftHandCache;
+                return leftTrackerCache;
             }
         }
-        private GameObject leftHandCache;
-        public GameObject rightHand {
+        private static Transform leftTrackerCache;
+        public static Transform rightTracker {
             get {
-                if (rightHandCache == null) {
-                    rightHandCache = FindObjectOfType<SteamVR_PlayArea>().transform.Find("Controller (right)").gameObject;
+                if (rightTrackerCache == null) {
+                    try {
+                        rightTrackerCache = Object.FindObjectOfType<SteamVR_PlayArea>().transform.Find("Controller (right)");
+                    } catch (System.Exception e) {
+                        Debug.Log("Scene is missing either 'SteamVR_PlayArea' or 'Controller (right)', help!");
+                    }
                 }
-                return rightHandCache;
+                return rightTrackerCache;
             }
         }
-        private GameObject rightHandCache;
-
-        public delegate void NewTrackerData(GameObject tracker);
-
-        public event NewTrackerData onLeftTrackerData;
-        public event NewTrackerData onRightTrackerData;
-
-        void Update() {
-            if (leftHand != null) {
-                onLeftTrackerData?.Invoke(leftHandCache);
-            }
-            if (rightHand != null) {
-                onRightTrackerData?.Invoke(rightHandCache);
-            }
-        }
+        private static Transform rightTrackerCache;
     }
 }

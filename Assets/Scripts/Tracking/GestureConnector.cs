@@ -5,38 +5,36 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-namespace PFVR.Tracking {
+namespace PFVR.DataModels {
     public class GestureConnector : MonoBehaviour {
         [SerializeField]
-        public GestureSet gestureSet;
-
-        public Gesture leftHand { get; private set; }
-        public Gesture rightHand { get; private set; }
+        private GestureSet gestureSet;
 
         public delegate void NewGesture(Gesture gesture);
 
-        public event NewGesture onLeftGesture;
-        public event NewGesture onRightGesture;
+        public static event NewGesture onLeftGesture;
+        public static event NewGesture onRightGesture;
 
         void Start() {
             if (gestureSet == null) {
                 throw new MissingReferenceException("GestureConnector needs a gestureSet!");
             }
-            var manus = FindObjectOfType<ManusConnector>();
-            if (manus == null) {
-                throw new MissingComponentException("GestureConnector needs a ManusConnector somewhere!");
-            }
+
             var recognizer = new GestureRecognizer();
 
-            manus.onLeftHandData += (OneHand hand) => {
-                var gesture = recognizer.Guess(hand);
-                leftHand = gestureSet[gesture];
-                onLeftGesture?.Invoke(leftHand);
+            ManusConnector.onLeftGloveData += (GloveData glove) => {
+                var gestureId = recognizer.Guess(glove.ToGestureModel());
+                var gesture = gestureSet[gestureId];
+                gesture.tracker = glove.tracker;
+                gesture.laterality = glove.laterality;
+                onLeftGesture?.Invoke(gesture);
             };
-            manus.onRightHandData += (OneHand hand) => {
-                var gesture = recognizer.Guess(hand);
-                rightHand = gestureSet[gesture];
-                onRightGesture?.Invoke(rightHand);
+            ManusConnector.onRightGloveData += (GloveData glove) => {
+                var gestureId = recognizer.Guess(glove.ToGestureModel());
+                var gesture = gestureSet[gestureId];
+                gesture.tracker = glove.tracker;
+                gesture.laterality = glove.laterality;
+                onRightGesture?.Invoke(gesture);
             };
         }
     }

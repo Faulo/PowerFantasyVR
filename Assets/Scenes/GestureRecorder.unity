@@ -287,6 +287,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2190700152812451250, guid: 56acb9cca244cbf49b8870b1dde32c00,
+        type: 3}
+      propertyPath: m_Name
+      value: ManusConnector
+      objectReference: {fileID: 0}
     - target: {fileID: 5538715129334380418, guid: 56acb9cca244cbf49b8870b1dde32c00,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -341,11 +346,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2190700152812451250, guid: 56acb9cca244cbf49b8870b1dde32c00,
-        type: 3}
-      propertyPath: m_Name
-      value: ManusConnector
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56acb9cca244cbf49b8870b1dde32c00, type: 3}
@@ -557,6 +557,11 @@ PrefabInstance:
         type: 3}
       propertyPath: gesturesToRecord.Array.data[2]
       value: Nothing
+      objectReference: {fileID: 0}
+    - target: {fileID: 2782271193368940021, guid: 02887de12a931fb438750ad7b63e2b54,
+        type: 3}
+      propertyPath: recordingTime
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 5666756257626019186, guid: 02887de12a931fb438750ad7b63e2b54,
         type: 3}

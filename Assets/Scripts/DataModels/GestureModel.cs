@@ -1,11 +1,12 @@
 ﻿using Microsoft.ML.Data;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace PFVR.DataModels {
     [Serializable]
-    public class OneHand {
+    public class GestureModel {
         [ColumnName("pinkyProximal"), LoadColumn(0)]
         public float pinkyProximal { get; set; }
 
@@ -35,20 +36,8 @@ namespace PFVR.DataModels {
 
         [ColumnName("thumbMedial"), LoadColumn(9)]
         public float thumbMedial { get; set; }
-        
-        [ColumnName("wristX"), LoadColumn(10)]
-        public float wristX { get; set; }
 
-        [ColumnName("wristY"), LoadColumn(11)]
-        public float wristY { get; set; }
-
-        [ColumnName("wristZ"), LoadColumn(12)]
-        public float wristZ { get; set; }
-
-        //[ColumnName("wrist"), LoadColumn(13)]
-        //public Quaternion wrist { get; set; }
-
-        [ColumnName("gesture"), LoadColumn(14)]
+        [ColumnName("gesture"), LoadColumn(10)]
         public string gesture { get; set; }
     }
 }

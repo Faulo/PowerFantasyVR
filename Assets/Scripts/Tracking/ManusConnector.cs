@@ -5,61 +5,51 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace PFVR.Tracking {
+namespace PFVR.DataModels {
     public class ManusConnector : MonoBehaviour {
+        public delegate void NewGloveData(GloveData hand);
 
-
-        public OneHand leftHand { get; private set; }
-        public OneHand rightHand { get; private set; }
-
-        public delegate void NewHandData(OneHand hand);
-
-        public event NewHandData onLeftHandData;
-        public event NewHandData onRightHandData;
+        public static event NewGloveData onLeftGloveData;
+        public static event NewGloveData onRightGloveData;
 
         private int playerId = 1;
-        //private SteamConnector steam;
-        
+
         void Start() {
-            leftHand = default;
-            rightHand = default;
-            //steam = FindObjectOfType<SteamConnector>();
         }
         void Update() {
-            if (TryToFetch(device_type_t.GLOVE_LEFT, out var hand)) {
-                leftHand = hand;
-                onLeftHandData?.Invoke(leftHand);
+            if (onLeftGloveData != null && TryToFetch(device_type_t.GLOVE_LEFT, GloveLaterality.GLOVE_LEFT, SteamConnector.leftTracker, out var glove)) {
+                onLeftGloveData(glove);
+
             }
-            if (TryToFetch(device_type_t.GLOVE_RIGHT, out hand)) {
-                rightHand = hand;
-                onRightHandData?.Invoke(rightHand);
+            if (onRightGloveData != null && TryToFetch(device_type_t.GLOVE_RIGHT, GloveLaterality.GLOVE_RIGHT, SteamConnector.rightTracker, out glove)) {
+                onRightGloveData(glove);
+
             }
         }
-        private bool TryToFetch(device_type_t gloveType, out OneHand outputHand) {
+
+        private bool TryToFetch(device_type_t gloveType, GloveLaterality laterality, Transform tracker, out GloveData output) {
             if (HandDataManager.CanGetHandData(playerId, gloveType)) {
                 var data = HandDataManager.GetHandData(playerId, gloveType);
-                var rotation = data.processedWristImu.eulerAngles;
-                //Debug.Log(tracker.transform.rotation.eulerAngles + " x " + data.processedWristImu.eulerAngles + " = " + rotation);
 
-                outputHand = new OneHand {
-                    pinkyProximal = (float)data.fingers[(int)ApolloHandData.FingerName.Pinky].flexSensorRaw[(int)ApolloHandData.FlexSensorSegment.Proximal],
-                    pinkyMedial = (float)data.fingers[(int)ApolloHandData.FingerName.Pinky].flexSensorRaw[(int)ApolloHandData.FlexSensorSegment.Medial],
-                    ringProximal = (float)data.fingers[(int)ApolloHandData.FingerName.Ring].flexSensorRaw[(int)ApolloHandData.FlexSensorSegment.Proximal],
-                    ringMedial = (float)data.fingers[(int)ApolloHandData.FingerName.Ring].flexSensorRaw[(int)ApolloHandData.FlexSensorSegment.Medial],
-                    middleProximal = (float)data.fingers[(int)ApolloHandData.FingerName.Middle].flexSensorRaw[(int)ApolloHandData.FlexSensorSegment.Proximal],
-                    middleMedial = (float)data.fingers[(int)ApolloHandData.FingerName.Middle].flexSensorRaw[(int)ApolloHandData.FlexSensorSegment.Medial],
-                    indexProximal = (float)data.fingers[(int)ApolloHandData.FingerName.Index].flexSensorRaw[(int)ApolloHandData.FlexSensorSegment.Proximal],
-                    indexMedial = (float)data.fingers[(int)ApolloHandData.FingerName.Index].flexSensorRaw[(int)ApolloHandData.FlexSensorSegment.Medial],
-                    thumbProximal = (float)data.fingers[(int)ApolloHandData.FingerName.Thumb].flexSensorRaw[(int)ApolloHandData.FlexSensorSegment.Proximal],
-                    thumbMedial = (float)data.fingers[(int)ApolloHandData.FingerName.Thumb].flexSensorRaw[(int)ApolloHandData.FlexSensorSegment.Medial],
+                output = new GloveData {
+                    device = gloveType,
+                    laterality = laterality,
+                    pinkyProximal = data.fingers[(int)ApolloHandData.FingerName.Pinky].flexSensorRaw[(int)ApolloHandData.FlexSensorSegment.Proximal],
+                    pinkyMedial = data.fingers[(int)ApolloHandData.FingerName.Pinky].flexSensorRaw[(int)ApolloHandData.FlexSensorSegment.Medial],
+                    ringProximal = data.fingers[(int)ApolloHandData.FingerName.Ring].flexSensorRaw[(int)ApolloHandData.FlexSensorSegment.Proximal],
+                    ringMedial = data.fingers[(int)ApolloHandData.FingerName.Ring].flexSensorRaw[(int)ApolloHandData.FlexSensorSegment.Medial],
+                    middleProximal = data.fingers[(int)ApolloHandData.FingerName.Middle].flexSensorRaw[(int)ApolloHandData.FlexSensorSegment.Proximal],
+                    middleMedial = data.fingers[(int)ApolloHandData.FingerName.Middle].flexSensorRaw[(int)ApolloHandData.FlexSensorSegment.Medial],
+                    indexProximal = data.fingers[(int)ApolloHandData.FingerName.Index].flexSensorRaw[(int)ApolloHandData.FlexSensorSegment.Proximal],
+                    indexMedial = data.fingers[(int)ApolloHandData.FingerName.Index].flexSensorRaw[(int)ApolloHandData.FlexSensorSegment.Medial],
+                    thumbProximal = data.fingers[(int)ApolloHandData.FingerName.Thumb].flexSensorRaw[(int)ApolloHandData.FlexSensorSegment.Proximal],
+                    thumbMedial = data.fingers[(int)ApolloHandData.FingerName.Thumb].flexSensorRaw[(int)ApolloHandData.FlexSensorSegment.Medial],
                     wrist = data.processedWristImu,
-                    wristX = rotation.x,
-                    wristY = rotation.y,
-                    wristZ = rotation.z
+                    tracker = tracker,
                 };
                 return true;
             } else {
-                outputHand = null;
+                output = null;
                 return false;
             }
         }

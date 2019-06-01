@@ -1,7 +1,8 @@
 ﻿using ManusVR.Core.Apollo;
 using PFVR;
+using PFVR.DataModels;
 using PFVR.Gestures;
-using PFVR.Tracking;
+using PFVR.DataModels;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,7 +16,7 @@ namespace PFVR.Gestures {
         private float antiGravityForce = 100;
 
         [SerializeField, Range(1, 1000)]
-        private ushort rumbleDuration = 100;
+        private ushort rumbleInterval = 100;
 
         [SerializeField, Range(0f, 1f)]
         private float rumbleForce = 0.5f;
@@ -27,24 +28,22 @@ namespace PFVR.Gestures {
             particles = transform.Find("Particles").gameObject;
         }
 
-        public void OnEnter(PlayerBehaviour player, Hand hand) {
-            rumbleRoutine = StartCoroutine(CreateRumbleRoutine(hand.side));
-            player.rigidbody.useGravity = false;
+        public void OnEnter(PlayerBehaviour player, PlayerHandBehaviour hand) {
+            rumbleRoutine = StartCoroutine(CreateRumbleRoutine(hand.laterality));
             particles.SetActive(true);
         }
-        public void OnExit(PlayerBehaviour player, Hand hand) {
+        public void OnExit(PlayerBehaviour player, PlayerHandBehaviour hand) {
             StopCoroutine(rumbleRoutine);
-            player.rigidbody.useGravity = true;
             particles.SetActive(false);
         }
-        public void OnUpdate(PlayerBehaviour player, Hand hand) {
-            player.rigidbody.AddForce(hand.tracker.transform.forward * propulsionForce * Time.deltaTime);
-            player.rigidbody.AddForce(Vector3.up * antiGravityForce * Time.deltaTime);
+        public void OnUpdate(PlayerBehaviour player, PlayerHandBehaviour hand) {
+            player.rigidbody.AddForce(hand.transform.forward * propulsionForce * Time.deltaTime);
+            player.rigidbody.AddForce(player.transform.up * antiGravityForce * Time.deltaTime);
         }
         private IEnumerator CreateRumbleRoutine(GloveLaterality side) {
             while (true) {
-                Apollo.rumble(side, rumbleDuration, (ushort) (rumbleForce * ushort.MaxValue));
-                yield return new WaitForSeconds(rumbleDuration / 1000f);
+                Apollo.rumble(side, rumbleInterval, (ushort) (rumbleForce * ushort.MaxValue));
+                yield return new WaitForSeconds(rumbleInterval / 1000f);
             }
         }
     }

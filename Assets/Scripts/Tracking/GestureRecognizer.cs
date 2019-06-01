@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace PFVR.Tracking {
+namespace PFVR.DataModels {
     public class GestureRecognizer {
         private string modelPath {
             get {
@@ -13,16 +13,16 @@ namespace PFVR.Tracking {
         }
 
         private MLContext context;
-        private PredictionEngine<OneHand, StringPrediction> engine;
+        private PredictionEngine<GestureModel, StringPrediction> engine;
 
         public GestureRecognizer() {
             context = new MLContext();
             var model = context.Model.Load(modelPath, out DataViewSchema inputSchema);
-            engine = context.Model.CreatePredictionEngine<OneHand, StringPrediction>(model);
+            engine = context.Model.CreatePredictionEngine<GestureModel, StringPrediction>(model);
         }
 
-        public string Guess(OneHand hand) {
-            return engine.Predict(hand).Prediction;
+        public string Guess(GestureModel model) {
+            return engine.Predict(model).Prediction;
         }
     }
 }

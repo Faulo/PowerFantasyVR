@@ -4779,7 +4779,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6089ac35d782f9642b25c5ae021b5c82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  propulsionForce: 1000
+  propulsionForce: 2000
   antiGravityForce: 100
-  rumbleDuration: 100
+  rumbleInterval: 100
   rumbleForce: 0.75
