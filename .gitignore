@@ -2,6 +2,7 @@
 /*/
 
 !.gitignore
+!.gitmodules
 !actions.json
 
 !/Assets/
