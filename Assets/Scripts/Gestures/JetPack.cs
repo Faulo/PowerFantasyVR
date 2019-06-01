@@ -11,6 +11,9 @@ namespace PFVR.Gestures {
         [SerializeField]
         private float propulsionForce = 1000;
 
+        [SerializeField]
+        private float antiGravityForce = 100;
+
         [SerializeField, Range(1, 1000)]
         private ushort rumbleDuration = 100;
 
@@ -26,14 +29,17 @@ namespace PFVR.Gestures {
 
         public void OnEnter(PlayerBehaviour player, Hand hand) {
             rumbleRoutine = StartCoroutine(CreateRumbleRoutine(hand.side));
+            player.rigidbody.useGravity = false;
             particles.SetActive(true);
         }
         public void OnExit(PlayerBehaviour player, Hand hand) {
             StopCoroutine(rumbleRoutine);
+            player.rigidbody.useGravity = true;
             particles.SetActive(false);
         }
         public void OnUpdate(PlayerBehaviour player, Hand hand) {
             player.rigidbody.AddForce(hand.tracker.transform.forward * propulsionForce * Time.deltaTime);
+            player.rigidbody.AddForce(Vector3.up * antiGravityForce * Time.deltaTime);
         }
         private IEnumerator CreateRumbleRoutine(GloveLaterality side) {
             while (true) {
