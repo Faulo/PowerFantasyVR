@@ -18,27 +18,27 @@ namespace PFVR.Tracking {
         public event NewHandData onRightHandData;
 
         private int playerId = 1;
-        private SteamConnector steam;
+        //private SteamConnector steam;
         
         void Start() {
             leftHand = default;
             rightHand = default;
-            steam = FindObjectOfType<SteamConnector>();
+            //steam = FindObjectOfType<SteamConnector>();
         }
         void Update() {
-            if (TryToFetch(device_type_t.GLOVE_LEFT, steam.leftHand, out var hand)) {
+            if (TryToFetch(device_type_t.GLOVE_LEFT, out var hand)) {
                 leftHand = hand;
                 onLeftHandData?.Invoke(leftHand);
             }
-            if (TryToFetch(device_type_t.GLOVE_RIGHT, steam.rightHand, out hand)) {
+            if (TryToFetch(device_type_t.GLOVE_RIGHT, out hand)) {
                 rightHand = hand;
                 onRightHandData?.Invoke(rightHand);
             }
         }
-        private bool TryToFetch(device_type_t gloveType, GameObject tracker, out OneHand outputHand) {
+        private bool TryToFetch(device_type_t gloveType, out OneHand outputHand) {
             if (HandDataManager.CanGetHandData(playerId, gloveType)) {
                 var data = HandDataManager.GetHandData(playerId, gloveType);
-                var rotation = (tracker.transform.rotation * data.processedWristImu).eulerAngles;
+                //var rotation = data.processedWristImu.eulerAngles;
                 //Debug.Log(tracker.transform.rotation.eulerAngles + " x " + data.processedWristImu.eulerAngles + " = " + rotation);
 
                 outputHand = new OneHand {
@@ -52,9 +52,9 @@ namespace PFVR.Tracking {
                     indexMedial = (float)data.fingers[(int)ApolloHandData.FingerName.Index].flexSensorRaw[(int)ApolloHandData.FlexSensorSegment.Medial],
                     thumbProximal = (float)data.fingers[(int)ApolloHandData.FingerName.Thumb].flexSensorRaw[(int)ApolloHandData.FlexSensorSegment.Proximal],
                     thumbMedial = (float)data.fingers[(int)ApolloHandData.FingerName.Thumb].flexSensorRaw[(int)ApolloHandData.FlexSensorSegment.Medial],
-                    wristX = rotation.x,
-                    wristY = rotation.y,
-                    wristZ = rotation.z
+                    //wristX = rotation.x,
+                    //wristY = rotation.y,
+                    //wristZ = rotation.z
                 };
                 return true;
             } else {
