@@ -1,11 +1,12 @@
 ﻿using ManusVR.Core.Apollo;
+using PFVR.DataModels;
 using PFVR.Gestures;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace PFVR.DataModels {
+namespace PFVR {
     public class PlayerHandBehaviour : MonoBehaviour {
         public PlayerBehaviour owner { get; private set; }
         public GloveLaterality laterality { get; private set; }

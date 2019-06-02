@@ -8,7 +8,7 @@ namespace PFVR.DataModels {
     public class GestureRecognizer {
         private string modelPath {
             get {
-                return Application.dataPath + @"/Models/gestures.zip";
+                return Application.dataPath + @"/Models/MLModel.zip";
             }
         }
 

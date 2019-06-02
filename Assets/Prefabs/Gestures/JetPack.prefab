@@ -957,14 +957,14 @@ ParticleSystem:
     curve:
       serializedVersion: 2
       minMaxState: 1
-      scalar: 1
+      scalar: 2
       minScalar: 1
       maxCurve:
         serializedVersion: 2
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 1
+          value: 0.98648834
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -972,13 +972,13 @@ ParticleSystem:
           inWeight: 0
           outWeight: 0
         - serializedVersion: 3
-          time: 1
-          value: 0
-          inSlope: -2
-          outSlope: -2
+          time: 0.99367094
+          value: 0.54054326
+          inSlope: -1.6978071
+          outSlope: -1.6978071
           tangentMode: 0
           weightedMode: 0
-          inWeight: 0
+          inWeight: 0.26433128
           outWeight: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
@@ -4779,7 +4779,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6089ac35d782f9642b25c5ae021b5c82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  propulsionForce: 2000
+  propulsionForce: 1000
   antiGravityForce: 100
   rumbleInterval: 100
   rumbleForce: 0.75

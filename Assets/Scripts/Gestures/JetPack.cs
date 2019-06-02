@@ -29,12 +29,12 @@ namespace PFVR.Gestures {
         }
 
         public void OnEnter(PlayerBehaviour player, PlayerHandBehaviour hand) {
+            gameObject.SetActive(true);
             rumbleRoutine = StartCoroutine(CreateRumbleRoutine(hand.laterality));
-            particles.SetActive(true);
         }
         public void OnExit(PlayerBehaviour player, PlayerHandBehaviour hand) {
+            gameObject.SetActive(false);
             StopCoroutine(rumbleRoutine);
-            particles.SetActive(false);
         }
         public void OnUpdate(PlayerBehaviour player, PlayerHandBehaviour hand) {
             player.rigidbody.AddForce(hand.transform.forward * propulsionForce * Time.deltaTime);
