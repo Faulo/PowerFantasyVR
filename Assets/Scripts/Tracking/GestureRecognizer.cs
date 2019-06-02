@@ -1,12 +1,13 @@
 ﻿using Microsoft.ML;
 using PFVR.DataModels;
+using System.IO;
 using UnityEngine;
 
 namespace PFVR.Tracking {
     public class GestureRecognizer {
         private string modelPath {
             get {
-                return Application.dataPath + @"/Models/MLModel.zip";
+                return Path.Combine(Application.streamingAssetsPath, "Models", "MLModel.zip");
             }
         }
 
