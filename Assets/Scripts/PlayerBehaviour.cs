@@ -23,12 +23,8 @@ namespace PFVR {
             leftHand.Init(this, GloveLaterality.GLOVE_LEFT);
             rightHand.Init(this, GloveLaterality.GLOVE_RIGHT);
 
-            GestureConnector.onLeftGesture += (Gesture gesture) => {
-                leftHand.gesture = gesture;
-            };
-            GestureConnector.onRightGesture += (Gesture gesture) => {
-                rightHand.gesture = gesture;
-            };
+            GestureConnector.onLeftGesture += leftHand.SetGesture;
+            GestureConnector.onRightGesture += rightHand.SetGesture;
         }
 
         void Update() {

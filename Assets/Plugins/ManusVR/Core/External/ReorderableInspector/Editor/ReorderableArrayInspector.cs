@@ -26,6 +26,8 @@ SOFTWARE.*/
 // Uncomment the line below to make all ScriptableObject fields editable
 //#define EDIT_ALL_SCRIPTABLES
 
+#if UNITY_EDITOR
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -886,3 +888,5 @@ namespace SubjectNerd.Utilities
 #endregion
 	}
 }
+
+#endif

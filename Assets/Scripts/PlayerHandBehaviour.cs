@@ -9,21 +9,8 @@ namespace PFVR {
         public PlayerBehaviour owner { get; private set; }
         public GloveLaterality laterality { get; private set; }
 
-        public Gesture gesture {
-            set {
-                if (currentGesture == value) {
-                    return;
-                }
-                currentState?.OnExit(owner, this);
-                currentGesture = value;
-                currentState?.OnEnter(owner, this);
-
-                renderer.material = currentGesture.material;
-            }
-        }
-
         private Gesture currentGesture;
-        private Dictionary<Gesture, IGestureState> states = new Dictionary<Gesture, IGestureState>();
+
         private IGestureState currentState {
             get {
                 if (currentGesture == null) {
@@ -35,15 +22,34 @@ namespace PFVR {
                 return states[currentGesture];
             }
         }
+        private Dictionary<Gesture, IGestureState> states = new Dictionary<Gesture, IGestureState>();
+
         private new Renderer renderer {
             get {
-                return GetComponentInChildren<Renderer>();
+                if (rendererCache == null) {
+                    rendererCache = GetComponentInChildren<Renderer>();
+                }
+                return rendererCache;
             }
         }
+        private Renderer rendererCache;
 
         internal void Init(PlayerBehaviour playerBehaviour, GloveLaterality gloveLaterality) {
             owner = playerBehaviour;
             laterality = gloveLaterality;
+        }
+
+        public void SetGesture(Gesture gesture) {
+            if (currentGesture == gesture) {
+                return;
+            }
+            currentState?.OnExit(owner, this);
+            currentGesture = gesture;
+            currentState?.OnEnter(owner, this);
+
+            if (renderer != null) {
+                renderer.material = currentGesture.material;
+            }
         }
 
         // Start is called before the first frame update
