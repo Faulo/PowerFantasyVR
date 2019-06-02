@@ -1,8 +1,6 @@
 ﻿using ManusVR.Core.Apollo;
-using PFVR.DataModels;
 using PFVR.Gestures;
-using System;
-using System.Collections;
+using PFVR.Tracking;
 using System.Collections.Generic;
 using UnityEngine;
 

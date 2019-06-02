@@ -1,10 +1,9 @@
 ﻿using PFVR.DataModels;
 using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 
-namespace PFVR.DataModels {
+namespace PFVR.Tracking {
     public class GestureRecorder : MonoBehaviour {
         enum RecordState {
             Inactive,
@@ -13,7 +12,7 @@ namespace PFVR.DataModels {
             Done
         }
         [SerializeField]
-        private string[] gesturesToRecord;
+        private string[] gesturesToRecord = default;
         [SerializeField]
         private int recordingTime = 10;
 

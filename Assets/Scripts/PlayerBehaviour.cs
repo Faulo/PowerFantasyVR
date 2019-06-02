@@ -1,10 +1,6 @@
 ﻿using ManusVR.Core.Apollo;
-using PFVR.DataModels;
-using PFVR.DataModels;
-using System.Collections;
-using System.Collections.Generic;
+using PFVR.Tracking;
 using UnityEngine;
-using Valve.VR;
 
 namespace PFVR {
 
@@ -15,10 +11,10 @@ namespace PFVR {
             }
         }
         [SerializeField]
-        private PlayerHandBehaviour leftHand;
+        private PlayerHandBehaviour leftHand = default;
 
         [SerializeField]
-        private PlayerHandBehaviour rightHand;
+        private PlayerHandBehaviour rightHand = default;
 
         private Gesture leftGesture;
         private Gesture rightGesture;

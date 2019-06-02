@@ -1,7 +1,5 @@
 ﻿using Microsoft.ML.Data;
 using System;
-using System.Collections.Generic;
-using UnityEngine;
 
 namespace PFVR.DataModels {
     [Serializable]

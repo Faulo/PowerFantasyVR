@@ -1,11 +1,9 @@
 ﻿using ManusVR.Core.Apollo;
 using ManusVR.Core.Hands;
 using PFVR.DataModels;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-namespace PFVR.DataModels {
+namespace PFVR.Tracking {
     public class ManusConnector : MonoBehaviour {
         public delegate void NewGloveData(GloveData hand);
 

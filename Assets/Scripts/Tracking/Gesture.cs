@@ -1,11 +1,8 @@
 ﻿using ManusVR.Core.Apollo;
-using PFVR.Gestures;
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-namespace PFVR.DataModels {
+namespace PFVR.Tracking {
     [Serializable]
     public class Gesture {
         public string id;

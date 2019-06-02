@@ -1,14 +1,12 @@
 ﻿using PFVR.DataModels;
 using PFVR.ScriptableObjects;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 
-namespace PFVR.DataModels {
+namespace PFVR.Tracking {
     public class GestureConnector : MonoBehaviour {
         [SerializeField]
-        private GestureSet gestureSet;
+        private GestureSet gestureSet = default;
 
         public delegate void NewGesture(Gesture gesture);
 

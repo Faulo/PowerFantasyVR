@@ -1,10 +1,8 @@
 ﻿using Microsoft.ML;
 using PFVR.DataModels;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-namespace PFVR.DataModels {
+namespace PFVR.Tracking {
     public class GestureRecognizer {
         private string modelPath {
             get {

@@ -1,14 +1,12 @@
 ﻿using PFVR.DataModels;
-using PFVR.DataModels;
+using PFVR.Tracking;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
 
 namespace PFVR {
-
     public class StatusScreen : MonoBehaviour {
         private TextMeshPro mesh;
         private string format;

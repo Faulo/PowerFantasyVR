@@ -9,7 +9,7 @@ namespace PFVR {
         private float delay = 1;
 
         [SerializeField]
-        private GameObject entity;
+        private GameObject entity = default;
 
         private float countdown;
 

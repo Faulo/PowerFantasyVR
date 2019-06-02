@@ -1,10 +1,5 @@
 ﻿using ManusVR.Core.Apollo;
-using PFVR;
-using PFVR.DataModels;
-using PFVR.Gestures;
-using PFVR.DataModels;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace PFVR.Gestures {

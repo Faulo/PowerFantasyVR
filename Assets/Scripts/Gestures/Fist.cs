@@ -1,10 +1,4 @@
-﻿using PFVR;
-using PFVR.DataModels;
-using PFVR.Gestures;
-using PFVR.DataModels;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace PFVR.Gestures {
     public class Fist : MonoBehaviour, IGestureState {

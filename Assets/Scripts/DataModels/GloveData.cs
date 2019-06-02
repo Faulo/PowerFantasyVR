@@ -1,7 +1,5 @@
 ﻿using ManusVR.Core.Apollo;
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace PFVR.DataModels {
