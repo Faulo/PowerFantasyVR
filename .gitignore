@@ -3,7 +3,7 @@
 
 !.gitignore
 !.gitmodules
-!actions.json
+!*.json
 
 !/Assets/
 !/ProjectSettings/
