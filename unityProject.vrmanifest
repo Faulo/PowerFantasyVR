@@ -5,7 +5,7 @@
       "app_key": "application.generated.unity.powerfantasyvr.exe",
       "launch_type": "url",
       "url": "steam://launch/",
-      "action_manifest_path": "C:\\Users\\Hist. Spieleabend\\Desktop\\Spielprojekt\\PowerFantasyVR\\actions.json",
+      "action_manifest_path": "C:\\Users\\Power Fantasy VR\\Desktop\\Spielprojekt\\PowerFantasyVR\\actions.json",
       "strings": {
         "en_us": {
           "name": "PowerFantasyVR [Testing]"
