@@ -6,7 +6,7 @@ using System.Linq;
 using TMPro;
 using UnityEngine;
 
-namespace PFVR {
+namespace PFVR.Debugging {
     public class StatusScreen : MonoBehaviour {
         private TextMeshPro mesh;
         private string format;

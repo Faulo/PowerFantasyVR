@@ -2,7 +2,7 @@
 using TMPro;
 using UnityEngine;
 
-namespace PFVR {
+namespace PFVR.Debugging {
     public class DebugScreen : MonoBehaviour {
         private TextMeshPro mesh;
 
