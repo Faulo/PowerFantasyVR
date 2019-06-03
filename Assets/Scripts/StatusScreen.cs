@@ -33,7 +33,7 @@ namespace PFVR {
             };
             ManusConnector.onRightGloveData += (GloveData glove) => {
                 args["rightGlove"] = glove.wrist;
-                args["leftTracker"] = SteamConnector.rightTracker.rotation;
+                args["rightTracker"] = SteamConnector.rightTracker.rotation;
             };
         }
 

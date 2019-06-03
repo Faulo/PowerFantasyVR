@@ -2,7 +2,7 @@
 using Valve.VR;
 
 namespace PFVR.Tracking {
-    public class SteamConnector {
+    public static class SteamConnector {
         public static Transform leftTracker {
             get {
                 if (leftTrackerCache == null) {
