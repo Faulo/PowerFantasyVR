@@ -1,0 +1,78 @@
+{
+   "action_sets" : [
+      {
+         "name" : "/actions/default",
+         "usage" : "single"
+      }
+   ],
+   "actions" : [
+      {
+         "name" : "/actions/default/in/InteractUI",
+         "type" : "boolean"
+      },
+      {
+         "name" : "/actions/default/in/Teleport",
+         "type" : "boolean"
+      },
+      {
+         "name" : "/actions/default/in/GrabPinch",
+         "type" : "boolean"
+      },
+      {
+         "name" : "/actions/default/in/GrabGrip",
+         "type" : "boolean"
+      },
+      {
+         "name" : "/actions/default/in/Pose",
+         "type" : "pose"
+      },
+      {
+         "name" : "/actions/default/in/SkeletonLeftHand",
+         "skeleton" : "/skeleton/hand/left",
+         "type" : "skeleton"
+      },
+      {
+         "name" : "/actions/default/in/SkeletonRightHand",
+         "skeleton" : "/skeleton/hand/right",
+         "type" : "skeleton"
+      },
+      {
+         "name" : "/actions/default/in/Squeeze",
+         "requirement" : "optional",
+         "type" : "vector1"
+      },
+      {
+         "name" : "/actions/default/in/HeadsetOnHead",
+         "requirement" : "optional",
+         "type" : "boolean"
+      },
+      {
+         "name" : "/actions/default/out/Haptic",
+         "type" : "vibration"
+      }
+   ],
+   "default_bindings" : [
+      {
+         "binding_url" : "application_generated_unity_powerfantasyvr_exe_binding_vive_tracker.json",
+         "controller_type" : "vive_tracker"
+      },
+      {
+         "binding_url" : "application_generated_unity_powerfantasyvr_exe_binding_vive_tracker_handed.json",
+         "controller_type" : "vive_tracker_handed"
+      }
+   ],
+   "localization" : [
+      {
+         "/actions/default/in/GrabGrip" : "Grab Grip",
+         "/actions/default/in/GrabPinch" : "Grab Pinch",
+         "/actions/default/in/HeadsetOnHead" : "Headset on head (proximity sensor)",
+         "/actions/default/in/InteractUI" : "Interact With UI",
+         "/actions/default/in/Pose" : "Pose",
+         "/actions/default/in/SkeletonLeftHand" : "Skeleton (Left)",
+         "/actions/default/in/SkeletonRightHand" : "Skeleton (Right)",
+         "/actions/default/in/Teleport" : "Teleport",
+         "/actions/default/out/Haptic" : "Haptic",
+         "language_tag" : "en_US"
+      }
+   ]
+}
