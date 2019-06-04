@@ -19,6 +19,10 @@ namespace PFVR.Gestures {
         private GameObject particles;
         private Coroutine rumbleRoutine;
 
+        [SerializeField]
+        private AnimationCurve propulsionOverTime;
+        private float runTime;
+
         private void Awake() {
             particles = transform.Find("Particles").gameObject;
         }
@@ -26,13 +30,15 @@ namespace PFVR.Gestures {
         public void OnEnter(PlayerBehaviour player, PlayerHandBehaviour hand) {
             gameObject.SetActive(true);
             rumbleRoutine = StartCoroutine(CreateRumbleRoutine(hand.laterality));
+            runTime = 0;
         }
         public void OnExit(PlayerBehaviour player, PlayerHandBehaviour hand) {
             gameObject.SetActive(false);
             StopCoroutine(rumbleRoutine);
         }
         public void OnUpdate(PlayerBehaviour player, PlayerHandBehaviour hand) {
-            player.rigidbody.AddForce(-hand.wrist.up * propulsionForce * Time.deltaTime);
+            runTime += Time.deltaTime;
+            player.rigidbody.AddForce(hand.wrist.up * propulsionForce * Time.deltaTime * propulsionOverTime.Evaluate(runTime));
             player.rigidbody.AddForce(player.transform.up * antiGravityForce * Time.deltaTime);
         }
         private IEnumerator CreateRumbleRoutine(GloveLaterality side) {

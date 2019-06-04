@@ -3,6 +3,7 @@ using PFVR.Gestures;
 using PFVR.Tracking;
 using System.Collections.Generic;
 using UnityEngine;
+using ManusVR.Core.Hands;
 
 namespace PFVR {
     public class PlayerHandBehaviour : MonoBehaviour {
@@ -23,6 +24,8 @@ namespace PFVR {
         }
 
         private Gesture currentGesture;
+
+        private Hand manusHand;
 
         private IGestureState currentState {
             get {
@@ -50,6 +53,7 @@ namespace PFVR {
         internal void Init(PlayerBehaviour playerBehaviour, GloveLaterality gloveLaterality) {
             owner = playerBehaviour;
             laterality = gloveLaterality;
+            manusHand = GetComponentInChildren<Hand>();
         }
 
         public void SetGesture(Gesture gesture) {
