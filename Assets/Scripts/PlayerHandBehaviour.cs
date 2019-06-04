@@ -8,6 +8,19 @@ namespace PFVR {
     public class PlayerHandBehaviour : MonoBehaviour {
         public PlayerBehaviour owner { get; private set; }
         public GloveLaterality laterality { get; private set; }
+        public Transform tracker {
+            get {
+                return transform;
+            }
+        }
+        public Transform wrist {
+            get {
+                //@TODO: NO magic enums!
+                return laterality == GloveLaterality.GLOVE_LEFT
+                    ? owner.leftWrist
+                    : owner.rightWrist;
+            }
+        }
 
         private Gesture currentGesture;
 
@@ -17,7 +30,7 @@ namespace PFVR {
                     return null;
                 }
                 if (!states.ContainsKey(currentGesture)) {
-                    states[currentGesture] = Instantiate(currentGesture.statePrefab, transform).GetComponent<IGestureState>();
+                    states[currentGesture] = Instantiate(currentGesture.statePrefab, wrist).GetComponent<IGestureState>();
                 }
                 return states[currentGesture];
             }

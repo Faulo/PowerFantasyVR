@@ -32,7 +32,7 @@ namespace PFVR.Gestures {
             StopCoroutine(rumbleRoutine);
         }
         public void OnUpdate(PlayerBehaviour player, PlayerHandBehaviour hand) {
-            player.rigidbody.AddForce(hand.transform.forward * propulsionForce * Time.deltaTime);
+            player.rigidbody.AddForce(-hand.wrist.up * propulsionForce * Time.deltaTime);
             player.rigidbody.AddForce(player.transform.up * antiGravityForce * Time.deltaTime);
         }
         private IEnumerator CreateRumbleRoutine(GloveLaterality side) {

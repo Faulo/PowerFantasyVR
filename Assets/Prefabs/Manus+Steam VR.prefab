@@ -227,23 +227,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1898439736, guid: 809cba6b88ebbf342a8f205bbe562d98, type: 3}
       propertyPath: leftPositionOffset.y
-      value: 0.05
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 1898439736, guid: 809cba6b88ebbf342a8f205bbe562d98, type: 3}
       propertyPath: leftPositionOffset.z
-      value: -0.1
+      value: -0.3
       objectReference: {fileID: 0}
     - target: {fileID: 1898439736, guid: 809cba6b88ebbf342a8f205bbe562d98, type: 3}
       propertyPath: rightPositionOffset.y
-      value: 0.05
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 1898439736, guid: 809cba6b88ebbf342a8f205bbe562d98, type: 3}
       propertyPath: rightPositionOffset.z
-      value: -0.1
+      value: -0.3
       objectReference: {fileID: 0}
     - target: {fileID: 1898439736, guid: 809cba6b88ebbf342a8f205bbe562d98, type: 3}
       propertyPath: leftRotationOffset.y
-      value: 70
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 1898439736, guid: 809cba6b88ebbf342a8f205bbe562d98, type: 3}
       propertyPath: leftRotationOffset.z
@@ -251,7 +251,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1898439736, guid: 809cba6b88ebbf342a8f205bbe562d98, type: 3}
       propertyPath: rightRotationOffset.y
-      value: 70
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 1898439736, guid: 809cba6b88ebbf342a8f205bbe562d98, type: 3}
       propertyPath: rightRotationOffset.z
@@ -259,7 +259,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1898439736, guid: 809cba6b88ebbf342a8f205bbe562d98, type: 3}
       propertyPath: trackerLocation
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 137674338753169986, guid: 809cba6b88ebbf342a8f205bbe562d98,
         type: 3}
