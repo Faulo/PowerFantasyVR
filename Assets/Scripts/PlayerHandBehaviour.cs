@@ -3,13 +3,29 @@ using PFVR.Gestures;
 using PFVR.Tracking;
 using System.Collections.Generic;
 using UnityEngine;
+using ManusVR.Core.Hands;
 
 namespace PFVR {
     public class PlayerHandBehaviour : MonoBehaviour {
         public PlayerBehaviour owner { get; private set; }
         public GloveLaterality laterality { get; private set; }
+        public Transform tracker {
+            get {
+                return transform;
+            }
+        }
+        public Transform wrist {
+            get {
+                //@TODO: NO magic enums!
+                return laterality == GloveLaterality.GLOVE_LEFT
+                    ? owner.leftWrist
+                    : owner.rightWrist;
+            }
+        }
 
         private Gesture currentGesture;
+
+        private Hand manusHand;
 
         private IGestureState currentState {
             get {
@@ -17,7 +33,7 @@ namespace PFVR {
                     return null;
                 }
                 if (!states.ContainsKey(currentGesture)) {
-                    states[currentGesture] = Instantiate(currentGesture.statePrefab, transform).GetComponent<IGestureState>();
+                    states[currentGesture] = Instantiate(currentGesture.statePrefab, wrist).GetComponent<IGestureState>();
                 }
                 return states[currentGesture];
             }
@@ -37,6 +53,7 @@ namespace PFVR {
         internal void Init(PlayerBehaviour playerBehaviour, GloveLaterality gloveLaterality) {
             owner = playerBehaviour;
             laterality = gloveLaterality;
+            manusHand = GetComponentInChildren<Hand>();
         }
 
         public void SetGesture(Gesture gesture) {
