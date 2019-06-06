@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -563,6 +563,12 @@ PrefabInstance:
       propertyPath: recordingTime
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 2782271193368940021, guid: 02887de12a931fb438750ad7b63e2b54,
+        type: 3}
+      propertyPath: gesturesToRecord
+      value: 
+      objectReference: {fileID: 11400000, guid: 3631c29fb39daed49a19938aa894c4ac,
+        type: 2}
     - target: {fileID: 5666756257626019186, guid: 02887de12a931fb438750ad7b63e2b54,
         type: 3}
       propertyPath: m_Camera

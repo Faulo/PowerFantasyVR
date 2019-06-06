@@ -1,9 +1,11 @@
 ﻿using ManusVR.Core.Apollo;
-using PFVR.Gestures;
-using PFVR.Tracking;
-using System.Collections.Generic;
-using UnityEngine;
 using ManusVR.Core.Hands;
+using PFVR.ScriptableObjects;
+using PFVR.Spells;
+using Slothsoft.UnityExtensions;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
 
 namespace PFVR {
     public class PlayerHandBehaviour : MonoBehaviour {
@@ -23,22 +25,22 @@ namespace PFVR {
             }
         }
 
-        private Gesture currentGesture;
+        private GameObject currentSpellPrefab;
 
         private Hand manusHand;
 
-        private IGestureState currentState {
+        private IEnumerable<ISpellState> currentStates {
             get {
-                if (currentGesture == null) {
-                    return null;
+                if (currentSpellPrefab == null) {
+                    return Enumerable.Empty<ISpellState>();
                 }
-                if (!states.ContainsKey(currentGesture)) {
-                    states[currentGesture] = Instantiate(currentGesture.statePrefab, wrist).GetComponent<IGestureState>();
+                if (!allStates.ContainsKey(currentSpellPrefab)) {
+                    allStates[currentSpellPrefab] = Instantiate(currentSpellPrefab, wrist);
                 }
-                return states[currentGesture];
+                return allStates[currentSpellPrefab].GetComponents<ISpellState>();
             }
         }
-        private Dictionary<Gesture, IGestureState> states = new Dictionary<Gesture, IGestureState>();
+        private Dictionary<GameObject, GameObject> allStates = new Dictionary<GameObject, GameObject>();
 
         private new Renderer renderer {
             get {
@@ -57,16 +59,12 @@ namespace PFVR {
         }
 
         public void SetGesture(Gesture gesture) {
-            if (currentGesture == gesture) {
+            if (currentSpellPrefab == gesture.spellPrefab) {
                 return;
             }
-            currentState?.OnExit(owner, this);
-            currentGesture = gesture;
-            currentState?.OnEnter(owner, this);
-
-            if (renderer != null) {
-                renderer.material = currentGesture.material;
-            }
+            currentStates.ForAll(state => state.OnExit(owner, this));
+            currentSpellPrefab = gesture.spellPrefab;
+            currentStates.ForAll(state => state.OnEnter(owner, this));
         }
 
         // Start is called before the first frame update
@@ -76,7 +74,7 @@ namespace PFVR {
 
         // Update is called once per frame
         void Update() {
-            currentState?.OnUpdate(owner, this);
+            currentStates.ForAll(state => state.OnUpdate(owner, this));
         }
     }
 }

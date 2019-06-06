@@ -18,20 +18,16 @@ namespace PFVR.Tracking {
                 throw new MissingReferenceException("GestureConnector needs a gestureSet!");
             }
 
-            var recognizer = new GestureRecognizer();
+            var recognizer = new GestureRecognizer(gestureSet.modelPath);
 
             ManusConnector.onLeftGloveData += (GloveData glove) => {
                 var gestureId = recognizer.Guess(glove.ToGestureModel());
                 var gesture = gestureSet[gestureId];
-                gesture.tracker = glove.tracker;
-                gesture.laterality = glove.laterality;
                 onLeftGesture?.Invoke(gesture);
             };
             ManusConnector.onRightGloveData += (GloveData glove) => {
                 var gestureId = recognizer.Guess(glove.ToGestureModel());
                 var gesture = gestureSet[gestureId];
-                gesture.tracker = glove.tracker;
-                gesture.laterality = glove.laterality;
                 onRightGesture?.Invoke(gesture);
             };
         }

@@ -1,4 +1,5 @@
 ﻿using ManusVR.Core.Apollo;
+using PFVR.ScriptableObjects;
 using PFVR.Tracking;
 using UnityEngine;
 

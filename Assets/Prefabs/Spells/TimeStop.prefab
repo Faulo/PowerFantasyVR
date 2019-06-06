@@ -9,9 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4982480153273588245}
-  - component: {fileID: 2421860252039449402}
+  - component: {fileID: 1037339571196795930}
+  - component: {fileID: -3907211796637124242}
   m_Layer: 0
-  m_Name: Nothing
+  m_Name: TimeStop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,7 +32,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2421860252039449402
+--- !u!114 &1037339571196795930
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -40,6 +41,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 9195071170267245166}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59e37bf5703091e468274d92f2784bd2, type: 3}
+  m_Script: {fileID: 11500000, guid: fcf2b5e2888bad94fba6c2e9555f4e43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trackerMaterial: {fileID: 2100000, guid: b6b273f97ee6e2d42806f5980d69860b, type: 2}
+--- !u!114 &-3907211796637124242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9195071170267245166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffdb5259c14d78d4c9fdca189ecfe806, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
