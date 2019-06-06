@@ -43,4 +43,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2277c96070389bd479853f0121985183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gestureSet: {fileID: 11400000, guid: a0695306aee928246917bdc3c038d1eb, type: 2}
+  gestureSet: {fileID: 11400000, guid: f3b90ef156238e4468b5ca8afb407fe6, type: 2}
