@@ -1,15 +1,14 @@
 ﻿using UnityEngine;
 
-namespace PFVR.Gestures {
-    public class Fist : MonoBehaviour, IGestureState {
+namespace PFVR.Spells {
+    [RequireComponent(typeof(AbstractSpell))]
+    public class TimeStop : MonoBehaviour, ISpellState {
         public void OnEnter(PlayerBehaviour player, PlayerHandBehaviour hand) {
-            gameObject.SetActive(true);
         }
         public void OnExit(PlayerBehaviour player, PlayerHandBehaviour hand) {
-            gameObject.SetActive(false);
         }
         public void OnUpdate(PlayerBehaviour player, PlayerHandBehaviour hand) {
-            player.rigidbody.velocity *= 0.25f;
+            player.rigidbody.velocity *= 0.1f;
         }
     }
 }

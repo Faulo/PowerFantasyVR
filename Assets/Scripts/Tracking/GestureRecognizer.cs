@@ -5,16 +5,10 @@ using UnityEngine;
 
 namespace PFVR.Tracking {
     public class GestureRecognizer {
-        private string modelPath {
-            get {
-                return Path.Combine(Application.streamingAssetsPath, "Models", "MLModel.zip");
-            }
-        }
-
         private MLContext context;
         private PredictionEngine<GestureModel, StringPrediction> engine;
 
-        public GestureRecognizer() {
+        public GestureRecognizer(string modelPath) {
             try {
                 context = new MLContext();
                 var model = context.Model.Load(modelPath, out DataViewSchema inputSchema);

@@ -1,9 +1,12 @@
 ﻿using ManusVR.Core.Apollo;
+using Slothsoft.UnityExtensions;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-namespace PFVR.Gestures {
-    public class JetPack : MonoBehaviour, IGestureState {
+namespace PFVR.Spells {
+    [RequireComponent(typeof(AbstractSpell))]
+    public class JetPack : MonoBehaviour, ISpellState {
         [SerializeField]
         private float propulsionForce = 1000;
 
@@ -16,24 +19,26 @@ namespace PFVR.Gestures {
         [SerializeField, Range(0f, 1f)]
         private float rumbleForce = 0.5f;
 
-        private GameObject particles;
         private Coroutine rumbleRoutine;
 
         [SerializeField]
-        private AnimationCurve propulsionOverTime;
+        private AnimationCurve propulsionOverTime = default;
         private float runTime;
 
-        private void Awake() {
-            particles = transform.Find("Particles").gameObject;
-        }
+        [SerializeField]
+        private GameObject enginePrefab = default;
+        private GameObject engine;
 
         public void OnEnter(PlayerBehaviour player, PlayerHandBehaviour hand) {
-            gameObject.SetActive(true);
+            if (engine == null) {
+                engine = Instantiate(enginePrefab, hand.wrist);
+            }
+            engine?.SetActive(true);
             rumbleRoutine = StartCoroutine(CreateRumbleRoutine(hand.laterality));
             runTime = 0;
         }
         public void OnExit(PlayerBehaviour player, PlayerHandBehaviour hand) {
-            gameObject.SetActive(false);
+            engine?.SetActive(false);
             StopCoroutine(rumbleRoutine);
         }
         public void OnUpdate(PlayerBehaviour player, PlayerHandBehaviour hand) {

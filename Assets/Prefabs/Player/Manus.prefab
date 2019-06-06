@@ -1,0 +1,218 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4230003515613127558
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3479682409014565743}
+  m_Layer: 0
+  m_Name: wrist_r
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3479682409014565743
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4230003515613127558}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: 0.000000029802315, w: 0.70710677}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3564418547968949013}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!1 &6128611909653066066
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3256553086241573187}
+  m_Layer: 0
+  m_Name: Manus
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3256553086241573187
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6128611909653066066}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 3564056945551367839}
+  - {fileID: 2802199256518511883}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7972008569410743587
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8776194522697053135}
+  m_Layer: 0
+  m_Name: wrist_l
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8776194522697053135
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7972008569410743587}
+  m_LocalRotation: {x: 0.7071068, y: 0.00000006891785, z: -0.7071068, w: 0.00000016577536}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3560510353117150285}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 180, y: 90, z: 0}
+--- !u!1001 &3559999222610495795
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 3256553086241573187}
+    m_Modifications:
+    - target: {fileID: 1442993600510070, guid: 809cba6b88ebbf342a8f205bbe562d98, type: 3}
+      propertyPath: m_Name
+      value: ManusVRUE4Arms-SteamVR
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990162757474220, guid: 809cba6b88ebbf342a8f205bbe562d98, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990162757474220, guid: 809cba6b88ebbf342a8f205bbe562d98, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990162757474220, guid: 809cba6b88ebbf342a8f205bbe562d98, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990162757474220, guid: 809cba6b88ebbf342a8f205bbe562d98, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 23597818966745398, guid: 809cba6b88ebbf342a8f205bbe562d98,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1898439736, guid: 809cba6b88ebbf342a8f205bbe562d98, type: 3}
+      propertyPath: leftPositionOffset.y
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1898439736, guid: 809cba6b88ebbf342a8f205bbe562d98, type: 3}
+      propertyPath: leftPositionOffset.z
+      value: -0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1898439736, guid: 809cba6b88ebbf342a8f205bbe562d98, type: 3}
+      propertyPath: leftRotationOffset.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 1898439736, guid: 809cba6b88ebbf342a8f205bbe562d98, type: 3}
+      propertyPath: leftRotationOffset.z
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 1898439736, guid: 809cba6b88ebbf342a8f205bbe562d98, type: 3}
+      propertyPath: rightPositionOffset.y
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1898439736, guid: 809cba6b88ebbf342a8f205bbe562d98, type: 3}
+      propertyPath: rightPositionOffset.z
+      value: -0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1898439736, guid: 809cba6b88ebbf342a8f205bbe562d98, type: 3}
+      propertyPath: rightRotationOffset.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 1898439736, guid: 809cba6b88ebbf342a8f205bbe562d98, type: 3}
+      propertyPath: rightRotationOffset.z
+      value: 90
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 809cba6b88ebbf342a8f205bbe562d98, type: 3}
+--- !u!4 &3564056945551367839 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4990162757474220, guid: 809cba6b88ebbf342a8f205bbe562d98,
+    type: 3}
+  m_PrefabInstance: {fileID: 3559999222610495795}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &3560510353117150285 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4170598615381374, guid: 809cba6b88ebbf342a8f205bbe562d98,
+    type: 3}
+  m_PrefabInstance: {fileID: 3559999222610495795}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &3564418547968949013 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4771496851223078, guid: 809cba6b88ebbf342a8f205bbe562d98,
+    type: 3}
+  m_PrefabInstance: {fileID: 3559999222610495795}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7655575589824821897
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 3256553086241573187}
+    m_Modifications:
+    - target: {fileID: 2190700152812451250, guid: 56acb9cca244cbf49b8870b1dde32c00,
+        type: 3}
+      propertyPath: m_Name
+      value: ManusConnector
+      objectReference: {fileID: 0}
+    - target: {fileID: 5538715129334380418, guid: 56acb9cca244cbf49b8870b1dde32c00,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5538715129334380418, guid: 56acb9cca244cbf49b8870b1dde32c00,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5538715129334380418, guid: 56acb9cca244cbf49b8870b1dde32c00,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5538715129334380418, guid: 56acb9cca244cbf49b8870b1dde32c00,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 56acb9cca244cbf49b8870b1dde32c00, type: 3}
+--- !u!4 &2802199256518511883 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5538715129334380418, guid: 56acb9cca244cbf49b8870b1dde32c00,
+    type: 3}
+  m_PrefabInstance: {fileID: 7655575589824821897}
+  m_PrefabAsset: {fileID: 0}

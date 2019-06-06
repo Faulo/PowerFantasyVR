@@ -1,4 +1,5 @@
 ﻿using PFVR.DataModels;
+using PFVR.ScriptableObjects;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -12,7 +13,7 @@ namespace PFVR.Tracking {
             Done
         }
         [SerializeField]
-        private string[] gesturesToRecord = default;
+        private GestureSet gesturesToRecord = default;
         [SerializeField]
         private int recordingTime = 10;
 
@@ -31,7 +32,7 @@ namespace PFVR.Tracking {
         }
 
         private IEnumerator Record() {
-            foreach (var gesture in gesturesToRecord) {
+            foreach (var gesture in gesturesToRecord.gestureNames) {
                 state = RecordState.Preparing;
                 currentGesture = gesture;
                 Log("Recording '" + gesture + "' in 3...");
