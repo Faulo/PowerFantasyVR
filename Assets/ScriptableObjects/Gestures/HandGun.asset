@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40e9eb230c4aa914dadd26d5c0697719, type: 3}
   m_Name: HandGun
   m_EditorClassIdentifier: 
-  spellPrefab: {fileID: 9195071170267245166, guid: 4d8457d75c962044abdc04c90e0d9a39,
+  spellPrefab: {fileID: 860132782293314664, guid: dfe3d6b385f399d4db26ff1fb3d0d088,
     type: 3}
