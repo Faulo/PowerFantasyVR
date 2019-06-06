@@ -49,6 +49,7 @@ namespace PFVR.Tracking {
             }
             state = RecordState.Done;
             Log("All done!");
+            writer.Finish();
             Application.Quit();
         }
         private void RecordGlove(GloveData data) {

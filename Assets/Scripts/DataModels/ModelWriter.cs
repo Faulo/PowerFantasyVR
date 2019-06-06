@@ -32,6 +32,10 @@ namespace PFVR.DataModels {
             }
             return dict;
         }
+        public void Finish() {
+            writer.Dispose();
+            writer = null;
+        }
     }
 }
 

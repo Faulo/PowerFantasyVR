@@ -1,6 +1,6 @@
 ﻿using ManusVR.Core.Apollo;
+using PFVR.OurPhysics;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace PFVR.Spells {
@@ -24,7 +24,6 @@ namespace PFVR.Spells {
         private Coroutine boltRoutine;
 
         public void OnEnter(PlayerBehaviour player, PlayerHandBehaviour hand) {
-            Debug.Log("bolting");
             boltRoutine = StartCoroutine(CreateBoltRoutine(hand));
         }
         public void OnExit(PlayerBehaviour player, PlayerHandBehaviour hand) {
@@ -35,7 +34,8 @@ namespace PFVR.Spells {
         private IEnumerator CreateBoltRoutine(PlayerHandBehaviour hand) {
             while (true) {
                 var bolt = Instantiate(boltPrefab, hand.indexFinger.position, hand.indexFinger.rotation);
-                bolt.GetComponent<Rigidbody>().velocity = bolt.transform.right * boltVelocity;
+                bolt.GetComponent<KinematicRigidbody>().velocity = hand.owner.rigidbody.velocity;
+                bolt.GetComponent<KinematicRigidbody>().velocity += bolt.transform.forward * boltVelocity;
                 Apollo.rumble(hand.laterality, rumbleDuration, (ushort)(rumbleForce * ushort.MaxValue));
                 yield return new WaitForSeconds(boltInterval / 1000f);
             }
