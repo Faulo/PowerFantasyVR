@@ -5,30 +5,13 @@ using Pathfinding;
 
 namespace PFVR.AI
 {
-    public class EnemyBehavior : MonoBehaviour
+    // Additional behavior for enemies (besides homing in on a target)
+    public class EnemyBehavior : AIPath
     {
-        public GameObject player;
-        public Transform targetPosition;
-        public Vector3 playerPos;
-
-        // Start is called before the first frame update
-        void Start()
+        public override void OnTargetReached()
         {
-            Seeker seeker = GetComponent<Seeker>();
-            seeker.StartPath(transform.position, targetPosition.position, OnPathComplete);
-            playerPos = player.transform.position;
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-            transform.Translate(playerPos * Time.deltaTime * 0.2f);
-
-        }
-
-        public void OnPathComplete(Path p)
-        {
-            Debug.Log("Created Path" + p.error);
+            base.OnTargetReached();
+            Debug.Log("Gotcha!");
         }
     }
 }
