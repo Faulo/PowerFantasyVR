@@ -8,5 +8,11 @@ namespace PFVR.OurPhysics {
         void FixedUpdate() {
             transform.Translate(velocity * Time.fixedDeltaTime, Space.World);
         }
+        private void OnCollisionEnter(Collision collision) {
+            var body = collision.rigidbody;
+            if (body != null) {
+                body.AddForce(velocity * GetComponent<Rigidbody>().mass);
+            }
+        }
     }
 }

@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8892452799288027773}
   - component: {fileID: 3526836203250434800}
-  - component: {fileID: 6245571115590402927}
   - component: {fileID: 587793762088930548}
+  - component: {fileID: -1059544497444436529}
   m_Layer: 0
   m_Name: LaserBolt
   m_TagString: Untagged
@@ -50,20 +50,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!114 &6245571115590402927
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 114941719058234932}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cefa68daeb1b18d49acd2fb4b2c3759e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gravity: 0.1
+  m_CollisionDetection: 3
 --- !u!114 &587793762088930548
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76,6 +63,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84bcb6af60b2f5547bca3c6e014fb391, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  velocity: {x: 0, y: 0, z: 0}
+--- !u!114 &-1059544497444436529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 114941719058234932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de998b3996db7aa4b9942dd2c1e7ee8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destruction: {fileID: 2100000, guid: fd0b5fbf6723ef04182980861a7dbdf8, type: 2}
 --- !u!1 &486476213709319597
 GameObject:
   m_ObjectHideFlags: 0
