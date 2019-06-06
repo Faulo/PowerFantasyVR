@@ -156,6 +156,11 @@ PrefabInstance:
       propertyPath: rightRotationOffset.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 137674338753169986, guid: 809cba6b88ebbf342a8f205bbe562d98,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1416ad37df8a2e143963340d14299851, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 809cba6b88ebbf342a8f205bbe562d98, type: 3}
 --- !u!4 &3564056945551367839 stripped
