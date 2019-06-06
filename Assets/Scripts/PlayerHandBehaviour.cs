@@ -16,14 +16,8 @@ namespace PFVR {
                 return transform;
             }
         }
-        public Transform wrist {
-            get {
-                //@TODO: NO magic enums!
-                return laterality == GloveLaterality.GLOVE_LEFT
-                    ? owner.leftWrist
-                    : owner.rightWrist;
-            }
-        }
+        public Transform wrist;
+        public Transform status;
 
         private GameObject currentSpellPrefab;
 
@@ -59,6 +53,9 @@ namespace PFVR {
         }
 
         public void SetGesture(Gesture gesture) {
+            string gestureName = gesture == null ? "???" : gesture.name;
+            string spellName = (gesture == null || gesture.spellPrefab == null) ? "???" : gesture.spellPrefab.name;
+            status.GetComponent<TextMesh>().text = gestureName + ":\n"  + spellName;
             if (currentSpellPrefab == gesture.spellPrefab) {
                 return;
             }
