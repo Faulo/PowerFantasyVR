@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
+using UnityEditor;
 
 namespace PFVR.DataModels {
     public class ModelWriter<T> {
@@ -38,6 +39,9 @@ namespace PFVR.DataModels {
             }
             writer.Dispose();
             writer = null;
+
+            AssetDatabase.SaveAssets();
+            AssetDatabase.Refresh();
         }
     }
 }

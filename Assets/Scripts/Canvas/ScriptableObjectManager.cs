@@ -12,6 +12,12 @@ namespace PFVR.Canvas {
         private T[] scriptableObjects;
         private BasicButton[] scriptableButtons;
 
+        public IEnumerable<T> elements {
+            get {
+                return scriptableObjects;
+            }
+        }
+
         public ScriptableObjectManager(LayoutGroup root) {
             this.root = root;
             scriptablePrefab = root.GetComponentInChildren<BasicButton>().gameObject;
