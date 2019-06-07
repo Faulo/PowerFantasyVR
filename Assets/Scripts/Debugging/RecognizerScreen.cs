@@ -7,14 +7,14 @@ using UnityEngine;
 
 namespace PFVR.Debugging {
     public class RecognizerScreen : MonoBehaviour {
-        private TextMeshPro mesh;
+        private TextMeshProUGUI mesh;
         private string format;
 
         private Dictionary<string, Gesture> args = new Dictionary<string, Gesture>();
 
         // Start is called before the first frame update
         void Start() {
-            mesh = GetComponent<TextMeshPro>();
+            mesh = GetComponent<TextMeshProUGUI>();
             format = mesh.text;
 
             args["left"] = null;
@@ -40,7 +40,7 @@ namespace PFVR.Debugging {
         string Format(Gesture gesture) {
             return gesture == null
                 ? "???"
-                : gesture.ToString();
+                : gesture.name;
         }
     }
 }

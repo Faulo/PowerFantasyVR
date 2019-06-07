@@ -33,6 +33,9 @@ namespace PFVR.DataModels {
             return dict;
         }
         public void Finish() {
+            if (writer == null) {
+                return;
+            }
             writer.Dispose();
             writer = null;
         }

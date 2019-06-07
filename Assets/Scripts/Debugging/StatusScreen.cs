@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace PFVR.Debugging {
     public class StatusScreen : MonoBehaviour {
-        private TextMeshPro mesh;
+        private TextMeshProUGUI mesh;
         private string format;
         private Dictionary<string, Quaternion> args = new Dictionary<string, Quaternion>();
 
@@ -18,7 +18,7 @@ namespace PFVR.Debugging {
         // Start is called before the first frame update
         void Start() {
 
-            mesh = GetComponent<TextMeshPro>();
+            mesh = GetComponent<TextMeshProUGUI>();
             format = mesh.text;
             args["leftGlove"] = default;
             args["leftTracker"] = default;

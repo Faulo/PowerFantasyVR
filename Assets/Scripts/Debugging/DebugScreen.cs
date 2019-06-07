@@ -4,14 +4,14 @@ using UnityEngine;
 
 namespace PFVR.Debugging {
     public class DebugScreen : MonoBehaviour {
-        private TextMeshPro mesh;
+        private TextMeshProUGUI mesh;
 
         string myLog;
         Queue myLogQueue = new Queue();
 
         // Start is called before the first frame update
         void Start() {
-            mesh = GetComponent<TextMeshPro>();
+            mesh = GetComponent<TextMeshProUGUI>();
             Application.logMessageReceived += HandleLog;
         }
 
