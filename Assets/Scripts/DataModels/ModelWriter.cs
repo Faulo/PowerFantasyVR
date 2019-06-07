@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
+using UnityEditor;
 
 namespace PFVR.DataModels {
     public class ModelWriter<T> {
@@ -31,6 +32,16 @@ namespace PFVR.DataModels {
                 dict[property.Name] = property.GetValue(model, null).ToString().Replace(",", "."); //hackity-hack
             }
             return dict;
+        }
+        public void Finish() {
+            if (writer == null) {
+                return;
+            }
+            writer.Dispose();
+            writer = null;
+
+            AssetDatabase.SaveAssets();
+            AssetDatabase.Refresh();
         }
     }
 }

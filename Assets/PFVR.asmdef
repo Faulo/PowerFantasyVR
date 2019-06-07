@@ -6,7 +6,8 @@
         "ManusVR",
         "Unity.TextMeshPro",
         "ML.NET",
-        "Slothsoft.UnityExtensions"
+        "Slothsoft.UnityExtensions",
+        "Unity.ugui"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

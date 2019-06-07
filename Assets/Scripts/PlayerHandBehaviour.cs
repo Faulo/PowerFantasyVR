@@ -18,6 +18,7 @@ namespace PFVR {
         }
         public Transform wrist;
         public Transform status;
+        public Transform indexFinger;
 
         private GameObject currentSpellPrefab;
 
