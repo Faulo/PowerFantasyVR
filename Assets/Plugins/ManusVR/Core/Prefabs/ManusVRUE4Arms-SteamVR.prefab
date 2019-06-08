@@ -181,6 +181,7 @@ SkinnedMeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -1277,7 +1278,7 @@ GameObject:
   - component: {fileID: 4990162757474220}
   - component: {fileID: 1034283115}
   m_Layer: 0
-  m_Name: ManusVRUE4Arms
+  m_Name: ManusVRUE4Arms-SteamVR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1312,7 +1313,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AutoManageDefines: 1
-  trackingManager: {fileID: 0}
 --- !u!1 &1445882320336138
 GameObject:
   m_ObjectHideFlags: 0
@@ -1657,6 +1657,7 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -1957,6 +1958,7 @@ MonoBehaviour:
   rightLowerArm: {fileID: 0}
   leftController: {fileID: 0}
   rightController: {fileID: 0}
+  handController: {fileID: 0}
 --- !u!114 &1898439735
 MonoBehaviour:
   m_ObjectHideFlags: 0
