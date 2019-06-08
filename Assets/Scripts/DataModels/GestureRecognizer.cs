@@ -1,9 +1,7 @@
 ﻿using Microsoft.ML;
-using PFVR.DataModels;
-using System.IO;
 using UnityEngine;
 
-namespace PFVR.Tracking {
+namespace PFVR.DataModels {
     public class GestureRecognizer {
         private MLContext context;
         private PredictionEngine<GestureModel, StringPrediction> engine;
