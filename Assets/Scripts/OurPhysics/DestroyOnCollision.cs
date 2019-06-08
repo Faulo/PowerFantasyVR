@@ -1,4 +1,5 @@
-﻿using Slothsoft.UnityExtensions;
+﻿using PFVR.Player;
+using Slothsoft.UnityExtensions;
 using UnityEngine;
 
 namespace PFVR.OurPhysics {

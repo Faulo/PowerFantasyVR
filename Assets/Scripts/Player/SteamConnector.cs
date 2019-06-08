@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using Valve.VR;
 
-namespace PFVR.Tracking {
+namespace PFVR.Player {
     public static class SteamConnector {
         public static Transform leftTracker {
             get {

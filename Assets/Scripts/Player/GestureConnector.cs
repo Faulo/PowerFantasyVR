@@ -3,7 +3,7 @@ using PFVR.ScriptableObjects;
 using UnityEngine;
 
 
-namespace PFVR.Tracking {
+namespace PFVR.Player {
     public class GestureConnector : MonoBehaviour {
         [SerializeField]
         private GestureSet gestureSet = default;

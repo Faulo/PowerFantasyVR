@@ -1,10 +1,9 @@
 ﻿using ManusVR.Core.Apollo;
 using PFVR.ScriptableObjects;
-using PFVR.Tracking;
+using PFVR.Player;
 using UnityEngine;
 
-namespace PFVR {
-
+namespace PFVR.Player {
     public class PlayerBehaviour : MonoBehaviour {
         public new Rigidbody rigidbody {
             get {

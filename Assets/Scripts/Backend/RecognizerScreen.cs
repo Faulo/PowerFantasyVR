@@ -1,5 +1,5 @@
-﻿using PFVR.ScriptableObjects;
-using PFVR.Tracking;
+﻿using PFVR.Player;
+using PFVR.ScriptableObjects;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;

@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-namespace PFVR {
+namespace PFVR.Player {
     public class PlayerHandBehaviour : MonoBehaviour {
         public PlayerBehaviour owner { get; private set; }
         public GloveLaterality laterality { get; private set; }

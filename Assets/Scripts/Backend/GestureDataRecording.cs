@@ -1,11 +1,8 @@
 ﻿using PFVR.Canvas;
 using PFVR.DataModels;
 using PFVR.ScriptableObjects;
-using PFVR.Tracking;
-using Slothsoft.UnityExtensions;
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;

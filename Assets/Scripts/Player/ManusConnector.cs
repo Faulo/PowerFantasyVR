@@ -3,7 +3,7 @@ using ManusVR.Core.Hands;
 using PFVR.DataModels;
 using UnityEngine;
 
-namespace PFVR.Tracking {
+namespace PFVR.Player {
     public class ManusConnector : MonoBehaviour {
         public delegate void NewGloveData(GloveData hand);
 
