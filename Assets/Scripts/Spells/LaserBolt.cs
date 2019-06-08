@@ -16,6 +16,9 @@ namespace PFVR.Spells {
         [SerializeField, Range(1, 1000)]
         private float boltInterval = 1000;
 
+        [SerializeField, Range(0, 60)]
+        private float boltLifetime = 10;
+
         [SerializeField, Range(1, 1000)]
         private ushort rumbleDuration = 100;
 
@@ -28,7 +31,9 @@ namespace PFVR.Spells {
             boltRoutine = StartCoroutine(CreateBoltRoutine(hand));
         }
         public void OnExit(PlayerBehaviour player, PlayerHandBehaviour hand) {
-            StopCoroutine(boltRoutine);
+            if (boltRoutine != null) {
+                StopCoroutine(boltRoutine);
+            }
         }
         public void OnUpdate(PlayerBehaviour player, PlayerHandBehaviour hand) {
         }
@@ -37,6 +42,7 @@ namespace PFVR.Spells {
                 var bolt = Instantiate(boltPrefab, hand.indexFinger.position, hand.indexFinger.rotation);
                 bolt.GetComponent<KinematicRigidbody>().velocity = hand.owner.rigidbody.velocity;
                 bolt.GetComponent<KinematicRigidbody>().velocity += bolt.transform.forward * boltVelocity;
+                Destroy(bolt.gameObject, boltLifetime);
                 Apollo.rumble(hand.laterality, rumbleDuration, (ushort)(rumbleForce * ushort.MaxValue));
                 yield return new WaitForSeconds(boltInterval / 1000f);
             }

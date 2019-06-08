@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40e9eb230c4aa914dadd26d5c0697719, type: 3}
   m_Name: Pointing
   m_EditorClassIdentifier: 
-  spellPrefab: {fileID: 860132782293314664, guid: dfe3d6b385f399d4db26ff1fb3d0d088,
+  spellPrefab: {fileID: 2508100972448557846, guid: cb781f634dae20240b934668dc78c42c,
     type: 3}
