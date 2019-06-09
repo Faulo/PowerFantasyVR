@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: TimeStop
-  m_Shader: {fileID: -6465566751694194690, guid: 5d5ba80f12a049b4d96941298f58b50a,
+  m_Shader: {fileID: -6465566751694194690, guid: a34b36c5aa8e9fc4a86c8e2047b886f9,
     type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4

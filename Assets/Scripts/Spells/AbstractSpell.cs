@@ -1,4 +1,5 @@
 ﻿using PFVR;
+using PFVR.Player;
 using PFVR.Spells;
 using System.Collections;
 using System.Collections.Generic;

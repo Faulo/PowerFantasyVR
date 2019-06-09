@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using PFVR.Player;
+using UnityEngine;
 
 namespace PFVR.Spells {
     [RequireComponent(typeof(AbstractSpell))]
