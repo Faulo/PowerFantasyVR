@@ -232,6 +232,11 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1844348513}
+    - target: {fileID: 600465196385322167, guid: f08bdc5a6a5fd034aa43503090505aa4,
+        type: 3}
+      propertyPath: alwaysDrawGizmos
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f08bdc5a6a5fd034aa43503090505aa4, type: 3}
 --- !u!4 &186456793 stripped
@@ -703,6 +708,11 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1844348513}
+    - target: {fileID: 600465196385322167, guid: f08bdc5a6a5fd034aa43503090505aa4,
+        type: 3}
+      propertyPath: alwaysDrawGizmos
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f08bdc5a6a5fd034aa43503090505aa4, type: 3}
 --- !u!4 &511871719 stripped
@@ -1066,6 +1076,11 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1844348513}
+    - target: {fileID: 600465196385322167, guid: f08bdc5a6a5fd034aa43503090505aa4,
+        type: 3}
+      propertyPath: alwaysDrawGizmos
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f08bdc5a6a5fd034aa43503090505aa4, type: 3}
 --- !u!4 &1032839981 stripped
@@ -1351,6 +1366,11 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1844348513}
+    - target: {fileID: 600465196385322167, guid: f08bdc5a6a5fd034aa43503090505aa4,
+        type: 3}
+      propertyPath: alwaysDrawGizmos
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f08bdc5a6a5fd034aa43503090505aa4, type: 3}
 --- !u!4 &1228508302 stripped
@@ -1618,6 +1638,11 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1844348513}
+    - target: {fileID: 600465196385322167, guid: f08bdc5a6a5fd034aa43503090505aa4,
+        type: 3}
+      propertyPath: alwaysDrawGizmos
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f08bdc5a6a5fd034aa43503090505aa4, type: 3}
 --- !u!4 &1843830742 stripped
@@ -1861,14 +1886,14 @@ MonoBehaviour:
   heuristicScale: 1
   threadCount: 1
   maxFrameTime: 10
-  batchGraphUpdates: 0
+  batchGraphUpdates: 1
   graphUpdateBatchingInterval: 0.2
   euclideanEmbedding:
     mode: 0
     seed: 0
     pivotPointRoot: {fileID: 0}
     spreadOutCount: 1
-  showGraphs: 1
+  showGraphs: 0
 --- !u!4 &2019784730
 Transform:
   m_ObjectHideFlags: 0
