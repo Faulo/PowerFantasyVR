@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6649948884829630877}
   - component: {fileID: -239595523189970835}
+  - component: {fileID: -1416078439336689124}
   m_Layer: 0
   m_Name: FireBall
   m_TagString: Untagged
@@ -44,3 +45,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trackerMaterial: {fileID: 0}
+--- !u!114 &-1416078439336689124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1504266767435308377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6dc2a95ed1f6954bb9cffb45fd6cb62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ballPrefab: {fileID: 2041536302393913971, guid: ad544f0f79eab2544ba2506e8a21c770,
+    type: 3}
