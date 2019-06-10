@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 2692131082039450249}
   - component: {fileID: 7863847782837665452}
   - component: {fileID: 4777895722694159348}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2277c96070389bd479853f0121985183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gestureSet: {fileID: 11400000, guid: f3b90ef156238e4468b5ca8afb407fe6, type: 2}
+  gestureSet: {fileID: 11400000, guid: 40319e65ef006984a9513f34b82716ba, type: 2}
 --- !u!1 &6440376351388671019
 GameObject:
   m_ObjectHideFlags: 0
@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 8537800509210031235}
   - component: {fileID: 3252306411414514360}
   - component: {fileID: 3826991016484927169}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: status_l
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -225,7 +225,7 @@ GameObject:
   - component: {fileID: 7533746211886534087}
   - component: {fileID: 4644645040468473293}
   - component: {fileID: 5843814918967350885}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: status_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -587,6 +587,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: HandTrail
       objectReference: {fileID: 0}
+    - target: {fileID: 7665234824545247286, guid: b65b0bfaa70dc7a499b1f05ceb273bf1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 7204638010328270185, guid: b65b0bfaa70dc7a499b1f05ceb273bf1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -655,6 +660,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: HandTrail
+      objectReference: {fileID: 0}
+    - target: {fileID: 7665234824545247286, guid: b65b0bfaa70dc7a499b1f05ceb273bf1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 7204638010328270185, guid: b65b0bfaa70dc7a499b1f05ceb273bf1,
         type: 3}

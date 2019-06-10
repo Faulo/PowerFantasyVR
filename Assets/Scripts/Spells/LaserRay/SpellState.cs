@@ -6,9 +6,9 @@ using System.Collections;
 using System.Linq;
 using UnityEngine;
 
-namespace PFVR.Spells {
+namespace PFVR.Spells.LaserRay {
     [RequireComponent(typeof(AbstractSpell))]
-    public class LaserRay : MonoBehaviour, ISpellState {
+    public class SpellState : MonoBehaviour, ISpellState {
         [SerializeField]
         private GameObject rayPrefab = default;
 
@@ -50,20 +50,10 @@ namespace PFVR.Spells {
         }
         private IEnumerator CreateRayRoutine(PlayerHandBehaviour hand) {
             while (true) {
-                var ray = Instantiate(rayPrefab).GetComponent<LineRenderer>();
-                var start = hand.indexFinger.position;
-                var direction = hand.indexFinger.forward;
-                ray.SetPosition(0, start);
-                ray.SetPosition(1, start + direction * rayRange);
-                var hits = Physics.RaycastAll(start, direction, rayRange)
-                    .Select(hit => hit.collider);
-                hits.SelectMany(collider => collider.GetComponents<Rigidbody>())
-                    .ForAll(body => body.AddForce(direction * rayForce));
-                if (destruction != null) {
-                    hits.SelectMany(collider => collider.GetComponentsInChildren<Renderer>())
-                        .ForAll(renderer => renderer.material = destruction);
-                }
+                var ray = Instantiate(rayPrefab).GetComponent<Ray>();
+                ray.Fire(hand.indexFinger.position, hand.indexFinger.forward, rayRange);
                 Destroy(ray.gameObject, rayLifetime);
+
                 Apollo.rumble(hand.laterality, rumbleDuration, (ushort)(rumbleForce * ushort.MaxValue));
                 yield return new WaitForSeconds(rayInterval / 1000f);
             }

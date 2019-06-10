@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8151978439702573731}
   - component: {fileID: 7825343021864580251}
   - component: {fileID: 6655601041112587129}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LaserBolt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61,5 +61,6 @@ MonoBehaviour:
     type: 3}
   boltVelocity: 30
   boltInterval: 200
+  boltLifetime: 10
   rumbleDuration: 50
   rumbleForce: 1

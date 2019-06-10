@@ -1,18 +1,18 @@
 ﻿using ManusVR.Core.Apollo;
 using PFVR.Player;
-using Slothsoft.UnityExtensions;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-namespace PFVR.Spells {
+namespace PFVR.Spells.JetPack {
     [RequireComponent(typeof(AbstractSpell))]
-    public class JetPack : MonoBehaviour, ISpellState {
+    public class SpellState : MonoBehaviour, ISpellState {
         [SerializeField]
-        private float propulsionForce = 1000;
+        [Range(0, 100)]
+        private float propulsionForce = 10;
 
         [SerializeField]
-        private float antiGravityForce = 100;
+        [Range(-1, 0)]
+        private float gravityNegation = 0;
 
         [SerializeField, Range(1, 1000)]
         private ushort rumbleInterval = 100;
@@ -40,12 +40,14 @@ namespace PFVR.Spells {
         }
         public void OnExit(PlayerBehaviour player, PlayerHandBehaviour hand) {
             engine?.SetActive(false);
-            StopCoroutine(rumbleRoutine);
+            if (rumbleRoutine != null) {
+                StopCoroutine(rumbleRoutine);
+            }
         }
         public void OnUpdate(PlayerBehaviour player, PlayerHandBehaviour hand) {
-            runTime += Time.deltaTime;
-            player.rigidbody.AddForce(hand.wrist.up * propulsionForce * Time.deltaTime * propulsionOverTime.Evaluate(runTime));
-            player.rigidbody.AddForce(player.transform.up * antiGravityForce * Time.deltaTime);
+            runTime += Time.fixedDeltaTime;
+            player.rigidbody.AddForce(hand.wrist.up * propulsionForce * Time.fixedDeltaTime * propulsionOverTime.Evaluate(runTime), ForceMode.VelocityChange);
+            player.rigidbody.AddForce(Physics.gravity * gravityNegation * Time.fixedDeltaTime, ForceMode.VelocityChange);
         }
         private IEnumerator CreateRumbleRoutine(GloveLaterality side) {
             while (true) {

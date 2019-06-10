@@ -4,9 +4,9 @@ using PFVR.Player;
 using System.Collections;
 using UnityEngine;
 
-namespace PFVR.Spells {
+namespace PFVR.Spells.LaserBolt {
     [RequireComponent(typeof(AbstractSpell))]
-    public class LaserBolt : MonoBehaviour, ISpellState {
+    public class SpellState : MonoBehaviour, ISpellState {
         [SerializeField]
         private GameObject boltPrefab = default;
 
@@ -39,9 +39,8 @@ namespace PFVR.Spells {
         }
         private IEnumerator CreateBoltRoutine(PlayerHandBehaviour hand) {
             while (true) {
-                var bolt = Instantiate(boltPrefab, hand.indexFinger.position, hand.indexFinger.rotation);
-                bolt.GetComponent<KinematicRigidbody>().velocity = hand.owner.rigidbody.velocity;
-                bolt.GetComponent<KinematicRigidbody>().velocity += bolt.transform.forward * boltVelocity;
+                var bolt = Instantiate(boltPrefab, hand.indexFinger.position, hand.indexFinger.rotation).GetComponent<Bolt>();
+                bolt.velocity = hand.owner.rigidbody.velocity + bolt.transform.forward * boltVelocity;
                 Destroy(bolt.gameObject, boltLifetime);
                 Apollo.rumble(hand.laterality, rumbleDuration, (ushort)(rumbleForce * ushort.MaxValue));
                 yield return new WaitForSeconds(boltInterval / 1000f);

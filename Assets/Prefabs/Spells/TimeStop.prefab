@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4982480153273588245}
   - component: {fileID: 1037339571196795930}
   - component: {fileID: -3907211796637124242}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: TimeStop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,3 +57,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffdb5259c14d78d4c9fdca189ecfe806, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultTimeScale: 1
+  stoppedTimeScale: 0

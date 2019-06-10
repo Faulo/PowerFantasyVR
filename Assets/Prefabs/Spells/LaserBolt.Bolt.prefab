@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 3526836203250434800}
   - component: {fileID: 587793762088930548}
   - component: {fileID: -1059544497444436529}
-  m_Layer: 0
+  - component: {fileID: -229133462283138773}
+  m_Layer: 10
   m_Name: LaserBolt.Bolt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -77,6 +78,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destruction: {fileID: 2100000, guid: fd0b5fbf6723ef04182980861a7dbdf8, type: 2}
+--- !u!114 &-229133462283138773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 114941719058234932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13af3a160be81ff4487ed0c48963ae0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2144395170386182338
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -84,11 +97,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8892452799288027773}
     m_Modifications:
-    - target: {fileID: 1946157031056256367, guid: 9ab9cffccb7a4a94ebf9ffabd7f4e74a,
-        type: 3}
-      propertyPath: m_Name
-      value: LaserBolt
-      objectReference: {fileID: 0}
     - target: {fileID: 779172557768185449, guid: 9ab9cffccb7a4a94ebf9ffabd7f4e74a,
         type: 3}
       propertyPath: m_RootOrder
@@ -109,6 +117,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1946157031056256367, guid: 9ab9cffccb7a4a94ebf9ffabd7f4e74a,
+        type: 3}
+      propertyPath: m_Name
+      value: LaserBolt
+      objectReference: {fileID: 0}
+    - target: {fileID: 1946157031056256367, guid: 9ab9cffccb7a4a94ebf9ffabd7f4e74a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ab9cffccb7a4a94ebf9ffabd7f4e74a, type: 3}
 --- !u!4 &1662463075316389547 stripped
@@ -124,11 +142,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8892452799288027773}
     m_Modifications:
-    - target: {fileID: 4135628662908124610, guid: 283de62e1a26e544f80b4a805955dc7b,
-        type: 3}
-      propertyPath: m_Name
-      value: BoltTrail
-      objectReference: {fileID: 0}
     - target: {fileID: 3528801444789622941, guid: 283de62e1a26e544f80b4a805955dc7b,
         type: 3}
       propertyPath: m_RootOrder
@@ -148,6 +161,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4135628662908124610, guid: 283de62e1a26e544f80b4a805955dc7b,
+        type: 3}
+      propertyPath: m_Name
+      value: BoltTrail
+      objectReference: {fileID: 0}
+    - target: {fileID: 4135628662908124610, guid: 283de62e1a26e544f80b4a805955dc7b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 283de62e1a26e544f80b4a805955dc7b, type: 3}

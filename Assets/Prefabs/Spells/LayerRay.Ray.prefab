@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6364846497505213494}
   - component: {fileID: 1291587171568601125}
-  m_Layer: 0
+  - component: {fileID: 3351890525027877263}
+  m_Layer: 10
   m_Name: LayerRay.Ray
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -136,3 +137,15 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
+--- !u!114 &3351890525027877263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 860274569619483770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cb049a0d470eea439b6033ab6503a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

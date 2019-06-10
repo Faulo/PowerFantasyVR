@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7251110531041235969}
   - component: {fileID: 603642116900062251}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Shield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,4 +43,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcf2b5e2888bad94fba6c2e9555f4e43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trackerMaterial: {fileID: 0}
+  trackerMaterial: {fileID: 2100000, guid: e63deb997cb9cdf40a2e7185e0f48b49, type: 2}

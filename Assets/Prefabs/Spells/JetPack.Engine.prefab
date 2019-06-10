@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7951713693666263070}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: JetPack.Engine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,11 +38,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7951713693666263070}
     m_Modifications:
-    - target: {fileID: 7058919866091859681, guid: 9313b7505e7345445a59f1877796e17d,
-        type: 3}
-      propertyPath: m_Name
-      value: JetPackTrail
-      objectReference: {fileID: 0}
     - target: {fileID: 7060494451518899147, guid: 9313b7505e7345445a59f1877796e17d,
         type: 3}
       propertyPath: m_RootOrder
@@ -62,6 +57,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7058919866091859681, guid: 9313b7505e7345445a59f1877796e17d,
+        type: 3}
+      propertyPath: m_Name
+      value: JetPackTrail
+      objectReference: {fileID: 0}
+    - target: {fileID: 7058919866091859681, guid: 9313b7505e7345445a59f1877796e17d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9313b7505e7345445a59f1877796e17d, type: 3}
