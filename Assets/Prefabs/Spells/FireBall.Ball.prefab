@@ -161,6 +161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d910ae20d5055f74cab3c93928c7c632, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  velocityMultiplier: 5
 --- !u!114 &2193582816399782730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,7 +174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cefa68daeb1b18d49acd2fb4b2c3759e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gravity: 0.01
+  gravity: 0.1
 --- !u!1001 &9174993988221156368
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -181,6 +182,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1744076411578591771}
     m_Modifications:
+    - target: {fileID: 4135628662908124610, guid: 283de62e1a26e544f80b4a805955dc7b,
+        type: 3}
+      propertyPath: m_Name
+      value: BoltTrail
+      objectReference: {fileID: 0}
     - target: {fileID: 3528801444789622941, guid: 283de62e1a26e544f80b4a805955dc7b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -235,11 +241,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4135628662908124610, guid: 283de62e1a26e544f80b4a805955dc7b,
-        type: 3}
-      propertyPath: m_Name
-      value: BoltTrail
       objectReference: {fileID: 0}
     - target: {fileID: 1956849369779868965, guid: 283de62e1a26e544f80b4a805955dc7b,
         type: 3}

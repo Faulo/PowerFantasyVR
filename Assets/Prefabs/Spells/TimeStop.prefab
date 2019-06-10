@@ -58,4 +58,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultTimeScale: 1
-  stoppedTimeScale: 0
+  stoppedTimeScale: 0.1

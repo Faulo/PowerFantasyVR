@@ -82,5 +82,24 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 3
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 46974612668077427, guid: f08bdc5a6a5fd034aa43503090505aa4,
+        type: 3}
+      propertyPath: m_Mass
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 46974611690196724, guid: f08bdc5a6a5fd034aa43503090505aa4,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 46974611690196724, guid: f08bdc5a6a5fd034aa43503090505aa4,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 2683115513536217675, guid: f08bdc5a6a5fd034aa43503090505aa4, type: 3}
+    - {fileID: 6253773947356311664, guid: f08bdc5a6a5fd034aa43503090505aa4, type: 3}
+    - {fileID: 8209465673178402689, guid: f08bdc5a6a5fd034aa43503090505aa4, type: 3}
+    - {fileID: 1843789654211844130, guid: f08bdc5a6a5fd034aa43503090505aa4, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f08bdc5a6a5fd034aa43503090505aa4, type: 3}

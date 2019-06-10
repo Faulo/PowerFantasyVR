@@ -10,13 +10,27 @@ namespace PFVR.Spells.FireBall {
         [SerializeField]
         private GameObject anchorPrefab = default;
 
+        [SerializeField]
+        private GameObject explosionPrefab = default;
+
         private Joint anchor;
 
         private Ball ball;
 
         [SerializeField]
         private float maximumChargeTime = 1f;
-        private float chargeTime;
+        private float currentChargeTime = 0;
+        private float chargeTime {
+            get {
+                return currentChargeTime;
+            }
+            set {
+                currentChargeTime = Mathf.Clamp(value, 0, 1);
+                if (ball != null) {
+                    ball.size = currentChargeTime / maximumChargeTime;
+                }
+            }
+        }
 
         public void OnEnter(PlayerBehaviour player, PlayerHandBehaviour hand) {
             if (anchor == null) {
@@ -24,17 +38,22 @@ namespace PFVR.Spells.FireBall {
             }
             ball = Instantiate(ballPrefab).GetComponent<Ball>();
             ball.ConnectTo(anchor);
+            ball.onCollisionEnter += (ball, collision) => {
+                var explosion = Instantiate(explosionPrefab, ball.transform.position, ball.transform.rotation).GetComponent<Explosion>();
+                explosion.size = ball.size;
+                Destroy(ball.gameObject);
+            };
             chargeTime = 0;
         }
 
         public void OnExit(PlayerBehaviour player, PlayerHandBehaviour hand) {
-            ball.ReleaseFrom(anchor, player.rigidbody.velocity);
+            ball?.ReleaseFrom(anchor, player.rigidbody.velocity);
+            ball = null;
         }
 
         public void OnUpdate(PlayerBehaviour player, PlayerHandBehaviour hand) {
             chargeTime += Time.fixedDeltaTime;
-            ball.transform.Translate(player.deltaMovement);
-            ball.size = chargeTime / maximumChargeTime;
+            ball?.transform.Translate(player.deltaMovement);
         }
     }
 }

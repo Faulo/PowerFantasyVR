@@ -61,4 +61,6 @@ MonoBehaviour:
     type: 3}
   anchorPrefab: {fileID: 7456059992113307746, guid: fc50f321b4852c348ba3556dcc1c7565,
     type: 3}
+  explosionPrefab: {fileID: 3679691998973720690, guid: 07fb9b5a1e4e5ab4d910b1495c4f8983,
+    type: 3}
   maximumChargeTime: 3
