@@ -2,7 +2,9 @@
 
 namespace PFVR.OurPhysics {
     public class KinematicRigidbody : MonoBehaviour {
+        [HideInInspector]
         public float mass = 1;
+        [HideInInspector]
         public Vector3 velocity = Vector3.zero;
 
         private Rigidbody body {
