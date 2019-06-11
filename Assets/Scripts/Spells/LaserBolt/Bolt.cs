@@ -4,11 +4,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace PFVR.Spells.LaserBolt {
-    [RequireComponent(typeof(KinematicRigidbody))]
+    [RequireComponent(typeof(Rigidbody))]
     public class Bolt : MonoBehaviour {
         public Vector3 velocity {
-            get => GetComponent<KinematicRigidbody>().velocity;
-            set => GetComponent<KinematicRigidbody>().velocity = value;
+            get => GetComponent<Rigidbody>().velocity;
+            set => GetComponent<Rigidbody>().velocity = value;
         }
     }
 }
