@@ -4,6 +4,7 @@
 !.gitignore
 !.gitmodules
 !*.json
+!*.bat
 
 !/Assets/
 !/ProjectSettings/

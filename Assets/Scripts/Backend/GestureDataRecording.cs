@@ -3,6 +3,8 @@ using PFVR.DataModels;
 using PFVR.ScriptableObjects;
 using System;
 using System.Collections;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using TMPro;
 using UnityEngine;
@@ -18,8 +20,12 @@ namespace PFVR.Backend {
         private TextMeshProUGUI log = default;
 
         [SerializeField]
-        [Range(1,60)]
+        [Range(1, 60)]
         private int recordingTime = 10;
+
+        [SerializeField]
+        [Range(1, 600)]
+        private int trainingTime = 60;
 
         private ScriptableObjectManager<GestureSet> gestureSetManager;
         private ScriptableObjectManager<Gesture> gestureManager;
@@ -89,9 +95,37 @@ namespace PFVR.Backend {
                 return;
             }
             var merger = new ModelMerger(currentGestureSet.gestureNames.Select(name => "TrackingData/" + name));
-            var fileName = currentGestureSet.name + "." + DateTime.Now.ToFileTime() + ".csv";
-            merger.Put("Assets/Resources/TrackingData/" + fileName);
-            log.text = "Created gesture set model '" + fileName + "'!";
+            merger.Put(currentGestureSet.trackingDataPath);
+            log.text = "Created gesture set model '" + Path.GetFileName(currentGestureSet.trackingDataPath) + "'!";
+        }
+        public void CompileGestureSetZIP() {
+            if (currentGestureSet == null) {
+                log.text = "Select a gesture set first!";
+                return;
+            }
+            if (currentRoutine != null) {
+                log.text = "Wait for the last recording to finish!";
+                return;
+            }
+            try {
+                var batchFile = Application.dataPath + "/../trainModel.bat";
+                var name = currentGestureSet.name;
+                var csvFile = currentGestureSet.trackingDataPath;
+                var zipFile = currentGestureSet.modelPath;
+
+                var args = string.Join(" ", new[] { name, csvFile, zipFile, trainingTime.ToString() }.Select(QuoteShellArgument));
+
+                log.text = "Training model '" + Path.GetFileName(zipFile) + "' with data '" + Path.GetFileName(csvFile) + "'...";
+
+                print(batchFile + " " + args);
+                Process.Start(batchFile, args);
+            } catch (Exception e) {
+                print(e);
+            }
+        }
+        private string QuoteShellArgument(string argument) {
+            //TODO: find the proper C# way to do this 
+            return "\"" + argument + "\"";
         }
         private void OnApplicationQuit() {
             if (currentRecorder != null) {
