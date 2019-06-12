@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LaserBeam2
+  m_Name: LaserRay.Beam
   m_Shader: {fileID: -6465566751694194690, guid: 644992493c5a93646b1f480d10a9f379,
     type: 3}
   m_ShaderKeywords: 

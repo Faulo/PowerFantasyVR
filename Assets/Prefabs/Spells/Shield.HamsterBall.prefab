@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1834382200254385054}
   - component: {fileID: 7717302823702281955}
   - component: {fileID: 4947823625157708365}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Shield.HamsterBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
