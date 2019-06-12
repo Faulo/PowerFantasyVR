@@ -15,6 +15,8 @@ namespace PFVR.Player {
 
         [SerializeField]
         private PlayerHandBehaviour rightHand = default;
+        
+        public Transform torso;
 
         private Gesture leftGesture;
         private Gesture rightGesture;
