@@ -6,6 +6,9 @@ namespace PFVR.Spells.JetPack {
     [RequireComponent(typeof(AudioSource))]
     public class Engine : MonoBehaviour {
         [SerializeField]
+        private float maximumVolume = 1;
+
+        [SerializeField]
         private AudioClip startupSound = default;
 
         [SerializeField]
@@ -15,11 +18,13 @@ namespace PFVR.Spells.JetPack {
             get => propulsionCache;
             set {
                 propulsionCache = Mathf.Clamp(value, 0, 1);
+                audioSource.volume = maximumVolume * propulsionCache;
             }
         }
         private float propulsionCache;
         private AudioSource audioSource => GetComponent<AudioSource>();
         private Coroutine playSoundsRoutine;
+        
 
         public void TurnOn() {
             gameObject.SetActive(true);
