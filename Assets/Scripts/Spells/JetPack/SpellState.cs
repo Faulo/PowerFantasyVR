@@ -24,34 +24,43 @@ namespace PFVR.Spells.JetPack {
 
         [SerializeField]
         private AnimationCurve propulsionOverTime = default;
-        private float runTime;
+        private float runTime {
+            get => runTimeCache;
+            set {
+                runTimeCache = Mathf.Clamp(value, 0, 1);
+                if (engine != null) {
+                    engine.propulsion = propulsionOverTime.Evaluate(runTimeCache);
+                }
+            }
+        }
+        private float runTimeCache;
 
         [SerializeField]
         private GameObject enginePrefab = default;
-        private GameObject engine;
+        private Engine engine;
 
         public void OnEnter(PlayerBehaviour player, PlayerHandBehaviour hand) {
             if (engine == null) {
-                engine = Instantiate(enginePrefab, hand.wrist);
+                engine = Instantiate(enginePrefab, hand.wrist).GetComponent<Engine>();
             }
-            engine?.SetActive(true);
+            engine.TurnOn();
             rumbleRoutine = StartCoroutine(CreateRumbleRoutine(hand.laterality));
             runTime = 0;
         }
         public void OnExit(PlayerBehaviour player, PlayerHandBehaviour hand) {
-            engine?.SetActive(false);
+            engine.TurnOff();
             if (rumbleRoutine != null) {
                 StopCoroutine(rumbleRoutine);
             }
         }
         public void OnUpdate(PlayerBehaviour player, PlayerHandBehaviour hand) {
             runTime += Time.fixedDeltaTime;
-            player.rigidbody.AddForce(hand.wrist.up * propulsionForce * Time.fixedDeltaTime * propulsionOverTime.Evaluate(runTime), ForceMode.VelocityChange);
+            player.rigidbody.AddForce(hand.wrist.up * propulsionForce * Time.fixedDeltaTime * engine.propulsion, ForceMode.VelocityChange);
             player.rigidbody.AddForce(Physics.gravity * gravityNegation * Time.fixedDeltaTime, ForceMode.VelocityChange);
         }
         private IEnumerator CreateRumbleRoutine(GloveLaterality side) {
             while (true) {
-                Apollo.rumble(side, rumbleInterval, (ushort) (rumbleForce * ushort.MaxValue));
+                Apollo.rumble(side, rumbleInterval, (ushort)(engine.propulsion * rumbleForce * ushort.MaxValue));
                 yield return new WaitForSeconds(rumbleInterval / 1000f);
             }
         }

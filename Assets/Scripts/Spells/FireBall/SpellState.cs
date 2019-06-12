@@ -39,7 +39,7 @@ namespace PFVR.Spells.FireBall {
                 return currentChargeTime;
             }
             set {
-                currentChargeTime = Mathf.Clamp(value, 0, 1);
+                currentChargeTime = Mathf.Clamp(value, 0, maximumChargeTime);
                 if (ball != null) {
                     ball.size = currentChargeTime / maximumChargeTime;
                 }
@@ -70,7 +70,7 @@ namespace PFVR.Spells.FireBall {
         }
 
         public void OnUpdate(PlayerBehaviour player, PlayerHandBehaviour hand) {
-            chargeTime = Mathf.Clamp(chargeTime + Time.fixedDeltaTime, 0, maximumChargeTime);
+            chargeTime += Time.fixedDeltaTime;
             if (ball != null) {
                 ball.transform.Translate(player.deltaMovement);
             }
@@ -79,7 +79,6 @@ namespace PFVR.Spells.FireBall {
             while (true) {
                 if (ball != null) {
                     var distance = (anchor.transform.position - ball.transform.position).magnitude;
-                    Debug.Log(distance);
                     Apollo.rumble(hand.laterality, rumbleInterval, (ushort)(rumbleForceOverDistance.Evaluate(distance) * rumbleForceOverSize.Evaluate(ball.size) * ushort.MaxValue));
                 }
                 yield return new WaitForSeconds(rumbleInterval / 1000f);
