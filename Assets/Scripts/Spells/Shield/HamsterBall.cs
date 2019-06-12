@@ -8,5 +8,8 @@ namespace PFVR.Spells.Shield {
         public void Explode() {
             Destroy(gameObject);
         }
+        void FixedUpdate() {
+            transform.rotation = Quaternion.identity;
+        }
     }
 }
