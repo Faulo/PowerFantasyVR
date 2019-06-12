@@ -19,6 +19,9 @@ namespace PFVR.Player {
         private Gesture leftGesture;
         private Gesture rightGesture;
 
+        public Vector3 deltaMovement { get; private set; }
+        private Vector3 lastPosition = default;
+
         void Start() {
             leftHand.Init(this, GloveLaterality.GLOVE_LEFT);
             rightHand.Init(this, GloveLaterality.GLOVE_RIGHT);
@@ -28,6 +31,8 @@ namespace PFVR.Player {
         }
 
         void Update() {
+            deltaMovement = transform.position - lastPosition;
+            lastPosition = transform.position;
         }
     }
 
