@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c855da9094e4ec74aadb963a39d4f321, type: 2}
+  - {fileID: 2100000, guid: 96d850d98f1d44d469f4ca07b9ba7886, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -182,11 +182,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1744076411578591771}
     m_Modifications:
-    - target: {fileID: 4135628662908124610, guid: 283de62e1a26e544f80b4a805955dc7b,
-        type: 3}
-      propertyPath: m_Name
-      value: BoltTrail
-      objectReference: {fileID: 0}
     - target: {fileID: 3528801444789622941, guid: 283de62e1a26e544f80b4a805955dc7b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -241,6 +236,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4135628662908124610, guid: 283de62e1a26e544f80b4a805955dc7b,
+        type: 3}
+      propertyPath: m_Name
+      value: BoltTrail
       objectReference: {fileID: 0}
     - target: {fileID: 1956849369779868965, guid: 283de62e1a26e544f80b4a805955dc7b,
         type: 3}

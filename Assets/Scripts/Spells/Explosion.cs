@@ -25,7 +25,7 @@ namespace PFVR.Spells {
 
         private ParticleSystem particles => GetComponentInChildren<ParticleSystem>();
         void Start() {
-            Physics.OverlapSphere(transform.position, range, LayerMask.GetMask("Default", "Obstacle"))
+            Physics.OverlapSphere(transform.position, range, LayerMask.GetMask("Default", "Obstacle", "Player"))
                 .SelectMany(collider => collider.GetComponentsInParent<Rigidbody>())
                 .ForAll(body => {
                     var direction = body.transform.position - transform.position + Vector3.up;

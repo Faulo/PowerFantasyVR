@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 539273600442433196}
   - component: {fileID: 929189606759738810}
   - component: {fileID: 3319969867492806563}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Fireball.Explosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -139,11 +139,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 539273600442433196}
     m_Modifications:
-    - target: {fileID: 1916707111721032739, guid: d080441eff04d7446b2f816cf2c97198,
-        type: 3}
-      propertyPath: m_Name
-      value: Explosion
-      objectReference: {fileID: 0}
     - target: {fileID: 9180589341136243861, guid: d080441eff04d7446b2f816cf2c97198,
         type: 3}
       propertyPath: m_RootOrder
@@ -163,6 +158,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1916707111721032739, guid: d080441eff04d7446b2f816cf2c97198,
+        type: 3}
+      propertyPath: m_Name
+      value: Explosion
+      objectReference: {fileID: 0}
+    - target: {fileID: 1916707111721032739, guid: d080441eff04d7446b2f816cf2c97198,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d080441eff04d7446b2f816cf2c97198, type: 3}
