@@ -141,8 +141,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 184cb0a4429f1cf45b6af24bc606dce7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startupSound: {fileID: 0}
-  continuousSound: {fileID: 0}
+  startupSound: {fileID: 8300000, guid: 400d794a97484bb429dd398e96e4479e, type: 3}
+  continuousSound: {fileID: 8300000, guid: 6c139b2b37fbfe545b81001c707b7cb8, type: 3}
 --- !u!1001 &1096594818834402049
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -150,16 +150,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7951713693666263070}
     m_Modifications:
-    - target: {fileID: 7058919866091859681, guid: 9313b7505e7345445a59f1877796e17d,
-        type: 3}
-      propertyPath: m_Name
-      value: JetPackTrail
-      objectReference: {fileID: 0}
-    - target: {fileID: 7058919866091859681, guid: 9313b7505e7345445a59f1877796e17d,
-        type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 7060494451518899147, guid: 9313b7505e7345445a59f1877796e17d,
         type: 3}
       propertyPath: m_RootOrder
@@ -179,6 +169,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7058919866091859681, guid: 9313b7505e7345445a59f1877796e17d,
+        type: 3}
+      propertyPath: m_Name
+      value: JetPackTrail
+      objectReference: {fileID: 0}
+    - target: {fileID: 7058919866091859681, guid: 9313b7505e7345445a59f1877796e17d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9313b7505e7345445a59f1877796e17d, type: 3}
