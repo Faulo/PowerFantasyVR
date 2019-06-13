@@ -11,14 +11,16 @@ namespace PFVR.Spells.LaserRay {
         private LineRenderer line {
             get => GetComponent<LineRenderer>();
         }
-        public void Fire(Vector3 position, Vector3 direction, float range) {
+        public void Fire(Vector3 position, Vector3 direction, float range, float force) {
             line.SetPosition(0, position);
             line.SetPosition(1, position + direction * range);
 
-            Physics.RaycastAll(position, direction, range)
-                .Select(hit => hit.collider)
-                .SelectMany(collider => collider.GetComponents<Rigidbody>())
-                .ForAll(body => body.AddForce(direction, ForceMode.VelocityChange));
+            Physics.RaycastAll(position, direction, range, LayerMask.GetMask("Default", "Obstacle", "Player"))
+                .SelectMany(hit => hit.collider.GetComponentsInParent<Rigidbody>())
+                .ForAll(body => {
+                    //body.AddForce(direction * force, ForceMode.VelocityChange);
+                    body.AddTorque(Vector3.one * force * 1000, ForceMode.VelocityChange);
+                });
         }
     }
 }

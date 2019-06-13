@@ -59,10 +59,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rayPrefab: {fileID: 860274569619483770, guid: e35baf974db34364fa9bbe25ac688ad2,
     type: 3}
+  rayForce: 50
   rayInterval: 500
   rayRange: 10000
   rayLifetime: 1
-  rayForce: 100
   destruction: {fileID: 2100000, guid: fd0b5fbf6723ef04182980861a7dbdf8, type: 2}
   rumbleDuration: 100
   rumbleForce: 1

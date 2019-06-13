@@ -12,6 +12,9 @@ namespace PFVR.Spells.LaserRay {
         [SerializeField]
         private GameObject rayPrefab = default;
 
+        [SerializeField, Range(1, 100)]
+        private float rayForce = 50;
+
         [SerializeField, Range(1, 1000)]
         private ushort rayInterval = 1000;
 
@@ -20,9 +23,6 @@ namespace PFVR.Spells.LaserRay {
 
         [SerializeField, Range(0, 10)]
         private float rayLifetime = 1;
-
-        [SerializeField, Range(0, 1000)]
-        private float rayForce = 100;
 
         [SerializeField]
         private Material destruction = default;
@@ -51,7 +51,7 @@ namespace PFVR.Spells.LaserRay {
         private IEnumerator CreateRayRoutine(PlayerHandBehaviour hand) {
             while (true) {
                 var ray = Instantiate(rayPrefab).GetComponent<Ray>();
-                ray.Fire(hand.indexFinger.position, hand.indexFinger.forward, rayRange);
+                ray.Fire(hand.indexFinger.position, hand.indexFinger.forward, rayRange, rayForce);
                 Destroy(ray.gameObject, rayLifetime);
 
                 Apollo.rumble(hand.laterality, rumbleDuration, (ushort)(rumbleForce * ushort.MaxValue));
