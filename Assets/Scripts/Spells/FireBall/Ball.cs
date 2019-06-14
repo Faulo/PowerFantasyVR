@@ -2,6 +2,7 @@
 using Slothsoft.UnityExtensions;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace PFVR.Spells.FireBall {
@@ -10,6 +11,15 @@ namespace PFVR.Spells.FireBall {
     public class Ball : MonoBehaviour {
         [SerializeField, Range(1, 10)]
         private float velocityMultiplier = 1;
+
+        [SerializeField, Range(0, 10)]
+        private float mergeRange = 1;
+
+        [SerializeField]
+        private GameObject regularExplosionPrefab = default;
+
+        [SerializeField]
+        private GameObject mergeExplosionPrefab = default;
 
         public float size {
             get => scale.scaling;
@@ -21,7 +31,10 @@ namespace PFVR.Spells.FireBall {
         private new Collider collider => GetComponent<Collider>();
         private new Renderer renderer => GetComponent<Renderer>();
 
-        public event Action<Ball, Collision> onCollisionEnter;
+        public bool explodable {
+            get => collider.enabled;
+            set => collider.enabled = value;
+        }
 
         public void ConnectTo(Joint anchor) {
             collider.enabled = false;
@@ -37,7 +50,29 @@ namespace PFVR.Spells.FireBall {
         }
 
         void OnCollisionEnter(Collision collision) {
-            onCollisionEnter?.Invoke(this, collision);
+            Explode();
+        }
+
+        void Update() { 
+            if (explodable) {
+                Physics.OverlapSphere(transform.position, mergeRange, LayerMask.GetMask("Spell"))
+                    .SelectMany(collider => collider.GetComponents<Ball>())
+                    .Where(ball => ball.explodable && ball != this)
+                    .ForAll(ball => {
+                        Debug.Log("Fireball collision!");
+                        var position = (transform.position + ball.transform.position) / 2;
+                        var explosion = Instantiate(mergeExplosionPrefab, position, Quaternion.identity).GetComponent<Explosion>();
+                        explosion.size = (size + ball.size) / 2;
+                        Destroy(gameObject);
+                        Destroy(ball.gameObject);
+                    });
+            }
+        }
+
+        private void Explode() {
+            var explosion = Instantiate(regularExplosionPrefab, transform.position, transform.rotation).GetComponent<Explosion>();
+            explosion.size = size;
+            Destroy(gameObject);
         }
     }
 }

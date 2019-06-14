@@ -115,17 +115,17 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 0.1
-      inSlope: 0.4
-      outSlope: 0.4
+      inSlope: 0.49499997
+      outSlope: 0.49499997
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 1
-      value: 0.5
-      inSlope: 0.4
-      outSlope: 0.4
+      time: 20
+      value: 10
+      inSlope: 0.49499997
+      outSlope: 0.49499997
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
@@ -162,6 +162,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocityMultiplier: 5
+  mergeRange: 10
+  regularExplosionPrefab: {fileID: 3679691998973720690, guid: 07fb9b5a1e4e5ab4d910b1495c4f8983,
+    type: 3}
+  mergeExplosionPrefab: {fileID: 3679691998973720690, guid: b306b6ad1ff28a4438ed9854bc412928,
+    type: 3}
 --- !u!114 &2193582816399782730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -182,6 +187,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1744076411578591771}
     m_Modifications:
+    - target: {fileID: 4135628662908124610, guid: 283de62e1a26e544f80b4a805955dc7b,
+        type: 3}
+      propertyPath: m_Name
+      value: BoltTrail
+      objectReference: {fileID: 0}
     - target: {fileID: 3528801444789622941, guid: 283de62e1a26e544f80b4a805955dc7b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -236,11 +246,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4135628662908124610, guid: 283de62e1a26e544f80b4a805955dc7b,
-        type: 3}
-      propertyPath: m_Name
-      value: BoltTrail
       objectReference: {fileID: 0}
     - target: {fileID: 1956849369779868965, guid: 283de62e1a26e544f80b4a805955dc7b,
         type: 3}
