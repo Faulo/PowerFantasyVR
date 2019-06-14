@@ -1,12 +1,17 @@
-﻿using System.Collections;
+﻿using PFVR.Player;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace PFVR.Spells.JetPack {
     [RequireComponent(typeof(AudioSource))]
+    [RequireComponent(typeof(AudioLowPassFilter))]
     public class Engine : MonoBehaviour {
         [SerializeField]
         private float maximumVolume = 1;
+
+        [SerializeField]
+        private AnimationCurve cutoffFrequencyOverSpeed = default;
 
         [SerializeField]
         private AudioClip startupSound = default;
@@ -14,46 +19,62 @@ namespace PFVR.Spells.JetPack {
         [SerializeField]
         private AudioClip continuousSound = default;
 
+        [SerializeField]
+        private AudioClip shutdownSound = default;
+
         public float propulsion {
             get => propulsionCache;
-            set {
-                propulsionCache = Mathf.Clamp(value, 0, 1);
-                audioSource.volume = maximumVolume * propulsionCache;
-            }
+            set => propulsionCache = Mathf.Clamp(value, 0, 1);
         }
         private float propulsionCache;
         private AudioSource audioSource => GetComponent<AudioSource>();
+        private AudioLowPassFilter lowPassFilter => GetComponent<AudioLowPassFilter>();
+        private PlayerBehaviour player => GetComponentInParent<PlayerBehaviour>();
+        private new ParticleSystem particleSystem => GetComponentInChildren<ParticleSystem>();
         private Coroutine playSoundsRoutine;
-        
+        private bool turnedOn = false;
 
         public void TurnOn() {
-            gameObject.SetActive(true);
+            turnedOn = true;
+            particleSystem.Play();
+            if (playSoundsRoutine != null) {
+                StopCoroutine(playSoundsRoutine);
+            }
             playSoundsRoutine = StartCoroutine(PlayEngineSounds());
         }
 
         public void TurnOff() {
-            gameObject.SetActive(false);
-            if (playSoundsRoutine != null) {
-                StopCoroutine(playSoundsRoutine);
-            }
-            audioSource.Stop();
+            turnedOn = false;
+            particleSystem.Stop();
         }
 
         private IEnumerator PlayEngineSounds() {
             audioSource.loop = false;
             audioSource.clip = startupSound;
             audioSource.Play();
-            while (audioSource.isPlaying) {
+            while (turnedOn && audioSource.isPlaying) {
                 yield return null;
             }
 
             audioSource.loop = true;
             audioSource.clip = continuousSound;
             audioSource.Play();
-            while (audioSource.isPlaying) {
-                audioSource.volume = propulsion;
+            while (turnedOn) {
                 yield return null;
             }
+
+            while (propulsion > Mathf.Epsilon) {
+                propulsion *= 0.75f;
+                yield return null;
+            }
+
+            audioSource.Stop();
+            playSoundsRoutine = null;
+        }
+
+        void Update() {
+            audioSource.volume = maximumVolume * propulsion;
+            lowPassFilter.cutoffFrequency = cutoffFrequencyOverSpeed.Evaluate(player.speed);
         }
     }
 }
