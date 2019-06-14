@@ -7,11 +7,9 @@ using UnityEngine;
 
 namespace PFVR.Spells.LaserRay {
     [RequireComponent(typeof(LineRenderer))]
-    public class Ray : MonoBehaviour {
-        private LineRenderer line {
-            get => GetComponent<LineRenderer>();
-        }
-        public void Fire(Vector3 position, Vector3 direction, float range, float force) {
+    public class LineRay : MonoBehaviour, IRay {
+        private LineRenderer line => GetComponent<LineRenderer>();
+        public void Fire(Vector3 position, Vector3 direction, float range, float force, float lifetime) {
             line.SetPosition(0, position);
             line.SetPosition(1, position + direction * range);
 
@@ -21,6 +19,8 @@ namespace PFVR.Spells.LaserRay {
                     //body.AddForce(direction * force, ForceMode.VelocityChange);
                     body.AddTorque(Vector3.one * force * 1000, ForceMode.VelocityChange);
                 });
+
+            Destroy(gameObject, lifetime);
         }
     }
 }
