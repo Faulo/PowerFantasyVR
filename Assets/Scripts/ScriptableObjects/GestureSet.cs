@@ -18,6 +18,12 @@ namespace PFVR.ScriptableObjects {
             }
         }
 
+        public string trackingDataPath {
+            get {
+                return "Assets/Resources/TrackingData/" + name + ".csv";
+            }
+        }
+
         public IEnumerable<string> gestureNames {
             get {
                 return gestures

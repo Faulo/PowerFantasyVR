@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40e9eb230c4aa914dadd26d5c0697719, type: 3}
   m_Name: BigBang
   m_EditorClassIdentifier: 
-  spellPrefab: {fileID: 4165082122682400427, guid: 35be819511a348648a8785e20f079ce6,
+  spellPrefab: {fileID: 9195071170267245166, guid: 1aaf12f81dc902a479f6198b433bf215,
     type: 3}

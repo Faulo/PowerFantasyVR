@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40e9eb230c4aa914dadd26d5c0697719, type: 3}
   m_Name: Fist
   m_EditorClassIdentifier: 
-  spellPrefab: {fileID: 9195071170267245166, guid: 1aaf12f81dc902a479f6198b433bf215,
+  spellPrefab: {fileID: 1504266767435308377, guid: f345deee2a113a04e8da2c3a209b8900,
     type: 3}

@@ -71,7 +71,7 @@ namespace PFVR.Player {
         }
 
         // Update is called once per frame
-        void Update() {
+        void FixedUpdate() {
             currentStates.ForAll(state => state.OnUpdate(owner, this));
         }
     }

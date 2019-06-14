@@ -8,7 +8,8 @@
         "ML.NET",
         "Slothsoft.UnityExtensions",
         "Unity.ugui",
-        "AstarPathfindingProject"
+        "AstarPathfindingProject",
+        "BOXOPHOBIC"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

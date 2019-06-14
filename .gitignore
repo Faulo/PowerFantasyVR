@@ -4,6 +4,8 @@
 !.gitignore
 !.gitmodules
 !*.json
+!*.bat
+!*.vssettings
 
 !/Assets/
 !/ProjectSettings/

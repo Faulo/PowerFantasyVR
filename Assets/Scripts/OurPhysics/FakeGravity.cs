@@ -1,16 +1,19 @@
-﻿using System.Collections;
+﻿using Slothsoft.UnityExtensions;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace PFVR.OurPhysics {
-    [RequireComponent(typeof(Rigidbody))]
     public class FakeGravity : MonoBehaviour {
         [SerializeField]
-        [Range(0,10)]
+        [Range(-10,10)]
         private float gravity = default;
 
         void FixedUpdate() {
-            GetComponent<Rigidbody>().AddForce(Physics.gravity * gravity, ForceMode.Acceleration);
+            GetComponents<Rigidbody>()
+                .ForAll(body => body.velocity += Physics.gravity * gravity * Time.fixedDeltaTime);
+            GetComponents<KinematicRigidbody>()
+                .ForAll(body => body.velocity += Physics.gravity * gravity * Time.fixedDeltaTime);
         }
     }
 }

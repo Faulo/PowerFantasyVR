@@ -15,9 +15,14 @@ namespace PFVR.Player {
 
         [SerializeField]
         private PlayerHandBehaviour rightHand = default;
+        
+        public Transform torso;
 
         private Gesture leftGesture;
         private Gesture rightGesture;
+
+        public Vector3 deltaMovement { get; private set; }
+        private Vector3 lastPosition = default;
 
         void Start() {
             leftHand.Init(this, GloveLaterality.GLOVE_LEFT);
@@ -28,6 +33,8 @@ namespace PFVR.Player {
         }
 
         void Update() {
+            deltaMovement = transform.position - lastPosition;
+            lastPosition = transform.position;
         }
     }
 
