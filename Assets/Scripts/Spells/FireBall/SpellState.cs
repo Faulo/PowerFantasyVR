@@ -24,7 +24,7 @@ namespace PFVR.Spells.FireBall {
 
         private Coroutine rumbleRoutine;
 
-        private Joint anchor;
+        private SpringJoint anchor;
 
         private Ball ball;
 
@@ -46,7 +46,7 @@ namespace PFVR.Spells.FireBall {
 
         public void OnEnter(PlayerBehaviour player, PlayerHandBehaviour hand) {
             if (anchor == null) {
-                anchor = Instantiate(anchorPrefab, hand.wrist).GetComponent<Joint>();
+                anchor = Instantiate(anchorPrefab, hand.wrist).GetComponent<SpringJoint>();
             }
             ball = Instantiate(ballPrefab).GetComponent<Ball>();
             ball.ConnectTo(anchor);
@@ -55,8 +55,11 @@ namespace PFVR.Spells.FireBall {
         }
 
         public void OnExit(PlayerBehaviour player, PlayerHandBehaviour hand) {
-            ball?.ReleaseFrom(anchor, player.rigidbody.velocity);
-            ball = null;
+            if (ball != null) {
+                ball.body.velocity -= player.velocity;
+                ball.ReleaseFrom(anchor);
+                ball = null;
+            }
             if (rumbleRoutine != null) {
                 StopCoroutine(rumbleRoutine);
             }
@@ -64,8 +67,11 @@ namespace PFVR.Spells.FireBall {
 
         public void OnUpdate(PlayerBehaviour player, PlayerHandBehaviour hand) {
             chargeTime += Time.fixedDeltaTime;
-            if (ball != null) {
-                ball.transform.Translate(player.deltaMovement);
+            if (ball != null && anchor != null) {
+                var distance = anchor.transform.position - ball.transform.position;
+                ball.body.AddForce(distance, ForceMode.VelocityChange);
+                //anchor.damper = Mathf.Clamp(1 / distance.magnitude, 1, 1000);
+                anchor.spring = Mathf.Clamp(player.speed, 1, 1000);
             }
         }
         private IEnumerator CreateRumbleRoutine(PlayerHandBehaviour hand) {

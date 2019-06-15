@@ -26,7 +26,7 @@ namespace PFVR.Spells.FireBall {
         }
 
         private ScalableObject scale => GetComponent<ScalableObject>();
-        private Rigidbody body => GetComponentInChildren<Rigidbody>();
+        public Rigidbody body => GetComponentInChildren<Rigidbody>();
         private new Collider collider => GetComponentInChildren<Collider>();
 
         public bool explodable {
@@ -40,10 +40,11 @@ namespace PFVR.Spells.FireBall {
             anchor.connectedBody = body;
         }
 
-        public void ReleaseFrom(Joint anchor, Vector3 launchVelocity) {
+        public void ReleaseFrom(Joint anchor) {
             collider.enabled = true;
             anchor.connectedBody = null;
-            body.velocity = launchVelocity + velocityMultiplier * body.velocity;
+            body.drag = 0;
+            body.velocity *= velocityMultiplier;
             body.gameObject.AddComponent<KinematicRigidbody>();
         }
 
@@ -57,7 +58,6 @@ namespace PFVR.Spells.FireBall {
                     .SelectMany(collider => collider.GetComponents<Ball>())
                     .Where(ball => ball.explodable && ball != this)
                     .ForAll(ball => {
-                        Debug.Log("Fireball collision!");
                         var position = (transform.position + ball.transform.position) / 2;
                         var explosion = Instantiate(mergeExplosionPrefab, position, Quaternion.identity).GetComponent<Explosion>();
                         explosion.size = (size + ball.size) / 2;

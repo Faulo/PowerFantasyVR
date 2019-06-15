@@ -19,7 +19,9 @@ namespace PFVR.Player {
 
         public Vector3 deltaMovement { get; private set; }
         private Vector3 lastPosition = default;
+
         public float speed => rigidbody.velocity.magnitude;
+        public Vector3 velocity => rigidbody.velocity;
 
         void Start() {
             leftHand.Init(this, GloveLaterality.GLOVE_LEFT);
