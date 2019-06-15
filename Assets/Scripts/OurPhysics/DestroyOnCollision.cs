@@ -18,6 +18,7 @@ namespace PFVR.OurPhysics {
                         .ForAll(renderer => {
                             renderer.material = destruction;
                         });
+                    Destroy(body.gameObject, 2);
                 }
                 gameObject.SetActive(false);
                 Destroy(gameObject);
