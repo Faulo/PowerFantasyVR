@@ -1,5 +1,6 @@
 ﻿using PFVR.DataModels;
 using PFVR.ScriptableObjects;
+using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -7,6 +8,8 @@ namespace PFVR.Player {
     public class GestureConnector : MonoBehaviour {
         [SerializeField]
         private GestureSet gestureSet = default;
+
+        public IEnumerable<Gesture> availableGestures => gestureSet.gestureObjects;
 
         public delegate void NewGesture(Gesture gesture);
 
