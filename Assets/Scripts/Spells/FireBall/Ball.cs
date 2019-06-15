@@ -6,7 +6,6 @@ using System.Linq;
 using UnityEngine;
 
 namespace PFVR.Spells.FireBall {
-    [RequireComponent(typeof(Rigidbody))]
     [RequireComponent(typeof(ScalableObject))]
     public class Ball : MonoBehaviour {
         [SerializeField, Range(1, 10)]
@@ -27,9 +26,8 @@ namespace PFVR.Spells.FireBall {
         }
 
         private ScalableObject scale => GetComponent<ScalableObject>();
-        private Rigidbody body => GetComponent<Rigidbody>();
-        private new Collider collider => GetComponent<Collider>();
-        private new Renderer renderer => GetComponent<Renderer>();
+        private Rigidbody body => GetComponentInChildren<Rigidbody>();
+        private new Collider collider => GetComponentInChildren<Collider>();
 
         public bool explodable {
             get => collider.enabled;
