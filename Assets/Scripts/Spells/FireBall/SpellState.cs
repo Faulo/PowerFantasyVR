@@ -12,8 +12,6 @@ namespace PFVR.Spells.FireBall {
         [SerializeField]
         private GameObject anchorPrefab = default;
 
-        [SerializeField]
-        private GameObject explosionPrefab = default;
 
         [SerializeField, Range(1, 1000)]
         private ushort rumbleInterval = 100;
@@ -52,11 +50,6 @@ namespace PFVR.Spells.FireBall {
             }
             ball = Instantiate(ballPrefab).GetComponent<Ball>();
             ball.ConnectTo(anchor);
-            ball.onCollisionEnter += (ball, collision) => {
-                var explosion = Instantiate(explosionPrefab, ball.transform.position, ball.transform.rotation).GetComponent<Explosion>();
-                explosion.size = ball.size;
-                Destroy(ball.gameObject);
-            };
             chargeTime = 0;
             rumbleRoutine = StartCoroutine(CreateRumbleRoutine(hand));
         }

@@ -10,7 +10,7 @@ namespace PFVR.Spells.LaserBolt {
         [SerializeField]
         private GameObject boltPrefab = default;
 
-        [SerializeField]
+        [SerializeField, Range(1, 100)]
         private float boltVelocity = 1000;
 
         [SerializeField, Range(1, 1000)]
