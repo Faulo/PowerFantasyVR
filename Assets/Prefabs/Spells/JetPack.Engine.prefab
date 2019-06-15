@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7951713693666263070}
   - component: {fileID: 1773015068858051143}
   - component: {fileID: 6250744414174895147}
+  - component: {fileID: -7310490827113901800}
   m_Layer: 10
   m_Name: JetPack.Engine
   m_TagString: Untagged
@@ -45,7 +46,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -142,8 +143,57 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maximumVolume: 0.5
+  cutoffFrequencyOverSpeed:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 20000
+      inSlope: -571.62146
+      outSlope: -571.62146
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.04330718
+    - serializedVersion: 3
+      time: 100
+      value: 1000
+      inSlope: -26.552868
+      outSlope: -26.552868
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.044351883
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   startupSound: {fileID: 8300000, guid: 400d794a97484bb429dd398e96e4479e, type: 3}
   continuousSound: {fileID: 8300000, guid: 6c139b2b37fbfe545b81001c707b7cb8, type: 3}
+--- !u!169 &-7310490827113901800
+AudioLowPassFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8718152847802425796}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_LowpassResonanceQ: 1
+  lowpassLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.22727273
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &1096594818834402049
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -151,6 +201,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7951713693666263070}
     m_Modifications:
+    - target: {fileID: 7058919866091859681, guid: 9313b7505e7345445a59f1877796e17d,
+        type: 3}
+      propertyPath: m_Name
+      value: JetPackTrail
+      objectReference: {fileID: 0}
+    - target: {fileID: 7058919866091859681, guid: 9313b7505e7345445a59f1877796e17d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7060494451518899147, guid: 9313b7505e7345445a59f1877796e17d,
         type: 3}
       propertyPath: m_RootOrder
@@ -170,16 +230,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7058919866091859681, guid: 9313b7505e7345445a59f1877796e17d,
-        type: 3}
-      propertyPath: m_Name
-      value: JetPackTrail
-      objectReference: {fileID: 0}
-    - target: {fileID: 7058919866091859681, guid: 9313b7505e7345445a59f1877796e17d,
-        type: 3}
-      propertyPath: m_Layer
-      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9313b7505e7345445a59f1877796e17d, type: 3}

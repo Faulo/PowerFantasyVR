@@ -30,7 +30,7 @@ namespace PFVR.Player {
                     return Enumerable.Empty<ISpellState>();
                 }
                 if (!allStates.ContainsKey(currentSpellPrefab)) {
-                    allStates[currentSpellPrefab] = Instantiate(currentSpellPrefab, wrist);
+                    allStates[currentSpellPrefab] = Instantiate(currentSpellPrefab, transform);
                 }
                 return allStates[currentSpellPrefab].GetComponents<ISpellState>();
             }

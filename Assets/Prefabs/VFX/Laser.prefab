@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 9070084774862181506}
   - component: {fileID: 9070084774862181505}
   m_Layer: 0
-  m_Name: Cylinder
+  m_Name: Laser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26,8 +26,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9070084774862181504}
-  m_LocalRotation: {x: -0.7098167, y: 0, z: 0, w: 0.7043865}
-  m_LocalPosition: {x: 0.2195, y: 1.436, z: 0.783}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 0.01, y: 1, z: 0.01}
   m_Children:
   - {fileID: 9070084775656733771}
@@ -120,8 +120,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9070084775347132911}
-  m_LocalRotation: {x: 0.00000004582668, y: -0.9866007, z: 0.1631538, w: 0.0000002771167}
-  m_LocalPosition: {x: -0.13, y: 0.99, z: 0.63}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -1, z: 0}
   m_LocalScale: {x: 0.03, y: 0.03, z: 0.03}
   m_Children: []
   m_Father: {fileID: 9070084774862181516}
