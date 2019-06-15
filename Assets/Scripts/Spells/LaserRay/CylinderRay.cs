@@ -10,7 +10,8 @@ namespace PFVR.Spells.LaserRay {
         public void Fire(Vector3 position, Vector3 direction, float range, float force, float lifetime) {
             transform.position = position;
             transform.LookAt(position + direction);
-            Destroy(gameObject, lifetime);
+            transform.SetScaleZ(range);
+            Destroy(gameObject, lifetime / 1000);
         }
     }
 }

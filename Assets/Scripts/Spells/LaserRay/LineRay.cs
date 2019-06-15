@@ -20,7 +20,7 @@ namespace PFVR.Spells.LaserRay {
                     body.AddTorque(Vector3.one * force * 1000, ForceMode.VelocityChange);
                 });
 
-            Destroy(gameObject, lifetime);
+            Destroy(gameObject, lifetime / 1000);
         }
     }
 }

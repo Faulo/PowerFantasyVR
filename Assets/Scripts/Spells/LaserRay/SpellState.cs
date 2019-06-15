@@ -21,7 +21,7 @@ namespace PFVR.Spells.LaserRay {
         [SerializeField, Range(1, 100000)]
         private float rayRange = 1000;
 
-        [SerializeField, Range(0, 10)]
+        [SerializeField, Range(0, 1000)]
         private float rayLifetime = 1;
 
         [SerializeField]

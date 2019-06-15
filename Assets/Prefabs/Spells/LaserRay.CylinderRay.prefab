@@ -69,7 +69,7 @@ PrefabInstance:
     - target: {fileID: 9070084774862181516, guid: 27f87470ed27ab14baab9de020d24f91,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -90.44
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 9070084774862181516, guid: 27f87470ed27ab14baab9de020d24f91,
         type: 3}
@@ -81,30 +81,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9070084774862181516, guid: 27f87470ed27ab14baab9de020d24f91,
+    - target: {fileID: 9070084775347132904, guid: 27f87470ed27ab14baab9de020d24f91,
         type: 3}
-      propertyPath: m_LocalPosition.x
+      propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9070084774862181516, guid: 27f87470ed27ab14baab9de020d24f91,
+    - target: {fileID: 9070084775347132904, guid: 27f87470ed27ab14baab9de020d24f91,
         type: 3}
-      propertyPath: m_LocalPosition.y
+      propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9070084774862181516, guid: 27f87470ed27ab14baab9de020d24f91,
+    - target: {fileID: 9070084775656733770, guid: 27f87470ed27ab14baab9de020d24f91,
         type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 1
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9070084775347132911, guid: 27f87470ed27ab14baab9de020d24f91,
         type: 3}
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 9070084775656733770, guid: 27f87470ed27ab14baab9de020d24f91,
+    - target: {fileID: 9070084775656733813, guid: 27f87470ed27ab14baab9de020d24f91,
         type: 3}
-      propertyPath: m_Layer
-      value: 10
+      propertyPath: EmissionModule.enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27f87470ed27ab14baab9de020d24f91, type: 3}
