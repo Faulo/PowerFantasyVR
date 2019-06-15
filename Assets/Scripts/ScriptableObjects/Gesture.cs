@@ -5,6 +5,7 @@ namespace PFVR.ScriptableObjects {
     [CreateAssetMenu(fileName = "New Gesture", menuName = "Gameplay/Gesture", order = 1)]
     public class Gesture : ScriptableObject {
         public GameObject spellPrefab = default;
+        public Sprite icon = default;
 
         void OnValidate() {
             if (spellPrefab != default && spellPrefab.GetComponent<ISpellState>() == null) {

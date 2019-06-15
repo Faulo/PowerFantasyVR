@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 8725249803183865230, guid: 2c90dce3ab95f194f911c18e52f06722,
         type: 3}
       propertyPath: m_Name
-      value: LayoutButton
+      value: GestureButton
       objectReference: {fileID: 0}
     - target: {fileID: 5750278615005308633, guid: 2c90dce3ab95f194f911c18e52f06722,
         type: 3}
@@ -116,6 +116,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7849063133675783911, guid: 2c90dce3ab95f194f911c18e52f06722,
+        type: 3}
+      propertyPath: m_Colors.m_SelectedColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7849063133675783911, guid: 2c90dce3ab95f194f911c18e52f06722,
+        type: 3}
+      propertyPath: m_Colors.m_SelectedColor.g
+      value: 0.6037736
+      objectReference: {fileID: 0}
+    - target: {fileID: 7849063133675783911, guid: 2c90dce3ab95f194f911c18e52f06722,
+        type: 3}
+      propertyPath: m_Colors.m_SelectedColor.b
+      value: 0.087503396
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c90dce3ab95f194f911c18e52f06722, type: 3}

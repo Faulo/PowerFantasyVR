@@ -53,7 +53,7 @@ namespace PFVR.Spells.LaserRay {
                 var ray = Instantiate(rayPrefab).GetComponent<IRay>();
                 ray.Fire(hand.indexFinger.position, hand.indexFinger.forward, rayRange, rayForce, rayLifetime);
 
-                Apollo.rumble(hand.laterality, rumbleDuration, (ushort)(rumbleForce * ushort.MaxValue));
+                //Apollo.rumble(hand.laterality, rumbleDuration, (ushort)(rumbleForce * ushort.MaxValue));
                 yield return new WaitForSeconds(rayInterval / 1000f);
             }
         }
