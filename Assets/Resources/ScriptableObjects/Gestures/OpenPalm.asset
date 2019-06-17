@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40e9eb230c4aa914dadd26d5c0697719, type: 3}
+  m_Name: OpenPalm
+  m_EditorClassIdentifier: 
+  spellPrefab: {fileID: 4165082122682400427, guid: 35be819511a348648a8785e20f079ce6,
+    type: 3}
+  icon: {fileID: 21300000, guid: 332f9c1ea02feb341a7ec26af7817fbd, type: 3}
