@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1806706533896227534}
   - component: {fileID: 1806706533896227532}
   - component: {fileID: 1806706533896227535}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Finger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4823,8 +4823,8 @@ GameObject:
   - component: {fileID: 1806706533978556325}
   - component: {fileID: 1806706533978556324}
   - component: {fileID: 1806706533978556327}
-  m_Layer: 0
-  m_Name: Cylinder
+  m_Layer: 15
+  m_Name: ShieldV2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4917,7 +4917,7 @@ GameObject:
   - component: {fileID: 1806706534677163885}
   - component: {fileID: 1806706534677163859}
   - component: {fileID: 1806706534677163858}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Ray
   m_TagString: Untagged
   m_Icon: {fileID: 0}

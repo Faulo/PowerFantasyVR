@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 587793762088930548}
   - component: {fileID: -1059544497444436529}
   - component: {fileID: -229133462283138773}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: LaserBolt.Bolt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ PrefabInstance:
     - target: {fileID: 1946157031056256367, guid: 9ab9cffccb7a4a94ebf9ffabd7f4e74a,
         type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 779172557768185449, guid: 9ab9cffccb7a4a94ebf9ffabd7f4e74a,
         type: 3}
@@ -151,7 +151,7 @@ PrefabInstance:
     - target: {fileID: 4135628662908124610, guid: 283de62e1a26e544f80b4a805955dc7b,
         type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 3528801444789622941, guid: 283de62e1a26e544f80b4a805955dc7b,
         type: 3}
