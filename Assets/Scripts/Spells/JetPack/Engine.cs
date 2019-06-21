@@ -63,7 +63,11 @@ namespace PFVR.Spells.JetPack {
                 yield return null;
             }
 
-            while (propulsion > Mathf.Epsilon) {
+            audioSource.loop = false;
+            audioSource.clip = shutdownSound;
+            audioSource.Play();
+
+            while (audioSource.isPlaying) {
                 propulsion *= 0.75f;
                 yield return null;
             }
