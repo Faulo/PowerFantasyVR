@@ -6,6 +6,12 @@ using UnityEngine;
 namespace PFVR.Spells {
     [RequireComponent(typeof(ScalableObject))]
     public class Explosion : MonoBehaviour {
+        public static GameObject Instantiate(GameObject prefab, Vector3 position, float size) {
+            var explosion = Instantiate(prefab, position, Quaternion.identity);
+            explosion.GetComponent<Explosion>().size = size;
+            return explosion;
+        }
+
         [SerializeField]
         private float range = 1;
         [SerializeField]

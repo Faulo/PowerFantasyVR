@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 3332621582401193978}
   - component: {fileID: 2193582816399782730}
   m_Layer: 15
-  m_Name: FireBall.MagnusBall
+  m_Name: FireBall.Ball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -111,7 +111,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &-2774124642552244105
 MonoBehaviour:
@@ -129,7 +129,9 @@ MonoBehaviour:
   mergeRange: 10
   regularExplosionPrefab: {fileID: 3679691998973720690, guid: 07fb9b5a1e4e5ab4d910b1495c4f8983,
     type: 3}
-  mergeExplosionPrefab: {fileID: 3679691998973720690, guid: b306b6ad1ff28a4438ed9854bc412928,
+  mergeExplosionPrefab: {fileID: 3679691998973720690, guid: 120eab5e70711a740b09c00ec7e98e7d,
+    type: 3}
+  laserExplosionPrefab: {fileID: 3679691998973720690, guid: b306b6ad1ff28a4438ed9854bc412928,
     type: 3}
 --- !u!114 &3332621582401193978
 MonoBehaviour:

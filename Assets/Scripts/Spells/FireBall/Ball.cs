@@ -1,4 +1,6 @@
 ﻿using PFVR.OurPhysics;
+using PFVR.Spells.LaserBolt;
+using PFVR.Spells.LaserRay;
 using Slothsoft.UnityExtensions;
 using System;
 using System.Collections.Generic;
@@ -19,6 +21,9 @@ namespace PFVR.Spells.FireBall {
 
         [SerializeField]
         private GameObject mergeExplosionPrefab = default;
+
+        [SerializeField]
+        private GameObject laserExplosionPrefab = default;
 
         public float size {
             get => scale.scaling;
@@ -49,10 +54,36 @@ namespace PFVR.Spells.FireBall {
         }
 
         void OnCollisionEnter(Collision collision) {
-            Explode();
+            if ((LayerMask.GetMask(LayerMask.LayerToName(collision.gameObject.layer)) & LayerMask.GetMask("Default", "Spell", "Obstacle", "Ground")) == 0) {
+                return;
+            }
+            var ball = collision.gameObject.GetComponentInParent<Ball>();
+            if (ball != null) {
+                var explosionPosition = (transform.position + ball.transform.position) / 2;
+                var explosionSize = (size + ball.size) / 2;
+                Explosion.Instantiate(mergeExplosionPrefab, explosionPosition, explosionSize);
+                Destroy(gameObject);
+                Destroy(ball.gameObject);
+                return;
+            }
+            var laser = collision.gameObject.GetComponentInParent<IRay>();
+            if (laser != null) {
+                Explosion.Instantiate(laserExplosionPrefab, transform.position, size);
+                Destroy(gameObject);
+                return;
+            }
+            var bolt = collision.gameObject.GetComponentInParent<Bolt>();
+            if (bolt != null) {
+                Explosion.Instantiate(laserExplosionPrefab, transform.position, size);
+                Destroy(gameObject);
+                return;
+            }
+            Explosion.Instantiate(regularExplosionPrefab, transform.position, size);
+            Destroy(gameObject);
         }
 
-        void Update() { 
+        /*
+        void Update() {
             if (explodable) {
                 Physics.OverlapSphere(transform.position, mergeRange, LayerMask.GetMask("Spell"))
                     .SelectMany(collider => collider.GetComponents<Ball>())
@@ -72,5 +103,6 @@ namespace PFVR.Spells.FireBall {
             explosion.size = size;
             Destroy(gameObject);
         }
+        //*/
     }
 }
