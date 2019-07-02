@@ -22,6 +22,8 @@ namespace PFVR.Spells {
         private float maximumDamage = 1;
         [SerializeField]
         private AnimationCurve damageOverDistance = default;
+        [SerializeField, Range(0, 1)]
+        private float upwardsModifier = 0;
 
         public float size {
             get => scale.scaling;
@@ -37,11 +39,12 @@ namespace PFVR.Spells {
                     var direction = collider.transform.position - transform.position + Vector3.up;
                     var force = size * maximumForce * forceOverDistance.Evaluate(direction.magnitude / range);
                     var damage = size * maximumDamage * damageOverDistance.Evaluate(direction.magnitude / range);
+                    Debug.Log(force);
                     collider
                         .GetComponentsInParent<Rigidbody>()
                         .ForAll(body => {
                             body.AddForce(direction * force, ForceMode.Impulse);
-                            body.AddForce(Vector3.up * force, ForceMode.Impulse);
+                            body.AddForce(Vector3.up * force * upwardsModifier, ForceMode.Impulse);
                         });
                     collider
                         .GetComponentsInParent<Destroyable>()

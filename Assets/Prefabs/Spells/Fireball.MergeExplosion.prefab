@@ -81,8 +81,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df4bf2fdb78408843b076e2a0fd03d6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 25
-  maximumForce: 100
+  range: 4
+  maximumForce: 30
   forceOverDistance:
     serializedVersion: 2
     m_Curve:
@@ -107,7 +107,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  maximumDamage: 100
+  maximumDamage: 60
   damageOverDistance:
     serializedVersion: 2
     m_Curve:
@@ -132,6 +132,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  upwardsModifier: 0.5
 --- !u!1001 &5628652694173218951
 PrefabInstance:
   m_ObjectHideFlags: 0
