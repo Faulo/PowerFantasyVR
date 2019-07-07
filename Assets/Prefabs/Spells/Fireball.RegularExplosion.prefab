@@ -208,26 +208,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 539273600442433196}
     m_Modifications:
-    - target: {fileID: 9162571011732137168, guid: 7e1c94bd432ecb8488be4416fc196a4c,
-        type: 3}
-      propertyPath: pitchMin
-      value: 0.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 9162571011732137168, guid: 7e1c94bd432ecb8488be4416fc196a4c,
-        type: 3}
-      propertyPath: pitchMax
-      value: 1.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9162571011732137168, guid: 7e1c94bd432ecb8488be4416fc196a4c,
-        type: 3}
-      propertyPath: waveFiles.Array.data[0]
-      value: 
-      objectReference: {fileID: 8300000, guid: 68d2c3e75150da346991b892b2f2ccb3, type: 3}
-    - target: {fileID: 2785517421695468922, guid: 7e1c94bd432ecb8488be4416fc196a4c,
-        type: 3}
-      propertyPath: m_Name
-      value: OneShot
-      objectReference: {fileID: 0}
     - target: {fileID: 6900345443278878637, guid: 7e1c94bd432ecb8488be4416fc196a4c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -283,6 +263,41 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2785517421695468922, guid: 7e1c94bd432ecb8488be4416fc196a4c,
+        type: 3}
+      propertyPath: m_Name
+      value: OneShot
+      objectReference: {fileID: 0}
+    - target: {fileID: 4058099465869877981, guid: 7e1c94bd432ecb8488be4416fc196a4c,
+        type: 3}
+      propertyPath: audioClips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 68d2c3e75150da346991b892b2f2ccb3, type: 3}
+    - target: {fileID: 4058099465869877981, guid: 7e1c94bd432ecb8488be4416fc196a4c,
+        type: 3}
+      propertyPath: pitchMin
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4058099465869877981, guid: 7e1c94bd432ecb8488be4416fc196a4c,
+        type: 3}
+      propertyPath: pitchMax
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9162571011732137168, guid: 7e1c94bd432ecb8488be4416fc196a4c,
+        type: 3}
+      propertyPath: pitchMin
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 9162571011732137168, guid: 7e1c94bd432ecb8488be4416fc196a4c,
+        type: 3}
+      propertyPath: pitchMax
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9162571011732137168, guid: 7e1c94bd432ecb8488be4416fc196a4c,
+        type: 3}
+      propertyPath: waveFiles.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 68d2c3e75150da346991b892b2f2ccb3, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7e1c94bd432ecb8488be4416fc196a4c, type: 3}
 --- !u!4 &3886518868459006958 stripped

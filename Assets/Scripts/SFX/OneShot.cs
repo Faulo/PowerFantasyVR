@@ -8,7 +8,9 @@ namespace PFVR.SFX {
         [SerializeField]
         private AudioClip[] audioClips = default;
         [SerializeField]
-        private bool playOnAwake;
+        private bool playOnStart = true;
+        [SerializeField]
+        private bool loop = false;
         [Space]
         [SerializeField, Range(0, 1)]
         private float volMin = 1;
@@ -21,17 +23,16 @@ namespace PFVR.SFX {
         private float pitchMax = 1;
         [Space]
         [SerializeField]
-        private AudioSource audioSource;
-
-        void Awake() {
-            audioSource = GetComponent<AudioSource>();
-            if (!audioSource) {
-                audioSource = gameObject.AddComponent<AudioSource>();
-            }
-        }
+        private AudioSource audioSource = default;
 
         void Start() {
-            if (playOnAwake) {
+            if (!audioSource) {
+                audioSource = GetComponent<AudioSource>();
+                if (!audioSource) {
+                    audioSource = gameObject.AddComponent<AudioSource>();
+                }
+            }
+            if (playOnStart) {
                 Play();
             }
         }
@@ -45,7 +46,13 @@ namespace PFVR.SFX {
             audioSource.pitch = Random.Range(pitchMin, pitchMax);
 
             // play the sound
-            audioSource.PlayOneShot(audioClips.RandomElement());
+            if (loop) {
+                audioSource.loop = true;
+                audioSource.clip = audioClips.RandomElement();
+                audioSource.Play();
+            } else {
+                audioSource.PlayOneShot(audioClips.RandomElement());
+            }
         }
 
         public void Pause() => audioSource.Pause();

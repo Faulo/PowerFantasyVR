@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace PFVR.Spells.LaserRay {
     public interface IRay {
-        void Fire(Vector3 position, Vector3 direction, float range, float force, float lifetime);
+        void UpdateRay(Vector3 position, Vector3 direction, float range, float force);
+        void Stop();
     }
 }
