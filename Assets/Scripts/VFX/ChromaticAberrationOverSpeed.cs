@@ -3,21 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 
-namespace PFVR.VFX.Player {
+namespace PFVR.VFX {
     public class ChromaticAberrationOverSpeed : MonoBehaviour {
         [SerializeField, Range(1, 100)]
         private float maxSpeed = 1;
-        private new Rigidbody rigidbody;
-        private ChromaticAberration chromaticAberration;
-        // Start is called before the first frame update
-        void Start() {
-            rigidbody = GetComponentInParent<Rigidbody>();
-            GetComponent<PostProcessVolume>().profile.TryGetSettings<ChromaticAberration>(out chromaticAberration);
-        }
+        [SerializeField]
+        private Rigidbody referenceBody = default;
 
-        // Update is called once per frame
+        private ChromaticAberration chromaticAberration;
+        void Start() {
+            GetComponent<PostProcessVolume>().profile.TryGetSettings(out chromaticAberration);
+        }
         void Update() {
-            chromaticAberration.intensity.value = rigidbody.velocity.magnitude / maxSpeed;
+            chromaticAberration.intensity.value = referenceBody.velocity.magnitude / maxSpeed;
         }
     }
 }

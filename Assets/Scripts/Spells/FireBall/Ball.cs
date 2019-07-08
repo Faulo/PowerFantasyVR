@@ -13,9 +13,6 @@ namespace PFVR.Spells.FireBall {
         [SerializeField, Range(1, 10)]
         private float velocityMultiplier = 1;
 
-        [SerializeField, Range(0, 10)]
-        private float mergeRange = 1;
-
         [SerializeField]
         private GameObject regularExplosionPrefab = default;
 

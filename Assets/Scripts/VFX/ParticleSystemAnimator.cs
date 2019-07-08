@@ -6,7 +6,7 @@ namespace PFVR.VFX {
     [ExecuteInEditMode, RequireComponent(typeof(ParticleSystem))]
     public class ParticleSystemAnimator : MonoBehaviour {
         [SerializeField]
-        private int burstCount;
+        private int burstCount = 1;
 
         public bool bursting;
 

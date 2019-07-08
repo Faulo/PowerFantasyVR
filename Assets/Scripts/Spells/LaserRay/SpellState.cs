@@ -18,9 +18,6 @@ namespace PFVR.Spells.LaserRay {
         [SerializeField, Range(1, 100000)]
         private float rayRange = 1000;
 
-        [SerializeField]
-        private Material destruction = default;
-
         [SerializeField, Range(1, 1000)]
         private ushort rumbleDuration = 100;
 
