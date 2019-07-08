@@ -15,14 +15,8 @@ namespace PFVR.Spells.LaserRay {
         [SerializeField, Range(1, 100)]
         private float rayForce = 50;
 
-        [SerializeField, Range(1, 1000)]
-        private ushort rayInterval = 1000;
-
         [SerializeField, Range(1, 100000)]
         private float rayRange = 1000;
-
-        [SerializeField, Range(0, 10)]
-        private float rayLifetime = 1;
 
         [SerializeField]
         private Material destruction = default;
@@ -33,6 +27,23 @@ namespace PFVR.Spells.LaserRay {
         [SerializeField, Range(0f, 1f)]
         private float rumbleForce = 0.5f;
 
+        private IRay ray;
+
+        public void OnEnter(PlayerBehaviour player, PlayerHandBehaviour hand) {
+            ray = Instantiate(rayPrefab).GetComponent<IRay>();
+            ray.UpdateRay(hand.indexFinger.position, hand.indexFinger.forward, rayRange, rayForce);
+        }
+        public void OnExit(PlayerBehaviour player, PlayerHandBehaviour hand) {
+            if (ray != null) {
+                ray.Stop();
+                ray = null;
+            }
+        }
+        public void OnUpdate(PlayerBehaviour player, PlayerHandBehaviour hand) {
+            ray.UpdateRay(hand.indexFinger.position, hand.indexFinger.forward, rayRange, rayForce);
+        }
+
+        /*
         private Coroutine rayRoutine;
 
         public void OnEnter(PlayerBehaviour player, PlayerHandBehaviour hand) {
@@ -50,13 +61,13 @@ namespace PFVR.Spells.LaserRay {
         }
         private IEnumerator CreateRayRoutine(PlayerHandBehaviour hand) {
             while (true) {
-                var ray = Instantiate(rayPrefab).GetComponent<Ray>();
-                ray.Fire(hand.indexFinger.position, hand.indexFinger.forward, rayRange, rayForce);
-                Destroy(ray.gameObject, rayLifetime);
+                var ray = Instantiate(rayPrefab).GetComponent<IRay>();
+                ray.Fire(hand.indexFinger.position, hand.indexFinger.forward, rayRange, rayForce, rayLifetime);
 
-                Apollo.rumble(hand.laterality, rumbleDuration, (ushort)(rumbleForce * ushort.MaxValue));
+                //Apollo.rumble(hand.laterality, rumbleDuration, (ushort)(rumbleForce * ushort.MaxValue));
                 yield return new WaitForSeconds(rayInterval / 1000f);
             }
         }
+        //*/
     }
 }

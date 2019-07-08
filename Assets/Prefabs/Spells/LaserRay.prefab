@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4192670299033601866}
   - component: {fileID: -6289417911356018740}
   - component: {fileID: 9041686501315002403}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: LaserRay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,12 +57,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6b644859d3a09c4eb999d8194aad11e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rayPrefab: {fileID: 860274569619483770, guid: e35baf974db34364fa9bbe25ac688ad2,
+  rayPrefab: {fileID: 8505999473017453898, guid: 69f6b7392e1ac62418789caeda3e220c,
     type: 3}
   rayForce: 50
-  rayInterval: 500
+  rayInterval: 10
   rayRange: 10000
-  rayLifetime: 1
+  rayLifetime: 15
   destruction: {fileID: 2100000, guid: fd0b5fbf6723ef04182980861a7dbdf8, type: 2}
-  rumbleDuration: 100
+  rumbleDuration: 5
   rumbleForce: 1
