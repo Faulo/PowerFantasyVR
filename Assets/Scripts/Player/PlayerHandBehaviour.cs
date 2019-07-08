@@ -30,7 +30,7 @@ namespace PFVR.Player {
                     return Enumerable.Empty<ISpellState>();
                 }
                 if (!allStates.ContainsKey(currentSpellPrefab)) {
-                    allStates[currentSpellPrefab] = Instantiate(currentSpellPrefab, wrist);
+                    allStates[currentSpellPrefab] = Instantiate(currentSpellPrefab, transform);
                 }
                 return allStates[currentSpellPrefab].GetComponents<ISpellState>();
             }
@@ -71,7 +71,7 @@ namespace PFVR.Player {
         }
 
         // Update is called once per frame
-        void Update() {
+        void FixedUpdate() {
             currentStates.ForAll(state => state.OnUpdate(owner, this));
         }
     }

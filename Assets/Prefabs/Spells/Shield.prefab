@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7251110531041235969}
   - component: {fileID: 603642116900062251}
-  m_Layer: 0
+  - component: {fileID: 2469197954782386518}
+  m_Layer: 15
   m_Name: Shield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,4 +44,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcf2b5e2888bad94fba6c2e9555f4e43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trackerMaterial: {fileID: 0}
+  trackerMaterial: {fileID: 2100000, guid: e63deb997cb9cdf40a2e7185e0f48b49, type: 2}
+--- !u!114 &2469197954782386518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7897152370536501686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1efcc0af79e53ce48a227d7304ba27d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hamsterBallPrefab: {fileID: 1951401995437561932, guid: e307bcd28ed80d44d8750318dd3cde8b,
+    type: 3}

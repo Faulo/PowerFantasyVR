@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using PFVR.ScriptableObjects;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -34,6 +35,12 @@ namespace PFVR.Canvas {
                 .ToArray();
         }
 
+        public void SelectObject(T obj) {
+            for (int i = 0; i < scriptableButtons.Length; i++) {
+                scriptableButtons[i].selected = scriptableObjects[i] == obj;
+            }
+        }
+
         public void AddClickAction(Action<T, BasicButton> action) {
             for (int i = 0; i < scriptableButtons.Length; i++) {
                 var obj = scriptableObjects[i];
@@ -45,6 +52,12 @@ namespace PFVR.Canvas {
         public void OnlyShow(Func<T, bool> filter) {
             for (int i = 0; i < scriptableButtons.Length; i++) {
                 scriptableButtons[i].gameObject.SetActive(filter(scriptableObjects[i]));
+            }
+        }
+
+        public void ForAll(Action<T, BasicButton> action) {
+            for (int i = 0; i < scriptableButtons.Length; i++) {
+                action(scriptableObjects[i], scriptableButtons[i]);
             }
         }
     }

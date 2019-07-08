@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellPrefab: {fileID: 9195071170267245166, guid: 4d8457d75c962044abdc04c90e0d9a39,
     type: 3}
+  icon: {fileID: 21300000, guid: 48eef1bdba7470c449b65704470c3ce6, type: 3}

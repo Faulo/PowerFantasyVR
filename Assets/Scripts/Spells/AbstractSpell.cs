@@ -1,8 +1,10 @@
 ﻿using PFVR;
 using PFVR.Player;
 using PFVR.Spells;
+using Slothsoft.UnityExtensions;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Valve.VR;
 
@@ -14,7 +16,10 @@ namespace PFVR.Spells {
 
         public void OnEnter(PlayerBehaviour player, PlayerHandBehaviour hand) {
             if (trackerMaterial != default) {
-                hand.tracker.GetComponentInChildren<MeshRenderer>().material = trackerMaterial;
+                hand.tracker.GetComponentsInChildren<MeshRenderer>()
+                    .Reverse()
+                    .Take(1)
+                    .ForAll(renderer => renderer.material = trackerMaterial);
             }
             gameObject.SetActive(true);
         }

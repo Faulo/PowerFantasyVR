@@ -24,12 +24,8 @@ namespace PFVR.ScriptableObjects {
             }
         }
 
-        public IEnumerable<string> gestureNames {
-            get {
-                return gestures
-                    .Select(gesture => gesture.name);
-            }
-        }
+        public IEnumerable<Gesture> gestureObjects => gestures;
+        public IEnumerable<string> gestureNames => gestures.Select(gesture => gesture.name);
 
         public Gesture this[string name] {
             get {

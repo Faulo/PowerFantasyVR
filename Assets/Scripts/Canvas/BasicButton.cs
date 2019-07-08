@@ -9,7 +9,10 @@ namespace PFVR.Canvas {
         public bool selected {
             set {
                 if (value) {
-                    EventSystem.current.SetSelectedGameObject(gameObject);
+                    image.color = button.colors.selectedColor;
+                    //EventSystem.current.SetSelectedGameObject(gameObject);
+                } else {
+                    image.color = button.colors.normalColor;
                 }
             }
         }
@@ -32,5 +35,7 @@ namespace PFVR.Canvas {
                 return GetComponentInChildren<TextMeshProUGUI>();
             }
         }
+        private Image image => GetComponent<Image>();
+        private Button button => GetComponent<Button>();
     }
 }
