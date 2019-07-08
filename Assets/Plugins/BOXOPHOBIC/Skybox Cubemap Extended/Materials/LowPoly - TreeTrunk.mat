@@ -120,7 +120,7 @@ Material:
     - _WindDirection: {r: 0, g: 0, b: 0, a: 0}
     - _WindDirectionandMagnitude: {r: 0, g: 0, b: 0, a: 0}
     - _WindMagnitude: {r: 0, g: 0, b: 0.1, a: 0}
---- !u!114 &1371502222640281175
+--- !u!114 &8898695578136736378
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}

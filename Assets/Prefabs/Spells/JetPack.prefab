@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6069843581386993472}
   - component: {fileID: 1610598520849146197}
   - component: {fileID: 1877286270978585807}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: JetPack
   m_TagString: Untagged
   m_Icon: {fileID: 0}

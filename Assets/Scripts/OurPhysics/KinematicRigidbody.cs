@@ -6,10 +6,10 @@ namespace PFVR.OurPhysics {
         public float mass = 1;
         [HideInInspector]
         public Vector3 velocity = Vector3.zero;
+        [SerializeField]
+        public bool transferForce = true;
 
-        private Rigidbody body {
-            get => GetComponent<Rigidbody>();
-        }
+        private Rigidbody body => GetComponent<Rigidbody>();
 
         void Start() {
             if (body != null) {
@@ -24,7 +24,7 @@ namespace PFVR.OurPhysics {
         }
 
         private void OnCollisionEnter(Collision collision) {
-            if (collision.rigidbody != null) {
+            if (transferForce && collision.rigidbody != null) {
                 collision.rigidbody.AddForce(velocity * mass, ForceMode.Impulse);
             }
         }
