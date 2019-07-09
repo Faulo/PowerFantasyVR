@@ -66,7 +66,7 @@ namespace PFVR.Spells.FireBall {
         }
 
         public void OnUpdate(PlayerBehaviour player, PlayerHandBehaviour hand) {
-            chargeTime += Time.fixedDeltaTime;
+            chargeTime += Time.deltaTime;
             if (ball != null && anchor != null) {
                 var distance = anchor.transform.position - ball.transform.position;
                 ball.body.AddForce(distance, ForceMode.VelocityChange);
@@ -78,7 +78,7 @@ namespace PFVR.Spells.FireBall {
             while (true) {
                 if (ball != null) {
                     var distance = (anchor.transform.position - ball.transform.position).magnitude;
-                    Apollo.rumble(hand.laterality, rumbleInterval, (ushort)(rumbleForceOverDistance.Evaluate(distance) * rumbleForceOverSize.Evaluate(ball.size) * ushort.MaxValue));
+                    ManusConnector.Rumble(hand.laterality, rumbleInterval, rumbleForceOverDistance.Evaluate(distance) * rumbleForceOverSize.Evaluate(ball.size));
                 }
                 yield return new WaitForSeconds(rumbleInterval / 1000f);
             }

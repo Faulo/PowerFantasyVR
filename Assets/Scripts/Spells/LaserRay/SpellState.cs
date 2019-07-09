@@ -39,7 +39,7 @@ namespace PFVR.Spells.LaserRay {
         }
         private IEnumerator CreateRayRoutine(PlayerHandBehaviour hand) {
             while (true) {
-                Apollo.rumble(hand.laterality, rumbleDuration, (ushort)(rumbleForce * ushort.MaxValue));
+                ManusConnector.Rumble(hand.laterality, rumbleDuration, rumbleForce);
                 yield return new WaitForSeconds(rumbleDuration / 1000f);
             }
         }

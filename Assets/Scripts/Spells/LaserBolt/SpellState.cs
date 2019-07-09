@@ -42,7 +42,7 @@ namespace PFVR.Spells.LaserBolt {
                 var bolt = Instantiate(boltPrefab, hand.indexFinger.position, hand.indexFinger.rotation).GetComponent<Bolt>();
                 bolt.velocity = hand.owner.rigidbody.velocity + bolt.transform.forward * boltVelocity;
                 Destroy(bolt.gameObject, boltLifetime);
-                Apollo.rumble(hand.laterality, rumbleDuration, (ushort)(rumbleForce * ushort.MaxValue));
+                ManusConnector.Rumble(hand.laterality, rumbleDuration, rumbleForce);
                 yield return new WaitForSeconds(boltInterval / 1000f);
             }
         }
