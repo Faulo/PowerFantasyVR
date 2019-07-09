@@ -63,7 +63,7 @@ namespace PFVR.Spells.FireBall {
                 Destroy(ball.gameObject);
                 return;
             }
-            var laser = collision.gameObject.GetComponentInParent<IRay>();
+            var laser = collision.gameObject.GetComponentInParent<BasicRay>();
             if (laser != null) {
                 Explosion.Instantiate(laserExplosionPrefab, transform.position, size);
                 Destroy(gameObject);
