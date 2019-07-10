@@ -12,6 +12,8 @@ namespace PFVR.ScriptableObjects {
         [SerializeField]
         private Gesture[] gestures = default;
 
+        public Dictionary<string, bool> gesturesActive = default;
+
         public string modelPath {
             get {
                 return AssetDatabase.GetAssetPath(modelFile);
