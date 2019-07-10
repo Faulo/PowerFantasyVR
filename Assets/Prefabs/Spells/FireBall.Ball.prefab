@@ -61,6 +61,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -127,7 +128,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocityMultiplier: 5
-  mergeRange: 10
   regularExplosionPrefab: {fileID: 3679691998973720690, guid: 07fb9b5a1e4e5ab4d910b1495c4f8983,
     type: 3}
   mergeExplosionPrefab: {fileID: 3679691998973720690, guid: 120eab5e70711a740b09c00ec7e98e7d,
@@ -183,6 +183,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gravity: 0.1
+--- !u!114 &2755459742055101525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2660647729270359775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aade954727a730e4b90cf91833b20886, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClips:
+  - {fileID: 8300000, guid: a42857d72ec6f744eac3ad9f83344416, type: 3}
+  playOnStart: 1
+  loop: 1
+  volMin: 0.5
+  volMax: 0.5
+  pitchMin: 0.9
+  pitchMax: 1.1
+  audioSource: {fileID: 0}
 --- !u!1001 &163431775107679141
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -255,8 +276,24 @@ PrefabInstance:
       propertyPath: audioClips.Array.data[0]
       value: 
       objectReference: {fileID: 8300000, guid: 9f102b98516b9954fb2b0c900f4cd93e, type: 3}
+    - target: {fileID: 4058099465869877981, guid: 7e1c94bd432ecb8488be4416fc196a4c,
+        type: 3}
+      propertyPath: pitchMin
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4058099465869877981, guid: 7e1c94bd432ecb8488be4416fc196a4c,
+        type: 3}
+      propertyPath: pitchMax
+      value: 1.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7e1c94bd432ecb8488be4416fc196a4c, type: 3}
+--- !u!1 &2660647729270359775 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2785517421695468922, guid: 7e1c94bd432ecb8488be4416fc196a4c,
+    type: 3}
+  m_PrefabInstance: {fileID: 163431775107679141}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6739166026339021832 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6900345443278878637, guid: 7e1c94bd432ecb8488be4416fc196a4c,
