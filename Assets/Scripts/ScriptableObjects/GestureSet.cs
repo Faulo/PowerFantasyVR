@@ -10,17 +10,8 @@ namespace PFVR.ScriptableObjects {
         [Serializable]
         public class GestureDictionary : SerializableDictionary<Gesture, bool> {}
 
-        [SerializeField]
-        private DefaultAsset modelFile = default;
-
         [SerializeField, HideInInspector]
         public GestureDictionary activeGestures = new GestureDictionary();
-
-        public string modelPath {
-            get {
-                return AssetDatabase.GetAssetPath(modelFile);
-            }
-        }
 
         public string trackingDataPath {
             get {

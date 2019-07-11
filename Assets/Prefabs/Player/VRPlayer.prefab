@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 7863847782837665452}
   - component: {fileID: 4777895722694159348}
   m_Layer: 13
-  m_Name: Player
+  m_Name: VRPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -199,7 +199,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2277c96070389bd479853f0121985183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gestureSet: {fileID: 11400000, guid: bc23990e67a0ecb40b6684bad27fc9a2, type: 2}
+  gestureProfile: {fileID: 11400000, guid: 9e937a24699dac14bb3fbe1177890b7d, type: 2}
   gestureTriggerFrames: 3
 --- !u!1 &6440376351388671019
 GameObject:
@@ -816,16 +816,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6869369310094727806}
     m_Modifications:
-    - target: {fileID: 6128611909653066066, guid: 9589a22f8b1c4f24a9daf25e6d987356,
-        type: 3}
-      propertyPath: m_Name
-      value: Manus
-      objectReference: {fileID: 0}
-    - target: {fileID: 6128611909653066066, guid: 9589a22f8b1c4f24a9daf25e6d987356,
-        type: 3}
-      propertyPath: m_Layer
-      value: 13
-      objectReference: {fileID: 0}
     - target: {fileID: 3256553086241573187, guid: 9589a22f8b1c4f24a9daf25e6d987356,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -880,6 +870,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6128611909653066066, guid: 9589a22f8b1c4f24a9daf25e6d987356,
+        type: 3}
+      propertyPath: m_Name
+      value: Manus
+      objectReference: {fileID: 0}
+    - target: {fileID: 6128611909653066066, guid: 9589a22f8b1c4f24a9daf25e6d987356,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 8918259206468696371, guid: 9589a22f8b1c4f24a9daf25e6d987356,
         type: 3}

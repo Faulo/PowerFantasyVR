@@ -7,12 +7,12 @@ using UnityEngine;
 namespace PFVR.Player {
     public class GestureConnector : MonoBehaviour {
         [SerializeField]
-        private GestureSet gestureSet = default;
+        private GestureProfile gestureProfile = default;
 
         [SerializeField]
         private int gestureTriggerFrames = 1;
 
-        public IEnumerable<Gesture> availableGestures => gestureSet.gestureObjects;
+        public IEnumerable<Gesture> availableGestures => gestureProfile.gestureSet.gestureObjects;
 
         public delegate void NewGesture(Gesture gesture);
 
@@ -26,11 +26,11 @@ namespace PFVR.Player {
         private int nextRightGestureCount;
 
         void Start() {
-            if (gestureSet == null) {
-                throw new MissingReferenceException("GestureConnector needs a gestureSet!");
+            if (gestureProfile == null) {
+                throw new MissingReferenceException("GestureConnector needs a GestureProfile!");
             }
 
-            var recognizer = new GestureRecognizer(gestureSet.modelPath);
+            var recognizer = new GestureRecognizer(gestureProfile.modelDataPath);
 
             ManusConnector.onLeftGloveData += (GloveData glove) => {
                 var gestureId = recognizer.Guess(glove.ToGestureModel());
@@ -40,7 +40,7 @@ namespace PFVR.Player {
                 }
                 nextLeftGestureCount++;
                 if (nextLeftGestureCount >= gestureTriggerFrames) {
-                    var gesture = gestureSet[gestureId];
+                    var gesture = gestureProfile.gestureSet[gestureId];
                     onLeftGesture?.Invoke(gesture);
                 }
             };
@@ -52,7 +52,7 @@ namespace PFVR.Player {
                 }
                 nextRightGestureCount++;
                 if (nextRightGestureCount >= gestureTriggerFrames) {
-                    var gesture = gestureSet[gestureId];
+                    var gesture = gestureProfile.gestureSet[gestureId];
                     onRightGesture?.Invoke(gesture);
                 }
             };
