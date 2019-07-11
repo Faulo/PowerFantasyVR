@@ -16,18 +16,18 @@ namespace PFVR.Canvas {
         [SerializeField]
         private GameObject iconPrefab = default;
 
-        private PlayerBehaviour player => GetComponentInParent<PlayerBehaviour>();
+        private GestureConnector player => GetComponentInParent<GestureConnector>();
         private ScriptableObjectManager<Gesture> leftGestureManager;
         private ScriptableObjectManager<Gesture> rightGestureManager;
 
         // Start is called before the first frame update
         void Start() {
             leftGestureManager = new ScriptableObjectManager<Gesture>(leftGestureGroup);
-            leftGestureManager.OnlyShow(gesture => player.availableGestures.Contains(gesture));
+            //leftGestureManager.OnlyShow(gesture => player.IsUnlocked(gesture));
             leftGestureManager.ForAll(DisplayIcon);
 
             rightGestureManager = new ScriptableObjectManager<Gesture>(rightGestureGroup);
-            rightGestureManager.OnlyShow(gesture => player.availableGestures.Contains(gesture));
+            //rightGestureManager.OnlyShow(gesture => player.IsUnlocked(gesture));
             rightGestureManager.ForAll(DisplayIcon);
 
             GestureConnector.onLeftGesture += leftGestureManager.SelectObject;
@@ -36,7 +36,8 @@ namespace PFVR.Canvas {
 
         // Update is called once per frame
         void Update() {
-
+            leftGestureManager.OnlyShow(gesture => player.IsUnlocked(gesture));
+            rightGestureManager.OnlyShow(gesture => player.IsUnlocked(gesture));
         }
 
         private void DisplayIcon(Gesture gesture, BasicButton button) {

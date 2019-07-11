@@ -1,6 +1,8 @@
 ﻿using PFVR.DataModels;
 using PFVR.ScriptableObjects;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 
@@ -12,7 +14,13 @@ namespace PFVR.Player {
         [SerializeField]
         private int gestureTriggerFrames = 1;
 
-        public IEnumerable<Gesture> availableGestures => gestureProfile.gestureSet.gestureObjects;
+        private Dictionary<string, bool> unlockedGestures = new Dictionary<string, bool>() {
+            ["Nothing"] = true
+        };
+
+        public IEnumerable<Gesture> availableGestures => unlockedGestures
+            .Where(keyval => keyval.Value)
+            .Select(keyval => gestureProfile.gestureSet[keyval.Key]);
 
         public delegate void NewGesture(Gesture gesture);
 
@@ -39,7 +47,7 @@ namespace PFVR.Player {
                     nextLeftGestureCount = 0;
                 }
                 nextLeftGestureCount++;
-                if (nextLeftGestureCount >= gestureTriggerFrames) {
+                if (nextLeftGestureCount >= gestureTriggerFrames && IsUnlocked(gestureId)) {
                     var gesture = gestureProfile.gestureSet[gestureId];
                     onLeftGesture?.Invoke(gesture);
                 }
@@ -51,11 +59,37 @@ namespace PFVR.Player {
                     nextRightGestureCount = 0;
                 }
                 nextRightGestureCount++;
-                if (nextRightGestureCount >= gestureTriggerFrames) {
+                if (nextRightGestureCount >= gestureTriggerFrames && IsUnlocked(gestureId)) {
                     var gesture = gestureProfile.gestureSet[gestureId];
                     onRightGesture?.Invoke(gesture);
                 }
             };
+        }
+        public bool IsUnlocked(string gestureId) {
+            return unlockedGestures.ContainsKey(gestureId)
+                ? unlockedGestures[gestureId]
+                : false;
+        }
+        public bool IsUnlocked(Gesture gesture) => IsUnlocked(gesture.name);
+
+        public void Unlock(string gestureId) {
+            unlockedGestures[gestureId] = true;
+        }
+        public void Unlock(Gesture gesture) => Unlock(gesture.name);
+        public void Lock(string gestureId) {
+            unlockedGestures[gestureId] = false;
+        }
+        public void Lock(Gesture gesture) => Lock(gesture.name);
+
+        private void Update() {
+            if (Input.GetKeyDown(KeyCode.Alpha1)) {
+                var id = "JetPack";
+                if (IsUnlocked(id)) {
+                    Lock(id);
+                } else {
+                    Unlock(id);
+                }
+            }
         }
     }
 }
