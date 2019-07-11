@@ -26,7 +26,7 @@ namespace PFVR.ScriptableObjects {
             //Debug.Log(col.Value.ToString());
 
             foreach (var gesture in gestures) {
-                var active = EditorGUILayout.ToggleLeft(gesture.name, true);
+                gestureSet.activeGestures[gesture] = EditorGUILayout.ToggleLeft(gesture.name, gestureSet.IsActive(gesture));
             }
 
             EditorUtility.SetDirty(target);
