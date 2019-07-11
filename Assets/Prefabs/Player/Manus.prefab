@@ -104,6 +104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7fd25f9130ce8b41a5c8ba5ec2af696, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  useRumbleMixer: 0
   rumbleInterval: 50
 --- !u!1 &7192444318225632212
 GameObject:
