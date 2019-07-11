@@ -12,9 +12,6 @@ using UnityEngine.UI;
 
 namespace PFVR.Backend {
     public class GestureDataRecording : MonoBehaviour {
-        [SerializeField]
-        private GestureProfile gestureProfile = default;
-        [Space]
         [SerializeField, Range(1, 60)]
         private int recordingTime = 10;
         [SerializeField, Range(1, 600)]
@@ -82,7 +79,7 @@ namespace PFVR.Backend {
         }
         private IEnumerator RecordGesturesRoutine(params Gesture[] gestures) {
             foreach (var gesture in gestures) {
-                currentRecorder = new GestureRecorder(gestureProfile, gesture, recordingTime, log);
+                currentRecorder = new GestureRecorder(currentProfile, gesture, recordingTime, log);
                 yield return currentRecorder.Record();
             }
             currentRoutine = null;
@@ -96,7 +93,7 @@ namespace PFVR.Backend {
                 log.text = "Wait for the last recording to finish!";
                 return;
             }
-            var merger = new ModelMerger(currentGestureSet.gestureNames.Select(name => "TrackingData/" + gestureProfile.name + "/" + name));
+            var merger = new ModelMerger(currentGestureSet.gestureNames.Select(name => "TrackingData/" + currentProfile.name + "/" + name));
             merger.Put(currentProfile.trackingDataPath);
             log.text = "Created gesture set model '" + Path.GetFileName(currentProfile.trackingDataPath) + "'!";
         }
@@ -111,7 +108,7 @@ namespace PFVR.Backend {
             }
             try {
                 var batchFile = Application.dataPath + "/../trainModel.bat";
-                var name = currentGestureSet.name;
+                var name = currentProfile.name;
                 var csvFile = currentProfile.trackingDataPath;
                 var zipFile = currentProfile.modelDataPath;
 
