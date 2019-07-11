@@ -4863,9 +4863,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a738af819d89632488441c4b35716c4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rayRange: 1
+  rayRange: 100
   rayDamagePerSecond: 50
-  pointTransform: {fileID: 2222188682446853590}
 --- !u!54 &8287558799287717538
 Rigidbody:
   m_ObjectHideFlags: 0
