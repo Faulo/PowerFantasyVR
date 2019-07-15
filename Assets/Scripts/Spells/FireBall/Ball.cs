@@ -13,9 +13,6 @@ namespace PFVR.Spells.FireBall {
         [SerializeField, Range(1, 10)]
         private float velocityMultiplier = 1;
 
-        [SerializeField, Range(0, 10)]
-        private float mergeRange = 1;
-
         [SerializeField]
         private GameObject regularExplosionPrefab = default;
 
@@ -66,7 +63,7 @@ namespace PFVR.Spells.FireBall {
                 Destroy(ball.gameObject);
                 return;
             }
-            var laser = collision.gameObject.GetComponentInParent<IRay>();
+            var laser = collision.gameObject.GetComponentInParent<BasicRay>();
             if (laser != null) {
                 Explosion.Instantiate(laserExplosionPrefab, transform.position, size);
                 Destroy(gameObject);

@@ -10,11 +10,11 @@ using UnityEngine.UI;
 namespace PFVR.Canvas {
     public class PlayerHUD : MonoBehaviour {
         [SerializeField]
-        private LayoutGroup leftGestureGroup;
+        private LayoutGroup leftGestureGroup = default;
         [SerializeField]
-        private LayoutGroup rightGestureGroup;
+        private LayoutGroup rightGestureGroup = default;
         [SerializeField]
-        private GameObject iconPrefab;
+        private GameObject iconPrefab = default;
 
         private PlayerBehaviour player => GetComponentInParent<PlayerBehaviour>();
         private ScriptableObjectManager<Gesture> leftGestureManager;

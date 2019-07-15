@@ -54,13 +54,13 @@ namespace PFVR.Spells.JetPack {
             }
         }
         public void OnUpdate(PlayerBehaviour player, PlayerHandBehaviour hand) {
-            runTime += Time.fixedDeltaTime;
-            player.rigidbody.AddForce(hand.wrist.up * propulsionForce * Time.fixedDeltaTime * engine.propulsion, ForceMode.VelocityChange);
-            player.rigidbody.AddForce(Physics.gravity * gravityNegation * Time.fixedDeltaTime, ForceMode.VelocityChange);
+            runTime += Time.deltaTime;
+            player.rigidbody.AddForce(hand.wrist.up * propulsionForce * Time.deltaTime * engine.propulsion, ForceMode.VelocityChange);
+            player.rigidbody.AddForce(Physics.gravity * gravityNegation * Time.deltaTime, ForceMode.VelocityChange);
         }
         private IEnumerator CreateRumbleRoutine(GloveLaterality side) {
             while (true) {
-                Apollo.rumble(side, rumbleInterval, (ushort)(engine.propulsion * rumbleForce * ushort.MaxValue));
+                ManusConnector.Rumble(side, rumbleInterval, engine.propulsion * rumbleForce);
                 yield return new WaitForSeconds(rumbleInterval / 1000f);
             }
         }
