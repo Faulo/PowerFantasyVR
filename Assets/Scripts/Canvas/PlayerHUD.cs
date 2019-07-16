@@ -1,5 +1,6 @@
 ﻿using PFVR.Player;
 using PFVR.ScriptableObjects;
+using PFVR.Spells;
 using Slothsoft.UnityExtensions;
 using System.Collections;
 using System.Collections.Generic;
@@ -10,24 +11,24 @@ using UnityEngine.UI;
 namespace PFVR.Canvas {
     public class PlayerHUD : MonoBehaviour {
         [SerializeField]
-        private LayoutGroup leftGestureGroup;
+        private LayoutGroup leftGestureGroup = default;
         [SerializeField]
-        private LayoutGroup rightGestureGroup;
+        private LayoutGroup rightGestureGroup = default;
         [SerializeField]
-        private GameObject iconPrefab;
+        private GameObject iconPrefab = default;
 
-        private PlayerBehaviour player => GetComponentInParent<PlayerBehaviour>();
+        private GestureConnector player => GetComponentInParent<GestureConnector>();
         private ScriptableObjectManager<Gesture> leftGestureManager;
         private ScriptableObjectManager<Gesture> rightGestureManager;
 
         // Start is called before the first frame update
         void Start() {
             leftGestureManager = new ScriptableObjectManager<Gesture>(leftGestureGroup);
-            leftGestureManager.OnlyShow(gesture => player.availableGestures.Contains(gesture));
+            //leftGestureManager.OnlyShow(gesture => player.IsUnlocked(gesture));
             leftGestureManager.ForAll(DisplayIcon);
 
             rightGestureManager = new ScriptableObjectManager<Gesture>(rightGestureGroup);
-            rightGestureManager.OnlyShow(gesture => player.availableGestures.Contains(gesture));
+            //rightGestureManager.OnlyShow(gesture => player.IsUnlocked(gesture));
             rightGestureManager.ForAll(DisplayIcon);
 
             GestureConnector.onLeftGesture += leftGestureManager.SelectObject;
@@ -36,7 +37,8 @@ namespace PFVR.Canvas {
 
         // Update is called once per frame
         void Update() {
-
+            leftGestureManager.OnlyShow(gesture => player.IsUnlocked(gesture));
+            rightGestureManager.OnlyShow(gesture => player.IsUnlocked(gesture));
         }
 
         private void DisplayIcon(Gesture gesture, BasicButton button) {
@@ -45,6 +47,9 @@ namespace PFVR.Canvas {
                 var icon = Instantiate(iconPrefab, button.transform);
                 icon.GetComponent<Image>().sprite = gesture.icon;
             }
+            var colors = button.GetComponent<Button>().colors;
+            colors.selectedColor = gesture.spellColor;
+            button.GetComponent<Button>().colors = colors;
         }
     }
 }

@@ -11,7 +11,7 @@ namespace PFVR.AI
         public override void OnTargetReached()
         {
             base.OnTargetReached();
-            Debug.Log("Gotcha!");
+            //Debug.Log("Gotcha!");
         }
     }
 }
