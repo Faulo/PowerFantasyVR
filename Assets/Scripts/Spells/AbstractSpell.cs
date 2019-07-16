@@ -15,15 +15,7 @@ namespace PFVR.Spells {
         public Color glowColor = default;
 
         public void OnEnter(PlayerBehaviour player, PlayerHandBehaviour hand) {
-            var renderer = hand.infinityStone.GetComponentInChildren<MeshRenderer>();
-            if (glowColor == default) {
-                renderer.material.globalIlluminationFlags = MaterialGlobalIlluminationFlags.EmissiveIsBlack;
-                renderer.material.DisableKeyword("_EMISSION");
-            } else {
-                renderer.material.globalIlluminationFlags = MaterialGlobalIlluminationFlags.RealtimeEmissive;
-                renderer.material.EnableKeyword("_EMISSION");
-                renderer.material.SetColor("_EmissionColor", glowColor);
-            }
+            hand.infinityStone.GetComponentInChildren<MeshRenderer>().material.SetColor("_EmissionColor", glowColor);
             gameObject.SetActive(true);
         }
 
