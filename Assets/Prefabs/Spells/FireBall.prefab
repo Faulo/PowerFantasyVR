@@ -111,3 +111,4 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   maximumChargeTime: 3
+  breakSpeed: 0.1
