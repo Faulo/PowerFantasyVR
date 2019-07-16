@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcf2b5e2888bad94fba6c2e9555f4e43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trackerMaterial: {fileID: 2100000, guid: 6b41a7e254e1e804eb18fe6e27ebe46e, type: 2}
+  glowColor: {r: 0, g: 32, b: 32, a: 1}
 --- !u!114 &9041686501315002403
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59,10 +59,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rayPrefab: {fileID: 8505999473017453898, guid: 69f6b7392e1ac62418789caeda3e220c,
     type: 3}
-  rayForce: 50
-  rayInterval: 10
-  rayRange: 10000
-  rayLifetime: 15
-  destruction: {fileID: 2100000, guid: fd0b5fbf6723ef04182980861a7dbdf8, type: 2}
   rumbleDuration: 5
   rumbleForce: 1

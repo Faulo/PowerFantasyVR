@@ -63,20 +63,18 @@ namespace PFVR.Spells.FireBall {
                 Destroy(ball.gameObject);
                 return;
             }
-            var laser = collision.gameObject.GetComponentInParent<IRay>();
+            var laser = collision.gameObject.GetComponentInParent<BasicRay>();
             if (laser != null) {
-                Explosion.Instantiate(laserExplosionPrefab, transform.position, size);
+                LaserExplode();
                 Destroy(gameObject);
                 return;
             }
             var bolt = collision.gameObject.GetComponentInParent<Bolt>();
             if (bolt != null) {
-                Explosion.Instantiate(laserExplosionPrefab, transform.position, size);
-                Destroy(gameObject);
+                LaserExplode();
                 return;
             }
-            Explosion.Instantiate(regularExplosionPrefab, transform.position, size);
-            Destroy(gameObject);
+            Explode();
         }
 
         /*
@@ -94,12 +92,14 @@ namespace PFVR.Spells.FireBall {
                     });
             }
         }
-
-        private void Explode() {
-            var explosion = Instantiate(regularExplosionPrefab, transform.position, transform.rotation).GetComponent<Explosion>();
-            explosion.size = size;
+        //*/
+        public void Explode() {
+            Explosion.Instantiate(regularExplosionPrefab, transform.position, size);
             Destroy(gameObject);
         }
-        //*/
+        public void LaserExplode() {
+            Explosion.Instantiate(laserExplosionPrefab, transform.position, size);
+            Destroy(gameObject);
+        }
     }
 }

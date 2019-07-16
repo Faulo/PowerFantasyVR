@@ -12,41 +12,34 @@ namespace PFVR.Spells.LaserRay {
         [SerializeField]
         private GameObject rayPrefab = default;
 
-        [SerializeField, Range(1, 100)]
-        private float rayForce = 50;
-
-        [SerializeField, Range(1, 100000)]
-        private float rayRange = 1000;
-
         [SerializeField, Range(1, 1000)]
         private ushort rumbleDuration = 100;
 
         [SerializeField, Range(0f, 1f)]
         private float rumbleForce = 0.5f;
 
-        private IRay ray;
+        private BasicRay ray;
         private Coroutine rayRoutine;
 
         public void OnEnter(PlayerBehaviour player, PlayerHandBehaviour hand) {
-            ray = Instantiate(rayPrefab).GetComponent<IRay>();
-            ray.UpdateRay(hand.indexFinger.position, hand.indexFinger.forward, rayRange, rayForce);
+            ray = Instantiate(rayPrefab, hand.indexFinger).GetComponent<BasicRay>();
             rayRoutine = StartCoroutine(CreateRayRoutine(hand));
         }
         public void OnExit(PlayerBehaviour player, PlayerHandBehaviour hand) {
             if (ray != null) {
-                ray.Stop();
+                Destroy(ray.gameObject);
                 ray = null;
             }
             if (rayRoutine != null) {
                 StopCoroutine(rayRoutine);
+                rayRoutine = null;
             }
         }
         public void OnUpdate(PlayerBehaviour player, PlayerHandBehaviour hand) {
-            ray.UpdateRay(hand.indexFinger.position, hand.indexFinger.forward, rayRange, rayForce);
         }
         private IEnumerator CreateRayRoutine(PlayerHandBehaviour hand) {
             while (true) {
-                Apollo.rumble(hand.laterality, rumbleDuration, (ushort)(rumbleForce * ushort.MaxValue));
+                ManusConnector.Rumble(hand.laterality, rumbleDuration, rumbleForce);
                 yield return new WaitForSeconds(rumbleDuration / 1000f);
             }
         }
