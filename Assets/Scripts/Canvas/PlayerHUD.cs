@@ -1,5 +1,6 @@
 ﻿using PFVR.Player;
 using PFVR.ScriptableObjects;
+using PFVR.Spells;
 using Slothsoft.UnityExtensions;
 using System.Collections;
 using System.Collections.Generic;
@@ -46,6 +47,9 @@ namespace PFVR.Canvas {
                 var icon = Instantiate(iconPrefab, button.transform);
                 icon.GetComponent<Image>().sprite = gesture.icon;
             }
+            var colors = button.GetComponent<Button>().colors;
+            colors.selectedColor = gesture.spellColor;
+            button.GetComponent<Button>().colors = colors;
         }
     }
 }

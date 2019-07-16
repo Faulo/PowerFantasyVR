@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcf2b5e2888bad94fba6c2e9555f4e43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trackerMaterial: {fileID: 2100000, guid: ca94113644de6114c889ff7f85dc3af3, type: 2}
+  glowColor: {r: 42.722507, g: 0.43163633, b: 0, a: 1}
 --- !u!114 &-1416078439336689124
 MonoBehaviour:
   m_ObjectHideFlags: 0

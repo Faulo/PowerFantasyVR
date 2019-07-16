@@ -1,6 +1,7 @@
 ﻿using PFVR.DataModels;
 using PFVR.ScriptableObjects;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -8,6 +9,7 @@ using UnityEngine;
 
 namespace PFVR.Player {
     public class GestureConnector : MonoBehaviour {
+
         [SerializeField]
         private GestureProfile gestureProfile = default;
 
@@ -33,6 +35,12 @@ namespace PFVR.Player {
         private int nextLeftGestureCount;
         private int nextRightGestureCount;
 
+        [SerializeField]
+        private KeyCode[] debugKeys = default;
+        [SerializeField]
+        private Gesture[] debugGestures = default;
+        private Gesture defaultGesture => debugGestures[0];
+
         void Start() {
             if (gestureProfile == null) {
                 throw new MissingReferenceException("GestureConnector needs a GestureProfile!");
@@ -42,28 +50,46 @@ namespace PFVR.Player {
 
             ManusConnector.onLeftGloveData += (GloveData glove) => {
                 var gestureId = recognizer.Guess(glove.ToGestureModel());
+                gestureId = UnlockedOrDefault(gestureId);
                 if (nextLeftGestureId != gestureId) {
                     nextLeftGestureId = gestureId;
                     nextLeftGestureCount = 0;
                 }
                 nextLeftGestureCount++;
-                if (nextLeftGestureCount >= gestureTriggerFrames && IsUnlocked(gestureId)) {
+                if (nextLeftGestureCount >= gestureTriggerFrames) {
                     var gesture = gestureProfile.gestureSet[gestureId];
                     onLeftGesture?.Invoke(gesture);
                 }
             };
             ManusConnector.onRightGloveData += (GloveData glove) => {
                 var gestureId = recognizer.Guess(glove.ToGestureModel());
+                gestureId = UnlockedOrDefault(gestureId);
                 if (nextRightGestureId != gestureId) {
                     nextRightGestureId = gestureId;
                     nextRightGestureCount = 0;
                 }
                 nextRightGestureCount++;
-                if (nextRightGestureCount >= gestureTriggerFrames && IsUnlocked(gestureId)) {
+                if (nextRightGestureCount >= gestureTriggerFrames) {
                     var gesture = gestureProfile.gestureSet[gestureId];
                     onRightGesture?.Invoke(gesture);
                 }
             };
+            StartCoroutine(Init());
+        }
+
+        private string UnlockedOrDefault(string gestureId) {
+            return IsUnlocked(gestureId)
+                ? gestureId
+                : defaultGesture.name;
+        }
+
+        private IEnumerator Init() {
+            yield return new WaitForSeconds(1);
+            var gesture = defaultGesture;
+            Unlock(gesture);
+            onLeftGesture?.Invoke(gesture);
+            onRightGesture?.Invoke(gesture);
+            yield return null;
         }
         public bool IsUnlocked(string gestureId) {
             return unlockedGestures.ContainsKey(gestureId)
@@ -82,12 +108,14 @@ namespace PFVR.Player {
         public void Lock(Gesture gesture) => Lock(gesture.name);
 
         private void Update() {
-            if (Input.GetKeyDown(KeyCode.Alpha1)) {
-                var id = "JetPack";
-                if (IsUnlocked(id)) {
-                    Lock(id);
-                } else {
-                    Unlock(id);
+            for (int i = 0; i < debugKeys.Length; i++) {
+                if (Input.GetKeyDown(debugKeys[i])) {
+                    var id = debugGestures[i];
+                    if (IsUnlocked(id)) {
+                        Lock(id);
+                    } else {
+                        Unlock(id);
+                    }
                 }
             }
         }
