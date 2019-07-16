@@ -57,7 +57,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6089ac35d782f9642b25c5ae021b5c82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  propulsionForce: 10
+  propulsionForce: 20
   gravityNegation: -0.1
   rumbleInterval: 100
   rumbleForce: 0.75
@@ -85,5 +85,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  startupSpeed: 2
+  turnSpeed: 0.3
   enginePrefab: {fileID: 8718152847802425796, guid: 28bf7ca5801158d449984a6eaaaa55ea,
     type: 3}
