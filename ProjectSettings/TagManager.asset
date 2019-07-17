@@ -9,6 +9,7 @@ TagManager:
   - Bullet
   - Shootable
   - Beacon
+  - LeaderTarget
   layers:
   - Default
   - TransparentFX
