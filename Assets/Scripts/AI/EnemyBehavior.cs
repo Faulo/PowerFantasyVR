@@ -13,6 +13,7 @@ namespace PFVR.AI
         // Beta > 0; Factor for diffusion intensity
         public float betaFactor = 1.0f;
 
+        private float idleDiffusion = 60.0f;
         private float diffusion;
         private float goalDiffusion;
         private float randNum;
@@ -52,18 +53,6 @@ namespace PFVR.AI
             // Reset value for the nearest goal for new calculation
             nearestGoalDistance = float.MaxValue;
 
-            // Find player nearby
-            //if(player != null) { 
-            //    currentDistance = Vector3.Distance(goal.position, transform.position);
-            //    if (currentDistance < nearestGoalDistance)
-            //    {
-            //        nearestGoalDistance = currentDistance;
-            //        nearestGoal = goal;
-            //        // take half of scale to get the radius
-            //        goalRadius = goal.Find("Radius").transform.lossyScale.x / 2.0f;
-            //    }
-            //}
-
             // Find nearest beacon and set as goal if nearer than current goal and not in goal radius
             for (int i=0; i < arrayOfBeacons.Length; i++)
             {
@@ -79,7 +68,6 @@ namespace PFVR.AI
             // *** Part 2: Calculate drift ***
             // Set nearest goal
             transformationVector = new Vector3(nearestGoal.position.x, nearestGoal.position.y, nearestGoal.position.z) - transform.position;
-            //transformationVector = transformationVector * Mathf.Pow(2.0f, 10);
             // *** Part 3: Calculate diffusion ***
             // Create Diffusion Term: Distance between beacon/goal and agent multiplied with beta
             diffusion = Vector3.Distance(nearestGoal.position, transform.position) * betaFactor;
@@ -97,12 +85,13 @@ namespace PFVR.AI
 
             // Diffusion vector: position of goal + position of diffusion vector minus the position of the agent
             diffusionVector = new Vector3(nearestGoal.position.x + diffusionX, nearestGoal.position.y + diffusionY, nearestGoal.position.z + diffusionZ) - transform.position;
+            // Add more diffusion when idle
             randNum = MarsagliaGenerator.Next();
-            diffusionVector.x += 60.0f * randNum;
+            diffusionVector.x += idleDiffusion * randNum;
             randNum = MarsagliaGenerator.Next();
-            diffusionVector.y += 60.0f * randNum;
+            diffusionVector.y += idleDiffusion * randNum;
             randNum = MarsagliaGenerator.Next();
-            diffusionVector.z += 60.0f * randNum;
+            diffusionVector.z += idleDiffusion * randNum;
 
             // *** Part 5: Put together the parts ***
             finalMovementVector = transformationVector * alphaFactor + diffusionVector;

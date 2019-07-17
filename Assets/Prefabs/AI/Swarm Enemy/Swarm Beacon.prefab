@@ -124,3 +124,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   alphaFactor: 1.5
+  attackPlayerDistance: 500
