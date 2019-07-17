@@ -59,7 +59,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boltPrefab: {fileID: 114941719058234932, guid: 57d140f76287dc94fb9fd482ad2cae07,
     type: 3}
-  boltVelocity: 50
+  boltVelocity: 100
   boltInterval: 200
   boltLifetime: 10
   rumbleDuration: 50
