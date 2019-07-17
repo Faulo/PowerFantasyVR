@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - Bullet
   - Shootable
+  - Fire
   layers:
   - Default
   - TransparentFX
@@ -25,7 +26,7 @@ TagManager:
   - Player
   - Obstacle
   - Spell
-  - 
+  - Powerup
   - 
   - 
   - 
