@@ -20,6 +20,8 @@ namespace PFVR.Spells.LaserRay {
         private void OnTriggerStay(Collider other) {
             other.GetComponentsInParent<Destroyable>()
                 .ForAll(destroyable => destroyable.currentHP -= rayDamagePerSecond * Time.deltaTime);
+            other.GetComponentsInParent<FireBall.Ball>()
+                .ForAll(ball => ball.LaserExplode());
         }
 
         private void Update() {
