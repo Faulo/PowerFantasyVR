@@ -29,6 +29,9 @@ namespace PFVR.Player {
         public static event NewGesture onLeftGesture;
         public static event NewGesture onRightGesture;
 
+        public static event NewGesture onGestureUnlock;
+        public static event NewGesture onGestureLock;
+
         private string nextLeftGestureId;
         private string nextRightGestureId;
 
@@ -100,10 +103,12 @@ namespace PFVR.Player {
 
         public void Unlock(string gestureId) {
             unlockedGestures[gestureId] = true;
+            onGestureUnlock?.Invoke(gestureProfile.gestureSet[gestureId]);
         }
         public void Unlock(Gesture gesture) => Unlock(gesture.name);
         public void Lock(string gestureId) {
             unlockedGestures[gestureId] = false;
+            onGestureLock?.Invoke(gestureProfile.gestureSet[gestureId]);
         }
         public void Lock(Gesture gesture) => Lock(gesture.name);
 
