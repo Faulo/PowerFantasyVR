@@ -13,7 +13,6 @@ namespace PFVR.OurPhysics {
             set {
                 if (value < currentHPCache) {
                     animator.SetTrigger("DamageTaken");
-                    Debug.Log("DamageTaken");
                 }
                 currentHPCache = value;
             }

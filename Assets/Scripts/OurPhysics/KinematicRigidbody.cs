@@ -20,7 +20,7 @@ namespace PFVR.OurPhysics {
         }
 
         void FixedUpdate() {
-            transform.Translate(velocity * Time.fixedDeltaTime, Space.World);
+            transform.Translate(velocity * Time.deltaTime, Space.World);
         }
 
         private void OnCollisionEnter(Collision collision) {

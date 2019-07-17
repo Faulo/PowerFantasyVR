@@ -8,6 +8,9 @@ TagManager:
   - Enemy
   - Bullet
   - Shootable
+  - Beacon
+  - LeaderTarget
+  - Ankor
   layers:
   - Default
   - TransparentFX

@@ -6,7 +6,7 @@ using UnityEngine;
 public class BulletMover : MonoBehaviour
 {
     public float speed;
-    Rigidbody rigidbody;
+    new Rigidbody rigidbody;
 
     // Start is called before the first frame update
     void Start()
