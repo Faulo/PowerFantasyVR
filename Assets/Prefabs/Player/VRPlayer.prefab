@@ -550,6 +550,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: DustParticles
       objectReference: {fileID: 0}
+    - target: {fileID: 5980167054109241071, guid: 068349533cf3ee74e863c4f3dd457ecc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3887652696172604282, guid: 068349533cf3ee74e863c4f3dd457ecc,
+        type: 3}
+      propertyPath: InitialModule.startSizeY.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3887652696172604282, guid: 068349533cf3ee74e863c4f3dd457ecc,
+        type: 3}
+      propertyPath: InitialModule.startSizeZ.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5980167054109241065, guid: 068349533cf3ee74e863c4f3dd457ecc,
         type: 3}
       propertyPath: InitialModule.startColor.maxColor.r
