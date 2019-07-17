@@ -461,6 +461,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: DustParticles
       objectReference: {fileID: 0}
+    - target: {fileID: 5980167054109241071, guid: 068349533cf3ee74e863c4f3dd457ecc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3887652696172604282, guid: 068349533cf3ee74e863c4f3dd457ecc,
+        type: 3}
+      propertyPath: InitialModule.startSizeY.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3887652696172604282, guid: 068349533cf3ee74e863c4f3dd457ecc,
+        type: 3}
+      propertyPath: InitialModule.startSizeZ.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5980167054109241065, guid: 068349533cf3ee74e863c4f3dd457ecc,
         type: 3}
       propertyPath: InitialModule.startColor.maxColor.r
@@ -661,16 +676,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8964607349203889154}
     m_Modifications:
-    - target: {fileID: 2242195331599891690, guid: 63e25afebc3edaf498d7f14055b73fc8,
-        type: 3}
-      propertyPath: m_Name
-      value: InfinityStone
-      objectReference: {fileID: 0}
-    - target: {fileID: 2242195331599891690, guid: 63e25afebc3edaf498d7f14055b73fc8,
-        type: 3}
-      propertyPath: m_Layer
-      value: 13
-      objectReference: {fileID: 0}
     - target: {fileID: 5298681156070744402, guid: 63e25afebc3edaf498d7f14055b73fc8,
         type: 3}
       propertyPath: m_RootOrder
@@ -690,6 +695,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2242195331599891690, guid: 63e25afebc3edaf498d7f14055b73fc8,
+        type: 3}
+      propertyPath: m_Name
+      value: InfinityStone
+      objectReference: {fileID: 0}
+    - target: {fileID: 2242195331599891690, guid: 63e25afebc3edaf498d7f14055b73fc8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 2682509199177904227, guid: 63e25afebc3edaf498d7f14055b73fc8,
         type: 3}
@@ -711,16 +726,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7909227063574767802}
     m_Modifications:
-    - target: {fileID: 2242195331599891690, guid: 63e25afebc3edaf498d7f14055b73fc8,
-        type: 3}
-      propertyPath: m_Name
-      value: InfinityStone
-      objectReference: {fileID: 0}
-    - target: {fileID: 2242195331599891690, guid: 63e25afebc3edaf498d7f14055b73fc8,
-        type: 3}
-      propertyPath: m_Layer
-      value: 13
-      objectReference: {fileID: 0}
     - target: {fileID: 5298681156070744402, guid: 63e25afebc3edaf498d7f14055b73fc8,
         type: 3}
       propertyPath: m_RootOrder
@@ -740,6 +745,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2242195331599891690, guid: 63e25afebc3edaf498d7f14055b73fc8,
+        type: 3}
+      propertyPath: m_Name
+      value: InfinityStone
+      objectReference: {fileID: 0}
+    - target: {fileID: 2242195331599891690, guid: 63e25afebc3edaf498d7f14055b73fc8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 2682509199177904227, guid: 63e25afebc3edaf498d7f14055b73fc8,
         type: 3}
@@ -761,21 +776,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 557080649455473808}
     m_Modifications:
-    - target: {fileID: 5409348000551111487, guid: 5cd836d39217b8343acb9adc4efa848e,
-        type: 3}
-      propertyPath: m_Name
-      value: InfinityStoneHolder
-      objectReference: {fileID: 0}
-    - target: {fileID: 5409348000551111487, guid: 5cd836d39217b8343acb9adc4efa848e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5409348000551111487, guid: 5cd836d39217b8343acb9adc4efa848e,
-        type: 3}
-      propertyPath: m_Layer
-      value: 13
-      objectReference: {fileID: 0}
     - target: {fileID: 5975865068208947906, guid: 5cd836d39217b8343acb9adc4efa848e,
         type: 3}
       propertyPath: m_RootOrder
@@ -795,6 +795,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 5409348000551111487, guid: 5cd836d39217b8343acb9adc4efa848e,
+        type: 3}
+      propertyPath: m_Name
+      value: InfinityStoneHolder
+      objectReference: {fileID: 0}
+    - target: {fileID: 5409348000551111487, guid: 5cd836d39217b8343acb9adc4efa848e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5409348000551111487, guid: 5cd836d39217b8343acb9adc4efa848e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 4993237528870366927, guid: 5cd836d39217b8343acb9adc4efa848e,
         type: 3}
@@ -1370,16 +1385,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5636883006642895920}
     m_Modifications:
-    - target: {fileID: 5409348000551111487, guid: 5cd836d39217b8343acb9adc4efa848e,
-        type: 3}
-      propertyPath: m_Name
-      value: InfinityStoneHolder
-      objectReference: {fileID: 0}
-    - target: {fileID: 5409348000551111487, guid: 5cd836d39217b8343acb9adc4efa848e,
-        type: 3}
-      propertyPath: m_Layer
-      value: 13
-      objectReference: {fileID: 0}
     - target: {fileID: 5975865068208947906, guid: 5cd836d39217b8343acb9adc4efa848e,
         type: 3}
       propertyPath: m_RootOrder
@@ -1399,6 +1404,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 5409348000551111487, guid: 5cd836d39217b8343acb9adc4efa848e,
+        type: 3}
+      propertyPath: m_Name
+      value: InfinityStoneHolder
+      objectReference: {fileID: 0}
+    - target: {fileID: 5409348000551111487, guid: 5cd836d39217b8343acb9adc4efa848e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 4993237528870366927, guid: 5cd836d39217b8343acb9adc4efa848e,
         type: 3}
