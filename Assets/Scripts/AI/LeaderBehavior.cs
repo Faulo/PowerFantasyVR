@@ -29,13 +29,16 @@ public class LeaderBehavior : MonoBehaviour
     {
         // Retrieve all targets
         arrayOfTargets = GameObject.FindGameObjectsWithTag("LeaderTarget");
+        //Debug.Log("Array of Targets: "+arrayOfTargets.Length);
         //Retrieve player
         player = GameObject.FindGameObjectWithTag("Player");
-
+        //Debug.Log("Player exists: " + !player.Equals(null));
         //Retrieve ankor
         ankor = GameObject.FindGameObjectWithTag("Ankor");
+        //Debug.Log("Array of Ankor: " + !ankor.Equals(null));
         // Set number of Targets
         num = arrayOfTargets.Length - 1;
+        lookForPlayer = true;
 
         rigidBody = GetComponent<Rigidbody>();
     }
@@ -50,18 +53,14 @@ public class LeaderBehavior : MonoBehaviour
         }
         currentTarget = arrayOfTargets[num].transform;
 
-        // Decide if next target will be used
         currentDistance = Vector3.Distance(currentTarget.position, transform.position);
         if (currentDistance < nearTarget)
         {
+            //Debug.Log("Set new Target");
             num--;
-            if(!lookForPlayer)
-            {
-                normalize = false;
-                lookForPlayer = true;
-            }
+            normalize = false;
+            lookForPlayer = true;
         }
-
         // Find player nearby
         if (player != null) { 
             playerDistance = Vector3.Distance(player.transform.position, transform.position);
@@ -69,9 +68,11 @@ public class LeaderBehavior : MonoBehaviour
             if (playerDistance < attackPlayerDistance && ankorDistance < ankorThreshold && lookForPlayer)
             {
                 currentTarget = player.transform;
+                //Debug.Log("Send to player");
 
             }else if(ankorDistance > ankorThreshold)
             {
+                //Debug.Log("Too far away");
                 lookForPlayer = false;
                 normalize = true;
             }
@@ -81,8 +82,9 @@ public class LeaderBehavior : MonoBehaviour
         transformationVector = new Vector3(currentTarget.position.x, currentTarget.position.y, currentTarget.position.z) - transform.position;
         if(normalize)
         {
+            //Debug.Log("Normalize Vector");
             Vector3.Normalize(transformationVector);
-            transformationVector = transformationVector * 0.3f;
+            transformationVector = transformationVector * 0.4f;
         }
         rigidBody.AddRelativeForce(transformationVector * alphaFactor);
     }
