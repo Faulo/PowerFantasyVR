@@ -1,18 +1,28 @@
 ﻿using PFVR.DataModels;
 using PFVR.ScriptableObjects;
+using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 
 namespace PFVR.Player {
     public class GestureConnector : MonoBehaviour {
+
         [SerializeField]
-        private GestureSet gestureSet = default;
+        private GestureProfile gestureProfile = default;
 
         [SerializeField]
         private int gestureTriggerFrames = 1;
 
-        public IEnumerable<Gesture> availableGestures => gestureSet.gestureObjects;
+        private Dictionary<string, bool> unlockedGestures = new Dictionary<string, bool>() {
+            ["Nothing"] = true
+        };
+
+        public IEnumerable<Gesture> availableGestures => unlockedGestures
+            .Where(keyval => keyval.Value)
+            .Select(keyval => gestureProfile.gestureSet[keyval.Key]);
 
         public delegate void NewGesture(Gesture gesture);
 
@@ -25,37 +35,89 @@ namespace PFVR.Player {
         private int nextLeftGestureCount;
         private int nextRightGestureCount;
 
+        [SerializeField]
+        private KeyCode[] debugKeys = default;
+        [SerializeField]
+        private Gesture[] debugGestures = default;
+        private Gesture defaultGesture => debugGestures[0];
+
         void Start() {
-            if (gestureSet == null) {
-                throw new MissingReferenceException("GestureConnector needs a gestureSet!");
+            if (gestureProfile == null) {
+                throw new MissingReferenceException("GestureConnector needs a GestureProfile!");
             }
 
-            var recognizer = new GestureRecognizer(gestureSet.modelPath);
+            var recognizer = new GestureRecognizer(gestureProfile.modelDataPath);
 
             ManusConnector.onLeftGloveData += (GloveData glove) => {
                 var gestureId = recognizer.Guess(glove.ToGestureModel());
+                gestureId = UnlockedOrDefault(gestureId);
                 if (nextLeftGestureId != gestureId) {
                     nextLeftGestureId = gestureId;
                     nextLeftGestureCount = 0;
                 }
                 nextLeftGestureCount++;
                 if (nextLeftGestureCount >= gestureTriggerFrames) {
-                    var gesture = gestureSet[gestureId];
+                    var gesture = gestureProfile.gestureSet[gestureId];
                     onLeftGesture?.Invoke(gesture);
                 }
             };
             ManusConnector.onRightGloveData += (GloveData glove) => {
                 var gestureId = recognizer.Guess(glove.ToGestureModel());
+                gestureId = UnlockedOrDefault(gestureId);
                 if (nextRightGestureId != gestureId) {
                     nextRightGestureId = gestureId;
                     nextRightGestureCount = 0;
                 }
                 nextRightGestureCount++;
                 if (nextRightGestureCount >= gestureTriggerFrames) {
-                    var gesture = gestureSet[gestureId];
+                    var gesture = gestureProfile.gestureSet[gestureId];
                     onRightGesture?.Invoke(gesture);
                 }
             };
+            StartCoroutine(Init());
+        }
+
+        private string UnlockedOrDefault(string gestureId) {
+            return IsUnlocked(gestureId)
+                ? gestureId
+                : defaultGesture.name;
+        }
+
+        private IEnumerator Init() {
+            yield return new WaitForSeconds(1);
+            var gesture = defaultGesture;
+            Unlock(gesture);
+            onLeftGesture?.Invoke(gesture);
+            onRightGesture?.Invoke(gesture);
+            yield return null;
+        }
+        public bool IsUnlocked(string gestureId) {
+            return unlockedGestures.ContainsKey(gestureId)
+                ? unlockedGestures[gestureId]
+                : false;
+        }
+        public bool IsUnlocked(Gesture gesture) => IsUnlocked(gesture.name);
+
+        public void Unlock(string gestureId) {
+            unlockedGestures[gestureId] = true;
+        }
+        public void Unlock(Gesture gesture) => Unlock(gesture.name);
+        public void Lock(string gestureId) {
+            unlockedGestures[gestureId] = false;
+        }
+        public void Lock(Gesture gesture) => Lock(gesture.name);
+
+        private void Update() {
+            for (int i = 0; i < debugKeys.Length; i++) {
+                if (Input.GetKeyDown(debugKeys[i])) {
+                    var id = debugGestures[i];
+                    if (IsUnlocked(id)) {
+                        Lock(id);
+                    } else {
+                        Unlock(id);
+                    }
+                }
+            }
         }
     }
 }

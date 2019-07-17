@@ -53,7 +53,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4230003515613127558}
-  m_LocalRotation: {x: -0, y: 0.7071068, z: 0.000000029802315, w: 0.70710677}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -104,6 +104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7fd25f9130ce8b41a5c8ba5ec2af696, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  useRumbleMixer: 0
   rumbleInterval: 50
 --- !u!1 &7192444318225632212
 GameObject:
@@ -158,7 +159,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7972008569410743587}
-  m_LocalRotation: {x: 0.7071068, y: 0.00000006891785, z: -0.7071068, w: 0.00000016577536}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: -0.7071068, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -172,6 +173,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3256553086241573187}
     m_Modifications:
+    - target: {fileID: 1442993600510070, guid: 809cba6b88ebbf342a8f205bbe562d98, type: 3}
+      propertyPath: m_Name
+      value: ManusVRUE4Arms-SteamVR
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442993600510070, guid: 809cba6b88ebbf342a8f205bbe562d98, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1860942633331424, guid: 809cba6b88ebbf342a8f205bbe562d98, type: 3}
       propertyPath: m_Layer
       value: 0
@@ -393,14 +402,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1630004977826126, guid: 809cba6b88ebbf342a8f205bbe562d98, type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1442993600510070, guid: 809cba6b88ebbf342a8f205bbe562d98, type: 3}
-      propertyPath: m_Name
-      value: ManusVRUE4Arms-SteamVR
-      objectReference: {fileID: 0}
-    - target: {fileID: 1442993600510070, guid: 809cba6b88ebbf342a8f205bbe562d98, type: 3}
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}

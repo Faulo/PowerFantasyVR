@@ -16,12 +16,14 @@ namespace PFVR.Backend {
             Done
         }
         private TextMeshProUGUI log;
+        private GestureProfile profile;
         private Gesture gesture;
         private int recordingTime;
         private ModelWriter<GestureModel> writer;
         private RecordState state = RecordState.Inactive;
 
-        public GestureRecorder(Gesture gesture, int recordingTime, TextMeshProUGUI log) {
+        public GestureRecorder(GestureProfile profile, Gesture gesture, int recordingTime, TextMeshProUGUI log) {
+            this.profile = profile;
             this.gesture = gesture;
             this.log = log;
             this.recordingTime = recordingTime;
@@ -30,11 +32,11 @@ namespace PFVR.Backend {
         public IEnumerator Record() {
             state = RecordState.Preparing;
 
-            string path = Application.dataPath + "/Resources/TrackingData/";
-            if (!AssetDatabase.IsValidFolder("Assets/Resources/TrackingData/" + gesture.name)) {
-                AssetDatabase.CreateFolder("Assets/Resources/TrackingData", gesture.name);
-            }
-            writer = new ModelWriter<GestureModel>(path + gesture.name);
+            string root = Application.dataPath + "/../";
+            string path = "Assets/Resources/TrackingData";
+            path = EnsureFolder(path, profile.name);
+            path = EnsureFolder(path, gesture.name);
+            writer = new ModelWriter<GestureModel>(root + path);
 
             ManusConnector.onLeftGloveData += RecordGlove;
             ManusConnector.onRightGloveData += RecordGlove;
@@ -54,6 +56,14 @@ namespace PFVR.Backend {
             Log("All done!");
             writer.Finish();
         }
+
+        private string EnsureFolder(string path, string name) {
+            if (!AssetDatabase.IsValidFolder(path + "/" + name)) {
+                AssetDatabase.CreateFolder(path, name);
+            }
+            return path + "/" + name;
+        }
+
         private void RecordGlove(GloveData data) {
             switch (state) {
                 case RecordState.Inactive:

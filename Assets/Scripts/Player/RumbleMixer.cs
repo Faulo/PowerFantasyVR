@@ -10,6 +10,7 @@ namespace PFVR.Player {
     public class RumbleMixer {
         private GloveLaterality side;
         private ushort interval;
+        private bool mix;
         private float[] rumbles = new float[100];
         private int rumbleIndex;
         private IEnumerable<int> rumbleIndexes {
@@ -20,33 +21,40 @@ namespace PFVR.Player {
             }
         }
 
-        public RumbleMixer(GloveLaterality side, ushort interval) {
+        public RumbleMixer(GloveLaterality side, ushort interval, bool mix) {
             this.side = side;
             this.interval = interval;
+            this.mix = mix;
         }
 
         public IEnumerator RumbleMixerRoutine() {
-            var wait = new WaitForSecondsRealtime((float)interval / 1000);
-            while (true) {
-                var power = Mathf.Clamp01(rumbles[rumbleIndex]);
-                if (power > 0) {
-                    Apollo.rumble(side, interval, (ushort)(ushort.MaxValue * power));
-                    rumbles[rumbleIndex] = 0;
+            if (mix) {
+                var wait = new WaitForSecondsRealtime((float)interval / 1000);
+                while (true) {
+                    var power = Mathf.Clamp01(rumbles[rumbleIndex]);
+                    if (power > 0) {
+                        Apollo.rumble(side, interval, (ushort)(ushort.MaxValue * power));
+                        rumbles[rumbleIndex] = 0;
+                    }
+                    rumbleIndex = (rumbleIndex + 1) % rumbles.Length;
+                    yield return wait;
                 }
-                rumbleIndex = (rumbleIndex + 1) % rumbles.Length;
-                yield return wait;
             }
         }
 
         public void Rumble(ushort duration, float power) {
-            foreach (int i in rumbleIndexes) {
-                if (duration > interval) {
-                    duration -= interval;
-                    rumbles[i] += Mathf.Clamp01(power);
-                } else {
-                    rumbles[i] += Mathf.Clamp01(power * duration / interval);
-                    break;
+            if (mix) {
+                foreach (int i in rumbleIndexes) {
+                    if (duration > interval) {
+                        duration -= interval;
+                        rumbles[i] += Mathf.Clamp01(power);
+                    } else {
+                        rumbles[i] += Mathf.Clamp01(power * duration / interval);
+                        break;
+                    }
                 }
+            } else {
+                Apollo.rumble(side, duration, (ushort)(ushort.MaxValue * power));
             }
         }
     }

@@ -11,6 +11,8 @@ namespace PFVR.Player {
         public static event NewGloveData onLeftGloveData;
         public static event NewGloveData onRightGloveData;
 
+        [SerializeField]
+        private bool useRumbleMixer = false;
         [SerializeField, Range(1, 1000)]
         private ushort rumbleInterval = 1;
 
@@ -30,8 +32,8 @@ namespace PFVR.Player {
         private int playerId = 1;
 
         void Start() {
-            leftRumble = new RumbleMixer(GloveLaterality.GLOVE_LEFT, rumbleInterval);
-            rightRumble = new RumbleMixer(GloveLaterality.GLOVE_RIGHT , rumbleInterval);
+            leftRumble = new RumbleMixer(GloveLaterality.GLOVE_LEFT, rumbleInterval, useRumbleMixer);
+            rightRumble = new RumbleMixer(GloveLaterality.GLOVE_RIGHT , rumbleInterval, useRumbleMixer);
             StartCoroutine(leftRumble.RumbleMixerRoutine());
             StartCoroutine(rightRumble.RumbleMixerRoutine());
         }
