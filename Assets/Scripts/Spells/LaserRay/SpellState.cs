@@ -13,49 +13,34 @@ namespace PFVR.Spells.LaserRay {
         private GameObject rayPrefab = default;
 
         [SerializeField, Range(1, 1000)]
-        private ushort rayInterval = 1000;
-
-        [SerializeField, Range(1, 100000)]
-        private float rayRange = 1000;
-
-        [SerializeField, Range(0, 10)]
-        private float rayLifetime = 1;
-
-        [SerializeField, Range(0, 1000)]
-        private float rayForce = 100;
-
-        [SerializeField]
-        private Material destruction = default;
-
-        [SerializeField, Range(1, 1000)]
         private ushort rumbleDuration = 100;
 
         [SerializeField, Range(0f, 1f)]
         private float rumbleForce = 0.5f;
 
+        private BasicRay ray;
         private Coroutine rayRoutine;
 
         public void OnEnter(PlayerBehaviour player, PlayerHandBehaviour hand) {
-            if (rumbleDuration > rayInterval) {
-                rumbleDuration = rayInterval;
-            }
+            ray = Instantiate(rayPrefab, hand.indexFinger).GetComponent<BasicRay>();
             rayRoutine = StartCoroutine(CreateRayRoutine(hand));
         }
         public void OnExit(PlayerBehaviour player, PlayerHandBehaviour hand) {
+            if (ray != null) {
+                Destroy(ray.gameObject);
+                ray = null;
+            }
             if (rayRoutine != null) {
                 StopCoroutine(rayRoutine);
+                rayRoutine = null;
             }
         }
         public void OnUpdate(PlayerBehaviour player, PlayerHandBehaviour hand) {
         }
         private IEnumerator CreateRayRoutine(PlayerHandBehaviour hand) {
             while (true) {
-                var ray = Instantiate(rayPrefab).GetComponent<Ray>();
-                ray.Fire(hand.indexFinger.position, hand.indexFinger.forward, rayRange);
-                Destroy(ray.gameObject, rayLifetime);
-
-                Apollo.rumble(hand.laterality, rumbleDuration, (ushort)(rumbleForce * ushort.MaxValue));
-                yield return new WaitForSeconds(rayInterval / 1000f);
+                ManusConnector.Rumble(hand.laterality, rumbleDuration, rumbleForce);
+                yield return new WaitForSeconds(rumbleDuration / 1000f);
             }
         }
     }

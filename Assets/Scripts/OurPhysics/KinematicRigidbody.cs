@@ -6,12 +6,11 @@ namespace PFVR.OurPhysics {
         public float mass = 1;
         [HideInInspector]
         public Vector3 velocity = Vector3.zero;
-
-        private Rigidbody body {
-            get => GetComponent<Rigidbody>();
-        }
+        [SerializeField]
+        public bool transferForce = true;
 
         void Start() {
+            var body = GetComponent<Rigidbody>();
             if (body != null) {
                 mass = body.mass;
                 velocity = body.velocity;
@@ -20,11 +19,11 @@ namespace PFVR.OurPhysics {
         }
 
         void FixedUpdate() {
-            transform.Translate(velocity * Time.fixedDeltaTime, Space.World);
+            transform.Translate(velocity * Time.deltaTime, Space.World);
         }
 
         private void OnCollisionEnter(Collision collision) {
-            if (collision.rigidbody != null) {
+            if (transferForce && collision.rigidbody != null) {
                 collision.rigidbody.AddForce(velocity * mass, ForceMode.Impulse);
             }
         }

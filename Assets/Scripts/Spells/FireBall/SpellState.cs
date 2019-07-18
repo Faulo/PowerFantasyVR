@@ -12,8 +12,6 @@ namespace PFVR.Spells.FireBall {
         [SerializeField]
         private GameObject anchorPrefab = default;
 
-        [SerializeField]
-        private GameObject explosionPrefab = default;
 
         [SerializeField, Range(1, 1000)]
         private ushort rumbleInterval = 100;
@@ -26,13 +24,16 @@ namespace PFVR.Spells.FireBall {
 
         private Coroutine rumbleRoutine;
 
-        private Joint anchor;
+        private SpringJoint anchor;
 
         private Ball ball;
 
         [SerializeField]
         private float maximumChargeTime = 1f;
         private float currentChargeTime = 0;
+
+        [SerializeField, Range(0, 1)]
+        private float breakSpeed = 1f;
 
         private float chargeTime {
             get {
@@ -48,38 +49,40 @@ namespace PFVR.Spells.FireBall {
 
         public void OnEnter(PlayerBehaviour player, PlayerHandBehaviour hand) {
             if (anchor == null) {
-                anchor = Instantiate(anchorPrefab, hand.wrist).GetComponent<Joint>();
+                anchor = Instantiate(anchorPrefab, hand.wrist).GetComponent<SpringJoint>();
             }
             ball = Instantiate(ballPrefab).GetComponent<Ball>();
             ball.ConnectTo(anchor);
-            ball.onCollisionEnter += (ball, collision) => {
-                var explosion = Instantiate(explosionPrefab, ball.transform.position, ball.transform.rotation).GetComponent<Explosion>();
-                explosion.size = ball.size;
-                Destroy(ball.gameObject);
-            };
             chargeTime = 0;
             rumbleRoutine = StartCoroutine(CreateRumbleRoutine(hand));
         }
 
         public void OnExit(PlayerBehaviour player, PlayerHandBehaviour hand) {
-            ball?.ReleaseFrom(anchor, player.rigidbody.velocity);
-            ball = null;
+            if (ball != null) {
+                ball.body.velocity -= player.velocity;
+                ball.ReleaseFrom(anchor);
+                ball = null;
+            }
             if (rumbleRoutine != null) {
                 StopCoroutine(rumbleRoutine);
             }
         }
 
         public void OnUpdate(PlayerBehaviour player, PlayerHandBehaviour hand) {
-            chargeTime += Time.fixedDeltaTime;
-            if (ball != null) {
-                ball.transform.Translate(player.deltaMovement);
+            chargeTime += Time.deltaTime;
+            if (ball != null && anchor != null) {
+                var distance = anchor.transform.position - ball.transform.position;
+                ball.body.AddForce(distance, ForceMode.VelocityChange);
+                //anchor.damper = Mathf.Clamp(1 / distance.magnitude, 1, 1000);
+                anchor.spring = Mathf.Clamp(player.speed, 1, 1000);
             }
+            player.rigidbody.velocity = Vector3.Lerp(player.rigidbody.velocity, Vector3.zero, breakSpeed);
         }
         private IEnumerator CreateRumbleRoutine(PlayerHandBehaviour hand) {
             while (true) {
                 if (ball != null) {
                     var distance = (anchor.transform.position - ball.transform.position).magnitude;
-                    Apollo.rumble(hand.laterality, rumbleInterval, (ushort)(rumbleForceOverDistance.Evaluate(distance) * rumbleForceOverSize.Evaluate(ball.size) * ushort.MaxValue));
+                    ManusConnector.Rumble(hand.laterality, rumbleInterval, rumbleForceOverDistance.Evaluate(distance) * rumbleForceOverSize.Evaluate(ball.size));
                 }
                 yield return new WaitForSeconds(rumbleInterval / 1000f);
             }

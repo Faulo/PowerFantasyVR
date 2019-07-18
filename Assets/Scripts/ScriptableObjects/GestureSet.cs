@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
@@ -6,17 +7,11 @@ using UnityEngine;
 namespace PFVR.ScriptableObjects {
     [CreateAssetMenu(fileName = "New Gesture Set", menuName = "Gameplay/Gesture Set", order = 2)]
     public class GestureSet : ScriptableObject {
-        [SerializeField]
-        private DefaultAsset modelFile = default;
-        
-        [SerializeField]
-        private Gesture[] gestures = default;
+        [Serializable]
+        public class GestureDictionary : SerializableDictionary<Gesture, bool> { }
 
-        public string modelPath {
-            get {
-                return AssetDatabase.GetAssetPath(modelFile);
-            }
-        }
+        [SerializeField, HideInInspector]
+        private Gesture[] gestures = new Gesture[0];
 
         public string trackingDataPath {
             get {
@@ -24,18 +19,31 @@ namespace PFVR.ScriptableObjects {
             }
         }
 
-        public IEnumerable<string> gestureNames {
-            get {
-                return gestures
-                    .Select(gesture => gesture.name);
-            }
-        }
+        public IEnumerable<Gesture> gestureObjects => gestures;
+        public IEnumerable<string> gestureNames => gestureObjects
+            .Select(gesture => gesture.name);
 
         public Gesture this[string name] {
             get {
                 return gestures
                     .Where(gesture => gesture.name == name)
                     .FirstOrDefault();
+            }
+        }
+        
+        public bool Contains(Gesture gesture) => gestures.Contains(gesture);
+        public void Append(Gesture gesture) {
+            if (!Contains(gesture)) {
+                var list = gestures.ToList();
+                list.Add(gesture);
+                gestures = list.ToArray();
+            }
+        }
+        public void Remove(Gesture gesture) {
+            if (Contains(gesture)) {
+                var list = gestures.ToList();
+                list.Remove(gesture);
+                gestures = list.ToArray();
             }
         }
     }

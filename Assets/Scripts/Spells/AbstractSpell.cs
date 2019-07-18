@@ -4,20 +4,18 @@ using PFVR.Spells;
 using Slothsoft.UnityExtensions;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Valve.VR;
 
 namespace PFVR.Spells {
     public class AbstractSpell : MonoBehaviour, ISpellState {
-        [SerializeField]
-        [Tooltip("The material that is applied to the HTC Vive tracker model while this spell is active.")]
-        private Material trackerMaterial = default;
+        [SerializeField, ColorUsage(true, true)]
+        [Tooltip("The color the infinity stone will be glowing in.")]
+        public Color glowColor = default;
 
         public void OnEnter(PlayerBehaviour player, PlayerHandBehaviour hand) {
-            if (trackerMaterial != default) {
-                hand.tracker.GetComponentsInChildren<MeshRenderer>()
-                    .ForAll(renderer => renderer.material = trackerMaterial);
-            }
+            hand.infinityStone.GetComponentInChildren<MeshRenderer>().material.SetColor("_EmissionColor", glowColor);
             gameObject.SetActive(true);
         }
 

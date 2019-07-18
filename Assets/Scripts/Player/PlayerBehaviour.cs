@@ -2,14 +2,12 @@
 using PFVR.ScriptableObjects;
 using PFVR.Player;
 using UnityEngine;
+using System.Collections.Generic;
 
 namespace PFVR.Player {
+    [RequireComponent(typeof(GestureConnector))]
     public class PlayerBehaviour : MonoBehaviour {
-        public new Rigidbody rigidbody {
-            get {
-                return GetComponent<Rigidbody>();
-            }
-        }
+        public new Rigidbody rigidbody => GetComponent<Rigidbody>();
         [SerializeField]
         private PlayerHandBehaviour leftHand = default;
 
@@ -23,6 +21,10 @@ namespace PFVR.Player {
 
         public Vector3 deltaMovement { get; private set; }
         private Vector3 lastPosition = default;
+
+        public float speed => rigidbody.velocity.magnitude;
+        public Vector3 velocity => rigidbody.velocity;
+        public IEnumerable<Gesture> availableGestures => GetComponent<GestureConnector>().availableGestures;
 
         void Start() {
             leftHand.Init(this, GloveLaterality.GLOVE_LEFT);

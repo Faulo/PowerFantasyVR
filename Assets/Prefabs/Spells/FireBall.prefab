@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6649948884829630877}
   - component: {fileID: -239595523189970835}
   - component: {fileID: -1416078439336689124}
-  m_Layer: 10
+  m_Layer: 15
   m_Name: FireBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcf2b5e2888bad94fba6c2e9555f4e43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trackerMaterial: {fileID: 2100000, guid: ca94113644de6114c889ff7f85dc3af3, type: 2}
+  glowColor: {r: 42.722507, g: 0.43163633, b: 0, a: 1}
 --- !u!114 &-1416078439336689124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60,8 +60,6 @@ MonoBehaviour:
   ballPrefab: {fileID: 2041536302393913971, guid: ad544f0f79eab2544ba2506e8a21c770,
     type: 3}
   anchorPrefab: {fileID: 7456059992113307746, guid: fc50f321b4852c348ba3556dcc1c7565,
-    type: 3}
-  explosionPrefab: {fileID: 3679691998973720690, guid: 07fb9b5a1e4e5ab4d910b1495c4f8983,
     type: 3}
   rumbleInterval: 50
   rumbleForceOverDistance:
@@ -113,3 +111,4 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   maximumChargeTime: 3
+  breakSpeed: 0.1

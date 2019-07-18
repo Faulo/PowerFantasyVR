@@ -11,14 +11,13 @@ namespace PFVR.Player {
     public class PlayerHandBehaviour : MonoBehaviour {
         public PlayerBehaviour owner { get; private set; }
         public GloveLaterality laterality { get; private set; }
-        public Transform tracker {
-            get {
-                return transform;
-            }
-        }
+        public Transform tracker => transform;
         public Transform wrist;
         public Transform status;
         public Transform indexFinger;
+        public Transform infinityStone;
+
+        public bool enableDebugging;
 
         private GameObject currentSpellPrefab;
 
@@ -30,7 +29,7 @@ namespace PFVR.Player {
                     return Enumerable.Empty<ISpellState>();
                 }
                 if (!allStates.ContainsKey(currentSpellPrefab)) {
-                    allStates[currentSpellPrefab] = Instantiate(currentSpellPrefab, wrist);
+                    allStates[currentSpellPrefab] = Instantiate(currentSpellPrefab, transform);
                 }
                 return allStates[currentSpellPrefab].GetComponents<ISpellState>();
             }
@@ -46,17 +45,28 @@ namespace PFVR.Player {
             }
         }
         private Renderer rendererCache;
+        private string statusText {
+            get {
+                return status.GetComponent<TextMesh>().text;
+            }
+            set {
+                status.GetComponent<TextMesh>().text = value;
+            }
+        }
 
         internal void Init(PlayerBehaviour playerBehaviour, GloveLaterality gloveLaterality) {
             owner = playerBehaviour;
             laterality = gloveLaterality;
             manusHand = GetComponentInChildren<Hand>();
+            statusText = "";
         }
 
         public void SetGesture(Gesture gesture) {
             string gestureName = gesture == null ? "???" : gesture.name;
             string spellName = (gesture == null || gesture.spellPrefab == null) ? "???" : gesture.spellPrefab.name;
-            status.GetComponent<TextMesh>().text = gestureName + ":\n"  + spellName;
+            if (enableDebugging) {
+                statusText = gestureName + ":\n" + spellName;
+            }
             if (currentSpellPrefab == gesture.spellPrefab) {
                 return;
             }

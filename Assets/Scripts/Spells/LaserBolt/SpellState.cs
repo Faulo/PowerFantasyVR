@@ -10,8 +10,8 @@ namespace PFVR.Spells.LaserBolt {
         [SerializeField]
         private GameObject boltPrefab = default;
 
-        [SerializeField]
-        private float boltVelocity = 1000;
+        [SerializeField, Range(1, 1000)]
+        private float boltVelocity = 100;
 
         [SerializeField, Range(1, 1000)]
         private float boltInterval = 1000;
@@ -40,9 +40,9 @@ namespace PFVR.Spells.LaserBolt {
         private IEnumerator CreateBoltRoutine(PlayerHandBehaviour hand) {
             while (true) {
                 var bolt = Instantiate(boltPrefab, hand.indexFinger.position, hand.indexFinger.rotation).GetComponent<Bolt>();
-                bolt.velocity = hand.owner.rigidbody.velocity + bolt.transform.forward * boltVelocity;
+                bolt.velocity = bolt.transform.forward * boltVelocity;
                 Destroy(bolt.gameObject, boltLifetime);
-                Apollo.rumble(hand.laterality, rumbleDuration, (ushort)(rumbleForce * ushort.MaxValue));
+                ManusConnector.Rumble(hand.laterality, rumbleDuration, rumbleForce);
                 yield return new WaitForSeconds(boltInterval / 1000f);
             }
         }
