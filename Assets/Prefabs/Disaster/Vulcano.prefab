@@ -39,11 +39,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1904209326717239819}
     m_Modifications:
-    - target: {fileID: 4122932527643675923, guid: 4b505a81926f2144baa1981f7e8970b5,
-        type: 3}
-      propertyPath: m_Name
-      value: FireBallCannon
-      objectReference: {fileID: 0}
     - target: {fileID: 4122932527643675933, guid: 4b505a81926f2144baa1981f7e8970b5,
         type: 3}
       propertyPath: m_RootOrder
@@ -63,6 +58,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4122932527643675923, guid: 4b505a81926f2144baa1981f7e8970b5,
+        type: 3}
+      propertyPath: m_Name
+      value: FireBallCannon
       objectReference: {fileID: 0}
     - target: {fileID: 4122932527643675932, guid: 4b505a81926f2144baa1981f7e8970b5,
         type: 3}
@@ -94,11 +94,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1904209326717239819}
     m_Modifications:
-    - target: {fileID: 4122932527643675923, guid: 4b505a81926f2144baa1981f7e8970b5,
-        type: 3}
-      propertyPath: m_Name
-      value: RockCannon
-      objectReference: {fileID: 0}
     - target: {fileID: 4122932527643675933, guid: 4b505a81926f2144baa1981f7e8970b5,
         type: 3}
       propertyPath: m_RootOrder
@@ -117,6 +112,16 @@ PrefabInstance:
     - target: {fileID: 4122932527643675933, guid: 4b505a81926f2144baa1981f7e8970b5,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4122932527643675923, guid: 4b505a81926f2144baa1981f7e8970b5,
+        type: 3}
+      propertyPath: m_Name
+      value: RockCannon
+      objectReference: {fileID: 0}
+    - target: {fileID: 4122932527643675923, guid: 4b505a81926f2144baa1981f7e8970b5,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4122932527643675932, guid: 4b505a81926f2144baa1981f7e8970b5,
