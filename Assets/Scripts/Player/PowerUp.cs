@@ -10,19 +10,16 @@ namespace PFVR.Player {
 
         // Start is called before the first frame update
         void Start() {
-
+            GetComponent<MeshRenderer>().material.SetColor("_EmissionColor", gestureToUnlock.spellColor);
         }
 
-        // Update is called once per frame
-        void Update() {
-
-        }
-
-        void OnTriggerEnter(Collider other) {
-            if (other.gameObject.layer == LayerMask.GetMask("Player")) {
-                Debug.Log("Neue Fähigkeit verfügbar!");
+        void OnTriggerEnter(Collider collider) {
+            Debug.Log("Neue Fähigkeit verfügbar!" + collider);
+            var connector = collider.gameObject.GetComponentInParent<GestureConnector>();
+            if (connector) {
+                connector.Unlock(gestureToUnlock);
+                Destroy(gameObject);
             }
         }
-
     }
 }
