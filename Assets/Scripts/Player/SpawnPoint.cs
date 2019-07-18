@@ -28,7 +28,7 @@ namespace PFVR.Player {
         }
 
         void Awake() {
-            Instantiate(playerPrefab, transform);
+            Instantiate(playerPrefab, transform.position, transform.rotation);
         }
     }
 }

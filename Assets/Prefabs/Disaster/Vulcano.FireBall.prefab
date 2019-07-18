@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: -2774124642552244105}
   - component: {fileID: 3332621582401193978}
   - component: {fileID: 2193582816399782730}
+  - component: {fileID: 618414963197000404}
   m_Layer: 15
   m_Name: Vulcano.FireBall
   m_TagString: Untagged
@@ -59,11 +60,11 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 1
   m_AngularDrag: 1
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 2
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 3
+  m_CollisionDetection: 0
 --- !u!135 &8196755982290493834
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -145,6 +146,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gravity: 2
+--- !u!114 &618414963197000404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2041536302393913971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84bcb6af60b2f5547bca3c6e014fb391, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mass: 1
+  velocity: {x: 0, y: 0, z: 0}
+  transferForce: 1
 --- !u!114 &2755459742055101525
 MonoBehaviour:
   m_ObjectHideFlags: 0

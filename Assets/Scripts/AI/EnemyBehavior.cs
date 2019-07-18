@@ -9,21 +9,22 @@ namespace PFVR.AI
     public class EnemyBehavior : MonoBehaviour
     {
         // Alpha > 0; Factor for velocity of agents
-        public float alphaFactor = 0.4f;
+        [SerializeField, Range(0, 10)]
+        private float alphaFactor = 0.4f;
         // Beta > 0; Factor for diffusion intensity
-        public float betaFactor = 1.0f;
 
-        private float idleDiffusion = 60.0f;
+        [SerializeField, Range(0, 10)]
+        private float betaFactor = 1.0f;
+
+        [SerializeField, Range(0, 1000)]
+        private float idleDiffusion = 100.0f;
+
         private float diffusion;
         private float goalDiffusion;
         private float randNum;
         private float diffusionX;
         private float diffusionY;
         private float diffusionZ;
-
-        private float nearestGoalDistance = 10000.0f;
-        private float currentDistance = 10000.0f;
-        //private float goalRadius = 0.0f;
 
         private Rigidbody thisRigidbody;
         private Transform nearestGoal;
@@ -43,28 +44,38 @@ namespace PFVR.AI
             // Retrieve all Beacons
             arrayOfBeacons = GameObject.FindGameObjectsWithTag("Beacon");
             thisRigidbody = GetComponent<Rigidbody>();
+
+            //StartCoroutine(FindGoalRoutine());
+            nearestGoal = arrayOfBeacons[0].transform;
+        }
+
+        IEnumerator FindGoalRoutine() {
+            var wait = new WaitForSeconds(1);
+            while (true) {
+                // *** Part 1: Find nearest goal ***
+                // Reset value for the nearest goal for new calculation
+                var nearestGoalDistance = float.MaxValue;
+
+                // Find nearest beacon and set as goal if nearer than current goal and not in goal radius
+                for (int i = 0; i < arrayOfBeacons.Length; i++) {
+                    var currentBeacon = arrayOfBeacons[i].transform;
+                    var currentDistance = Vector3.Distance(currentBeacon.position, transform.position);
+                    if (currentDistance < nearestGoalDistance) {
+                        nearestGoalDistance = currentDistance;
+                        nearestGoal = currentBeacon;
+                    }
+                }
+                yield return wait;
+            }
         }
 
         // Update is called once per frame
         // Guidance System for agents is implemented here
         void Update()
         {
-            // *** Part 1: Find nearest goal ***
-            // Reset value for the nearest goal for new calculation
-            nearestGoalDistance = float.MaxValue;
-
-            // Find nearest beacon and set as goal if nearer than current goal and not in goal radius
-            for (int i=0; i < arrayOfBeacons.Length; i++)
-            {
-                currentBeacon = arrayOfBeacons[i].transform;
-                currentDistance = Vector3.Distance(currentBeacon.position, transform.position);
-                if (currentDistance < nearestGoalDistance)
-                {
-                    nearestGoalDistance = currentDistance;
-                    nearestGoal = currentBeacon;
-                }
+            if (!nearestGoal) {
+                return;
             }
-
             // *** Part 2: Calculate drift ***
             // Set nearest goal
             transformationVector = new Vector3(nearestGoal.position.x, nearestGoal.position.y, nearestGoal.position.z) - transform.position;

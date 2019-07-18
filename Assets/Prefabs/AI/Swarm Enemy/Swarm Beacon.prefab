@@ -123,6 +123,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60b74d06f1bb19842ade2f4e65f643d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  alphaFactor: 0.8
+  alphaFactor: 2
   attackPlayerDistance: 500
   ankorThreshold: 1500

@@ -49,6 +49,7 @@ namespace PFVR.Spells {
                         });
                     collider
                         .GetComponentsInParent<Destroyable>()
+                        .Log()
                         .ForAll(destroyable => destroyable.currentHP -= damage);
                 });
             particles.Play();

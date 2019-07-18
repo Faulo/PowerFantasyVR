@@ -23,11 +23,12 @@ namespace PFVR.OurPhysics {
         [SerializeField]
         private GameObject destructionPrefab = default;
 
-        private Animator animator => GetComponent<Animator>();
+        private Animator animator;
 
         // Start is called before the first frame update
         void Start() {
             currentHP = maxHP;
+            animator = GetComponent<Animator>();
         }
 
         // Update is called once per frame
