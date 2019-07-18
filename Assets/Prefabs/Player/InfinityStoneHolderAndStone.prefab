@@ -45,6 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6bea8491c7292c4da808969047e71d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gesture: {fileID: 0}
+  stone: {fileID: 9134945765043712971}
 --- !u!1001 &7050446791295061793
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -82,6 +84,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 13
       objectReference: {fileID: 0}
+    - target: {fileID: 2242195331599891690, guid: 63e25afebc3edaf498d7f14055b73fc8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2682509199177904227, guid: 63e25afebc3edaf498d7f14055b73fc8,
         type: 3}
       propertyPath: m_Layer
@@ -89,6 +96,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63e25afebc3edaf498d7f14055b73fc8, type: 3}
+--- !u!1 &9134945765043712971 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2242195331599891690, guid: 63e25afebc3edaf498d7f14055b73fc8,
+    type: 3}
+  m_PrefabInstance: {fileID: 7050446791295061793}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2904973974960631411 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5298681156070744402, guid: 63e25afebc3edaf498d7f14055b73fc8,

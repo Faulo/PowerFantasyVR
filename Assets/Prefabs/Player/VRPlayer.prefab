@@ -436,11 +436,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5636883006642895920}
     m_Modifications:
-    - target: {fileID: 131262266150910450, guid: 5139e14b5fc44f84380dc71a50835b10,
-        type: 3}
-      propertyPath: m_Name
-      value: InfinityStoneHolderAndStone (6)
-      objectReference: {fileID: 0}
     - target: {fileID: 1742051462944747535, guid: 5139e14b5fc44f84380dc71a50835b10,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -479,7 +474,7 @@ PrefabInstance:
     - target: {fileID: 1742051462944747535, guid: 5139e14b5fc44f84380dc71a50835b10,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1742051462944747535, guid: 5139e14b5fc44f84380dc71a50835b10,
         type: 3}
@@ -516,6 +511,17 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 131262266150910450, guid: 5139e14b5fc44f84380dc71a50835b10,
+        type: 3}
+      propertyPath: m_Name
+      value: InfinityStoneHolderAndStone Index
+      objectReference: {fileID: 0}
+    - target: {fileID: -7721612789214590002, guid: 5139e14b5fc44f84380dc71a50835b10,
+        type: 3}
+      propertyPath: gesture
+      value: 
+      objectReference: {fileID: 11400000, guid: 2c523321839fd67478a7e4a98a3cf653,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5139e14b5fc44f84380dc71a50835b10, type: 3}
 --- !u!1001 &143108048062532831
@@ -716,9 +722,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c4da79ae2ceb1b40aaaff082dc869ab, type: 3}
---- !u!4 &5650086403630527027 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5488117944132146171, guid: 2c4da79ae2ceb1b40aaaff082dc869ab,
+--- !u!1 &5649508840884378785 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5487499586116222313, guid: 2c4da79ae2ceb1b40aaaff082dc869ab,
     type: 3}
   m_PrefabInstance: {fileID: 162294064234422728}
   m_PrefabAsset: {fileID: 0}
@@ -746,15 +752,15 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 162294064234422728}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &5649508840884378785 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5487499586116222313, guid: 2c4da79ae2ceb1b40aaaff082dc869ab,
-    type: 3}
-  m_PrefabInstance: {fileID: 162294064234422728}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4339716618615905891 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4501718169595756459, guid: 2c4da79ae2ceb1b40aaaff082dc869ab,
+    type: 3}
+  m_PrefabInstance: {fileID: 162294064234422728}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5650086403630527027 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5488117944132146171, guid: 2c4da79ae2ceb1b40aaaff082dc869ab,
     type: 3}
   m_PrefabInstance: {fileID: 162294064234422728}
   m_PrefabAsset: {fileID: 0}
@@ -765,11 +771,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 557080649455473808}
     m_Modifications:
-    - target: {fileID: 131262266150910450, guid: 5139e14b5fc44f84380dc71a50835b10,
-        type: 3}
-      propertyPath: m_Name
-      value: InfinityStoneHolderAndStone (2)
-      objectReference: {fileID: 0}
     - target: {fileID: 1742051462944747535, guid: 5139e14b5fc44f84380dc71a50835b10,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -808,7 +809,7 @@ PrefabInstance:
     - target: {fileID: 1742051462944747535, guid: 5139e14b5fc44f84380dc71a50835b10,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1742051462944747535, guid: 5139e14b5fc44f84380dc71a50835b10,
         type: 3}
@@ -845,6 +846,17 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 131262266150910450, guid: 5139e14b5fc44f84380dc71a50835b10,
+        type: 3}
+      propertyPath: m_Name
+      value: InfinityStoneHolderAndStone Ring
+      objectReference: {fileID: 0}
+    - target: {fileID: -7721612789214590002, guid: 5139e14b5fc44f84380dc71a50835b10,
+        type: 3}
+      propertyPath: gesture
+      value: 
+      objectReference: {fileID: 11400000, guid: 9c749d20f3237ef4582cc4df10e4e7db,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5139e14b5fc44f84380dc71a50835b10, type: 3}
 --- !u!1001 &625063414310681277
@@ -854,11 +866,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 557080649455473808}
     m_Modifications:
-    - target: {fileID: 131262266150910450, guid: 5139e14b5fc44f84380dc71a50835b10,
-        type: 3}
-      propertyPath: m_Name
-      value: InfinityStoneHolderAndStone (3)
-      objectReference: {fileID: 0}
     - target: {fileID: 1742051462944747535, guid: 5139e14b5fc44f84380dc71a50835b10,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -897,7 +904,7 @@ PrefabInstance:
     - target: {fileID: 1742051462944747535, guid: 5139e14b5fc44f84380dc71a50835b10,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1742051462944747535, guid: 5139e14b5fc44f84380dc71a50835b10,
         type: 3}
@@ -934,6 +941,17 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 131262266150910450, guid: 5139e14b5fc44f84380dc71a50835b10,
+        type: 3}
+      propertyPath: m_Name
+      value: InfinityStoneHolderAndStone Pinky
+      objectReference: {fileID: 0}
+    - target: {fileID: -7721612789214590002, guid: 5139e14b5fc44f84380dc71a50835b10,
+        type: 3}
+      propertyPath: gesture
+      value: 
+      objectReference: {fileID: 11400000, guid: 0c19bc6d599d4f5468fe94858616ef80,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5139e14b5fc44f84380dc71a50835b10, type: 3}
 --- !u!1001 &979872074259889525
@@ -943,11 +961,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 557080649455473808}
     m_Modifications:
-    - target: {fileID: 131262266150910450, guid: 5139e14b5fc44f84380dc71a50835b10,
-        type: 3}
-      propertyPath: m_Name
-      value: InfinityStoneHolderAndStone (1)
-      objectReference: {fileID: 0}
     - target: {fileID: 1742051462944747535, guid: 5139e14b5fc44f84380dc71a50835b10,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -986,7 +999,7 @@ PrefabInstance:
     - target: {fileID: 1742051462944747535, guid: 5139e14b5fc44f84380dc71a50835b10,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1742051462944747535, guid: 5139e14b5fc44f84380dc71a50835b10,
         type: 3}
@@ -1023,6 +1036,112 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 131262266150910450, guid: 5139e14b5fc44f84380dc71a50835b10,
+        type: 3}
+      propertyPath: m_Name
+      value: InfinityStoneHolderAndStone Middle
+      objectReference: {fileID: 0}
+    - target: {fileID: -7721612789214590002, guid: 5139e14b5fc44f84380dc71a50835b10,
+        type: 3}
+      propertyPath: gesture
+      value: 
+      objectReference: {fileID: 11400000, guid: 83c5f9ae225fdce4dac604361228530d,
+        type: 2}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5139e14b5fc44f84380dc71a50835b10, type: 3}
+--- !u!1001 &1218911092488510838
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 557080649455473808}
+    m_Modifications:
+    - target: {fileID: 1742051462944747535, guid: 5139e14b5fc44f84380dc71a50835b10,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.03169921
+      objectReference: {fileID: 0}
+    - target: {fileID: 1742051462944747535, guid: 5139e14b5fc44f84380dc71a50835b10,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.013259231
+      objectReference: {fileID: 0}
+    - target: {fileID: 1742051462944747535, guid: 5139e14b5fc44f84380dc71a50835b10,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.07859398
+      objectReference: {fileID: 0}
+    - target: {fileID: 1742051462944747535, guid: 5139e14b5fc44f84380dc71a50835b10,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.04493866
+      objectReference: {fileID: 0}
+    - target: {fileID: 1742051462944747535, guid: 5139e14b5fc44f84380dc71a50835b10,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.14152922
+      objectReference: {fileID: 0}
+    - target: {fileID: 1742051462944747535, guid: 5139e14b5fc44f84380dc71a50835b10,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.94254047
+      objectReference: {fileID: 0}
+    - target: {fileID: 1742051462944747535, guid: 5139e14b5fc44f84380dc71a50835b10,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.2992782
+      objectReference: {fileID: 0}
+    - target: {fileID: 1742051462944747535, guid: 5139e14b5fc44f84380dc71a50835b10,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1742051462944747535, guid: 5139e14b5fc44f84380dc71a50835b10,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 17.079
+      objectReference: {fileID: 0}
+    - target: {fileID: 1742051462944747535, guid: 5139e14b5fc44f84380dc71a50835b10,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1742051462944747535, guid: 5139e14b5fc44f84380dc71a50835b10,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 215.232
+      objectReference: {fileID: 0}
+    - target: {fileID: 1742051462944747535, guid: 5139e14b5fc44f84380dc71a50835b10,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.45057282
+      objectReference: {fileID: 0}
+    - target: {fileID: 1742051462944747535, guid: 5139e14b5fc44f84380dc71a50835b10,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.45057282
+      objectReference: {fileID: 0}
+    - target: {fileID: 1742051462944747535, guid: 5139e14b5fc44f84380dc71a50835b10,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.45057282
+      objectReference: {fileID: 0}
+    - target: {fileID: 9134945765043712971, guid: 5139e14b5fc44f84380dc71a50835b10,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 131262266150910450, guid: 5139e14b5fc44f84380dc71a50835b10,
+        type: 3}
+      propertyPath: m_Name
+      value: InfinityStoneHolderAndStone Thumb
+      objectReference: {fileID: 0}
+    - target: {fileID: -7721612789214590002, guid: 5139e14b5fc44f84380dc71a50835b10,
+        type: 3}
+      propertyPath: gesture
+      value: 
+      objectReference: {fileID: 11400000, guid: 19c4ab53f64693942839c48d65f0eda2,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5139e14b5fc44f84380dc71a50835b10, type: 3}
 --- !u!1001 &2772353486772364689
@@ -1032,11 +1151,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5636883006642895920}
     m_Modifications:
-    - target: {fileID: 131262266150910450, guid: 5139e14b5fc44f84380dc71a50835b10,
-        type: 3}
-      propertyPath: m_Name
-      value: InfinityStoneHolderAndStone (4)
-      objectReference: {fileID: 0}
     - target: {fileID: 1742051462944747535, guid: 5139e14b5fc44f84380dc71a50835b10,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1075,7 +1189,7 @@ PrefabInstance:
     - target: {fileID: 1742051462944747535, guid: 5139e14b5fc44f84380dc71a50835b10,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1742051462944747535, guid: 5139e14b5fc44f84380dc71a50835b10,
         type: 3}
@@ -1112,6 +1226,17 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 131262266150910450, guid: 5139e14b5fc44f84380dc71a50835b10,
+        type: 3}
+      propertyPath: m_Name
+      value: InfinityStoneHolderAndStone Middle
+      objectReference: {fileID: 0}
+    - target: {fileID: -7721612789214590002, guid: 5139e14b5fc44f84380dc71a50835b10,
+        type: 3}
+      propertyPath: gesture
+      value: 
+      objectReference: {fileID: 11400000, guid: 83c5f9ae225fdce4dac604361228530d,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5139e14b5fc44f84380dc71a50835b10, type: 3}
 --- !u!1001 &3051456923990539407
@@ -1688,15 +1813,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9589a22f8b1c4f24a9daf25e6d987356, type: 3}
---- !u!4 &557080649455473808 stripped
+--- !u!4 &1927800769635223228 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 3479682409014565743, guid: 9589a22f8b1c4f24a9daf25e6d987356,
-    type: 3}
-  m_PrefabInstance: {fileID: 4031132133005496319}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &8119973817448613011 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5142693490199350124, guid: 9589a22f8b1c4f24a9daf25e6d987356,
+  m_CorrespondingSourceObject: {fileID: 3256553086241573187, guid: 9589a22f8b1c4f24a9daf25e6d987356,
     type: 3}
   m_PrefabInstance: {fileID: 4031132133005496319}
   m_PrefabAsset: {fileID: 0}
@@ -1706,15 +1825,21 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 4031132133005496319}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &5636883006642895920 stripped
+--- !u!4 &8119973817448613011 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 8776194522697053135, guid: 9589a22f8b1c4f24a9daf25e6d987356,
+  m_CorrespondingSourceObject: {fileID: 5142693490199350124, guid: 9589a22f8b1c4f24a9daf25e6d987356,
     type: 3}
   m_PrefabInstance: {fileID: 4031132133005496319}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1927800769635223228 stripped
+--- !u!4 &557080649455473808 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 3256553086241573187, guid: 9589a22f8b1c4f24a9daf25e6d987356,
+  m_CorrespondingSourceObject: {fileID: 3479682409014565743, guid: 9589a22f8b1c4f24a9daf25e6d987356,
+    type: 3}
+  m_PrefabInstance: {fileID: 4031132133005496319}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5636883006642895920 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8776194522697053135, guid: 9589a22f8b1c4f24a9daf25e6d987356,
     type: 3}
   m_PrefabInstance: {fileID: 4031132133005496319}
   m_PrefabAsset: {fileID: 0}
@@ -1725,11 +1850,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5636883006642895920}
     m_Modifications:
-    - target: {fileID: 131262266150910450, guid: 5139e14b5fc44f84380dc71a50835b10,
-        type: 3}
-      propertyPath: m_Name
-      value: InfinityStoneHolderAndStone (5)
-      objectReference: {fileID: 0}
     - target: {fileID: 1742051462944747535, guid: 5139e14b5fc44f84380dc71a50835b10,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1768,7 +1888,7 @@ PrefabInstance:
     - target: {fileID: 1742051462944747535, guid: 5139e14b5fc44f84380dc71a50835b10,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1742051462944747535, guid: 5139e14b5fc44f84380dc71a50835b10,
         type: 3}
@@ -1805,6 +1925,17 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 131262266150910450, guid: 5139e14b5fc44f84380dc71a50835b10,
+        type: 3}
+      propertyPath: m_Name
+      value: InfinityStoneHolderAndStone Pinky
+      objectReference: {fileID: 0}
+    - target: {fileID: -7721612789214590002, guid: 5139e14b5fc44f84380dc71a50835b10,
+        type: 3}
+      propertyPath: gesture
+      value: 
+      objectReference: {fileID: 11400000, guid: 0c19bc6d599d4f5468fe94858616ef80,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5139e14b5fc44f84380dc71a50835b10, type: 3}
 --- !u!1001 &4552489971252275832
@@ -2046,6 +2177,101 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44c4ff389e0d05040a189fd5b854cb95, type: 3}
+--- !u!1001 &5142493001930883397
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 5636883006642895920}
+    m_Modifications:
+    - target: {fileID: 1742051462944747535, guid: 5139e14b5fc44f84380dc71a50835b10,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.025989864
+      objectReference: {fileID: 0}
+    - target: {fileID: 1742051462944747535, guid: 5139e14b5fc44f84380dc71a50835b10,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.01803328
+      objectReference: {fileID: 0}
+    - target: {fileID: 1742051462944747535, guid: 5139e14b5fc44f84380dc71a50835b10,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.07342507
+      objectReference: {fileID: 0}
+    - target: {fileID: 1742051462944747535, guid: 5139e14b5fc44f84380dc71a50835b10,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.0014111693
+      objectReference: {fileID: 0}
+    - target: {fileID: 1742051462944747535, guid: 5139e14b5fc44f84380dc71a50835b10,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.15562457
+      objectReference: {fileID: 0}
+    - target: {fileID: 1742051462944747535, guid: 5139e14b5fc44f84380dc71a50835b10,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.98485243
+      objectReference: {fileID: 0}
+    - target: {fileID: 1742051462944747535, guid: 5139e14b5fc44f84380dc71a50835b10,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.07645065
+      objectReference: {fileID: 0}
+    - target: {fileID: 1742051462944747535, guid: 5139e14b5fc44f84380dc71a50835b10,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1742051462944747535, guid: 5139e14b5fc44f84380dc71a50835b10,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 17.838001
+      objectReference: {fileID: 0}
+    - target: {fileID: 1742051462944747535, guid: 5139e14b5fc44f84380dc71a50835b10,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1742051462944747535, guid: 5139e14b5fc44f84380dc71a50835b10,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 170.871
+      objectReference: {fileID: 0}
+    - target: {fileID: 1742051462944747535, guid: 5139e14b5fc44f84380dc71a50835b10,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.45057285
+      objectReference: {fileID: 0}
+    - target: {fileID: 1742051462944747535, guid: 5139e14b5fc44f84380dc71a50835b10,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.45057294
+      objectReference: {fileID: 0}
+    - target: {fileID: 1742051462944747535, guid: 5139e14b5fc44f84380dc71a50835b10,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.45057297
+      objectReference: {fileID: 0}
+    - target: {fileID: 9134945765043712971, guid: 5139e14b5fc44f84380dc71a50835b10,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 131262266150910450, guid: 5139e14b5fc44f84380dc71a50835b10,
+        type: 3}
+      propertyPath: m_Name
+      value: InfinityStoneHolderAndStone Thumb
+      objectReference: {fileID: 0}
+    - target: {fileID: -7721612789214590002, guid: 5139e14b5fc44f84380dc71a50835b10,
+        type: 3}
+      propertyPath: gesture
+      value: 
+      objectReference: {fileID: 11400000, guid: 19c4ab53f64693942839c48d65f0eda2,
+        type: 2}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5139e14b5fc44f84380dc71a50835b10, type: 3}
 --- !u!1001 &5577207991792729132
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2053,11 +2279,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 557080649455473808}
     m_Modifications:
-    - target: {fileID: 131262266150910450, guid: 5139e14b5fc44f84380dc71a50835b10,
-        type: 3}
-      propertyPath: m_Name
-      value: InfinityStoneHolderAndStone
-      objectReference: {fileID: 0}
     - target: {fileID: 1742051462944747535, guid: 5139e14b5fc44f84380dc71a50835b10,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2096,7 +2317,7 @@ PrefabInstance:
     - target: {fileID: 1742051462944747535, guid: 5139e14b5fc44f84380dc71a50835b10,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1742051462944747535, guid: 5139e14b5fc44f84380dc71a50835b10,
         type: 3}
@@ -2133,6 +2354,17 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 131262266150910450, guid: 5139e14b5fc44f84380dc71a50835b10,
+        type: 3}
+      propertyPath: m_Name
+      value: InfinityStoneHolderAndStone Index
+      objectReference: {fileID: 0}
+    - target: {fileID: -7721612789214590002, guid: 5139e14b5fc44f84380dc71a50835b10,
+        type: 3}
+      propertyPath: gesture
+      value: 
+      objectReference: {fileID: 11400000, guid: 2c523321839fd67478a7e4a98a3cf653,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5139e14b5fc44f84380dc71a50835b10, type: 3}
 --- !u!1001 &6431316633834449874
@@ -2181,11 +2413,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5636883006642895920}
     m_Modifications:
-    - target: {fileID: 131262266150910450, guid: 5139e14b5fc44f84380dc71a50835b10,
-        type: 3}
-      propertyPath: m_Name
-      value: InfinityStoneHolderAndStone (7)
-      objectReference: {fileID: 0}
     - target: {fileID: 1742051462944747535, guid: 5139e14b5fc44f84380dc71a50835b10,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2224,7 +2451,7 @@ PrefabInstance:
     - target: {fileID: 1742051462944747535, guid: 5139e14b5fc44f84380dc71a50835b10,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1742051462944747535, guid: 5139e14b5fc44f84380dc71a50835b10,
         type: 3}
@@ -2261,6 +2488,17 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 131262266150910450, guid: 5139e14b5fc44f84380dc71a50835b10,
+        type: 3}
+      propertyPath: m_Name
+      value: InfinityStoneHolderAndStone Ring
+      objectReference: {fileID: 0}
+    - target: {fileID: -7721612789214590002, guid: 5139e14b5fc44f84380dc71a50835b10,
+        type: 3}
+      propertyPath: gesture
+      value: 
+      objectReference: {fileID: 11400000, guid: 9c749d20f3237ef4582cc4df10e4e7db,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5139e14b5fc44f84380dc71a50835b10, type: 3}
 --- !u!1001 &7225370775788854285
@@ -2270,11 +2508,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 557080649455473808}
     m_Modifications:
-    - target: {fileID: 131262266150910450, guid: 5139e14b5fc44f84380dc71a50835b10,
-        type: 3}
-      propertyPath: m_Name
-      value: InfinityStoneHolder
-      objectReference: {fileID: 0}
     - target: {fileID: 1742051462944747535, guid: 5139e14b5fc44f84380dc71a50835b10,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2329,6 +2562,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 131262266150910450, guid: 5139e14b5fc44f84380dc71a50835b10,
+        type: 3}
+      propertyPath: m_Name
+      value: InfinityStoneHolder
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5139e14b5fc44f84380dc71a50835b10, type: 3}
