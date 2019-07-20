@@ -160,7 +160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a609c3438f5e85b4d9c828640d48309f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 50
+  maxHP: 30
   destructionPrefab: {fileID: 7648092028806189602, guid: a1a4b70163cbbcc44b6a146b76a551ec,
     type: 3}
 --- !u!1001 &1808446783231044818
@@ -170,11 +170,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1454478478354520096}
     m_Modifications:
-    - target: {fileID: 7648092028806189602, guid: 148b262a22b5c3f469d21fb75709aad3,
-        type: 3}
-      propertyPath: m_Name
-      value: Enemy.Hurt
-      objectReference: {fileID: 0}
     - target: {fileID: 5707358116862692214, guid: 148b262a22b5c3f469d21fb75709aad3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -229,6 +224,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7648092028806189602, guid: 148b262a22b5c3f469d21fb75709aad3,
+        type: 3}
+      propertyPath: m_Name
+      value: Enemy.Hurt
       objectReference: {fileID: 0}
     - target: {fileID: 953939642377760344, guid: 148b262a22b5c3f469d21fb75709aad3,
         type: 3}

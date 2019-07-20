@@ -217,6 +217,16 @@ PrefabInstance:
       propertyPath: pitchMax
       value: 1.1
       objectReference: {fileID: 0}
+    - target: {fileID: 4058099465869877981, guid: 7e1c94bd432ecb8488be4416fc196a4c,
+        type: 3}
+      propertyPath: volMin
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4058099465869877981, guid: 7e1c94bd432ecb8488be4416fc196a4c,
+        type: 3}
+      propertyPath: volMax
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 9162571011732137168, guid: 7e1c94bd432ecb8488be4416fc196a4c,
         type: 3}
       propertyPath: pitchMin
@@ -247,11 +257,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 539273600442433196}
     m_Modifications:
-    - target: {fileID: 7154907995507304272, guid: 60b194cadf276d64cb383a8dd50457a8,
-        type: 3}
-      propertyPath: m_Name
-      value: FireBall.Light
-      objectReference: {fileID: 0}
     - target: {fileID: 3815332932163920479, guid: 60b194cadf276d64cb383a8dd50457a8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -306,6 +311,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7154907995507304272, guid: 60b194cadf276d64cb383a8dd50457a8,
+        type: 3}
+      propertyPath: m_Name
+      value: FireBall.Light
       objectReference: {fileID: 0}
     - target: {fileID: 36433850314817931, guid: 60b194cadf276d64cb383a8dd50457a8,
         type: 3}
