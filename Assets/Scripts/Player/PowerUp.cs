@@ -14,7 +14,6 @@ namespace PFVR.Player {
         }
 
         void OnTriggerEnter(Collider collider) {
-            Debug.Log("Neue Fähigkeit verfügbar!" + collider);
             var connector = collider.gameObject.GetComponentInParent<GestureConnector>();
             if (connector) {
                 connector.Unlock(gestureToUnlock);

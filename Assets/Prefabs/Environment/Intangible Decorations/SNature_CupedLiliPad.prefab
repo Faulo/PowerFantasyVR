@@ -9,12 +9,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4327330087266416}
-  m_Layer: 0
+  - component: {fileID: -274504200159014529}
+  m_Layer: 2
   m_Name: SNature_CupedLiliPad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4327330087266416
 Transform:
@@ -31,6 +32,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-274504200159014529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1827561305407624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91fbf46bcb7cbf74d82b14e71b7ac922, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  rigidbodyDensity: 1
 --- !u!1001 &8381495086692095364
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -41,6 +56,14 @@ PrefabInstance:
     - target: {fileID: 1827561305407624, guid: 9746c019b7fd6cf459e516daf619e969, type: 3}
       propertyPath: m_Name
       value: SNature_CupedLiliPad
+      objectReference: {fileID: 0}
+    - target: {fileID: 1827561305407624, guid: 9746c019b7fd6cf459e516daf619e969, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1827561305407624, guid: 9746c019b7fd6cf459e516daf619e969, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 4327330087266416, guid: 9746c019b7fd6cf459e516daf619e969, type: 3}
       propertyPath: m_LocalPosition.x

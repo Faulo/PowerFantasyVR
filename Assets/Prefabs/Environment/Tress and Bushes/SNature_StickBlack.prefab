@@ -9,7 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4665344885829928}
-  m_Layer: 0
+  - component: {fileID: -2759951548215666465}
+  m_Layer: 14
   m_Name: SNature_StickBlack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31,6 +32,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-2759951548215666465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1326781941874506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91fbf46bcb7cbf74d82b14e71b7ac922, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 3
+  rigidbodyDensity: 1
+  rigidbodyDrag: 1
 --- !u!64 &1302769093062165640
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -111,6 +127,10 @@ PrefabInstance:
     - target: {fileID: 1326781941874506, guid: bef469c39d271104cae14c4f6fdb48e3, type: 3}
       propertyPath: m_Name
       value: SNature_StickBlack
+      objectReference: {fileID: 0}
+    - target: {fileID: 1326781941874506, guid: bef469c39d271104cae14c4f6fdb48e3, type: 3}
+      propertyPath: m_Layer
+      value: 14
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bef469c39d271104cae14c4f6fdb48e3, type: 3}
