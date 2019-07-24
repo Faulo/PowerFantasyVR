@@ -52,10 +52,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4437459323509006}
     m_Modifications:
-    - target: {fileID: 1715284614105008, guid: c15226b60dbd66841a77806e5a6973e8, type: 3}
-      propertyPath: m_Name
-      value: Bush_2
-      objectReference: {fileID: 0}
     - target: {fileID: 4437459323509006, guid: c15226b60dbd66841a77806e5a6973e8, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -71,6 +67,10 @@ PrefabInstance:
     - target: {fileID: 4437459323509006, guid: c15226b60dbd66841a77806e5a6973e8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1715284614105008, guid: c15226b60dbd66841a77806e5a6973e8, type: 3}
+      propertyPath: m_Name
+      value: Bush_2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c15226b60dbd66841a77806e5a6973e8, type: 3}

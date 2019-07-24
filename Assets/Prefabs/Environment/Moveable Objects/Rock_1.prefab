@@ -38,10 +38,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4483830403358642}
     m_Modifications:
-    - target: {fileID: 1745671036675386, guid: 3124f1ec9af9a0a4e8e24df7769f3a65, type: 3}
-      propertyPath: m_Name
-      value: Rock_1
-      objectReference: {fileID: 0}
     - target: {fileID: 4483830403358642, guid: 3124f1ec9af9a0a4e8e24df7769f3a65, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0
@@ -85,6 +81,22 @@ PrefabInstance:
     - target: {fileID: 4483830403358642, guid: 3124f1ec9af9a0a4e8e24df7769f3a65, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4483830403358642, guid: 3124f1ec9af9a0a4e8e24df7769f3a65, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4483830403358642, guid: 3124f1ec9af9a0a4e8e24df7769f3a65, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4483830403358642, guid: 3124f1ec9af9a0a4e8e24df7769f3a65, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 1745671036675386, guid: 3124f1ec9af9a0a4e8e24df7769f3a65, type: 3}
+      propertyPath: m_Name
+      value: Rock_1
       objectReference: {fileID: 0}
     - target: {fileID: 64192165491762366, guid: 3124f1ec9af9a0a4e8e24df7769f3a65,
         type: 3}
