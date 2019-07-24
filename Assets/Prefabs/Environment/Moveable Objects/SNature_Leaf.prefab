@@ -52,10 +52,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4458032547626594}
     m_Modifications:
-    - target: {fileID: 1671943395006712, guid: caccf1522e4a6e94888c0d6c837dec56, type: 3}
-      propertyPath: m_Name
-      value: SNature_Leaf
-      objectReference: {fileID: 0}
     - target: {fileID: 4458032547626594, guid: caccf1522e4a6e94888c0d6c837dec56, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -99,6 +95,22 @@ PrefabInstance:
     - target: {fileID: 4458032547626594, guid: caccf1522e4a6e94888c0d6c837dec56, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4458032547626594, guid: caccf1522e4a6e94888c0d6c837dec56, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4458032547626594, guid: caccf1522e4a6e94888c0d6c837dec56, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4458032547626594, guid: caccf1522e4a6e94888c0d6c837dec56, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1671943395006712, guid: caccf1522e4a6e94888c0d6c837dec56, type: 3}
+      propertyPath: m_Name
+      value: SNature_Leaf
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: caccf1522e4a6e94888c0d6c837dec56, type: 3}
