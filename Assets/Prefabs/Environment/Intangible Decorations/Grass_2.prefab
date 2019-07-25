@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4956255927207046}
   - component: {fileID: 8249896450670334319}
+  - component: {fileID: 1817410023492284748}
   m_Layer: 2
   m_Name: Grass_2
   m_TagString: Untagged
@@ -46,6 +47,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   rigidbodyDensity: 1
+  rigidbodyDrag: 0
+  levelOfDetail: 1
+  levelOfDetailCutoff: 0.005
+--- !u!205 &1817410023492284748
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1835125518048470}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0.019615784, y: 0.11474149, z: -0.008720249}
+  m_Size: 0.30942106
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.005
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 4793127663953072588}
+  m_Enabled: 1
 --- !u!1001 &4814525803174277818
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -124,6 +147,12 @@ PrefabInstance:
 --- !u!4 &4810189674013439548 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4956255927207046, guid: 3c77b7beb8b64e64f92bdc8121a060da,
+    type: 3}
+  m_PrefabInstance: {fileID: 4814525803174277818}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &4793127663953072588 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 23711529704809334, guid: 3c77b7beb8b64e64f92bdc8121a060da,
     type: 3}
   m_PrefabInstance: {fileID: 4814525803174277818}
   m_PrefabAsset: {fileID: 0}

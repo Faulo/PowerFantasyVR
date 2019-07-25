@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4529262592942840}
   - component: {fileID: 6371726589817002908}
+  - component: {fileID: 5943601588883595276}
   m_Layer: 2
   m_Name: SNature_Grass
   m_TagString: Untagged
@@ -46,6 +47,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   rigidbodyDensity: 1
+  rigidbodyDrag: 0
+  levelOfDetail: 1
+  levelOfDetailCutoff: 0.005
+--- !u!205 &5943601588883595276
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1806273466138086}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0.088564575, y: 0.1414962, z: 0.017429113}
+  m_Size: 1.2570643
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.005
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 5139703016907881582}
+  m_Enabled: 1
 --- !u!1001 &5118181036132535676
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -136,6 +159,12 @@ PrefabInstance:
 --- !u!4 &5122697103686004612 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4529262592942840, guid: f108208ec53b96043aefbb700f41849f,
+    type: 3}
+  m_PrefabInstance: {fileID: 5118181036132535676}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &5139703016907881582 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 23795774112280850, guid: f108208ec53b96043aefbb700f41849f,
     type: 3}
   m_PrefabInstance: {fileID: 5118181036132535676}
   m_PrefabAsset: {fileID: 0}

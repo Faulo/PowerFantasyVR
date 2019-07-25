@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4340555707901484}
   - component: {fileID: -147626225794064873}
+  - component: {fileID: 1153862498099860585}
   m_Layer: 2
   m_Name: Plant_1
   m_TagString: Untagged
@@ -46,6 +47,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   rigidbodyDensity: 1
+  rigidbodyDrag: 0
+  levelOfDetail: 1
+  levelOfDetailCutoff: 0.005
+--- !u!205 &1153862498099860585
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1539544152721592}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0, y: 0.03180573, z: 0}
+  m_Size: 0.68422663
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.005
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 485954462530463740}
+  m_Enabled: 1
 --- !u!1001 &498943680449413338
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -53,6 +76,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4340555707901484}
     m_Modifications:
+    - target: {fileID: 1539544152721592, guid: 6ddec894d2cb31646a9afe58ff2e53c4, type: 3}
+      propertyPath: m_Name
+      value: Plant_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1539544152721592, guid: 6ddec894d2cb31646a9afe58ff2e53c4, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1539544152721592, guid: 6ddec894d2cb31646a9afe58ff2e53c4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4340555707901484, guid: 6ddec894d2cb31646a9afe58ff2e53c4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0
@@ -109,18 +144,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1539544152721592, guid: 6ddec894d2cb31646a9afe58ff2e53c4, type: 3}
-      propertyPath: m_Name
-      value: Plant_1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1539544152721592, guid: 6ddec894d2cb31646a9afe58ff2e53c4, type: 3}
-      propertyPath: m_Layer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1539544152721592, guid: 6ddec894d2cb31646a9afe58ff2e53c4, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
     - target: {fileID: 23344418702092070, guid: 6ddec894d2cb31646a9afe58ff2e53c4,
         type: 3}
       propertyPath: m_CastShadows
@@ -136,6 +159,12 @@ PrefabInstance:
 --- !u!4 &496505452763670262 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4340555707901484, guid: 6ddec894d2cb31646a9afe58ff2e53c4,
+    type: 3}
+  m_PrefabInstance: {fileID: 498943680449413338}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &485954462530463740 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 23344418702092070, guid: 6ddec894d2cb31646a9afe58ff2e53c4,
     type: 3}
   m_PrefabInstance: {fileID: 498943680449413338}
   m_PrefabAsset: {fileID: 0}

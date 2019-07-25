@@ -10,12 +10,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4227784882853702}
   - component: {fileID: -4068367748127416679}
+  - component: {fileID: 8559492168653815406}
   m_Layer: 14
   m_Name: SNature_Tree
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4227784882853702
 Transform:
@@ -47,6 +48,27 @@ MonoBehaviour:
   type: 3
   rigidbodyDensity: 1
   rigidbodyDrag: 1
+  levelOfDetail: 0
+  levelOfDetailCutoff: 0.001
+--- !u!205 &8559492168653815406
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1095773145228200}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: -0.7953706, y: 5.658872, z: -0.14726567}
+  m_Size: 11.494258
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.001
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 2547932116937149329}
+  m_Enabled: 1
 --- !u!64 &3414506254363478828
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -68,6 +90,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4227784882853702}
     m_Modifications:
+    - target: {fileID: 1095773145228200, guid: abfff9d9caf0ac54fbe442d207c4fbb6, type: 3}
+      propertyPath: m_Name
+      value: SNature_Tree
+      objectReference: {fileID: 0}
+    - target: {fileID: 1095773145228200, guid: abfff9d9caf0ac54fbe442d207c4fbb6, type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1095773145228200, guid: abfff9d9caf0ac54fbe442d207c4fbb6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4227784882853702, guid: abfff9d9caf0ac54fbe442d207c4fbb6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -124,14 +158,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.65
       objectReference: {fileID: 0}
-    - target: {fileID: 1095773145228200, guid: abfff9d9caf0ac54fbe442d207c4fbb6, type: 3}
-      propertyPath: m_Name
-      value: SNature_Tree
-      objectReference: {fileID: 0}
-    - target: {fileID: 1095773145228200, guid: abfff9d9caf0ac54fbe442d207c4fbb6, type: 3}
-      propertyPath: m_Layer
-      value: 14
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: abfff9d9caf0ac54fbe442d207c4fbb6, type: 3}
 --- !u!1 &2525555503555727301 stripped
@@ -143,6 +169,12 @@ GameObject:
 --- !u!4 &2522142119348058923 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4227784882853702, guid: abfff9d9caf0ac54fbe442d207c4fbb6,
+    type: 3}
+  m_PrefabInstance: {fileID: 2526369586403322989}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &2547932116937149329 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 23473483089618940, guid: abfff9d9caf0ac54fbe442d207c4fbb6,
     type: 3}
   m_PrefabInstance: {fileID: 2526369586403322989}
   m_PrefabAsset: {fileID: 0}

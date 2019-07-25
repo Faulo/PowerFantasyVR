@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4327330087266416}
   - component: {fileID: -274504200159014529}
+  - component: {fileID: 1582867870402821174}
   m_Layer: 2
   m_Name: SNature_CupedLiliPad
   m_TagString: Untagged
@@ -46,6 +47,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   rigidbodyDensity: 1
+  rigidbodyDrag: 0
+  levelOfDetail: 1
+  levelOfDetailCutoff: 0.005
+--- !u!205 &1582867870402821174
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1827561305407624}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0, y: 0.059209794, z: 0}
+  m_Size: 0.5815945
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.005
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 8359628538919720308}
+  m_Enabled: 1
 --- !u!1001 &8381495086692095364
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -136,6 +159,12 @@ PrefabInstance:
 --- !u!4 &8385230750653070836 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4327330087266416, guid: 9746c019b7fd6cf459e516daf619e969,
+    type: 3}
+  m_PrefabInstance: {fileID: 8381495086692095364}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &8359628538919720308 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 23169470527815920, guid: 9746c019b7fd6cf459e516daf619e969,
     type: 3}
   m_PrefabInstance: {fileID: 8381495086692095364}
   m_PrefabAsset: {fileID: 0}

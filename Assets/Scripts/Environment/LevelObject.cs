@@ -21,6 +21,11 @@ namespace PFVR.Environment {
         private float rigidbodyDensity = 1;
         [SerializeField, Range(0, 100)]
         private float rigidbodyDrag = 0;
+        [Space]
+        [SerializeField]
+        private bool levelOfDetail = false;
+        [SerializeField, Range(0, 1)]
+        private float levelOfDetailCutoff = 0.005f;
 
         private void Awake() {
             ApplyType();
@@ -59,8 +64,12 @@ namespace PFVR.Environment {
                     SetLayer("Obstacle");
                     break;
             }
+            if (levelOfDetail) {
+                EnableLevelOfDetail();
+            } else {
+                DisableLevelOfDetail();
+            }
         }
-
 
         private void DisableLighting() {
             GetComponentsInChildren<Transform>().ForAll(transform => transform.gameObject.isStatic = true);
@@ -87,20 +96,20 @@ namespace PFVR.Environment {
             });
         }
 
-        void DisableColliders() {
+        private void DisableColliders() {
             GetComponentsInChildren<Collider>().ForAll(collider => collider.enabled = false);
         }
-        void EnableColliders() {
+        private void EnableColliders() {
             GetComponentsInChildren<Collider>().ForAll(collider => collider.enabled = true);
         }
 
-        void DisableRigidbody() {
+        private void DisableRigidbody() {
             var rigidbody = GetComponent<Rigidbody>();
             if (rigidbody) {
                 DestroyImmediate(rigidbody);
             }
         }
-        void EnableRigidbody() {
+        private void EnableRigidbody() {
             var rigidbody = GetComponent<Rigidbody>();
             if (!rigidbody) {
                 rigidbody = gameObject.AddComponent<Rigidbody>();
@@ -109,9 +118,26 @@ namespace PFVR.Environment {
             rigidbody.drag = rigidbodyDrag;
         }
 
-        void SetLayer(string layerName) {
+        private void SetLayer(string layerName) {
             var layerId = LayerMask.NameToLayer(layerName);
             GetComponentsInChildren<Transform>().ForAll(transform => transform.gameObject.layer = layerId);
+        }
+
+        private void EnableLevelOfDetail() {
+            var lodGroup = GetComponent<LODGroup>();
+            if (!lodGroup) {
+                lodGroup = gameObject.AddComponent<LODGroup>();
+            }
+            var lods = new LOD[1];
+            lods[0].renderers = GetComponentsInChildren<Renderer>();
+            lods[0].screenRelativeTransitionHeight = levelOfDetailCutoff;
+            lodGroup.SetLODs(lods);
+        }
+        private void DisableLevelOfDetail() {
+            var lodGroup = GetComponent<LODGroup>();
+            if (lodGroup) {
+                DestroyImmediate(lodGroup);
+            }
         }
     }
 }

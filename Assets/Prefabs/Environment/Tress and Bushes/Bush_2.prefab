@@ -10,12 +10,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4437459323509006}
   - component: {fileID: 1420285856412543174}
+  - component: {fileID: 2364126024101242583}
   m_Layer: 14
   m_Name: Bush_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4437459323509006
 Transform:
@@ -47,6 +48,27 @@ MonoBehaviour:
   type: 3
   rigidbodyDensity: 1
   rigidbodyDrag: 1
+  levelOfDetail: 0
+  levelOfDetailCutoff: 0.001
+--- !u!205 &2364126024101242583
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1715284614105008}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0.011352062, y: 1.2039646, z: -0.09755379}
+  m_Size: 2.5438507
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.001
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 2683969673659440881}
+  m_Enabled: 1
 --- !u!64 &6476741178250369599
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -68,6 +90,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4437459323509006}
     m_Modifications:
+    - target: {fileID: 1715284614105008, guid: c15226b60dbd66841a77806e5a6973e8, type: 3}
+      propertyPath: m_Name
+      value: Bush_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1715284614105008, guid: c15226b60dbd66841a77806e5a6973e8, type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1715284614105008, guid: c15226b60dbd66841a77806e5a6973e8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4437459323509006, guid: c15226b60dbd66841a77806e5a6973e8, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -84,14 +118,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1715284614105008, guid: c15226b60dbd66841a77806e5a6973e8, type: 3}
-      propertyPath: m_Name
-      value: Bush_2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1715284614105008, guid: c15226b60dbd66841a77806e5a6973e8, type: 3}
-      propertyPath: m_Layer
-      value: 14
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c15226b60dbd66841a77806e5a6973e8, type: 3}
 --- !u!1 &2696444014115880267 stripped
@@ -103,6 +129,12 @@ GameObject:
 --- !u!4 &2693832458455540725 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4437459323509006, guid: c15226b60dbd66841a77806e5a6973e8,
+    type: 3}
+  m_PrefabInstance: {fileID: 2696998126333868795}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &2683969673659440881 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 23302719169258506, guid: c15226b60dbd66841a77806e5a6973e8,
     type: 3}
   m_PrefabInstance: {fileID: 2696998126333868795}
   m_PrefabAsset: {fileID: 0}
