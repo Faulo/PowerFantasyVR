@@ -771,7 +771,7 @@ TerrainCollider:
   m_Material: {fileID: 0}
   m_Enabled: 1
   m_TerrainData: {fileID: 15600000, guid: 6bf8c662271145140af1abb36294edba, type: 2}
-  m_EnableTreeColliders: 0
+  m_EnableTreeColliders: 1
 --- !u!218 &500268360
 Terrain:
   m_ObjectHideFlags: 0
@@ -2460,13 +2460,54 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5467687916189050124, guid: f6da225e323f73040bc72df61c4ca668,
         type: 3}
-      propertyPath: burstCount
-      value: 5
+      propertyPath: projectilePrefabs.Array.size
+      value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 3890670856217124360, guid: f6da225e323f73040bc72df61c4ca668,
+    - target: {fileID: 5467687916189050124, guid: f6da225e323f73040bc72df61c4ca668,
         type: 3}
       propertyPath: burstCount
-      value: 20
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5467687916189050124, guid: f6da225e323f73040bc72df61c4ca668,
+        type: 3}
+      propertyPath: projectilePrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 3603344050764869919, guid: 4c38db99107b9ab48a42afda19ccbc64,
+        type: 3}
+    - target: {fileID: 5467687916189050124, guid: f6da225e323f73040bc72df61c4ca668,
+        type: 3}
+      propertyPath: projectilePrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 3723656024834733314, guid: 0feb789d47ae34f42b098986940a947a,
+        type: 3}
+    - target: {fileID: 5467687916189050124, guid: f6da225e323f73040bc72df61c4ca668,
+        type: 3}
+      propertyPath: projectilePrefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 50514082420455768, guid: 37108791b07e1d8438e65a54167aa4c2,
+        type: 3}
+    - target: {fileID: 5467687916189050124, guid: f6da225e323f73040bc72df61c4ca668,
+        type: 3}
+      propertyPath: projectilePrefabs.Array.data[3]
+      value: 
+      objectReference: {fileID: 3286369132363417316, guid: ad3b3160ddd7cb644844bc42762c37b9,
+        type: 3}
+    - target: {fileID: 5467687916189050124, guid: f6da225e323f73040bc72df61c4ca668,
+        type: 3}
+      propertyPath: projectilePrefabs.Array.data[4]
+      value: 
+      objectReference: {fileID: 1418488503122968296, guid: 66819e6b265df41419b18bf0e344c685,
+        type: 3}
+    - target: {fileID: 5467687916189050124, guid: f6da225e323f73040bc72df61c4ca668,
+        type: 3}
+      propertyPath: projectilePrefabs.Array.data[5]
+      value: 
+      objectReference: {fileID: 2939961370568407056, guid: b621d6917e218dd4e8ddc44f95baf867,
+        type: 3}
+    - target: {fileID: 3890670856217124360, guid: f6da225e323f73040bc72df61c4ca668,
+        type: 3}
+      propertyPath: projectilePrefabs.Array.size
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3890670856217124360, guid: f6da225e323f73040bc72df61c4ca668,
         type: 3}
@@ -2498,6 +2539,12 @@ PrefabInstance:
       propertyPath: projectileScale.m_Curve.Array.data[1].value
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 3890670856217124360, guid: f6da225e323f73040bc72df61c4ca668,
+        type: 3}
+      propertyPath: projectilePrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 2041536302393913971, guid: b745ebd82e7e12c4ebb7896cb7dd7c07,
+        type: 3}
     - target: {fileID: 6753006700913775855, guid: f6da225e323f73040bc72df61c4ca668,
         type: 3}
       propertyPath: m_Name
@@ -2582,6 +2629,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 5467687916189050115, guid: f6da225e323f73040bc72df61c4ca668,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6da225e323f73040bc72df61c4ca668, type: 3}

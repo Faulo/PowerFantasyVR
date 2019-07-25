@@ -22,7 +22,7 @@ namespace PFVR.Environment {
         [SerializeField, Range(0, 100)]
         private float rigidbodyDrag = 0;
 
-        private void Start() {
+        private void Awake() {
             ApplyType();
         }
 
