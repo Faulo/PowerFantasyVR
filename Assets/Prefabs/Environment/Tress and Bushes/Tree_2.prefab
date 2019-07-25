@@ -46,10 +46,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 3
-  rigidbodyDensity: 1
+  rigidbodyDensity: 50
   rigidbodyDrag: 1
   levelOfDetail: 0
-  levelOfDetailCutoff: 0.001
+  levelOfDetailCutoff: 0.005
 --- !u!205 &7862482886097364872
 LODGroup:
   m_ObjectHideFlags: 0
@@ -165,6 +165,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4905684144481780}
     m_Modifications:
+    - target: {fileID: 1041262027369258, guid: 45da35d058e8aed4995fc7059900d6ac, type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1041262027369258, guid: 45da35d058e8aed4995fc7059900d6ac, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 1327385724211766, guid: 45da35d058e8aed4995fc7059900d6ac, type: 3}
       propertyPath: m_Name
       value: Tree_2
@@ -246,14 +254,6 @@ PrefabInstance:
       value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 1665610073650930, guid: 45da35d058e8aed4995fc7059900d6ac, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 1041262027369258, guid: 45da35d058e8aed4995fc7059900d6ac, type: 3}
-      propertyPath: m_Layer
-      value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 1041262027369258, guid: 45da35d058e8aed4995fc7059900d6ac, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}

@@ -46,10 +46,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 3
-  rigidbodyDensity: 1
+  rigidbodyDensity: 50
   rigidbodyDrag: 1
   levelOfDetail: 0
-  levelOfDetailCutoff: 0.001
+  levelOfDetailCutoff: 0.005
 --- !u!205 &2778955665069063230
 LODGroup:
   m_ObjectHideFlags: 0
