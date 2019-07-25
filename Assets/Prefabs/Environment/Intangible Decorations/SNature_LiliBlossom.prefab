@@ -9,12 +9,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4934608945764068}
-  m_Layer: 0
+  - component: {fileID: 5702379325426534968}
+  - component: {fileID: 5256823520058434841}
+  m_Layer: 2
   m_Name: SNature_LiliBlossom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4934608945764068
 Transform:
@@ -31,6 +33,42 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5702379325426534968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1809244605923138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91fbf46bcb7cbf74d82b14e71b7ac922, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  rigidbodyDensity: 1
+  rigidbodyDrag: 0
+  levelOfDetail: 1
+  levelOfDetailCutoff: 0.005
+--- !u!205 &5256823520058434841
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1809244605923138}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0, y: 0.18308303, z: 0}
+  m_Size: 0.58258873
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.005
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 1571072265418463084}
+  m_Enabled: 1
 --- !u!1001 &1556491655254022324
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -41,6 +79,14 @@ PrefabInstance:
     - target: {fileID: 1809244605923138, guid: f4897fd8ab35dfe4798e8ab4b3d928e7, type: 3}
       propertyPath: m_Name
       value: SNature_LiliBlossom
+      objectReference: {fileID: 0}
+    - target: {fileID: 1809244605923138, guid: f4897fd8ab35dfe4798e8ab4b3d928e7, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1809244605923138, guid: f4897fd8ab35dfe4798e8ab4b3d928e7, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 4934608945764068, guid: f4897fd8ab35dfe4798e8ab4b3d928e7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -101,6 +147,12 @@ PrefabInstance:
 --- !u!4 &1551574638496566864 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4934608945764068, guid: f4897fd8ab35dfe4798e8ab4b3d928e7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1556491655254022324}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &1571072265418463084 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 23737421627314136, guid: f4897fd8ab35dfe4798e8ab4b3d928e7,
     type: 3}
   m_PrefabInstance: {fileID: 1556491655254022324}
   m_PrefabAsset: {fileID: 0}

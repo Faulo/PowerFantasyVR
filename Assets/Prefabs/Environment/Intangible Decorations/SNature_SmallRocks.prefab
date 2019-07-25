@@ -9,12 +9,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4842751938807656}
-  m_Layer: 0
+  - component: {fileID: 5058223019230142601}
+  - component: {fileID: 8870961084373743604}
+  m_Layer: 2
   m_Name: SNature_SmallRocks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4842751938807656
 Transform:
@@ -31,6 +33,42 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5058223019230142601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1570446151874584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91fbf46bcb7cbf74d82b14e71b7ac922, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  rigidbodyDensity: 1
+  rigidbodyDrag: 0
+  levelOfDetail: 1
+  levelOfDetailCutoff: 0.005
+--- !u!205 &8870961084373743604
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1570446151874584}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: -0.27133715, y: 0.06351944, z: -0.14463907}
+  m_Size: 1.7042217
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.005
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 3564888599206031985}
+  m_Enabled: 1
 --- !u!1001 &3542850662949906501
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -41,6 +79,14 @@ PrefabInstance:
     - target: {fileID: 1570446151874584, guid: d0c145113631096469cd44747806fe0b, type: 3}
       propertyPath: m_Name
       value: SNature_SmallRocks
+      objectReference: {fileID: 0}
+    - target: {fileID: 1570446151874584, guid: d0c145113631096469cd44747806fe0b, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1570446151874584, guid: d0c145113631096469cd44747806fe0b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 4842751938807656, guid: d0c145113631096469cd44747806fe0b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -113,6 +159,12 @@ PrefabInstance:
 --- !u!4 &3547587036836704045 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4842751938807656, guid: d0c145113631096469cd44747806fe0b,
+    type: 3}
+  m_PrefabInstance: {fileID: 3542850662949906501}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &3564888599206031985 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 23569831917853236, guid: d0c145113631096469cd44747806fe0b,
     type: 3}
   m_PrefabInstance: {fileID: 3542850662949906501}
   m_PrefabAsset: {fileID: 0}

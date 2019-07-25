@@ -9,12 +9,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4954254999647384}
-  m_Layer: 0
+  - component: {fileID: -8218451930738896603}
+  - component: {fileID: 1383178413607114264}
+  m_Layer: 14
   m_Name: SNature_Stick
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4954254999647384
 Transform:
@@ -31,7 +33,43 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!64 &7463678205865582092
+--- !u!114 &-8218451930738896603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1042598324542122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91fbf46bcb7cbf74d82b14e71b7ac922, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 3
+  rigidbodyDensity: 1
+  rigidbodyDrag: 1
+  levelOfDetail: 0
+  levelOfDetailCutoff: 0.001
+--- !u!205 &1383178413607114264
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1042598324542122}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0.734866, y: 3.1693778, z: 0.28963092}
+  m_Size: 9.87799
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.001
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 3718152621266982520}
+  m_Enabled: 1
+--- !u!64 &5527381890757745395
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -55,6 +93,14 @@ PrefabInstance:
     - target: {fileID: 1042598324542122, guid: f490d32617ddf024db2969291e076bf9, type: 3}
       propertyPath: m_Name
       value: SNature_Stick
+      objectReference: {fileID: 0}
+    - target: {fileID: 1042598324542122, guid: f490d32617ddf024db2969291e076bf9, type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1042598324542122, guid: f490d32617ddf024db2969291e076bf9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 4954254999647384, guid: f490d32617ddf024db2969291e076bf9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -123,6 +169,12 @@ GameObject:
 --- !u!4 &3736975059420104650 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4954254999647384, guid: f490d32617ddf024db2969291e076bf9,
+    type: 3}
+  m_PrefabInstance: {fileID: 3732919878523007826}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &3718152621266982520 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 23774490904618282, guid: f490d32617ddf024db2969291e076bf9,
     type: 3}
   m_PrefabInstance: {fileID: 3732919878523007826}
   m_PrefabAsset: {fileID: 0}

@@ -9,7 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4244113901689226}
-  m_Layer: 0
+  - component: {fileID: -313399333277090271}
+  m_Layer: 14
   m_Name: Rock_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31,6 +32,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-313399333277090271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1150461584060438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91fbf46bcb7cbf74d82b14e71b7ac922, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 2
+  rigidbodyDensity: 1
 --- !u!1001 &1397026877739891178
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -41,6 +56,10 @@ PrefabInstance:
     - target: {fileID: 1150461584060438, guid: 30d5f03cade99944aa3940da084d5656, type: 3}
       propertyPath: m_Name
       value: Rock_4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1150461584060438, guid: 30d5f03cade99944aa3940da084d5656, type: 3}
+      propertyPath: m_Layer
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 4244113901689226, guid: 30d5f03cade99944aa3940da084d5656, type: 3}
       propertyPath: m_LocalPosition.x

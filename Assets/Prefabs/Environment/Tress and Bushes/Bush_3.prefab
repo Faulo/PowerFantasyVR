@@ -9,12 +9,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4951361981142268}
-  m_Layer: 0
+  - component: {fileID: -3762909904068794982}
+  - component: {fileID: 8949207496427522232}
+  m_Layer: 14
   m_Name: Bush_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4951361981142268
 Transform:
@@ -24,13 +26,49 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1309910605144772}
   m_LocalRotation: {x: 0.000000021855694, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4618906566013205389}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-3762909904068794982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1309910605144772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91fbf46bcb7cbf74d82b14e71b7ac922, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 3
+  rigidbodyDensity: 1
+  rigidbodyDrag: 1
+  levelOfDetail: 0
+  levelOfDetailCutoff: 0.001
+--- !u!205 &8949207496427522232
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1309910605144772}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0.13583046, y: 1.1917969, z: -0.045538723}
+  m_Size: 2.4819753
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.001
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 4637673961816968101}
+  m_Enabled: 1
 --- !u!64 &8108743899217711555
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -55,6 +93,14 @@ PrefabInstance:
     - target: {fileID: 1309910605144772, guid: bbc88cbf6bf8536498903fa26f55824f, type: 3}
       propertyPath: m_Name
       value: Bush_3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1309910605144772, guid: bbc88cbf6bf8536498903fa26f55824f, type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1309910605144772, guid: bbc88cbf6bf8536498903fa26f55824f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 4951361981142268, guid: bbc88cbf6bf8536498903fa26f55824f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -111,6 +157,12 @@ GameObject:
 --- !u!4 &4618906566013205389 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4951361981142268, guid: bbc88cbf6bf8536498903fa26f55824f,
+    type: 3}
+  m_PrefabInstance: {fileID: 4613990802868531057}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &4637673961816968101 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 23753668411532500, guid: bbc88cbf6bf8536498903fa26f55824f,
     type: 3}
   m_PrefabInstance: {fileID: 4613990802868531057}
   m_PrefabAsset: {fileID: 0}
