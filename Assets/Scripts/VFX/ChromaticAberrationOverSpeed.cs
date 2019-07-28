@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using PFVR.OurPhysics;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
@@ -8,7 +9,7 @@ namespace PFVR.VFX {
         [SerializeField, Range(1, 100)]
         private float maxSpeed = 1;
         [SerializeField]
-        private Rigidbody referenceBody = default;
+        private CharacterControllerMotor referenceBody = default;
 
         private ChromaticAberration chromaticAberration;
         void Start() {
