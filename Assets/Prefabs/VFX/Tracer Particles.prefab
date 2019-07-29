@@ -4659,6 +4659,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01e0e1a8ad8fb3346a4a2a04f5aa3f81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minimumSpeed: 1
   simulationSpeedOverSpeed:
     serializedVersion: 2
     m_Curve:

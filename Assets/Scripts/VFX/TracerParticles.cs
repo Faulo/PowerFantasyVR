@@ -6,6 +6,8 @@ using UnityEngine;
 namespace PFVR.VFX {
     [RequireComponent(typeof(ParticleSystem))]
     public class TracerParticles : MonoBehaviour {
+        [SerializeField, Range(0, 10)]
+        private float minimumSpeed = 0;
         [SerializeField]
         private AnimationCurve simulationSpeedOverSpeed = default;
         [SerializeField]
@@ -26,10 +28,10 @@ namespace PFVR.VFX {
 
         // Update is called once per frame
         void Update() {
-            if (target.speed > 0) {
+            if (target.speed > minimumSpeed) {
                 transform.LookAt(target.position + target.velocity);
-                particleSystemMain.simulationSpeed = simulationSpeedOverSpeed.Evaluate(target.speed);
-                particleSystemEmission.rateOverTime = emissionOverSpeed.Evaluate(target.speed);
+                particleSystemMain.simulationSpeed = simulationSpeedOverSpeed.Evaluate(target.speed - minimumSpeed);
+                particleSystemEmission.rateOverTime = emissionOverSpeed.Evaluate(target.speed - minimumSpeed);
             } else {
                 particleSystemMain.simulationSpeed = 0;
                 particleSystemEmission.rateOverTime = 0;

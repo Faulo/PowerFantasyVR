@@ -14,12 +14,27 @@ namespace PFVR.OurPhysics {
         }
         public float speed => velocity.magnitude;
 
+        [SerializeField, Range(0, 10)]
+        public float upwardsDrag = 0;
+        [SerializeField, Range(0, 10)]
+        public float downwardsDrag = 0;
+        [SerializeField, Range(0, 10)]
+        public float horizontalDrag = 0;
+
         void Start() {
             rigidbody = GetComponent<Rigidbody>();
         }
 
         void FixedUpdate() {
-
+            if (upwardsDrag > 0 && velocity.y > 0) {
+                LerpVelocity(new Vector3(velocity.x, 0, velocity.z), upwardsDrag * Time.deltaTime);
+            }
+            if (downwardsDrag > 0 && velocity.y < 0) {
+                LerpVelocity(new Vector3(velocity.x, 0, velocity.z), downwardsDrag * Time.deltaTime);
+            }
+            if (horizontalDrag > 0) {
+                LerpVelocity(new Vector3(0, velocity.y, 0), horizontalDrag * Time.deltaTime);
+            }
         }
 
         public void AddVelocity(Vector3 addedVelocity) {

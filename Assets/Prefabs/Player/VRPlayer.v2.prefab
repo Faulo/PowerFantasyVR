@@ -303,6 +303,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e48b9743881be9a42b49723c98cec47e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  upwardsDrag: 0.1
+  downwardsDrag: 0
+  horizontalDrag: 0.2
 --- !u!136 &2533186711291004993
 CapsuleCollider:
   m_ObjectHideFlags: 0
