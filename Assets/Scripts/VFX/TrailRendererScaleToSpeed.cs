@@ -7,6 +7,8 @@ namespace PFVR.VFX {
     public class TrailRendererScaleToSpeed : MonoBehaviour {
         [SerializeField, Range(0, 100)]
         private float scaleSpeed = 1;
+        [SerializeField, Range(0, 100)]
+        private float timeSpeed = 1;
         [SerializeField]
         private AnimationCurve timeOverSpeed = default;
 
@@ -25,7 +27,7 @@ namespace PFVR.VFX {
         void Update() {
             velocity = Vector3.Lerp(velocity, transform.position - position, scaleSpeed * Time.deltaTime);
             position = transform.position;
-            trailRenderer.time = timeOverSpeed.Evaluate(velocity.magnitude);
+            trailRenderer.time = Mathf.Lerp(trailRenderer.time, timeOverSpeed.Evaluate(velocity.magnitude), timeSpeed * Time.deltaTime);
         }
     }
 }

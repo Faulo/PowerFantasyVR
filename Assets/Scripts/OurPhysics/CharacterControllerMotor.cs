@@ -17,6 +17,7 @@ namespace PFVR.OurPhysics {
         [SerializeField, Range(0, 10)]
         private float gravityMultiplier = 1;
 
+        public Vector3 position => transform.position;
         public Vector3 velocity { get; private set; }
         public float speed => velocity.magnitude;
 

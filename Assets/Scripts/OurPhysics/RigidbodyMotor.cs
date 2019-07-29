@@ -7,11 +7,11 @@ namespace PFVR.OurPhysics {
     public class RigidbodyMotor : MonoBehaviour, IMotor {
         private new Rigidbody rigidbody;
 
+        public Vector3 position => transform.position;
         public Vector3 velocity {
             get => rigidbody.velocity;
             private set => rigidbody.velocity = value;
         }
-
         public float speed => velocity.magnitude;
 
         void Start() {
@@ -23,7 +23,7 @@ namespace PFVR.OurPhysics {
         }
 
         public void AddVelocity(Vector3 addedVelocity) {
-            velocity += addedVelocity;
+            rigidbody.AddForce(addedVelocity, ForceMode.VelocityChange);
         }
 
         public void Break(float breakFactor) {

@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace PFVR.OurPhysics {
     public interface IMotor {
+        Vector3 position { get; }
         Vector3 velocity { get; }
         float speed { get; }
 

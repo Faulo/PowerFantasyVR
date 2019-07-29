@@ -46,5 +46,5 @@ MonoBehaviour:
   playerType: 1
   basicPlayerPrefab: {fileID: 8859262723068756767, guid: ec5016abb676d61428a544fc6fe7f7d2,
     type: 3}
-  vrPlayerPrefab: {fileID: 6034624076104744032, guid: f7459615569844e43b24fe18b557b152,
+  vrPlayerPrefab: {fileID: 6034624076104744032, guid: 7d9c6d5fbdb63e046805725d87e60db1,
     type: 3}
