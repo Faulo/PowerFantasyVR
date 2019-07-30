@@ -57,7 +57,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 367611eb23a6b5642b4d8f37d2b51b22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wavePrefab: {fileID: 2041536302393913971, guid: 4d61087349418d34dbe878a9bb15f67d,
+  wavePrefab: {fileID: 4565798225603373984, guid: 9cfed0c0f6906b5489c719201d7ca015,
     type: 3}
   rumbleInterval: 100
   rumbleForceOverSize:
@@ -84,5 +84,5 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  maximumChargeTime: 1
-  followSpeed: 1
+  maximumChargeTime: 5
+  followSpeed: 10
