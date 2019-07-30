@@ -4830,7 +4830,7 @@ GameObject:
   - component: {fileID: 1313672327040267943}
   - component: {fileID: 8287558799287717538}
   m_Layer: 15
-  m_Name: LaserRay.CylinderRay
+  m_Name: LaserRay.BasicRay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4863,7 +4863,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a738af819d89632488441c4b35716c4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rayRange: 100
+  rayRange: 1000
   rayDamagePerSecond: 50
 --- !u!54 &8287558799287717538
 Rigidbody:

@@ -84,5 +84,8 @@ namespace PFVR.Player {
         void FixedUpdate() {
             currentStates.ForAll(state => state.OnUpdate(owner, this));
         }
+
+        void Update() {
+        }
     }
 }

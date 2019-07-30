@@ -53,7 +53,7 @@ namespace PFVR.Spells.JetPack {
             rumbleRoutine = StartCoroutine(CreateRumbleRoutine(hand.laterality));
             runTime = 0;
 
-            player.rigidbody.AddForce(hand.wrist.up * propulsionForce * Time.deltaTime * engine.propulsion * startupSpeed, ForceMode.VelocityChange);
+            player.motor.AddVelocity(hand.wrist.up * propulsionForce * Time.deltaTime * engine.propulsion * startupSpeed);
         }
         public void OnExit(PlayerBehaviour player, PlayerHandBehaviour hand) {
             engine.TurnOff();
@@ -63,12 +63,12 @@ namespace PFVR.Spells.JetPack {
         }
         public void OnUpdate(PlayerBehaviour player, PlayerHandBehaviour hand) {
             runTime += Time.deltaTime;
-            var turn = player.rigidbody.velocity + hand.wrist.up;
-            if (turn.magnitude < player.rigidbody.velocity.magnitude) {
-                player.rigidbody.velocity = Vector3.Lerp(player.rigidbody.velocity, turn, turnSpeed);
+            var turn = player.motor.velocity + hand.wrist.up;
+            if (turn.magnitude < player.motor.speed) {
+                player.motor.LerpVelocity(turn, turnSpeed);
             }
-            player.rigidbody.AddForce(hand.wrist.up * propulsionForce * Time.deltaTime * engine.propulsion, ForceMode.VelocityChange);
-            player.rigidbody.AddForce(Physics.gravity * gravityNegation * Time.deltaTime, ForceMode.VelocityChange);
+            player.motor.AddVelocity(hand.wrist.up * propulsionForce * Time.deltaTime * engine.propulsion);
+            player.motor.AddVelocity(Physics.gravity * gravityNegation * Time.deltaTime);
         }
         private IEnumerator CreateRumbleRoutine(GloveLaterality side) {
             while (true) {
