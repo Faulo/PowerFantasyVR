@@ -11,10 +11,10 @@ namespace PFVR.Player {
         public IMotor motor { get; private set; }
 
         [SerializeField]
-        private PlayerHandBehaviour leftHand = default;
+        public PlayerHandBehaviour leftHand = default;
 
         [SerializeField]
-        private PlayerHandBehaviour rightHand = default;
+        public PlayerHandBehaviour rightHand = default;
 
         public Transform torso;
 

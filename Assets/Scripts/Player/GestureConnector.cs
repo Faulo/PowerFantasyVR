@@ -1,5 +1,6 @@
 ﻿using PFVR.DataModels;
 using PFVR.ScriptableObjects;
+using Slothsoft.UnityExtensions;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -17,7 +18,8 @@ namespace PFVR.Player {
         private int gestureTriggerFrames = 1;
 
         private Dictionary<string, bool> unlockedGestures = new Dictionary<string, bool>() {
-            ["Nothing"] = true
+            ["Nothing"] = true,
+            ["HandGathering"] = true
         };
 
         public IEnumerable<Gesture> availableGestures => unlockedGestures
@@ -38,6 +40,8 @@ namespace PFVR.Player {
         private int nextLeftGestureCount;
         private int nextRightGestureCount;
 
+        private Gesture currentComplexGesture;
+
         [SerializeField]
         private KeyCode[] debugKeys = default;
         [SerializeField]
@@ -52,32 +56,54 @@ namespace PFVR.Player {
             var recognizer = new GestureRecognizer(gestureProfile.modelDataPath);
 
             ManusConnector.onLeftGloveData += (GloveData glove) => {
-                var gestureId = recognizer.Guess(glove.ToGestureModel());
-                gestureId = UnlockedOrDefault(gestureId);
-                if (nextLeftGestureId != gestureId) {
-                    nextLeftGestureId = gestureId;
-                    nextLeftGestureCount = 0;
-                }
-                nextLeftGestureCount++;
-                if (nextLeftGestureCount >= gestureTriggerFrames) {
-                    var gesture = gestureProfile.gestureSet[gestureId];
-                    onLeftGesture?.Invoke(gesture);
+                if (currentComplexGesture) {
+                    onLeftGesture?.Invoke(currentComplexGesture);
+                } else {
+                    var gestureId = recognizer.Guess(glove.ToGestureModel());
+                    gestureId = UnlockedOrDefault(gestureId);
+                    if (nextLeftGestureId != gestureId) {
+                        nextLeftGestureId = gestureId;
+                        nextLeftGestureCount = 0;
+                    }
+                    nextLeftGestureCount++;
+                    if (nextLeftGestureCount >= gestureTriggerFrames) {
+                        var gesture = gestureProfile.gestureSet[gestureId];
+                        onLeftGesture?.Invoke(gesture);
+                    }
                 }
             };
             ManusConnector.onRightGloveData += (GloveData glove) => {
-                var gestureId = recognizer.Guess(glove.ToGestureModel());
-                gestureId = UnlockedOrDefault(gestureId);
-                if (nextRightGestureId != gestureId) {
-                    nextRightGestureId = gestureId;
-                    nextRightGestureCount = 0;
-                }
-                nextRightGestureCount++;
-                if (nextRightGestureCount >= gestureTriggerFrames) {
-                    var gesture = gestureProfile.gestureSet[gestureId];
-                    onRightGesture?.Invoke(gesture);
+                if (currentComplexGesture) {
+                    onRightGesture?.Invoke(currentComplexGesture);
+                } else {
+                    var gestureId = recognizer.Guess(glove.ToGestureModel());
+                    gestureId = UnlockedOrDefault(gestureId);
+                    if (nextRightGestureId != gestureId) {
+                        nextRightGestureId = gestureId;
+                        nextRightGestureCount = 0;
+                    }
+                    nextRightGestureCount++;
+                    if (nextRightGestureCount >= gestureTriggerFrames) {
+                        var gesture = gestureProfile.gestureSet[gestureId];
+                        onRightGesture?.Invoke(gesture);
+                    }
                 }
             };
             StartCoroutine(Init());
+        }
+
+        public void StartComplexGesture(Gesture gesture) {
+            gesture = UnlockedOrDefault(gesture);
+            if (currentComplexGesture != gesture && gesture.isComplex) {
+                currentComplexGesture = gesture;
+                //onLeftGesture?.Invoke(currentComplexGesture);
+                //onRightGesture?.Invoke(currentComplexGesture);
+            }
+        }
+        public void StopComplexGesture(Gesture gesture) {
+            if (currentComplexGesture == gesture) {
+                currentComplexGesture = null;
+            }
         }
 
         private string UnlockedOrDefault(string gestureId) {
@@ -85,13 +111,17 @@ namespace PFVR.Player {
                 ? gestureId
                 : defaultGesture.name;
         }
+        private Gesture UnlockedOrDefault(Gesture gesture) {
+            return IsUnlocked(gesture)
+                ? gesture
+                : defaultGesture;
+        }
 
         private IEnumerator Init() {
             yield return new WaitForSeconds(1);
-            var gesture = defaultGesture;
-            Unlock(gesture);
-            onLeftGesture?.Invoke(gesture);
-            onRightGesture?.Invoke(gesture);
+            unlockedGestures.Keys.ToArray().ForAll(Unlock);
+            onLeftGesture?.Invoke(defaultGesture);
+            onRightGesture?.Invoke(defaultGesture);
             yield return null;
         }
         public bool IsUnlocked(string gestureId) {

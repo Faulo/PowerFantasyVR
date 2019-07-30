@@ -166,6 +166,44 @@ MonoBehaviour:
   pitchMin: 0.9
   pitchMax: 1.1
   audioSource: {fileID: 0}
+--- !u!114 &5622079449204971196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5057705318432883154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8203366c92d96c4a851dc1c643a6c86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scaleSpeed: 10
+  timeSpeed: 1
+  timeOverSpeed:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &163431775107679141
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -584,8 +622,29 @@ PrefabInstance:
       propertyPath: m_Parameters.colorGradient.ctime1
       value: 65535
       objectReference: {fileID: 0}
+    - target: {fileID: 1956849369779868965, guid: 283de62e1a26e544f80b4a805955dc7b,
+        type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].value
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1956849369779868965, guid: 283de62e1a26e544f80b4a805955dc7b,
+        type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].value
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1956849369779868965, guid: 283de62e1a26e544f80b4a805955dc7b,
+        type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].time
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 283de62e1a26e544f80b4a805955dc7b, type: 3}
+--- !u!1 &5057705318432883154 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4135628662908124610, guid: 283de62e1a26e544f80b4a805955dc7b,
+    type: 3}
+  m_PrefabInstance: {fileID: 9174993988221156368}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5741230104019084429 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3528801444789622941, guid: 283de62e1a26e544f80b4a805955dc7b,

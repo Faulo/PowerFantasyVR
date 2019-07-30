@@ -16,6 +16,7 @@ namespace PFVR.Player {
         public Transform status;
         public Transform indexFinger;
         public Transform infinityStone;
+        public Transform gatheringCenter;
 
         public bool enableDebugging;
 
