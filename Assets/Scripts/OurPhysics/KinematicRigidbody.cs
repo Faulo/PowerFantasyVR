@@ -9,9 +9,8 @@ namespace PFVR.OurPhysics {
         [SerializeField]
         public bool transferForce = true;
 
-        private Rigidbody body => GetComponent<Rigidbody>();
-
         void Start() {
+            var body = GetComponent<Rigidbody>();
             if (body != null) {
                 mass = body.mass;
                 velocity = body.velocity;

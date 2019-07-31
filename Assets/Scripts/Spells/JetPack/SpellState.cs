@@ -24,6 +24,12 @@ namespace PFVR.Spells.JetPack {
 
         [SerializeField]
         private AnimationCurve propulsionOverTime = default;
+
+        [SerializeField, Range(0, 10)]
+        private float startupSpeed = 1f;
+        [SerializeField, Range(0, 1)]
+        private float turnSpeed = 1f;
+
         private float runTime {
             get => runTimeCache;
             set {
@@ -46,6 +52,8 @@ namespace PFVR.Spells.JetPack {
             engine.TurnOn();
             rumbleRoutine = StartCoroutine(CreateRumbleRoutine(hand.laterality));
             runTime = 0;
+
+            player.motor.AddVelocity(hand.wrist.up * propulsionForce * Time.deltaTime * engine.propulsion * startupSpeed);
         }
         public void OnExit(PlayerBehaviour player, PlayerHandBehaviour hand) {
             engine.TurnOff();
@@ -55,8 +63,12 @@ namespace PFVR.Spells.JetPack {
         }
         public void OnUpdate(PlayerBehaviour player, PlayerHandBehaviour hand) {
             runTime += Time.deltaTime;
-            player.rigidbody.AddForce(hand.wrist.up * propulsionForce * Time.deltaTime * engine.propulsion, ForceMode.VelocityChange);
-            player.rigidbody.AddForce(Physics.gravity * gravityNegation * Time.deltaTime, ForceMode.VelocityChange);
+            var turn = player.motor.velocity + hand.wrist.up;
+            if (turn.magnitude < player.motor.speed) {
+                player.motor.LerpVelocity(turn, turnSpeed);
+            }
+            player.motor.AddVelocity(hand.wrist.up * propulsionForce * Time.deltaTime * engine.propulsion);
+            player.motor.AddVelocity(Physics.gravity * gravityNegation * Time.deltaTime);
         }
         private IEnumerator CreateRumbleRoutine(GloveLaterality side) {
             while (true) {
