@@ -112,6 +112,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   alphaFactor: 1
   betaFactor: 2
+  playerVelocityTheshold: 31
   idleDiffusion: 300
 --- !u!54 &1454478478354520123
 Rigidbody:
@@ -170,11 +171,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1454478478354520096}
     m_Modifications:
-    - target: {fileID: 7648092028806189602, guid: 148b262a22b5c3f469d21fb75709aad3,
-        type: 3}
-      propertyPath: m_Name
-      value: Enemy.Hurt
-      objectReference: {fileID: 0}
     - target: {fileID: 5707358116862692214, guid: 148b262a22b5c3f469d21fb75709aad3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -230,6 +226,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7648092028806189602, guid: 148b262a22b5c3f469d21fb75709aad3,
+        type: 3}
+      propertyPath: m_Name
+      value: Enemy.Hurt
+      objectReference: {fileID: 0}
+    - target: {fileID: 953939642377760344, guid: 148b262a22b5c3f469d21fb75709aad3,
+        type: 3}
+      propertyPath: burstCount
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 8112467958452164520, guid: 148b262a22b5c3f469d21fb75709aad3,
         type: 3}
       propertyPath: EmissionModule.m_Bursts.Array.data[0].cycleCount
@@ -238,11 +244,6 @@ PrefabInstance:
     - target: {fileID: 8112467958452164520, guid: 148b262a22b5c3f469d21fb75709aad3,
         type: 3}
       propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.scalar
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 953939642377760344, guid: 148b262a22b5c3f469d21fb75709aad3,
-        type: 3}
-      propertyPath: burstCount
       value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []

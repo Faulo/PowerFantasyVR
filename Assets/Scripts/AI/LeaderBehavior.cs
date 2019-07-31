@@ -21,24 +21,20 @@ public class LeaderBehavior : MonoBehaviour
     private float ankorDistance;
     private bool lookForPlayer = false;
     private bool normalize = false;
+    private Vector3 transformationVector;
 
     Rigidbody rigidBody;
     public bool chasePlayer = false;
-    private Vector3 transformationVector;
-    
 
     // Start is called before the first frame update
     void Start()
     {
         // Retrieve all targets
         arrayOfTargets = GameObject.FindGameObjectsWithTag("LeaderTarget");
-        //Debug.Log("Array of Targets: "+arrayOfTargets.Length);
         //Retrieve player
         player = GameObject.FindGameObjectWithTag("Player");
-        //Debug.Log("Player exists: " + !player.Equals(null));
         //Retrieve ankor
         ankor = GameObject.FindGameObjectWithTag("Ankor");
-        //Debug.Log("Array of Ankor: " + !ankor.Equals(null));
         // Set number of Targets
         num = arrayOfTargets.Length - 1;
         lookForPlayer = true;
@@ -60,7 +56,6 @@ public class LeaderBehavior : MonoBehaviour
         currentDistance = Vector3.Distance(currentTarget.position, transform.position);
         if (currentDistance < nearTarget)
         {
-            //Debug.Log("Set new Target");
             num--;
             normalize = false;
             lookForPlayer = true;
@@ -74,12 +69,10 @@ public class LeaderBehavior : MonoBehaviour
                 currentTarget = player.transform;
                 chasePlayer = true;
                 alphaFactorUsed = alphaFactor + 2.0f;
-                //Debug.Log("Send to player");
 
             }
             else if(ankorDistance > ankorThreshold)
             {
-                //Debug.Log("Too far away");
                 lookForPlayer = false;
                 chasePlayer = false;
                 alphaFactorUsed = alphaFactor;
@@ -91,10 +84,14 @@ public class LeaderBehavior : MonoBehaviour
         transformationVector = new Vector3(currentTarget.position.x, currentTarget.position.y, currentTarget.position.z) - transform.position;
         if(normalize)
         {
-            //Debug.Log("Normalize Vector");
             Vector3.Normalize(transformationVector);
             transformationVector = transformationVector * 0.4f;
         }
         rigidBody.AddRelativeForce(transformationVector * alphaFactorUsed);
+    }
+
+    public GameObject GetPlayer()
+    {
+        return player;
     }
 }
