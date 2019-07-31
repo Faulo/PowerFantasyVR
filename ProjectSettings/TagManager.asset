@@ -11,6 +11,7 @@ TagManager:
   - Beacon
   - LeaderTarget
   - Ankor
+  - Leaders
   layers:
   - Default
   - TransparentFX

@@ -11,6 +11,7 @@ namespace PFVR.AI
         // Alpha > 0; Factor for velocity of agents
         [SerializeField, Range(0, 10)]
         private float alphaFactor = 0.4f;
+        private float alphaFactorUsed;
         // Beta > 0; Factor for diffusion intensity
 
         [SerializeField, Range(0, 10)]
@@ -18,6 +19,7 @@ namespace PFVR.AI
 
         [SerializeField, Range(0, 1000)]
         private float idleDiffusion = 100.0f;
+        private float chasingDiffusion = 0.0f;
 
         private float diffusion;
         private float goalDiffusion;
@@ -27,6 +29,7 @@ namespace PFVR.AI
         private float diffusionZ;
 
         private Rigidbody thisRigidbody;
+        private LeaderBehavior leaderBehavior;
         private Transform nearestGoal;
         private Transform currentBeacon;
 
@@ -37,30 +40,37 @@ namespace PFVR.AI
 
 
         private GameObject[] arrayOfBeacons;
+        private GameObject leaders;
 
         // Start is called before the first frame update
         void Start()
         {
             // Retrieve all Beacons
             arrayOfBeacons = GameObject.FindGameObjectsWithTag("Beacon");
+            leaders = GameObject.FindGameObjectWithTag("Leaders");
             thisRigidbody = GetComponent<Rigidbody>();
 
-            //StartCoroutine(FindGoalRoutine());
+            StartCoroutine(FindGoalRoutine());
+            leaderBehavior = (LeaderBehavior) leaders.GetComponent<LeaderBehavior>();
             nearestGoal = arrayOfBeacons[0].transform;
         }
 
-        IEnumerator FindGoalRoutine() {
-            var wait = new WaitForSeconds(1);
-            while (true) {
+        IEnumerator FindGoalRoutine()
+        {
+            var wait = new WaitForSeconds(0.1f);
+            while (true)
+            {
                 // *** Part 1: Find nearest goal ***
                 // Reset value for the nearest goal for new calculation
                 var nearestGoalDistance = float.MaxValue;
 
-                // Find nearest beacon and set as goal if nearer than current goal and not in goal radius
-                for (int i = 0; i < arrayOfBeacons.Length; i++) {
+                // Find nearest beacon and set as goal if nearer than current goal
+                for (int i = 0; i < arrayOfBeacons.Length; i++)
+                {
                     var currentBeacon = arrayOfBeacons[i].transform;
                     var currentDistance = Vector3.Distance(currentBeacon.position, transform.position);
-                    if (currentDistance < nearestGoalDistance) {
+                    if (currentDistance < nearestGoalDistance)
+                    {
                         nearestGoalDistance = currentDistance;
                         nearestGoal = currentBeacon;
                     }
@@ -94,18 +104,36 @@ namespace PFVR.AI
             randNum = MarsagliaGenerator.Next(); 
             diffusionZ = diffusion * randNum;
 
+            // *** Part 5: Put together the parts ***
             // Diffusion vector: position of goal + position of diffusion vector minus the position of the agent
             diffusionVector = new Vector3(nearestGoal.position.x + diffusionX, nearestGoal.position.y + diffusionY, nearestGoal.position.z + diffusionZ) - transform.position;
-            // Add more diffusion when idle
-            randNum = MarsagliaGenerator.Next();
-            diffusionVector.x += idleDiffusion * randNum;
-            randNum = MarsagliaGenerator.Next();
-            diffusionVector.y += idleDiffusion * randNum;
-            randNum = MarsagliaGenerator.Next();
-            diffusionVector.z += idleDiffusion * randNum;
+            
+            // Diffuse more when not chasing player
+            if (!leaderBehavior.chasePlayer)
+            {
+                // Add more diffusion when idle
+                randNum = MarsagliaGenerator.Next();
+                diffusionVector.x += idleDiffusion * randNum;
+                randNum = MarsagliaGenerator.Next();
+                diffusionVector.y += idleDiffusion * randNum;
+                randNum = MarsagliaGenerator.Next();
+                diffusionVector.z += idleDiffusion * randNum;
+                //alphaFactorUsed = alphaFactor;
+            }
+            else
+            {
+                // Concentrate / Diffuse less when chasing player
+                randNum = MarsagliaGenerator.Next();
+                diffusionVector.x += chasingDiffusion * randNum;
+                randNum = MarsagliaGenerator.Next();
+                diffusionVector.y += chasingDiffusion * randNum;
+                randNum = MarsagliaGenerator.Next();
+                diffusionVector.z += chasingDiffusion * randNum;
+                //alphaFactorUsed = alphaFactor + 1.0f;
+            }
 
-            // *** Part 5: Put together the parts ***
-            finalMovementVector = transformationVector * alphaFactor + diffusionVector;
+
+            finalMovementVector = transformationVector * alphaFactorUsed + diffusionVector;
 
             thisRigidbody.AddRelativeForce(finalMovementVector);
         }

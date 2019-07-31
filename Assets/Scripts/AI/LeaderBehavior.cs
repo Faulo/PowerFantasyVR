@@ -5,13 +5,14 @@ using UnityEngine;
 public class LeaderBehavior : MonoBehaviour
 {
     public float alphaFactor = 0.2f;
+    private float alphaFactorUsed;
     public float attackPlayerDistance = 500.0f;
     public float ankorThreshold = 1000.0f;
 
     private GameObject player;
     private GameObject ankor;
     private GameObject[] arrayOfTargets;
-    Rigidbody rigidBody;
+    
     private Transform currentTarget;
     private float currentDistance;
     private int num;
@@ -21,6 +22,8 @@ public class LeaderBehavior : MonoBehaviour
     private bool lookForPlayer = false;
     private bool normalize = false;
 
+    Rigidbody rigidBody;
+    public bool chasePlayer = false;
     private Vector3 transformationVector;
     
 
@@ -46,8 +49,9 @@ public class LeaderBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        alphaFactorUsed = alphaFactor;
         // Find next target
-        if(num < 0)
+        if (num < 0)
         {
             num = arrayOfTargets.Length - 1;
         }
@@ -68,12 +72,17 @@ public class LeaderBehavior : MonoBehaviour
             if (playerDistance < attackPlayerDistance && ankorDistance < ankorThreshold && lookForPlayer)
             {
                 currentTarget = player.transform;
+                chasePlayer = true;
+                alphaFactorUsed = alphaFactor + 2.0f;
                 //Debug.Log("Send to player");
 
-            }else if(ankorDistance > ankorThreshold)
+            }
+            else if(ankorDistance > ankorThreshold)
             {
                 //Debug.Log("Too far away");
                 lookForPlayer = false;
+                chasePlayer = false;
+                alphaFactorUsed = alphaFactor;
                 normalize = true;
             }
         }
@@ -86,6 +95,6 @@ public class LeaderBehavior : MonoBehaviour
             Vector3.Normalize(transformationVector);
             transformationVector = transformationVector * 0.4f;
         }
-        rigidBody.AddRelativeForce(transformationVector * alphaFactor);
+        rigidBody.AddRelativeForce(transformationVector * alphaFactorUsed);
     }
 }
