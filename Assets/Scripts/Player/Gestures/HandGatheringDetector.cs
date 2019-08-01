@@ -5,30 +5,49 @@ using UnityEngine;
 
 namespace PFVR.Player.Gestures {
     public class HandGatheringDetector : AbstractDetector {
-        [HideInInspector]
-        public bool isGathering = false;
+        [SerializeField]
+        private bool isPrimary = false;
+
+        private new CapsuleCollider collider;
+
+        private void Start() {
+            collider = GetComponent<CapsuleCollider>();
+        }
 
         private void OnTriggerEnter(Collider other) {
-            if (isGathering) {
-                return;
-            }
-            var otherDetector = other.GetComponent<HandGatheringDetector>();
-            if (otherDetector && !otherDetector.isGathering) {
-                isGathering = true;
-                otherDetector.isGathering = true;
-                TurnOn();
+            if (isPrimary) {
+                var otherDetector = other.GetComponent<HandGatheringDetector>();
+                if (otherDetector != null) {
+                    if (isOn) {
+                        isTurningOff = false;
+                    } else {
+                        isTurningOn = true;
+                    }
+                }
             }
         }
+
         private void OnTriggerExit(Collider other) {
-            if (!isGathering) {
-                return;
+            if (isPrimary) {
+                var otherDetector = other.GetComponent<HandGatheringDetector>();
+                if (otherDetector != null) {
+                    if (isOn) {
+                        isTurningOff = true;
+                    } else {
+                        isTurningOn = false;
+                    }
+                }
             }
-            var otherDetector = other.GetComponent<HandGatheringDetector>();
-            if (otherDetector && otherDetector.isGathering) {
-                isGathering = false;
-                otherDetector.isGathering = false;
-                TurnOff();
-            }
+        }
+        
+        protected override void TurnOn() {
+            collider.height *= 4;
+            base.TurnOn();
+        }
+
+        protected override void TurnOff() {
+            collider.height /= 4;
+            base.TurnOff();
         }
     }
 }

@@ -2,6 +2,7 @@
 using PFVR.OurPhysics;
 using PFVR.Player;
 using PFVR.Player.Gestures;
+using Slothsoft.UnityExtensions;
 using System.Collections;
 using UnityEngine;
 
@@ -9,6 +10,9 @@ namespace PFVR.Spells.EnergyWave {
     public class SpellState : MonoBehaviour, ISpellState {
         [SerializeField]
         private GameObject wavePrefab = default;
+
+        [SerializeField, Range(0, 100)]
+        private float breakSpeed = 0;
 
 
         [SerializeField, Range(1, 1000)]
@@ -53,6 +57,8 @@ namespace PFVR.Spells.EnergyWave {
             rightChargeCenter = player.rightHand.gatheringCenter;
 
             wave = Instantiate(wavePrefab, player.transform).GetComponent<Wave>();
+            wave.GetComponentsInChildren<TrailRenderer>()
+                .ForAll(renderer => renderer.enabled = false);
             wave.transform.position = chargeCenter;
             wave.explodable = false;
             chargeTime = 0;
@@ -65,6 +71,8 @@ namespace PFVR.Spells.EnergyWave {
             }
 
             if (wave != null) {
+                wave.GetComponentsInChildren<TrailRenderer>()
+                    .ForAll(renderer => renderer.enabled = true);
                 wave.transform.parent = wave.transform.parent.parent;
                 wave.explodable = true;
                 wave.body.velocity = 100*(leftChargeCenter.position - player.leftHand.wrist.position + rightChargeCenter.position - player.rightHand.wrist.position);
@@ -84,6 +92,7 @@ namespace PFVR.Spells.EnergyWave {
             if (wave != null) {
                 wave.transform.position = Vector3.Lerp(wave.transform.position, chargeCenter, followSpeed * Time.deltaTime);
             }
+            player.motor.Break(breakSpeed * Time.deltaTime);
         }
 
         private IEnumerator CreateRumbleRoutine() {

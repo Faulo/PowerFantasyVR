@@ -10,6 +10,7 @@ using UnityEngine;
 
 namespace PFVR.Player {
     public class GestureConnector : MonoBehaviour {
+        public static GestureConnector instance { get; private set; }
 
         [SerializeField]
         private GestureProfile gestureProfile = default;
@@ -52,6 +53,8 @@ namespace PFVR.Player {
             if (gestureProfile == null) {
                 throw new MissingReferenceException("GestureConnector needs a GestureProfile!");
             }
+
+            instance = this;
 
             var recognizer = new GestureRecognizer(gestureProfile.modelDataPath);
 

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7239202865233513487}
   - component: {fileID: 229001447628847152}
-  - component: {fileID: 3776986446214167804}
+  - component: {fileID: 7003954808630239581}
   m_Layer: 13
   m_Name: HandGatherDetector
   m_TagString: Untagged
@@ -45,9 +45,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggeredGesture: {fileID: 11400000, guid: 7d02e44a6ffbd924daaedfa317aacacc, type: 2}
-  isGathering: 0
---- !u!135 &3776986446214167804
-SphereCollider:
+  toggleFrames: 3
+  isPrimary: 0
+--- !u!136 &7003954808630239581
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -56,6 +57,7 @@ SphereCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  serializedVersion: 2
   m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}

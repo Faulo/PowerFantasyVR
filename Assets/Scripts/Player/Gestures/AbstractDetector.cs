@@ -9,19 +9,56 @@ namespace PFVR.Player.Gestures {
         [SerializeField]
         private Gesture triggeredGesture = default;
 
-        private IEnumerable<GestureConnector> connectors;
+        protected bool isOn { get; private set; } = false;
+        protected bool isTurningOn { get; set; } = false;
+        protected bool isTurningOff { get; set; } = false;
 
-        // Start is called before the first frame update
-        void Start() {
-            connectors = FindObjectsOfType<GestureConnector>();
+        [SerializeField, Range(0, 60)]
+        private int toggleFrames = 1;
+
+        private int startupFrames;
+        private int shutoffFrames;
+
+        private void FixedUpdate() {
+            if (isOn) {
+                if (isTurningOff) {
+                    shutoffFrames++;
+                    if (shutoffFrames >= toggleFrames) {
+                        shutoffFrames = 0;
+                        TurnOff();
+                    }
+                } else {
+                    if (shutoffFrames > 0) {
+                        shutoffFrames--;
+                    }
+                }
+            } else {
+                if (isTurningOn) {
+                    startupFrames++;
+                    if (startupFrames >= toggleFrames) {
+                        startupFrames = 0;
+                        TurnOn();
+                    }
+                } else {
+                    if (startupFrames > 0) {
+                        startupFrames--;
+                    }
+                }
+            }
         }
 
-        // Update is called once per frame
-        protected void TurnOn() {
-            connectors.ForAll(connector => connector.StartComplexGesture(triggeredGesture));
+        protected virtual void TurnOn() {
+            isOn = true;
+            isTurningOn = false;
+            isTurningOff = false;
+            GestureConnector.instance.StartComplexGesture(triggeredGesture);
         }
-        protected void TurnOff() {
-            connectors.ForAll(connector => connector.StopComplexGesture(triggeredGesture));
+
+        protected virtual void TurnOff() {
+            isOn = false;
+            isTurningOn = false;
+            isTurningOff = false;
+            GestureConnector.instance.StopComplexGesture(triggeredGesture);
         }
     }
 }
