@@ -133,6 +133,7 @@ namespace PFVR.AI
             diffusionZ = diffusion * randNum;
 
             // *** Part 5: Evade Player ***
+            // Todo: Get it working!
             if(evadePlayer)
             {
                 // Find out the direction from which player is coming and evade to the sides!
@@ -155,8 +156,7 @@ namespace PFVR.AI
                         break;
                 }
                 transformationVector = vectorToPlayer;
-                alphaFactorUsed = alphaFactor + 100.0f;
-
+                alphaFactorUsed = alphaFactor * 100.0f;
             }
             
 
