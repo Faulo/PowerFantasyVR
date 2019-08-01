@@ -11,9 +11,9 @@ namespace PFVR.OurPhysics {
 
         void FixedUpdate() {
             GetComponents<Rigidbody>()
-                .ForAll(body => body.velocity += Physics.gravity * gravity * Time.fixedDeltaTime);
+                .ForAll(body => body.velocity += Physics.gravity * gravity * Time.deltaTime);
             GetComponents<KinematicRigidbody>()
-                .ForAll(body => body.velocity += Physics.gravity * gravity * Time.fixedDeltaTime);
+                .ForAll(body => body.velocity += Physics.gravity * gravity * Time.deltaTime);
         }
     }
 }

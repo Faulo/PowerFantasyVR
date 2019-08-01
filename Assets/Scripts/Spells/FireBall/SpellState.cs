@@ -32,6 +32,9 @@ namespace PFVR.Spells.FireBall {
         private float maximumChargeTime = 1f;
         private float currentChargeTime = 0;
 
+        [SerializeField, Range(0, 1)]
+        private float breakSpeed = 1f;
+
         private float chargeTime {
             get {
                 return currentChargeTime;
@@ -56,7 +59,7 @@ namespace PFVR.Spells.FireBall {
 
         public void OnExit(PlayerBehaviour player, PlayerHandBehaviour hand) {
             if (ball != null) {
-                ball.body.velocity -= player.velocity;
+                ball.body.velocity -= player.motor.velocity;
                 ball.ReleaseFrom(anchor);
                 ball = null;
             }
@@ -66,19 +69,20 @@ namespace PFVR.Spells.FireBall {
         }
 
         public void OnUpdate(PlayerBehaviour player, PlayerHandBehaviour hand) {
-            chargeTime += Time.fixedDeltaTime;
+            chargeTime += Time.deltaTime;
             if (ball != null && anchor != null) {
                 var distance = anchor.transform.position - ball.transform.position;
                 ball.body.AddForce(distance, ForceMode.VelocityChange);
                 //anchor.damper = Mathf.Clamp(1 / distance.magnitude, 1, 1000);
-                anchor.spring = Mathf.Clamp(player.speed, 1, 1000);
+                anchor.spring = Mathf.Clamp(player.motor.speed, 1, 1000);
             }
+            player.motor.Break(breakSpeed);
         }
         private IEnumerator CreateRumbleRoutine(PlayerHandBehaviour hand) {
             while (true) {
                 if (ball != null) {
                     var distance = (anchor.transform.position - ball.transform.position).magnitude;
-                    Apollo.rumble(hand.laterality, rumbleInterval, (ushort)(rumbleForceOverDistance.Evaluate(distance) * rumbleForceOverSize.Evaluate(ball.size) * ushort.MaxValue));
+                    ManusConnector.Rumble(hand.laterality, rumbleInterval, rumbleForceOverDistance.Evaluate(distance) * rumbleForceOverSize.Evaluate(ball.size));
                 }
                 yield return new WaitForSeconds(rumbleInterval / 1000f);
             }

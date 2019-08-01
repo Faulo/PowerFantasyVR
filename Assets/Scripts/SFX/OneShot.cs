@@ -32,6 +32,7 @@ namespace PFVR.SFX {
                     audioSource = gameObject.AddComponent<AudioSource>();
                 }
             }
+            audioSource.spatialBlend = 1f;
             if (playOnStart) {
                 Play();
             }

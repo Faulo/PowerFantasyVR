@@ -32,6 +32,7 @@ namespace PFVR.Spells {
         private ScalableObject scale => GetComponent<ScalableObject>();
 
         private ParticleSystem particles => GetComponentInChildren<ParticleSystem>();
+
         void Start() {
             var colliders = Physics.OverlapSphere(transform.position, range, LayerMask.GetMask("Default", "Obstacle", "Player"));
             colliders
@@ -39,7 +40,7 @@ namespace PFVR.Spells {
                     var direction = collider.transform.position - transform.position + Vector3.up;
                     var force = size * maximumForce * forceOverDistance.Evaluate(direction.magnitude / range);
                     var damage = size * maximumDamage * damageOverDistance.Evaluate(direction.magnitude / range);
-                    Debug.Log(force);
+                    //Debug.Log(force);
                     collider
                         .GetComponentsInParent<Rigidbody>()
                         .ForAll(body => {
@@ -48,6 +49,7 @@ namespace PFVR.Spells {
                         });
                     collider
                         .GetComponentsInParent<Destroyable>()
+                        .Log()
                         .ForAll(destroyable => destroyable.currentHP -= damage);
                 });
             particles.Play();
