@@ -18,5 +18,10 @@ namespace PFVR.AI
             }
             return validDouble.x * Mathf.Sqrt((-2 * Mathf.Log(s)) / s);
         }
+
+        public static Vector3 NextVector3()
+        {
+            return new Vector3(Next(), Next(), Next());
+        }
     }
 }
