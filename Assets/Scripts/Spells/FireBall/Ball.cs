@@ -37,13 +37,14 @@ namespace PFVR.Spells.FireBall {
         }
 
         public void ConnectTo(Joint anchor) {
-            collider.enabled = false;
+            explodable = false;
             transform.position = anchor.transform.position;
             anchor.connectedBody = body;
         }
 
         public void ReleaseFrom(Joint anchor) {
-            collider.enabled = true;
+            transform.parent = transform.parent.parent;
+            explodable = true;
             anchor.connectedBody = null;
             body.drag = 0;
             body.velocity *= velocityMultiplier;

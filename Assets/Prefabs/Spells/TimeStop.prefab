@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcf2b5e2888bad94fba6c2e9555f4e43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trackerMaterial: {fileID: 2100000, guid: b6b273f97ee6e2d42806f5980d69860b, type: 2}
+  glowColor: {r: 0.63721275, g: 0, b: 4, a: 1}
 --- !u!114 &-3907211796637124242
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57,5 +57,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffdb5259c14d78d4c9fdca189ecfe806, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultTimeScale: 1
-  stoppedTimeScale: 0.1
+  stoppedTimeScale: 0.01
+  breakSpeed: 10
+  postProcessingPrefab: {fileID: 7602439163294645239, guid: c0a98b69970ae6040b23ebef8be00f9d,
+    type: 3}
