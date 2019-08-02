@@ -3,17 +3,19 @@ using PFVR.ScriptableObjects;
 using PFVR.Player;
 using UnityEngine;
 using System.Collections.Generic;
+using PFVR.OurPhysics;
 
 namespace PFVR.Player {
     [RequireComponent(typeof(GestureConnector))]
     public class PlayerBehaviour : MonoBehaviour {
-        public new Rigidbody rigidbody => GetComponent<Rigidbody>();
+        public IMotor motor { get; private set; }
+
         [SerializeField]
         private PlayerHandBehaviour leftHand = default;
 
         [SerializeField]
         private PlayerHandBehaviour rightHand = default;
-        
+
         public Transform torso;
 
         private Gesture leftGesture;
@@ -22,11 +24,11 @@ namespace PFVR.Player {
         public Vector3 deltaMovement { get; private set; }
         private Vector3 lastPosition = default;
 
-        public float speed => rigidbody.velocity.magnitude;
-        public Vector3 velocity => rigidbody.velocity;
         public IEnumerable<Gesture> availableGestures => GetComponent<GestureConnector>().availableGestures;
 
         void Start() {
+            motor = GetComponent<IMotor>();
+
             leftHand.Init(this, GloveLaterality.GLOVE_LEFT);
             rightHand.Init(this, GloveLaterality.GLOVE_RIGHT);
 

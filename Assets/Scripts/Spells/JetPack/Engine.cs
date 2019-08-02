@@ -78,7 +78,7 @@ namespace PFVR.Spells.JetPack {
 
         void Update() {
             audioSource.volume = maximumVolume * propulsion;
-            lowPassFilter.cutoffFrequency = cutoffFrequencyOverSpeed.Evaluate(player.speed);
+            lowPassFilter.cutoffFrequency = cutoffFrequencyOverSpeed.Evaluate(player.motor.speed);
         }
     }
 }
