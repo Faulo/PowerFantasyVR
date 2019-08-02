@@ -48,10 +48,12 @@ namespace PFVR.Player.Gestures {
         }
 
         protected virtual void TurnOn() {
-            isOn = true;
-            isTurningOn = false;
-            isTurningOff = false;
-            GestureConnector.instance.StartComplexGesture(triggeredGesture);
+            if (GestureConnector.instance.CanStartComplexGesture(triggeredGesture)) {
+                isOn = true;
+                isTurningOn = false;
+                isTurningOff = false;
+                GestureConnector.instance.StartComplexGesture(triggeredGesture);
+            }
         }
 
         protected virtual void TurnOff() {

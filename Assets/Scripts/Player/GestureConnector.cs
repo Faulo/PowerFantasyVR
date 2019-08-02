@@ -20,7 +20,8 @@ namespace PFVR.Player {
 
         private Dictionary<string, bool> unlockedGestures = new Dictionary<string, bool>() {
             ["Nothing"] = true,
-            ["HandGathering"] = true
+            ["HandGathering"] = true,
+            ["Clap"] = true
         };
 
         public IEnumerable<Gesture> availableGestures => unlockedGestures
@@ -48,6 +49,7 @@ namespace PFVR.Player {
         [SerializeField]
         private Gesture[] debugGestures = default;
         private Gesture defaultGesture => debugGestures[0];
+
 
         void Start() {
             if (gestureProfile == null) {
@@ -95,13 +97,11 @@ namespace PFVR.Player {
             StartCoroutine(Init());
         }
 
+        public bool CanStartComplexGesture(Gesture gesture) {
+            return currentComplexGesture != gesture && gesture.isComplex && gesture == UnlockedOrDefault(gesture);
+        }
         public void StartComplexGesture(Gesture gesture) {
-            gesture = UnlockedOrDefault(gesture);
-            if (currentComplexGesture != gesture && gesture.isComplex) {
-                currentComplexGesture = gesture;
-                //onLeftGesture?.Invoke(currentComplexGesture);
-                //onRightGesture?.Invoke(currentComplexGesture);
-            }
+            currentComplexGesture = gesture;
         }
         public void StopComplexGesture(Gesture gesture) {
             if (currentComplexGesture == gesture) {
