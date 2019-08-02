@@ -46,6 +46,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 2
   rigidbodyDensity: 1
+  rigidbodyDrag: 0
+  levelOfDetail: 1
+  levelOfDetailCutoff: 0.05
 --- !u!1001 &1397026877739891178
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -53,14 +56,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4244113901689226}
     m_Modifications:
-    - target: {fileID: 1150461584060438, guid: 30d5f03cade99944aa3940da084d5656, type: 3}
-      propertyPath: m_Name
-      value: Rock_4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1150461584060438, guid: 30d5f03cade99944aa3940da084d5656, type: 3}
-      propertyPath: m_Layer
-      value: 14
-      objectReference: {fileID: 0}
     - target: {fileID: 4244113901689226, guid: 30d5f03cade99944aa3940da084d5656, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -116,6 +111,14 @@ PrefabInstance:
     - target: {fileID: 4244113901689226, guid: 30d5f03cade99944aa3940da084d5656, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1150461584060438, guid: 30d5f03cade99944aa3940da084d5656, type: 3}
+      propertyPath: m_Name
+      value: Rock_4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1150461584060438, guid: 30d5f03cade99944aa3940da084d5656, type: 3}
+      propertyPath: m_Layer
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 64326202081095742, guid: 30d5f03cade99944aa3940da084d5656,
         type: 3}

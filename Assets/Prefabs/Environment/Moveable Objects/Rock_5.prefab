@@ -46,6 +46,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 2
   rigidbodyDensity: 1
+  rigidbodyDrag: 0
+  levelOfDetail: 1
+  levelOfDetailCutoff: 0.05
 --- !u!1001 &354820720199589368
 PrefabInstance:
   m_ObjectHideFlags: 0
