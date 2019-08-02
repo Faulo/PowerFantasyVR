@@ -60,6 +60,8 @@ MonoBehaviour:
   wavePrefab: {fileID: 4565798225603373984, guid: 9cfed0c0f6906b5489c719201d7ca015,
     type: 3}
   breakSpeed: 10
+  handLaunchMultiplier: 400
+  directionLaunchMultiplier: 200
   rumbleInterval: 100
   rumbleForceOverSize:
     serializedVersion: 2

@@ -14,6 +14,11 @@ namespace PFVR.Spells.EnergyWave {
         [SerializeField, Range(0, 100)]
         private float breakSpeed = 0;
 
+        [SerializeField, Range(0, 1000)]
+        private float handLaunchMultiplier = 1;
+        [SerializeField, Range(0, 1000)]
+        private float directionLaunchMultiplier = 1;
+
 
         [SerializeField, Range(1, 1000)]
         private ushort rumbleInterval = 100;
@@ -75,7 +80,7 @@ namespace PFVR.Spells.EnergyWave {
                     .ForAll(renderer => renderer.enabled = true);
                 wave.transform.parent = wave.transform.parent.parent;
                 wave.explodable = true;
-                wave.body.velocity = 100*(leftChargeCenter.position - player.leftHand.wrist.position + rightChargeCenter.position - player.rightHand.wrist.position);
+                wave.body.velocity = handLaunchMultiplier * (player.leftHand.velocity + player.rightHand.velocity) + directionLaunchMultiplier * (leftChargeCenter.position - player.leftHand.wrist.position + rightChargeCenter.position - player.rightHand.wrist.position);
                 wave = null;
             }
             if (rumbleRoutine != null) {

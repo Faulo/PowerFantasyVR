@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3137177858591671527}
   - component: {fileID: 3137177858591671521}
   - component: {fileID: 3137177858591671526}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: ChargedBeamParticle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4830,7 +4830,7 @@ GameObject:
   - component: {fileID: 3137177858747948387}
   - component: {fileID: 3137177858747948317}
   - component: {fileID: 3137177858747948386}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: SubEmitter1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9643,7 +9643,7 @@ GameObject:
   - component: {fileID: 3137177858790857051}
   - component: {fileID: 3137177858790857049}
   - component: {fileID: 3137177858790857048}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: ChargedParticle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14482,7 +14482,7 @@ GameObject:
   - component: {fileID: 3137177858972353797}
   - component: {fileID: 3137177858972353799}
   - component: {fileID: 3137177858972353796}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: SubEmitter0 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19294,7 +19294,7 @@ GameObject:
   - component: {fileID: 3137177858993388390}
   - component: {fileID: 3137177858993388384}
   - component: {fileID: 3137177858993388385}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: SubEmitter0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24106,7 +24106,7 @@ GameObject:
   - component: {fileID: 3137177859089188709}
   - component: {fileID: 3137177859089188714}
   - component: {fileID: 3137177859089188708}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: ChargingParticle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28913,7 +28913,7 @@ GameObject:
   - component: {fileID: 3137177859148715188}
   - component: {fileID: 3137177859148715189}
   - component: {fileID: 3137177859148715191}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: SubEmitter1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33726,7 +33726,7 @@ GameObject:
   - component: {fileID: 3137177859191862922}
   - component: {fileID: 3137177859191862920}
   - component: {fileID: 3137177859191862923}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: LineParticles (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38538,7 +38538,7 @@ GameObject:
   - component: {fileID: 3137177859207837179}
   - component: {fileID: 3137177859207837177}
   - component: {fileID: 3137177859207837176}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: NormalBeamParticle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43356,7 +43356,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3137177859524603150}
   - component: {fileID: 3137177859524603151}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43448,7 +43448,7 @@ GameObject:
   - component: {fileID: 3137177859823239744}
   - component: {fileID: 3137177859823239746}
   - component: {fileID: 3137177859823239747}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: SubEmitter0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48259,7 +48259,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3137177860143808353}
   - component: {fileID: 3137177860143808352}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48351,7 +48351,7 @@ GameObject:
   - component: {fileID: 3137177860413579604}
   - component: {fileID: 3137177860413579610}
   - component: {fileID: 3137177860413579605}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: LineParticles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53108,7 +53108,8 @@ GameObject:
   - component: {fileID: 2264036736969940031}
   - component: {fileID: 798796639517312723}
   - component: {fileID: 5030239820821194950}
-  m_Layer: 0
+  - component: {fileID: 6996924038070044516}
+  m_Layer: 15
   m_Name: EnergyWave.MetroidWave
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53144,7 +53145,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4565798225603373984}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 1
@@ -53329,3 +53330,63 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
+--- !u!108 &6996924038070044516
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4565798225603373984}
+  m_Enabled: 1
+  serializedVersion: 9
+  m_Type: 2
+  m_Color: {r: 0.9991466, g: 1, b: 0.6367924, a: 1}
+  m_Intensity: 5
+  m_Range: 10
+  m_SpotAngle: 30
+  m_InnerSpotAngle: 21.80208
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 4
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
