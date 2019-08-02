@@ -13,21 +13,22 @@ namespace PFVR.VFX {
         private AnimationCurve timeOverSpeed = default;
 
         private TrailRenderer trailRenderer;
+        private float maximumTime;
 
         private Vector3 position;
         private Vector3 velocity;
 
         private void Start() {
             trailRenderer = GetComponent<TrailRenderer>();
+            maximumTime = trailRenderer.time;
             position = transform.position;
             velocity = Vector3.zero;
         }
 
-        // Start is called before the first frame update
         void Update() {
             velocity = Vector3.Lerp(velocity, transform.position - position, scaleSpeed * Time.deltaTime);
             position = transform.position;
-            trailRenderer.time = Mathf.Lerp(trailRenderer.time, timeOverSpeed.Evaluate(velocity.magnitude), timeSpeed * Time.deltaTime);
+            trailRenderer.time = Mathf.Lerp(trailRenderer.time, maximumTime * timeOverSpeed.Evaluate(velocity.magnitude), timeSpeed * Time.deltaTime);
         }
     }
 }

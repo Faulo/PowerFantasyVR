@@ -32,9 +32,6 @@ namespace PFVR.Spells.FireBall {
         private float maximumChargeTime = 1f;
         private float currentChargeTime = 0;
 
-        [SerializeField, Range(0, 1)]
-        private float breakSpeed = 1f;
-
         private float chargeTime {
             get {
                 return currentChargeTime;
@@ -51,7 +48,7 @@ namespace PFVR.Spells.FireBall {
             if (anchor == null) {
                 anchor = Instantiate(anchorPrefab, hand.wrist).GetComponent<SpringJoint>();
             }
-            ball = Instantiate(ballPrefab).GetComponent<Ball>();
+            ball = Instantiate(ballPrefab, player.transform).GetComponent<Ball>();
             ball.ConnectTo(anchor);
             chargeTime = 0;
             rumbleRoutine = StartCoroutine(CreateRumbleRoutine(hand));
@@ -76,7 +73,7 @@ namespace PFVR.Spells.FireBall {
                 //anchor.damper = Mathf.Clamp(1 / distance.magnitude, 1, 1000);
                 anchor.spring = Mathf.Clamp(player.motor.speed, 1, 1000);
             }
-            player.motor.Break(breakSpeed);
+            //player.motor.Break(breakSpeed);
         }
         private IEnumerator CreateRumbleRoutine(PlayerHandBehaviour hand) {
             while (true) {

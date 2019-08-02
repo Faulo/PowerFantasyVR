@@ -16,12 +16,19 @@ namespace PFVR.Player {
         public Transform status;
         public Transform indexFinger;
         public Transform infinityStone;
+        public Transform gatheringCenter;
 
         public bool enableDebugging;
 
         private GameObject currentSpellPrefab;
 
         private Hand manusHand;
+
+        [SerializeField, Range(0, 100)]
+        private float velocityUpdateSpeed = 1;
+        public Vector3 velocity { get; private set; }
+        public float speed { get; private set; }
+        private Vector3 oldPosition = Vector3.zero;
 
         private IEnumerable<ISpellState> currentStates {
             get {
@@ -82,6 +89,9 @@ namespace PFVR.Player {
 
         // Update is called once per frame
         void FixedUpdate() {
+            velocity = Vector3.Lerp(velocity, transform.position - oldPosition, velocityUpdateSpeed * Time.deltaTime);
+            speed = velocity.magnitude;
+            oldPosition = transform.position;
             currentStates.ForAll(state => state.OnUpdate(owner, this));
         }
 

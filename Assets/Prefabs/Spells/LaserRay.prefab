@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcf2b5e2888bad94fba6c2e9555f4e43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  glowColor: {r: 0, g: 32, b: 32, a: 1}
+  glowColor: {r: 0, g: 23.968628, b: 23.968628, a: 1}
 --- !u!114 &9041686501315002403
 MonoBehaviour:
   m_ObjectHideFlags: 0
