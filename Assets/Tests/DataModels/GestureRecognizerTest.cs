@@ -8,6 +8,11 @@ using UnityEngine;
 namespace Tests.DataModels {
     public class GestureRecognizerTest {
         [Test]
+        public void TestNothing() {
+            Assert.IsTrue(true);
+        }
+
+        [Test]
         public void TestAllGestureSets() {
             var random = new System.Random();
 
