@@ -11,7 +11,9 @@
         "BOXOPHOBIC",
         "Unity.Postprocessing.Runtime",
         "UnityEngine.UI",
-        "EntityComponentSystem"
+        "EntityComponentSystem",
+        "LowPolyWater",
+        "ParticlePack"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
