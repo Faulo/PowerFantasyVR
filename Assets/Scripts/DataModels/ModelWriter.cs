@@ -40,8 +40,10 @@ namespace PFVR.DataModels {
             writer.Dispose();
             writer = null;
 
+#if UNITY_EDITOR
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
+#endif
         }
     }
 }
