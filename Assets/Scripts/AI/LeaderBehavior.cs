@@ -5,13 +5,14 @@ using UnityEngine;
 public class LeaderBehavior : MonoBehaviour
 {
     public float alphaFactor = 0.2f;
+    private float alphaFactorUsed;
     public float attackPlayerDistance = 500.0f;
     public float ankorThreshold = 1000.0f;
 
     private GameObject player;
     private GameObject ankor;
     private GameObject[] arrayOfTargets;
-    Rigidbody rigidBody;
+    
     private Transform currentTarget;
     private float currentDistance;
     private int num;
@@ -20,22 +21,20 @@ public class LeaderBehavior : MonoBehaviour
     private float ankorDistance;
     private bool lookForPlayer = false;
     private bool normalize = false;
-
     private Vector3 transformationVector;
-    
+
+    Rigidbody rigidBody;
+    public bool chasePlayer = false;
 
     // Start is called before the first frame update
     void Start()
     {
         // Retrieve all targets
         arrayOfTargets = GameObject.FindGameObjectsWithTag("LeaderTarget");
-        //Debug.Log("Array of Targets: "+arrayOfTargets.Length);
         //Retrieve player
         player = GameObject.FindGameObjectWithTag("Player");
-        //Debug.Log("Player exists: " + !player.Equals(null));
         //Retrieve ankor
         ankor = GameObject.FindGameObjectWithTag("Ankor");
-        //Debug.Log("Array of Ankor: " + !ankor.Equals(null));
         // Set number of Targets
         num = arrayOfTargets.Length - 1;
         lookForPlayer = true;
@@ -46,8 +45,9 @@ public class LeaderBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        alphaFactorUsed = alphaFactor;
         // Find next target
-        if(num < 0)
+        if (num < 0)
         {
             num = arrayOfTargets.Length - 1;
         }
@@ -56,7 +56,6 @@ public class LeaderBehavior : MonoBehaviour
         currentDistance = Vector3.Distance(currentTarget.position, transform.position);
         if (currentDistance < nearTarget)
         {
-            //Debug.Log("Set new Target");
             num--;
             normalize = false;
             lookForPlayer = true;
@@ -68,12 +67,15 @@ public class LeaderBehavior : MonoBehaviour
             if (playerDistance < attackPlayerDistance && ankorDistance < ankorThreshold && lookForPlayer)
             {
                 currentTarget = player.transform;
-                //Debug.Log("Send to player");
+                chasePlayer = true;
+                alphaFactorUsed = alphaFactor + 2.0f;
 
-            }else if(ankorDistance > ankorThreshold)
+            }
+            else if(ankorDistance > ankorThreshold)
             {
-                //Debug.Log("Too far away");
                 lookForPlayer = false;
+                chasePlayer = false;
+                alphaFactorUsed = alphaFactor;
                 normalize = true;
             }
         }
@@ -82,10 +84,14 @@ public class LeaderBehavior : MonoBehaviour
         transformationVector = new Vector3(currentTarget.position.x, currentTarget.position.y, currentTarget.position.z) - transform.position;
         if(normalize)
         {
-            //Debug.Log("Normalize Vector");
             Vector3.Normalize(transformationVector);
             transformationVector = transformationVector * 0.4f;
         }
-        rigidBody.AddRelativeForce(transformationVector * alphaFactor);
+        rigidBody.AddRelativeForce(transformationVector * alphaFactorUsed);
+    }
+
+    public GameObject GetPlayer()
+    {
+        return player;
     }
 }

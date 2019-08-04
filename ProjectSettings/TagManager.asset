@@ -11,7 +11,7 @@ TagManager:
   - Beacon
   - LeaderTarget
   - Ankor
-  - Collectable
+  - Leaders
   layers:
   - Default
   - TransparentFX
@@ -29,7 +29,7 @@ TagManager:
   - Player
   - Obstacle
   - Spell
-  - Collectable
+  - 
   - 
   - 
   - 

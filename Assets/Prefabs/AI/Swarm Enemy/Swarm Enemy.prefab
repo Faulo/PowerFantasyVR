@@ -111,7 +111,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   alphaFactor: 1
-  betaFactor: 3
+  betaFactor: 2
+  playerVelocityTheshold: 3
   idleDiffusion: 300
 --- !u!54 &1454478478354520123
 Rigidbody:
