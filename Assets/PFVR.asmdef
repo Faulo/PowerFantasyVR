@@ -7,9 +7,11 @@
         "Unity.TextMeshPro",
         "ML.NET",
         "Slothsoft.UnityExtensions",
-        "Unity.ugui",
         "AstarPathfindingProject",
-        "BOXOPHOBIC"
+        "BOXOPHOBIC",
+        "Unity.Postprocessing.Runtime",
+        "UnityEngine.UI",
+        "EntityComponentSystem"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

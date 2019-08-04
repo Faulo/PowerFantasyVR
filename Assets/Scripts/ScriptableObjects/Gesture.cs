@@ -6,6 +6,8 @@ namespace PFVR.ScriptableObjects {
     public class Gesture : ScriptableObject {
         public GameObject spellPrefab = default;
         public Sprite icon = default;
+        public Color spellColor => spellPrefab.GetComponent<AbstractSpell>().glowColor;
+        public bool isComplex = false;
 
         void OnValidate() {
             if (spellPrefab != default && spellPrefab.GetComponent<ISpellState>() == null) {

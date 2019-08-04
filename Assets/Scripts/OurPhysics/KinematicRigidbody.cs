@@ -9,9 +9,8 @@ namespace PFVR.OurPhysics {
         [SerializeField]
         public bool transferForce = true;
 
-        private Rigidbody body => GetComponent<Rigidbody>();
-
         void Start() {
+            var body = GetComponent<Rigidbody>();
             if (body != null) {
                 mass = body.mass;
                 velocity = body.velocity;
@@ -20,7 +19,7 @@ namespace PFVR.OurPhysics {
         }
 
         void FixedUpdate() {
-            transform.Translate(velocity * Time.fixedDeltaTime, Space.World);
+            transform.Translate(velocity * Time.deltaTime, Space.World);
         }
 
         private void OnCollisionEnter(Collision collision) {

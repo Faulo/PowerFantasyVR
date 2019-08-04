@@ -11,7 +11,7 @@ namespace PFVR.DataModels {
         private IEnumerable<PropertyInfo> properties;
 
         public ModelWriter(string path) {
-            fileName = Path.GetFullPath(path) + Path.DirectorySeparatorChar + System.DateTime.Now.ToFileTime() + ".csv";
+            fileName = Path.GetFullPath(path) + Path.DirectorySeparatorChar + System.DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss") + ".csv";
             properties = typeof(T).GetProperties();
         }
         public void Append(T model) {

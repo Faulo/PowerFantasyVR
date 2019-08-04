@@ -8,13 +8,18 @@ using UnityEngine;
 namespace Tests.DataModels {
     public class GestureRecognizerTest {
         [Test]
+        public void TestNothing() {
+            Assert.IsTrue(true);
+        }
+
+        [Test]
         public void TestAllGestureSets() {
             var random = new System.Random();
 
-            var sets = Resources.LoadAll<GestureSet>("ScriptableObjects");
-            foreach (var set in sets) {
+            var profiles = Resources.LoadAll<GestureProfile>("ScriptableObjects");
+            foreach (var profile in profiles) {
                 var mlContext = new MLContext();
-                var mlModel = mlContext.Model.Load(set.modelPath, out var inputSchema);
+                var mlModel = mlContext.Model.Load(profile.modelDataPath, out var inputSchema);
                 var predEngine = mlContext.Model.CreatePredictionEngine<GestureModel, StringPrediction>(mlModel);
                 var sampleData = new GestureModel {
                     gesture = "",
@@ -31,7 +36,7 @@ namespace Tests.DataModels {
                 };
                 var predictionResult = predEngine.Predict(sampleData);
 
-                Assert.Contains(predictionResult.Prediction, set.gestureNames.ToList());
+                Assert.Contains(predictionResult.Prediction, profile.gestureSet.gestureNames.ToList());
             }
         }
     }
