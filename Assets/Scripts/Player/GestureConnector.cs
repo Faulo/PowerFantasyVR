@@ -19,9 +19,7 @@ namespace PFVR.Player {
         private int gestureTriggerFrames = 1;
 
         private Dictionary<string, bool> unlockedGestures = new Dictionary<string, bool>() {
-            ["Nothing"] = true,
-            ["HandGathering"] = true,
-            ["Clap"] = true
+            ["Nothing"] = true
         };
 
         public IEnumerable<Gesture> availableGestures => unlockedGestures

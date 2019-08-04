@@ -13,7 +13,8 @@ namespace PFVR.Environment {
             Rigidbody,
             Tree,
             Water,
-            Waterfall
+            Waterfall,
+            Collectable
         }
         [SerializeField]
         private LevelObjectType type = default;
@@ -110,6 +111,13 @@ namespace PFVR.Environment {
                         UnityEditor.EditorApplication.delayCall += CreateWaterfallFoamCall;
                     }
                     break;
+                case LevelObjectType.Collectable:
+                    SetStatic(false);
+                    EnableColliders();
+                    DisableRigidbody();
+                    DisableLighting();
+                    SetLayer("Collectable");
+                    break;
             }
             if (levelOfDetail) {
                 EnableLevelOfDetail();
@@ -193,7 +201,7 @@ namespace PFVR.Environment {
 
 
         private void CreateWaterPlaneCall() {
-            if (waterPlaneWidth > 0 && waterPlaneHeight > 0) {
+            if (waterPlaneWidth > 0 && waterPlaneHeight > 0 && transform) {
                 if (transform.localScale.x != 1) {
                     waterPlaneWidth = (int)(waterPlaneWidth * transform.localScale.x);
                     transform.SetScaleX(1);
