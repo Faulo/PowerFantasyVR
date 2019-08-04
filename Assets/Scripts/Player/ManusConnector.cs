@@ -48,30 +48,33 @@ namespace PFVR.Player {
         
 
         private bool TryToFetch(device_type_t gloveType, GloveLaterality laterality, Transform tracker, out GloveData output) {
-            if (HandDataManager.CanGetHandData(playerId, gloveType)) {
-                var data = HandDataManager.GetHandData(playerId, gloveType);
+            try {
+                if (HandDataManager.CanGetHandData(playerId, gloveType)) {
+                    var data = HandDataManager.GetHandData(playerId, gloveType);
 
-                output = new GloveData {
-                    device = gloveType,
-                    laterality = laterality,
-                    pinkyProximal = data.fingers[(int)ApolloHandData.FingerName.Pinky].flexSensorRaw[(int)ApolloHandData.FlexSensorSegment.Proximal],
-                    pinkyMedial = data.fingers[(int)ApolloHandData.FingerName.Pinky].flexSensorRaw[(int)ApolloHandData.FlexSensorSegment.Medial],
-                    ringProximal = data.fingers[(int)ApolloHandData.FingerName.Ring].flexSensorRaw[(int)ApolloHandData.FlexSensorSegment.Proximal],
-                    ringMedial = data.fingers[(int)ApolloHandData.FingerName.Ring].flexSensorRaw[(int)ApolloHandData.FlexSensorSegment.Medial],
-                    middleProximal = data.fingers[(int)ApolloHandData.FingerName.Middle].flexSensorRaw[(int)ApolloHandData.FlexSensorSegment.Proximal],
-                    middleMedial = data.fingers[(int)ApolloHandData.FingerName.Middle].flexSensorRaw[(int)ApolloHandData.FlexSensorSegment.Medial],
-                    indexProximal = data.fingers[(int)ApolloHandData.FingerName.Index].flexSensorRaw[(int)ApolloHandData.FlexSensorSegment.Proximal],
-                    indexMedial = data.fingers[(int)ApolloHandData.FingerName.Index].flexSensorRaw[(int)ApolloHandData.FlexSensorSegment.Medial],
-                    thumbProximal = data.fingers[(int)ApolloHandData.FingerName.Thumb].flexSensorRaw[(int)ApolloHandData.FlexSensorSegment.Proximal],
-                    thumbMedial = data.fingers[(int)ApolloHandData.FingerName.Thumb].flexSensorRaw[(int)ApolloHandData.FlexSensorSegment.Medial],
-                    wrist = data.processedWristImu,
-                    tracker = tracker,
-                };
-                return true;
-            } else {
-                output = null;
-                return false;
+                    output = new GloveData {
+                        device = gloveType,
+                        laterality = laterality,
+                        pinkyProximal = data.fingers[(int)ApolloHandData.FingerName.Pinky].flexSensorRaw[(int)ApolloHandData.FlexSensorSegment.Proximal],
+                        pinkyMedial = data.fingers[(int)ApolloHandData.FingerName.Pinky].flexSensorRaw[(int)ApolloHandData.FlexSensorSegment.Medial],
+                        ringProximal = data.fingers[(int)ApolloHandData.FingerName.Ring].flexSensorRaw[(int)ApolloHandData.FlexSensorSegment.Proximal],
+                        ringMedial = data.fingers[(int)ApolloHandData.FingerName.Ring].flexSensorRaw[(int)ApolloHandData.FlexSensorSegment.Medial],
+                        middleProximal = data.fingers[(int)ApolloHandData.FingerName.Middle].flexSensorRaw[(int)ApolloHandData.FlexSensorSegment.Proximal],
+                        middleMedial = data.fingers[(int)ApolloHandData.FingerName.Middle].flexSensorRaw[(int)ApolloHandData.FlexSensorSegment.Medial],
+                        indexProximal = data.fingers[(int)ApolloHandData.FingerName.Index].flexSensorRaw[(int)ApolloHandData.FlexSensorSegment.Proximal],
+                        indexMedial = data.fingers[(int)ApolloHandData.FingerName.Index].flexSensorRaw[(int)ApolloHandData.FlexSensorSegment.Medial],
+                        thumbProximal = data.fingers[(int)ApolloHandData.FingerName.Thumb].flexSensorRaw[(int)ApolloHandData.FlexSensorSegment.Proximal],
+                        thumbMedial = data.fingers[(int)ApolloHandData.FingerName.Thumb].flexSensorRaw[(int)ApolloHandData.FlexSensorSegment.Medial],
+                        wrist = data.processedWristImu,
+                        tracker = tracker,
+                    };
+                    return true;
+                }
+            } catch(System.NullReferenceException e) {
+                Debug.Log(e);
             }
+            output = null;
+            return false;
         }
     }
 }

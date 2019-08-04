@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4411094677487402}
   - component: {fileID: -6063963693223666341}
-  - component: {fileID: 7808383526135036234}
+  - component: {fileID: 1123739179239044187}
   m_Layer: 14
   m_Name: SNature_Sapling
   m_TagString: Untagged
@@ -48,9 +48,9 @@ MonoBehaviour:
   type: 3
   rigidbodyDensity: 50
   rigidbodyDrag: 1
-  levelOfDetail: 0
-  levelOfDetailCutoff: 0.005
---- !u!205 &7808383526135036234
+  levelOfDetail: 1
+  levelOfDetailCutoff: 0.05
+--- !u!205 &1123739179239044187
 LODGroup:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -64,7 +64,7 @@ LODGroup:
   m_AnimateCrossFading: 0
   m_LastLODIsBillboard: 0
   m_LODs:
-  - screenRelativeHeight: 0.001
+  - screenRelativeHeight: 0.1
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 3598695108880267818}

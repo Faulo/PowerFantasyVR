@@ -48,6 +48,8 @@ MonoBehaviour:
   type: 2
   rigidbodyDensity: 1
   rigidbodyDrag: 0
+  levelOfDetail: 1
+  levelOfDetailCutoff: 0.05
 --- !u!54 &2445147404470102204
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -85,14 +87,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4139833609090748}
     m_Modifications:
-    - target: {fileID: 1468190808596880, guid: fe03d169cba46304fb930c1d06d9d8e3, type: 3}
-      propertyPath: m_Name
-      value: SNature_MossRocks1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1468190808596880, guid: fe03d169cba46304fb930c1d06d9d8e3, type: 3}
-      propertyPath: m_Layer
-      value: 14
-      objectReference: {fileID: 0}
     - target: {fileID: 4139833609090748, guid: fe03d169cba46304fb930c1d06d9d8e3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -148,6 +142,14 @@ PrefabInstance:
     - target: {fileID: 4139833609090748, guid: fe03d169cba46304fb930c1d06d9d8e3, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1468190808596880, guid: fe03d169cba46304fb930c1d06d9d8e3, type: 3}
+      propertyPath: m_Name
+      value: SNature_MossRocks1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1468190808596880, guid: fe03d169cba46304fb930c1d06d9d8e3, type: 3}
+      propertyPath: m_Layer
+      value: 14
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe03d169cba46304fb930c1d06d9d8e3, type: 3}

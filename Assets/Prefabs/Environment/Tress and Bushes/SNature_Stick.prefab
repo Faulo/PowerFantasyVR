@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4954254999647384}
   - component: {fileID: -8218451930738896603}
-  - component: {fileID: 1383178413607114264}
+  - component: {fileID: 53049744070112139}
   m_Layer: 14
   m_Name: SNature_Stick
   m_TagString: Untagged
@@ -48,9 +48,9 @@ MonoBehaviour:
   type: 3
   rigidbodyDensity: 50
   rigidbodyDrag: 1
-  levelOfDetail: 0
-  levelOfDetailCutoff: 0.005
---- !u!205 &1383178413607114264
+  levelOfDetail: 1
+  levelOfDetailCutoff: 0.05
+--- !u!205 &53049744070112139
 LODGroup:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -64,7 +64,7 @@ LODGroup:
   m_AnimateCrossFading: 0
   m_LastLODIsBillboard: 0
   m_LODs:
-  - screenRelativeHeight: 0.001
+  - screenRelativeHeight: 0.1
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 3718152621266982520}
@@ -90,18 +90,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4954254999647384}
     m_Modifications:
-    - target: {fileID: 1042598324542122, guid: f490d32617ddf024db2969291e076bf9, type: 3}
-      propertyPath: m_Name
-      value: SNature_Stick
-      objectReference: {fileID: 0}
-    - target: {fileID: 1042598324542122, guid: f490d32617ddf024db2969291e076bf9, type: 3}
-      propertyPath: m_Layer
-      value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 1042598324542122, guid: f490d32617ddf024db2969291e076bf9, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
-      objectReference: {fileID: 0}
     - target: {fileID: 4954254999647384, guid: f490d32617ddf024db2969291e076bf9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -157,6 +145,18 @@ PrefabInstance:
     - target: {fileID: 4954254999647384, guid: f490d32617ddf024db2969291e076bf9, type: 3}
       propertyPath: m_LocalScale.z
       value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1042598324542122, guid: f490d32617ddf024db2969291e076bf9, type: 3}
+      propertyPath: m_Name
+      value: SNature_Stick
+      objectReference: {fileID: 0}
+    - target: {fileID: 1042598324542122, guid: f490d32617ddf024db2969291e076bf9, type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1042598324542122, guid: f490d32617ddf024db2969291e076bf9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f490d32617ddf024db2969291e076bf9, type: 3}

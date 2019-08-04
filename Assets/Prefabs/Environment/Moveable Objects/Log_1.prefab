@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4063541705819162}
   - component: {fileID: 4658412036335723370}
   - component: {fileID: 4615381326681999701}
+  - component: {fileID: 5698415917870232215}
   m_Layer: 14
   m_Name: Log_1
   m_TagString: Untagged
@@ -48,6 +49,8 @@ MonoBehaviour:
   type: 2
   rigidbodyDensity: 1
   rigidbodyDrag: 0
+  levelOfDetail: 1
+  levelOfDetailCutoff: 0.05
 --- !u!54 &4615381326681999701
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -64,6 +67,25 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!205 &5698415917870232215
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1255758057252634}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: -0.17070442, y: 0.37334898, z: 0.18321991}
+  m_Size: 6.7462883
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.05
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 6191205827931992188}
+  m_Enabled: 1
 --- !u!64 &1037956799437278246
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -85,6 +107,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4063541705819162}
     m_Modifications:
+    - target: {fileID: 1255758057252634, guid: f3982abeb31f57f4c807cf6a6e4b0827, type: 3}
+      propertyPath: m_Name
+      value: Log_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1255758057252634, guid: f3982abeb31f57f4c807cf6a6e4b0827, type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
     - target: {fileID: 4063541705819162, guid: f3982abeb31f57f4c807cf6a6e4b0827, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -113,14 +143,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 1255758057252634, guid: f3982abeb31f57f4c807cf6a6e4b0827, type: 3}
-      propertyPath: m_Name
-      value: Log_1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1255758057252634, guid: f3982abeb31f57f4c807cf6a6e4b0827, type: 3}
-      propertyPath: m_Layer
-      value: 14
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3982abeb31f57f4c807cf6a6e4b0827, type: 3}
 --- !u!1 &6178196404563191004 stripped
@@ -132,6 +154,12 @@ GameObject:
 --- !u!4 &6176481531748370396 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4063541705819162, guid: f3982abeb31f57f4c807cf6a6e4b0827,
+    type: 3}
+  m_PrefabInstance: {fileID: 6177015640943526854}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &6191205827931992188 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 23289968634786746, guid: f3982abeb31f57f4c807cf6a6e4b0827,
     type: 3}
   m_PrefabInstance: {fileID: 6177015640943526854}
   m_PrefabAsset: {fileID: 0}

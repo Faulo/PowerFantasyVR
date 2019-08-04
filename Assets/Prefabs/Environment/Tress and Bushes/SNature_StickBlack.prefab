@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4665344885829928}
   - component: {fileID: -2759951548215666465}
-  - component: {fileID: 7101554035247042379}
+  - component: {fileID: 455036420935980278}
   m_Layer: 14
   m_Name: SNature_StickBlack
   m_TagString: Untagged
@@ -48,9 +48,9 @@ MonoBehaviour:
   type: 3
   rigidbodyDensity: 50
   rigidbodyDrag: 1
-  levelOfDetail: 0
-  levelOfDetailCutoff: 0.005
---- !u!205 &7101554035247042379
+  levelOfDetail: 1
+  levelOfDetailCutoff: 0.05
+--- !u!205 &455036420935980278
 LODGroup:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -64,7 +64,7 @@ LODGroup:
   m_AnimateCrossFading: 0
   m_LastLODIsBillboard: 0
   m_LODs:
-  - screenRelativeHeight: 0.001
+  - screenRelativeHeight: 0.1
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 3450384041381884186}
