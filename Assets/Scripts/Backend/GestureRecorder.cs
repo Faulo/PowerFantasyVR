@@ -58,9 +58,11 @@ namespace PFVR.Backend {
         }
 
         private string EnsureFolder(string path, string name) {
+#if UNITY_EDITOR
             if (!AssetDatabase.IsValidFolder(path + "/" + name)) {
                 AssetDatabase.CreateFolder(path, name);
             }
+#endif
             return path + "/" + name;
         }
 

@@ -269,7 +269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2277c96070389bd479853f0121985183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gestureProfile: {fileID: 11400000, guid: f7a32306a9647ef4b88da8d6d5ccf1a6, type: 2}
+  gestureProfile: {fileID: 11400000, guid: 9e937a24699dac14bb3fbe1177890b7d, type: 2}
   gestureTriggerFrames: 3
   debugKeys: 3000000031000000320000003300000034000000350000003600000037000000
   debugGestures:
