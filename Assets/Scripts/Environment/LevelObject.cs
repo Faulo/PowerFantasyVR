@@ -36,7 +36,7 @@ namespace PFVR.Environment {
         [SerializeField]
         private bool waterPlaneAutoUpdate = false;
         public static string waterPlaneObjectName = "Water";
-        public static string waterPlaneSaveLocation = "Assets/Low Poly Water/Plane Meshes/";
+        public static string waterPlaneSaveLocation = "Assets/Meshes/Environment/Water/";
         private float waterPlaneRoutineId;
         [Space]
         [SerializeField]
