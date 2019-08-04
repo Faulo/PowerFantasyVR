@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 2260275168871055184}
   - component: {fileID: -8055031196155032356}
   - component: {fileID: -1059571141902886666}
-  - component: {fileID: 172798801034503750}
   m_Layer: 15
   m_Name: FireBall.Anchor
   m_TagString: Untagged
@@ -72,15 +71,3 @@ SpringJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
---- !u!114 &172798801034503750
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7456059992113307746}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f20887d65f857cb4dbc2eb0657f3ce44, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4227784882853702}
   - component: {fileID: -4068367748127416679}
-  - component: {fileID: 8559492168653815406}
+  - component: {fileID: 5639417727143356029}
   m_Layer: 14
   m_Name: SNature_Tree
   m_TagString: Untagged
@@ -48,9 +48,9 @@ MonoBehaviour:
   type: 3
   rigidbodyDensity: 50
   rigidbodyDrag: 1
-  levelOfDetail: 0
-  levelOfDetailCutoff: 0.005
---- !u!205 &8559492168653815406
+  levelOfDetail: 1
+  levelOfDetailCutoff: 0.05
+--- !u!205 &5639417727143356029
 LODGroup:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -64,7 +64,7 @@ LODGroup:
   m_AnimateCrossFading: 0
   m_LastLODIsBillboard: 0
   m_LODs:
-  - screenRelativeHeight: 0.001
+  - screenRelativeHeight: 0.1
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 2547932116937149329}

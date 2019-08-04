@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4483830403358642}
   - component: {fileID: -2077813179175485875}
+  - component: {fileID: 6710401326359589818}
+  - component: {fileID: 8360197925322936418}
   m_Layer: 14
   m_Name: Rock_1
   m_TagString: Untagged
@@ -46,6 +48,44 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 2
   rigidbodyDensity: 1
+  rigidbodyDrag: 0
+  levelOfDetail: 1
+  levelOfDetailCutoff: 0.05
+--- !u!54 &6710401326359589818
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1745671036675386}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!205 &8360197925322936418
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1745671036675386}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: -0.031658173, y: 0.15031713, z: 0.051347136}
+  m_Size: 2.59656
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.05
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 8527663935548984747}
+  m_Enabled: 1
 --- !u!1001 &8506244801905916847
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -127,6 +167,12 @@ PrefabInstance:
 --- !u!4 &8503832460548744221 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4483830403358642, guid: 3124f1ec9af9a0a4e8e24df7769f3a65,
+    type: 3}
+  m_PrefabInstance: {fileID: 8506244801905916847}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &8527663935548984747 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 23672204903577092, guid: 3124f1ec9af9a0a4e8e24df7769f3a65,
     type: 3}
   m_PrefabInstance: {fileID: 8506244801905916847}
   m_PrefabAsset: {fileID: 0}
