@@ -205,7 +205,10 @@ namespace PFVR.Environment {
 
 
         private void CreateWaterPlaneCall() {
-            if (waterPlaneWidth > 0 && waterPlaneHeight > 0 && transform) {
+            if (!this || !gameObject || !transform) {
+                return;
+            }
+            if (waterPlaneWidth > 0 && waterPlaneHeight > 0) {
                 if (transform.localScale.x != 1) {
                     waterPlaneWidth = (int)(waterPlaneWidth * transform.localScale.x);
                     transform.SetScaleX(1);
@@ -218,6 +221,9 @@ namespace PFVR.Environment {
             }
         }
         private void CreateWaterfallFoamCall() {
+            if (!this || !gameObject || !transform) {
+                return;
+            }
             if (waterPlaneWidth > 0 && waterPlaneHeight > 0) {
                 if (waterfallTopFoam) {
                     var shape = waterfallTopFoam.shape;

@@ -3,6 +3,9 @@
     "references": [
         "PFVR"
     ],
+    "optionalUnityReferences": [
+        "TestAssemblies"
+    ],
     "includePlatforms": [
         "Editor"
     ],
