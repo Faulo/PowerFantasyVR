@@ -25,10 +25,25 @@ namespace PFVR.Player {
         private Hand manusHand;
 
         [SerializeField, Range(0, 100)]
+        private float shakeMinSpeed = 1;
+        [SerializeField, Range(0, 100)]
+        private float shakeMinAngle = 1;
+        public bool isShaking => angle > shakeMinAngle;
+
+        [SerializeField, Range(0, 100)]
+        private float accelerationUpdateSpeed = 1;
+        public Vector3 acceleration { get; private set; }
+        private Vector3 oldVelocity = Vector3.zero;
+
+        [SerializeField, Range(0, 100)]
         private float velocityUpdateSpeed = 1;
         public Vector3 velocity { get; private set; }
-        public float speed { get; private set; }
         private Vector3 oldPosition = Vector3.zero;
+
+        [SerializeField, Range(0, 100)]
+        private float angleUpdateSpeed = 1;
+        public float angle { get; private set; }
+        private Quaternion oldRotation = Quaternion.identity;
 
         private IEnumerable<ISpellState> currentStates {
             get {
@@ -52,6 +67,7 @@ namespace PFVR.Player {
             }
         }
         private Renderer rendererCache;
+
         private string statusText {
             get {
                 return status.GetComponent<TextMesh>().text;
@@ -90,8 +106,14 @@ namespace PFVR.Player {
         // Update is called once per frame
         void FixedUpdate() {
             velocity = Vector3.Lerp(velocity, transform.position - oldPosition, velocityUpdateSpeed * Time.deltaTime);
-            speed = velocity.magnitude;
             oldPosition = transform.position;
+
+            acceleration = Vector3.Lerp(acceleration, velocity - oldVelocity, accelerationUpdateSpeed * Time.deltaTime);
+            oldVelocity = velocity;
+
+            angle = Mathf.Lerp(angle, Quaternion.Angle(transform.rotation, oldRotation), angleUpdateSpeed * Time.deltaTime);
+            oldRotation = transform.rotation;
+
             currentStates.ForAll(state => state.OnUpdate(owner, this));
         }
 

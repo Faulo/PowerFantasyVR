@@ -14,11 +14,19 @@ namespace PFVR.Spells.JetPack {
         [Range(-1, 0)]
         private float gravityNegation = 0;
 
+        [SerializeField]
+        [Range(0, 1000)]
+        private float boostForce = 100;
+
         [SerializeField, Range(1, 1000)]
         private ushort rumbleInterval = 100;
 
         [SerializeField, Range(0f, 1f)]
         private float rumbleForce = 0.5f;
+
+        [SerializeField, Range(0, 10)]
+        private float boostDuration = 1;
+        private float boostTime = 0;
 
         private Coroutine rumbleRoutine;
 
@@ -69,6 +77,16 @@ namespace PFVR.Spells.JetPack {
             }
             player.motor.AddVelocity(hand.wrist.up * propulsionForce * Time.deltaTime * engine.propulsion);
             player.motor.AddVelocity(Physics.gravity * gravityNegation * Time.deltaTime);
+            if (hand.isShaking && boostTime <= 0) {
+                boostTime = boostDuration;
+            }
+            if (boostTime > 0) {
+                boostTime -= Time.deltaTime;
+                player.motor.AddVelocity(hand.wrist.up * boostForce * Time.deltaTime * engine.propulsion);
+                engine.particleColor = Color.red;
+            } else {
+                engine.particleColor = Color.white;
+            }
         }
         private IEnumerator CreateRumbleRoutine(GloveLaterality side) {
             while (true) {

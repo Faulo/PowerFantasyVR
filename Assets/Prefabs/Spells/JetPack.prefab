@@ -59,8 +59,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   propulsionForce: 10
   gravityNegation: -0.1
+  boostForce: 200
   rumbleInterval: 100
   rumbleForce: 0.75
+  boostDuration: 2
   propulsionOverTime:
     serializedVersion: 2
     m_Curve:

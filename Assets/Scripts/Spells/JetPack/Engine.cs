@@ -22,17 +22,30 @@ namespace PFVR.Spells.JetPack {
         [SerializeField]
         private AudioClip shutdownSound = default;
 
+        public Color particleColor {
+            get => particleSystemMain.startColor.color;
+            set => particleSystemMain.startColor = value;
+        }
         public float propulsion {
             get => propulsionCache;
             set => propulsionCache = Mathf.Clamp(value, 0, 1);
         }
         private float propulsionCache;
-        private AudioSource audioSource => GetComponent<AudioSource>();
-        private AudioLowPassFilter lowPassFilter => GetComponent<AudioLowPassFilter>();
-        private PlayerBehaviour player => GetComponentInParent<PlayerBehaviour>();
-        private new ParticleSystem particleSystem => GetComponentInChildren<ParticleSystem>();
+        private AudioSource audioSource;
+        private AudioLowPassFilter lowPassFilter;
+        private PlayerBehaviour player;
+        private new ParticleSystem particleSystem;
+        private ParticleSystem.MainModule particleSystemMain;
         private Coroutine playSoundsRoutine;
         private bool turnedOn = false;
+
+        private void Awake() {
+            audioSource = GetComponent<AudioSource>();
+            lowPassFilter = GetComponent<AudioLowPassFilter>();
+            particleSystem = GetComponentInChildren<ParticleSystem>();
+            particleSystemMain = particleSystem.main;
+            player = GetComponentInParent<PlayerBehaviour>();
+        }
 
         public void TurnOn() {
             turnedOn = true;
