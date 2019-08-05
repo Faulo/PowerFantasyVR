@@ -97,7 +97,9 @@ namespace PFVR.Environment {
                     DisableLighting();
                     SetLayer("Water");
                     if (!Application.isPlaying && waterPlaneAutoUpdate) {
+#if UNITY_EDITOR
                         UnityEditor.EditorApplication.delayCall += CreateWaterPlaneCall;
+#endif
                     }
                     break;
                 case LevelObjectType.Waterfall:
@@ -107,8 +109,10 @@ namespace PFVR.Environment {
                     DisableLighting();
                     SetLayer("Water");
                     if (!Application.isPlaying && waterPlaneAutoUpdate) {
+#if UNITY_EDITOR
                         UnityEditor.EditorApplication.delayCall += CreateWaterPlaneCall;
                         UnityEditor.EditorApplication.delayCall += CreateWaterfallFoamCall;
+#endif
                     }
                     break;
                 case LevelObjectType.Collectable:
@@ -228,6 +232,7 @@ namespace PFVR.Environment {
             }
         }
         private void CreateWaterPlane(int planeWidth, int planeHeight, int waveWidth, int waveHeight) {
+#if UNITY_EDITOR
             foreach (var meshFilter in GetComponentsInChildren<MeshFilter>()) {
                 var widthSegments = waveWidth > 0
                     ? planeWidth / waveWidth
@@ -311,8 +316,8 @@ namespace PFVR.Environment {
                 //Update mesh
                 meshFilter.sharedMesh = mesh;
                 mesh.RecalculateBounds();
-
             }
+#endif
         }
     }
 }
