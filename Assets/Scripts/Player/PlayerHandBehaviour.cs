@@ -28,7 +28,7 @@ namespace PFVR.Player {
         private float shakeMinSpeed = 1;
         [SerializeField, Range(0, 100)]
         private float shakeMinAngle = 1;
-        public bool isShaking => angle > shakeMinAngle;
+        public bool isShaking => angle > shakeMinAngle && velocity.magnitude > shakeMinSpeed;
 
         [SerializeField, Range(0, 100)]
         private float accelerationUpdateSpeed = 1;

@@ -22,13 +22,16 @@ namespace PFVR.Spells.JetPack {
         [SerializeField]
         private AudioClip shutdownSound = default;
 
-        public Color particleColor {
+        [SerializeField]
+        private AudioClip boostSound = default;
+
+        private Color particleColor {
             get => particleSystemMain.startColor.color;
             set => particleSystemMain.startColor = value;
         }
         public float propulsion {
             get => propulsionCache;
-            set => propulsionCache = Mathf.Clamp(value, 0, 1);
+            set => propulsionCache = Mathf.Clamp01(value);
         }
         private float propulsionCache;
         private AudioSource audioSource;
@@ -37,7 +40,44 @@ namespace PFVR.Spells.JetPack {
         private new ParticleSystem particleSystem;
         private ParticleSystem.MainModule particleSystemMain;
         private Coroutine playSoundsRoutine;
-        private bool turnedOn = false;
+
+        public bool isTurnedOn {
+            get => isTurnedOnCache;
+            set {
+                if (isTurnedOnCache != value) {
+                    isTurnedOnCache = value;
+                    if (value) {
+                        particleSystem.Play();
+                        if (playSoundsRoutine != null) {
+                            StopCoroutine(playSoundsRoutine);
+                        }
+                        playSoundsRoutine = StartCoroutine(PlayEngineSounds());
+                    } else {
+                        particleSystem.Stop();
+                    }
+                }
+            }
+        }
+        private bool isTurnedOnCache;
+
+        public bool isBoosting {
+            get => isBoostingCache;
+            set {
+                if (isBoostingCache != value) {
+                    isBoostingCache = value;
+                    if (value) {
+                        particleColor = Color.red;
+                        audioSource.clip = boostSound;
+                        audioSource.Play();
+                    } else {
+                        particleColor = Color.white;
+                        audioSource.clip = continuousSound;
+                        audioSource.Play();
+                    }
+                }
+            }
+        }
+        private bool isBoostingCache = false;
 
         private void Awake() {
             audioSource = GetComponent<AudioSource>();
@@ -47,32 +87,18 @@ namespace PFVR.Spells.JetPack {
             player = GetComponentInParent<PlayerBehaviour>();
         }
 
-        public void TurnOn() {
-            turnedOn = true;
-            particleSystem.Play();
-            if (playSoundsRoutine != null) {
-                StopCoroutine(playSoundsRoutine);
-            }
-            playSoundsRoutine = StartCoroutine(PlayEngineSounds());
-        }
-
-        public void TurnOff() {
-            turnedOn = false;
-            particleSystem.Stop();
-        }
-
         private IEnumerator PlayEngineSounds() {
             audioSource.loop = false;
             audioSource.clip = startupSound;
             audioSource.Play();
-            while (turnedOn && audioSource.isPlaying) {
+            while (isTurnedOn && audioSource.isPlaying) {
                 yield return null;
             }
 
             audioSource.loop = true;
             audioSource.clip = continuousSound;
             audioSource.Play();
-            while (turnedOn) {
+            while (isTurnedOn) {
                 yield return null;
             }
 
