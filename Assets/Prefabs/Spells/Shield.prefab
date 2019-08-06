@@ -59,3 +59,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shieldPrefab: {fileID: 1951401995437561932, guid: f47bec3550d9343449bb6959516f800b,
     type: 3}
+  breakSpeed: 10
+  rumbleDuration: 1000
+  rumbleForce: 1
