@@ -14,6 +14,7 @@ namespace PFVR.Player {
         public Transform tracker => transform;
         public Transform wrist;
         public Transform status;
+        public Transform middleFinger;
         public Transform indexFinger;
         public Transform infinityStone;
         public Transform gatheringCenter;
