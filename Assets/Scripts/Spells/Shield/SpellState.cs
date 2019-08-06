@@ -6,21 +6,31 @@ using UnityEngine;
 namespace PFVR.Spells.Shield {
     public class SpellState : MonoBehaviour, ISpellState {
         [SerializeField]
-        private GameObject hamsterBallPrefab = default;
+        private GameObject shieldPrefab = default;
 
-        private HamsterBall hamsterBall;
+        [SerializeField, Range(0f, 100f)]
+        private float breakSpeed = 0f;
+
+        [SerializeField, Range(0, 10000)]
+        private ushort rumbleDuration = 1000;
+        [SerializeField, Range(0f, 1f)]
+        private float rumbleForce = 1f;
+
+        private IShield shield;
 
         public void OnEnter(PlayerBehaviour player, PlayerHandBehaviour hand) {
-            hamsterBall = Instantiate(hamsterBallPrefab, player.torso).GetComponent<HamsterBall>();
+            shield = Instantiate(shieldPrefab, hand.middleFinger).GetComponent<IShield>();
+            shield.onCollision += (go) => {
+                ManusConnector.Rumble(hand.laterality, rumbleDuration, rumbleForce);
+            };
         }
 
         public void OnExit(PlayerBehaviour player, PlayerHandBehaviour hand) {
-            if (hamsterBall != null) {
-                hamsterBall.Explode();
-            }
+            shield?.Explode();
         }
 
         public void OnUpdate(PlayerBehaviour player, PlayerHandBehaviour hand) {
+            player.motor.Break(breakSpeed * Time.deltaTime);
         }
     }
 }
