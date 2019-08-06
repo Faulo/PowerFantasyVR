@@ -139,7 +139,11 @@ MonoBehaviour:
   infinityStone: {fileID: 7192320724466114013}
   gatheringCenter: {fileID: 3023922704845790363}
   enableDebugging: 0
+  shakeMinSpeed: 0.1
+  shakeMinAngle: 20
+  accelerationUpdateSpeed: 10
   velocityUpdateSpeed: 10
+  angleUpdateSpeed: 50
 --- !u!114 &195339582451840497
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,7 +162,11 @@ MonoBehaviour:
   infinityStone: {fileID: 5482329903878271614}
   gatheringCenter: {fileID: 8853710320283755777}
   enableDebugging: 0
+  shakeMinSpeed: 0.1
+  shakeMinAngle: 20
+  accelerationUpdateSpeed: 10
   velocityUpdateSpeed: 10
+  angleUpdateSpeed: 50
 --- !u!1 &5676783910122345402
 GameObject:
   m_ObjectHideFlags: 0

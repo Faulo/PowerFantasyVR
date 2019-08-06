@@ -58,9 +58,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   propulsionForce: 10
-  gravityNegation: -0.1
-  rumbleInterval: 100
-  rumbleForce: 0.75
   propulsionOverTime:
     serializedVersion: 2
     m_Curve:
@@ -85,7 +82,37 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  startupSpeed: 2
-  turnSpeed: 0.3
+  propulsionOverAltitude:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: -0.27619863
+      outSlope: -0.27619863
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.109922566
+    - serializedVersion: 3
+      time: 1
+      value: 0.1
+      inSlope: -2.4545462
+      outSlope: -2.4545462
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.04074073
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  propulsionRumble: 0.6
+  maximumAltitude: 300
+  boostForce: 50
+  boostDuration: 2
+  boostRumble: 1
+  turnSpeed: 20
+  gravityNegation: -0.1
+  rumbleInterval: 100
   enginePrefab: {fileID: 8718152847802425796, guid: 28bf7ca5801158d449984a6eaaaa55ea,
     type: 3}
