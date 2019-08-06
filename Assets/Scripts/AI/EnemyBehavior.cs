@@ -1,7 +1,10 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
+using PFVR.OurPhysics;
+using PFVR.Player;
 
 namespace PFVR.AI
 {
@@ -30,11 +33,9 @@ namespace PFVR.AI
         private float diffusionX;
         private float diffusionY;
         private float diffusionZ;
-
-        private Rigidbody thisRigidbody;
+        
         private LeaderBehavior leaderBehavior;
         private Transform nearestGoal;
-        private Transform currentBeacon;
 
         private Vector3 diffusionVector;
         private Vector3 finalMovementVector;
@@ -47,13 +48,13 @@ namespace PFVR.AI
 
         private GameObject[] arrayOfBeacons;
         private GameObject leaders;
-        private GameObject player;
-        private Rigidbody playerRigidbody;
-        private Transform playerTransform;
+        private PlayerBehaviour playerBehavior;
+        private IMotor playerMotor;
         private bool evadePlayer;
 
         private int evadeDirection;
-        private Evade evadeBehavior;
+        private Func<Vector3, Vector3, Vector3> evadeBehavior;
+
 
         // Start is called before the first frame update
         void Start()
@@ -61,21 +62,20 @@ namespace PFVR.AI
             // Retrieve all Beacons
             arrayOfBeacons = GameObject.FindGameObjectsWithTag("Beacon");
             leaders = GameObject.FindGameObjectWithTag("Leaders");
-            thisRigidbody = GetComponent<Rigidbody>();
 
-            leaderBehavior = (LeaderBehavior)leaders.GetComponent<LeaderBehavior>();
+            leaderBehavior = leaders.GetComponent<LeaderBehavior>();
             nearestGoal = arrayOfBeacons[0].transform;
 
-            player = leaderBehavior.GetPlayer();
-            playerRigidbody = player.GetComponent<Rigidbody>();
-            playerTransform = player.transform;
+            playerBehavior = leaderBehavior.GetPlayer();
+            //playerRigidbody = playerBehavior.GetComponent<Rigidbody>();
+            playerMotor = playerBehavior.motor;
 
             evadeVector = new Vector3();
-            evadeDirection = Random.Range(0, 3);
-            FindEvadeDirection();
+            evadeDirection = UnityEngine.Random.Range(0, 3);
+            evadeBehavior = EnemyEvation.FindEvadeBehavior(evadeDirection);
 
             StartCoroutine(FindGoalRoutine());
-            StartCoroutine(EvadePlayerRoutine());
+            //StartCoroutine(EvadePlayerRoutine());
         }
 
         IEnumerator FindGoalRoutine()
@@ -83,7 +83,7 @@ namespace PFVR.AI
             var wait = new WaitForSeconds(1.0f);
             while (true)
             {
-                // *** Part 1: Find nearest goal ***
+                // *** Find nearest goal ***
                 // Reset value for the nearest goal for new calculation
                 var nearestGoalDistance = float.MaxValue;
 
@@ -107,8 +107,8 @@ namespace PFVR.AI
             var wait = new WaitForSeconds(0.1f);
             while (true)
             {
-                playerVelocity = playerRigidbody.velocity.magnitude;
-                if (playerVelocity > playerVelocityTheshold && Vector3.Distance(transform.position, playerTransform.position) < 30.0f)
+                playerVelocity = playerMotor.velocity.magnitude;
+                if (playerVelocity > playerVelocityTheshold && Vector3.Distance(transform.position, playerMotor.position) < 30.0f)
                 {
                     evadePlayer = true;
                     Debug.Log("Set Evade Player true");
@@ -116,7 +116,7 @@ namespace PFVR.AI
                 else if (playerVelocity < playerVelocityTheshold && evadePlayer)
                 {
                     evadePlayer = false;
-                    if(evadeVector.magnitude > 0)
+                    if (evadeVector.magnitude > 0)
                     {
                         evadeVector = new Vector3();
                     }
@@ -125,66 +125,7 @@ namespace PFVR.AI
                 yield return wait;
             }
         }
-
-        void FindEvadeDirection()
-        {
-            //evadeVector = new Vector3(playerTransform.position.x, playerTransform.position.y, playerTransform.position.z) - transform.position;
-            switch (evadeDirection)
-            {
-                case 0:
-                    evadeBehavior = EvadeMethod90;
-                    //evadeVector = new Vector3(playerTransform.position.x, playerTransform.position.y, playerTransform.position.z) - transform.position;
-                    //evadeVector = Quaternion.AngleAxis(90, evadeVector) * evadeVector;
-                    break;
-                case 1:
-                    evadeBehavior = EvadeMethodMinus90;
-                    //evadeVector = new Vector3(playerTransform.position.x, playerTransform.position.y, playerTransform.position.z) - transform.position;
-                    //evadeVector = Quaternion.AngleAxis(-90, evadeVector) * evadeVector;
-                    break;
-                case 2:
-                    evadeBehavior = EvadeMethod180;
-                    //evadeVector = new Vector3(playerTransform.position.x, playerTransform.position.y, playerTransform.position.z) - transform.position;
-                    //evadeVector = Quaternion.AngleAxis(180, evadeVector) * evadeVector;
-                    break;
-                case 3:
-                    evadeBehavior = EvadeMethod0;
-                    //evadeVector = new Vector3(playerTransform.position.x, playerTransform.position.y, playerTransform.position.z) - transform.position;
-                    //evadeVector = Quaternion.AngleAxis(0, evadeVector) * evadeVector;
-                    break;
-                default:
-                    break;
-            }
-        }
-
-        // Delegate Methods
-        public delegate void Evade();
-
-        // Evade in a fixed direction for whole life. Only evade when new player attack. Evade in same direction for whole take.
-        public void EvadeMethod90()
-        {
-                evadeVector = new Vector3(playerTransform.position.x, playerTransform.position.y, playerTransform.position.z) - transform.position;
-                evadeVector = Quaternion.AngleAxis(90, evadeVector) * evadeVector;
-        }
-
-        public void EvadeMethodMinus90()
-        {
-                evadeVector = new Vector3(playerTransform.position.x, playerTransform.position.y, playerTransform.position.z) - transform.position;
-                evadeVector = Quaternion.AngleAxis(-90, evadeVector) * evadeVector;
-            
-        }
-
-        public void EvadeMethod180()
-        {
-                evadeVector = new Vector3(playerTransform.position.x, playerTransform.position.y, playerTransform.position.z) - transform.position;
-                evadeVector = Quaternion.AngleAxis(180, evadeVector) * evadeVector;
-        }
-
-        public void EvadeMethod0()
-        {
-                evadeVector = new Vector3(playerTransform.position.x, playerTransform.position.y, playerTransform.position.z) - transform.position;
-                evadeVector = Quaternion.AngleAxis(0, evadeVector) * evadeVector;
-        }
-
+        
         // Update is called once per frame
         // Guidance System for agents is implemented here
         void Update()
@@ -192,43 +133,31 @@ namespace PFVR.AI
             if (!nearestGoal) {
                 return;
             }
-            // *** Part 2: Calculate drift ***
+            // *** Calculate drift ***
             // Set nearest goal
             transformationVector = new Vector3(nearestGoal.position.x, nearestGoal.position.y, nearestGoal.position.z) - transform.position;
             alphaFactorUsed = alphaFactor;
-            // *** Part 3: Calculate diffusion ***
-            // Create Diffusion Term: Distance between beacon/goal and agent multiplied with beta
-            //diffusion = Vector3.Distance(nearestGoal.position, transform.position) * betaFactor;
-            // *** Part 4: Create Random Factor and add to x and z diffusion ***
+
+            // *** Create Random Factor for diffusion ***
             randomVector = MarsagliaGenerator.NextVector3();
 
-            //// Adjust x-factor
-            //randNum = MarsagliaGenerator.Next();
-            //diffusionX = diffusion * randNum;
-            //// Adjust y-factor
-            //randNum = MarsagliaGenerator.Next();
-            //diffusionY = diffusion * randNum;
-            //// Adjust z-factor
-            //randNum = MarsagliaGenerator.Next(); 
-            //diffusionZ = diffusion * randNum;
-
-            // *** Part 5: Evade Player ***
+            // *** Evade Player ***
             // Todo: Get it working! Aktuell kummuliert hier irgendwas, sodass es immer mehr lagged, je öfter der player durchfliegt!
             if(evadePlayer)
             {
                 Debug.Log("Evade the Player detected!");
-                // Find out the direction from which player is coming and evade to the sides!
-                //FindEvadeDirection();
+                //Find out the direction from which player is coming and evade to the sides!
+                evadeBehavior = EnemyEvation.FindEvadeBehavior(evadeDirection);
                 if (evadeVector.magnitude <= 0.0f)
                 {
-                    evadeBehavior();
+                    evadeVector = evadeBehavior(playerMotor.position, transform.position);
                 }
                 transformationVector = evadeVector;
-                //alphaFactorUsed = alphaFactor + 30.0f;
+                alphaFactorUsed = alphaFactor + 30.0f;
             }
 
 
-            // *** Part 6: Put together the parts ***
+            // *** Put together the parts ***
             // Diffusion vector: position of goal + position of diffusion vector minus the position of the agent
             diffusionVector = transformationVector + randomVector * Vector3.Distance(nearestGoal.position, transform.position) * betaFactor;
             //diffusionVector = new Vector3(nearestGoal.position.x + diffusionX, nearestGoal.position.y + diffusionY, nearestGoal.position.z + diffusionZ) - transform.position;
@@ -258,7 +187,8 @@ namespace PFVR.AI
             
             finalMovementVector = transformationVector * alphaFactorUsed + diffusionVector;
 
-            thisRigidbody.AddRelativeForce(finalMovementVector);
+            //thisRigidbody.AddRelativeForce(finalMovementVector);
+            transform.Translate(finalMovementVector * Time.deltaTime);
         }
     }
 }

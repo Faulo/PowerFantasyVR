@@ -5,6 +5,7 @@ using Unity.Entities;
 using Unity.Transforms;
 using Unity.Collections;
 using Unity.Rendering;
+using Unity.Mathematics;
 
 public class Rotator : MonoBehaviour
 {
@@ -32,19 +33,24 @@ public class Rotator : MonoBehaviour
             Entity entity = array[i];
             manager.SetComponentData(entity, 
                 new RotatorComponent {
-                    level = Random.Range(10,20)
+                    level = UnityEngine.Random.Range(10,20)
                 }
             );
             manager.SetComponentData(entity, 
                 new SpeedComponent {
-                    speed = Random.Range(1f, 2f)
+                    speed = UnityEngine.Random.Range(1f, 2f)
                 }
             );
             manager.SetComponentData(entity, 
                 new Translation {
-                    Value = new Unity.Mathematics.float3(Random.Range(-8, 8f), Random.Range(-5, 5f), 0)
+                    Value = new Unity.Mathematics.float3(UnityEngine.Random.Range(-8, 8f), UnityEngine.Random.Range(-5, 5f), 0)
                 }
             );
+            //manager.SetComponentData(entity,
+            //    new RigidbodyComponent
+            //    {
+            //        rigidbody = new float2(0f,0f)
+            //    });
 
             manager.SetSharedComponentData(entity, new RenderMesh
             {
@@ -67,6 +73,11 @@ public struct SpeedComponent : IComponentData
     public float speed;
 }
 
+public struct RigidbodyComponent : IComponentData
+{
+    public float3 rigidbody;
+}
+
 public class LevelSystem : ComponentSystem
 {
     protected override void OnUpdate()
@@ -78,7 +89,7 @@ public class LevelSystem : ComponentSystem
     }
 }
 
-public class RotatorSystem : ComponentSystem
+public class MoveSystem : ComponentSystem
 {
     protected override void OnUpdate()
     {
@@ -88,3 +99,15 @@ public class RotatorSystem : ComponentSystem
         });
     }
 }
+
+//public class PhysicsSystem : ComponentSystem
+//{
+//    protected override void OnUpdate()
+//    {
+//        Entities.ForEach((Rigidbody rigidbody) =>
+//        {
+//            rigidbody.AddRelativeForce(Vector3.up * 2.0f);
+//            //translation.Value.y += speed.speed * Time.deltaTime;
+//        });
+//    }
+//}
