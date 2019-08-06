@@ -1898,10 +1898,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1869037676}
     m_Modifications:
-    - target: {fileID: 1218347679047942, guid: fa6105287f77b1240a0017f7d23434c2, type: 3}
-      propertyPath: m_Name
-      value: Tree_3
-      objectReference: {fileID: 0}
     - target: {fileID: 4345878849055200, guid: fa6105287f77b1240a0017f7d23434c2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2681.4827
@@ -1958,6 +1954,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 1218347679047942, guid: fa6105287f77b1240a0017f7d23434c2, type: 3}
+      propertyPath: m_Name
+      value: Tree_3
+      objectReference: {fileID: 0}
     - target: {fileID: 8517874117028459197, guid: fa6105287f77b1240a0017f7d23434c2,
         type: 3}
       propertyPath: m_LocalReferencePoint.x
@@ -1989,7 +1989,7 @@ GameObject:
   - component: {fileID: 1794501142}
   m_Layer: 0
   m_Name: TestPlayerObject
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
