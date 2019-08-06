@@ -48,5 +48,8 @@ namespace PFVR.OurPhysics {
         public void LerpVelocity(Vector3 targetVelocity, float factor) {
             velocity = Vector3.Lerp(velocity, targetVelocity, factor);
         }
+        public void Move(Vector3 translation) {
+            rigidbody.MovePosition(position + translation);
+        }
     }
 }
