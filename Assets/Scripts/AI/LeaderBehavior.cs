@@ -30,7 +30,6 @@ namespace PFVR.AI
         private bool normalize = false;
         private Vector3 transformationVector;
         
-        Translation translation;
         public bool chasePlayer = false;
 
         // Start is called before the first frame update
@@ -45,8 +44,6 @@ namespace PFVR.AI
             // Set number of Targets
             num = arrayOfTargets.Length - 1;
             lookForPlayer = true;
-
-            translation = new Translation();
         }
 
         // Update is called once per frame

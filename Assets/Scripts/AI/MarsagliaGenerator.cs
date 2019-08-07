@@ -9,7 +9,6 @@ namespace PFVR.AI
     {
         public static float Next()
         {
-            
             Vector2 validDouble = Random.insideUnitCircle;
             float s = validDouble.sqrMagnitude;
             if(s == 0)
