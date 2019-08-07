@@ -5,5 +5,6 @@ namespace PFVR.Spells {
         void OnExit(PlayerBehaviour player, PlayerHandBehaviour hand);
         void OnEnter(PlayerBehaviour player, PlayerHandBehaviour hand);
         void OnUpdate(PlayerBehaviour player, PlayerHandBehaviour hand);
+        //void OnSpecial(PlayerBehaviour player, PlayerHandBehaviour hand);
     }
 }

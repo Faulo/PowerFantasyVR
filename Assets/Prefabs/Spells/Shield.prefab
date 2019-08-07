@@ -57,5 +57,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1efcc0af79e53ce48a227d7304ba27d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hamsterBallPrefab: {fileID: 1951401995437561932, guid: e307bcd28ed80d44d8750318dd3cde8b,
+  shieldPrefab: {fileID: 1951401995437561932, guid: f47bec3550d9343449bb6959516f800b,
     type: 3}
+  breakSpeed: 10
+  rumbleDuration: 1000
+  rumbleForce: 1

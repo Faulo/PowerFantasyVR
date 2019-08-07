@@ -7,9 +7,9 @@ namespace PFVR.Player {
             get {
                 if (leftTrackerCache == null) {
                     try {
-                        leftTrackerCache = Object.FindObjectOfType<SteamVR_PlayArea>().transform.Find("Controller (left)");
+                        leftTrackerCache = Object.FindObjectOfType<SteamVR_ControllerManager>().left.transform;
                     } catch(System.Exception) {
-                        Debug.Log("Scene is missing either 'SteamVR_PlayArea' or 'Controller (left)', help!");
+                        Debug.Log("Scene is missing either 'SteamVR_ControllerManager' or its left field, help!");
                     }
                 }
                 return leftTrackerCache;
@@ -20,9 +20,9 @@ namespace PFVR.Player {
             get {
                 if (rightTrackerCache == null) {
                     try {
-                        rightTrackerCache = Object.FindObjectOfType<SteamVR_PlayArea>().transform.Find("Controller (right)");
+                        rightTrackerCache = Object.FindObjectOfType<SteamVR_ControllerManager>().right.transform;
                     } catch (System.Exception) {
-                        Debug.Log("Scene is missing either 'SteamVR_PlayArea' or 'Controller (right)', help!");
+                        Debug.Log("Scene is missing either 'SteamVR_ControllerManager' or its right field!");
                     }
                 }
                 return rightTrackerCache;

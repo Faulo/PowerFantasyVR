@@ -1,3 +1,15 @@
-﻿{
-	"name": "ML.NET"
+{
+    "name": "ML.NET",
+    "references": [
+        "Unity.Collections",
+        "ML.NET.Runtime"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": []
 }

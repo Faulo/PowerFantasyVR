@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace PFVR.Player {
+    [RequireComponent(typeof(PlayerBehaviour))]
     public class FPSController : MonoBehaviour {
         [SerializeField, Range(0, 1000)]
         private float turnSpeed = 100;
@@ -16,19 +17,19 @@ namespace PFVR.Player {
         [SerializeField, Range(0, 1000)]
         private float fallSpeed = 100;
 
-        private CharacterController controller;
+        private PlayerBehaviour player;
 
         void Start() {
-            controller = GetComponent<CharacterController>();
+            player = GetComponent<PlayerBehaviour>();
         }
 
         void FixedUpdate() {
             transform.Rotate(0, Input.GetAxis("Horizontal") * Time.deltaTime * turnSpeed, 0);
-            controller.Move(transform.forward * Input.GetAxis("Vertical") * Time.deltaTime * walkSpeed);
+            player.motor.Move(transform.forward * Input.GetAxis("Vertical") * Time.deltaTime * walkSpeed);
             if (Input.GetKey(KeyCode.Space)) {
-                controller.Move(transform.up * Time.deltaTime * jumpSpeed);
+                player.motor.Move(transform.up * Time.deltaTime * jumpSpeed);
             } else {
-                controller.Move(transform.up * Time.deltaTime * fallSpeed * -1);
+                player.motor.Move(transform.up * Time.deltaTime * fallSpeed * -1);
             }
         }
     }

@@ -11,5 +11,6 @@ namespace PFVR.OurPhysics {
         void Break(float breakFactor);
         void LerpVelocity(Vector3 targetVelocity, float factor);
         void AddVelocity(Vector3 addedVelocity);
+        void Move(Vector3 translation);
     }
 }
