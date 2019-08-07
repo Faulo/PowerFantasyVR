@@ -57,7 +57,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6b644859d3a09c4eb999d8194aad11e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rayPrefab: {fileID: 8505999473017453898, guid: 0f0c26c743376244cb37e33187f15979,
+  rayPrefab: {fileID: 8505999473017453898, guid: 69f6b7392e1ac62418789caeda3e220c,
     type: 3}
   rumbleDuration: 5
   rumbleForce: 1
