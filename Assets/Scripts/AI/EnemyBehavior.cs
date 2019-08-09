@@ -57,6 +57,9 @@ namespace PFVR.AI
         private Vector3 evadeVector;
         private Func<Vector3, Vector3, Vector3> evadeBehavior;
 
+        // Animation
+        private Animator animator;
+
 
         // Start is called before the first frame update
         protected virtual void Start()
@@ -70,10 +73,28 @@ namespace PFVR.AI
             evadeVector = new Vector3();
             evadeBehavior = EnemyEvation.FindEvadeBehavior(UnityEngine.Random.Range(0, 3));
 
+            animator = GetComponent<Animator>();
             StartCoroutine(FindGoalRoutine());
+            StartCoroutine(AnimateAlert());
             //StartCoroutine(EvadePlayerRoutine());
         }
 
+        IEnumerator AnimateAlert()
+        {
+            var wait = new WaitForSeconds(1.0f);
+            while (true)
+            {
+                if (leaderBehavior.chasePlayer)
+                {
+                    animator.SetBool("Alerted", true);
+                }
+                else
+                {
+                    animator.SetBool("Alerted", false);
+                }
+                yield return wait;
+            }
+        }
         IEnumerator FindGoalRoutine()
         {
             var wait = new WaitForSeconds(1.0f);
