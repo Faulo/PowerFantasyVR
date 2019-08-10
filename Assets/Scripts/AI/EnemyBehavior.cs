@@ -68,7 +68,7 @@ namespace PFVR.AI
             arrayOfBeacons = GameObject.FindGameObjectsWithTag("Beacon");
             leaderBehavior = GameObject.FindGameObjectWithTag("Leaders").GetComponent<LeaderBehavior>();
 
-            //playerMotor = leaderBehavior.GetPlayer().motor;
+            playerMotor = leaderBehavior.GetPlayer().motor;
 
             evadeVector = new Vector3();
             evadeBehavior = EnemyEvation.FindEvadeBehavior(UnityEngine.Random.Range(0, 3));
@@ -76,7 +76,7 @@ namespace PFVR.AI
             animator = GetComponent<Animator>();
             StartCoroutine(FindGoalRoutine());
             StartCoroutine(AnimateAlert());
-            //StartCoroutine(EvadePlayerRoutine());
+            StartCoroutine(EvadePlayerRoutine());
         }
 
         IEnumerator AnimateAlert()
@@ -127,10 +127,18 @@ namespace PFVR.AI
             {
                 playerVelocity = playerMotor.velocity.magnitude;
                 // Evade the player when they have at least a minimum speed AND only when near
-                if (playerVelocity > playerVelocityTheshold && Vector3.Distance(transform.position, playerMotor.position) < playerDistanceThreshold)
+                if(playerVelocity > 0.0f)
                 {
-                    evadePlayer = true;
-                    Debug.Log("Set Evade Player true");
+                    Debug.Log(playerVelocity);
+                }
+                if (playerVelocity > playerVelocityTheshold)
+                {
+                    Debug.Log("Player velocity grater than threshold");
+                    if (Vector3.Distance(transform.position, playerMotor.position) < playerDistanceThreshold)
+                    {
+                        evadePlayer = true;
+                        Debug.Log("Set Evade Player true");
+                    }
                 }
                 // If player is slower than threshold and enemies are already evading, then stop evading player and set the evation vector anew
                 else if (playerVelocity < playerVelocityTheshold && evadePlayer)
@@ -172,12 +180,12 @@ namespace PFVR.AI
             {
                 Debug.Log("Evade the Player detected!");
                 //Find out the direction from which player is coming and evade to the sides!
-                if (evadeVector.magnitude <= 0.0f)
+                if (evadeVector.magnitude <= 1.0f)
                 {
                     evadeVector = evadeBehavior(playerMotor.position, transformPosition);
                 }
                 transformationVector = evadeVector;
-                alphaFactorUsed = alphaFactor + 30.0f;
+                alphaFactorUsed = alphaFactor + 100.0f;
             }
 
             // *** Create diffusion ***

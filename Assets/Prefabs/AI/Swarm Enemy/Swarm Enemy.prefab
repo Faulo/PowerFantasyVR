@@ -227,11 +227,6 @@ PrefabInstance:
       propertyPath: EmissionModule.m_Bursts.Array.data[0].cycleCount
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 8112467958452164520, guid: 148b262a22b5c3f469d21fb75709aad3,
-        type: 3}
-      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.scalar
-      value: 20
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 148b262a22b5c3f469d21fb75709aad3, type: 3}
 --- !u!4 &6209477844937222052 stripped
