@@ -28,10 +28,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 613ca3bb978ac9441b9f93772c617982, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  alphaFactor: 0.8
+  alphaFactor: 0.5
   betaFactor: 2
-  playerVelocityTheshold: 1
-  playerDistanceThreshold: 200
+  playerVelocityTheshold: 10
+  playerDistanceThreshold: 100
   idleDiffusion: 100
   chasingDiffusion: 0
 --- !u!1001 &850201758149819503

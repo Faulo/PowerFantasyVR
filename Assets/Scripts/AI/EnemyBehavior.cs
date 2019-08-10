@@ -54,6 +54,7 @@ namespace PFVR.AI
         private IMotor playerMotor;
         private bool evadePlayer;
         private float playerVelocity;
+        private float playerEnemyDistance;
         private Vector3 evadeVector;
         private Func<Vector3, Vector3, Vector3> evadeBehavior;
 
@@ -71,7 +72,7 @@ namespace PFVR.AI
             playerMotor = leaderBehavior.GetPlayer().motor;
 
             evadeVector = new Vector3();
-            evadeBehavior = EnemyEvation.FindEvadeBehavior(UnityEngine.Random.Range(0, 3));
+            evadeBehavior = EnemyEvation.FindEvadeBehavior(UnityEngine.Random.Range(0, 4));
 
             animator = GetComponent<Animator>();
             StartCoroutine(FindGoalRoutine());
@@ -126,28 +127,17 @@ namespace PFVR.AI
             while (true)
             {
                 playerVelocity = playerMotor.velocity.magnitude;
+                playerEnemyDistance = Vector3.Distance(transform.position, playerMotor.position);
                 // Evade the player when they have at least a minimum speed AND only when near
-                if(playerVelocity > 0.0f)
+                if (playerVelocity > playerVelocityTheshold && playerEnemyDistance < playerDistanceThreshold)
                 {
-                    Debug.Log(playerVelocity);
+                    evadePlayer = true;
                 }
-                if (playerVelocity > playerVelocityTheshold)
-                {
-                    Debug.Log("Player velocity grater than threshold");
-                    if (Vector3.Distance(transform.position, playerMotor.position) < playerDistanceThreshold)
-                    {
-                        evadePlayer = true;
-                        Debug.Log("Set Evade Player true");
-                    }
-                }
-                // If player is slower than threshold and enemies are already evading, then stop evading player and set the evation vector anew
-                else if (playerVelocity < playerVelocityTheshold && evadePlayer)
+                // If player is slower than threshold OR player has passed AND enemies are already evading, then stop evading player and set the evation vector anew
+                else if ((playerVelocity < playerVelocityTheshold || playerEnemyDistance > playerDistanceThreshold) && evadePlayer)
                 {
                     evadePlayer = false;
-                    if (evadeVector.magnitude > 0)
-                    {
-                        evadeVector = new Vector3();
-                    }
+                    evadeVector = new Vector3();
                 }
                 yield return wait;
             }
@@ -178,14 +168,14 @@ namespace PFVR.AI
             // Todo: Get it working! Aktuell kummuliert hier irgendwas, sodass es immer mehr lagged, je öfter der player durchfliegt!
             if (evadePlayer)
             {
-                Debug.Log("Evade the Player detected!");
-                //Find out the direction from which player is coming and evade to the sides!
-                if (evadeVector.magnitude <= 1.0f)
+                //Debug.Log("Evade the Player detected!");
+                //Find out the direction from which player is coming and evade to the sides! Set Vector only in first frame of evation.
+                if (evadeVector.magnitude <= 0)
                 {
                     evadeVector = evadeBehavior(playerMotor.position, transformPosition);
                 }
-                transformationVector = evadeVector;
-                alphaFactorUsed = alphaFactor + 100.0f;
+                transformationVector = evadeVector*7.0f;
+                alphaFactorUsed = alphaFactor + 30.0f;
             }
 
             // *** Create diffusion ***

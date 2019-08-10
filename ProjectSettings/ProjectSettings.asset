@@ -55,7 +55,6 @@ PlayerSettings:
   androidShowActivityIndicatorOnLoading: -1
   iosAppInBackgroundBehavior: 0
   iosAllowHTTPDownload: 1
-  displayResolutionDialog: 0
   allowedAutorotateToPortrait: 1
   allowedAutorotateToPortraitUpsideDown: 1
   allowedAutorotateToLandscapeRight: 1
@@ -309,8 +308,8 @@ PlayerSettings:
   - m_BuildTarget: Standalone
     m_Enabled: 1
     m_Devices:
-    - None
     - OpenVR
+    - None
   - m_BuildTarget: Windows Store Apps
     m_Enabled: 1
     m_Devices:
