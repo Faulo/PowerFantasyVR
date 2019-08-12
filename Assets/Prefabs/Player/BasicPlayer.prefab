@@ -150,6 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ddeec91d65ba841b017d5af6b008e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  accelerationSpeed: 10
   turnSpeed: 150
   walkSpeed: 200
   jumpSpeed: 100
