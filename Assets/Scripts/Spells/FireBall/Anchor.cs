@@ -20,12 +20,14 @@ namespace PFVR.Spells.FireBall {
             ball.explodable = false;
             ball.transform.position = transform.position;
             ball.rigidbody.isKinematic = true;
+            ball.rigidbody.collisionDetectionMode = CollisionDetectionMode.Discrete;
         }
 
         public void ReleaseFrom(Ball ball) {
             ball.explodable = true;
             ball.transform.parent = ball.transform.parent.parent;
             ball.rigidbody.isKinematic = false;
+            ball.rigidbody.collisionDetectionMode = CollisionDetectionMode.Continuous;
             ball.rigidbody.velocity = targetVelocity;
             target = null;
         }

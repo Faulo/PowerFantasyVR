@@ -107,10 +107,10 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  maximumRange: 1
+  maximumRange: 10
   maximumForce: 5
   upwardsModifier: 0
-  maximumDamage: 10
+  maximumDamage: 25
   damageOverDistance:
     serializedVersion: 2
     m_Curve:
