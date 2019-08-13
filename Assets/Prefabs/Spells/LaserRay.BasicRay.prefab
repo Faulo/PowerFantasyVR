@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7691482487888886817}
   - component: {fileID: 1313672327040267943}
-  - component: {fileID: 8287558799287717538}
+  - component: {fileID: 4901874380438357630}
   m_Layer: 15
   m_Name: LaserRay.BasicRay
   m_TagString: Untagged
@@ -45,9 +45,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a738af819d89632488441c4b35716c4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rayRange: 1000
+  rayRange: 100
   rayDamagePerSecond: 50
---- !u!54 &8287558799287717538
+--- !u!54 &4901874380438357630
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -188,7 +188,7 @@ PrefabInstance:
     - target: {fileID: 5293644778003854868, guid: 27f87470ed27ab14baab9de020d24f91,
         type: 3}
       propertyPath: m_MinVertexDistance
-      value: 0.01
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5293644778003854868, guid: 27f87470ed27ab14baab9de020d24f91,
         type: 3}
@@ -210,7 +210,33 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 10
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 5293644778003854868, guid: 27f87470ed27ab14baab9de020d24f91,
+        type: 3}
+      propertyPath: m_Parameters.alignment
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5293644778003854868, guid: 27f87470ed27ab14baab9de020d24f91,
+        type: 3}
+      propertyPath: m_Parameters.numCornerVertices
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5293644778003854868, guid: 27f87470ed27ab14baab9de020d24f91,
+        type: 3}
+      propertyPath: m_Parameters.numCapVertices
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3522450905115094539, guid: 27f87470ed27ab14baab9de020d24f91,
+        type: 3}
+      propertyPath: m_Parameters.alignment
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3522450905115094539, guid: 27f87470ed27ab14baab9de020d24f91,
+        type: 3}
+      propertyPath: m_MinVertexDistance
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 5293644778003854868, guid: 27f87470ed27ab14baab9de020d24f91, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 27f87470ed27ab14baab9de020d24f91, type: 3}
 --- !u!4 &3681572379702614044 stripped
 Transform:

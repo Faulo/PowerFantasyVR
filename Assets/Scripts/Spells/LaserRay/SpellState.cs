@@ -12,11 +12,13 @@ namespace PFVR.Spells.LaserRay {
         [SerializeField]
         private GameObject rayPrefab = default;
 
+        [Space]
         [SerializeField, Range(1, 1000)]
         private ushort rumbleDuration = 100;
-
         [SerializeField, Range(0f, 1f)]
-        private float rumbleForce = 0.5f;
+        private float rumbleForceIdle = 0.5f;
+        [SerializeField, Range(0f, 1f)]
+        private float rumbleForceCutting = 1.0f;
 
         private BasicRay ray;
         private Coroutine rayRoutine;
@@ -38,8 +40,8 @@ namespace PFVR.Spells.LaserRay {
         public void OnUpdate(PlayerBehaviour player, PlayerHandBehaviour hand) {
         }
         private IEnumerator CreateRayRoutine(PlayerHandBehaviour hand) {
-            while (true) {
-                ManusConnector.Rumble(hand.laterality, rumbleDuration, rumbleForce);
+            while (ray) {
+                ManusConnector.Rumble(hand.laterality, rumbleDuration, ray.isCutting ? rumbleForceCutting : rumbleForceIdle);
                 yield return new WaitForSeconds(rumbleDuration / 1000f);
             }
         }

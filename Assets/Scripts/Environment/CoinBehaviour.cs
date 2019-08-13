@@ -12,7 +12,6 @@ namespace PFVR.Environment {
         private GameEventSource eventSource = default;
 
         void OnTriggerEnter(Collider other) {
-            Debug.Log(other + ": " + other.gameObject.layer);
             if (((1 << other.gameObject.layer) & collectingLayer) != 0) {
                 eventSource.Raise(GameEventType.CoinCollected);
                 Destroy(eventSource.gameObject);

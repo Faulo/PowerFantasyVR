@@ -1,0 +1,45 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+
+namespace PFVR.OurPhysics {
+    [RequireComponent(typeof(Animator))]
+    public class AnimatedDestroyable : MonoBehaviour, IDestroyable {
+        [SerializeField, Range(1, 100)]
+        private float maxHP = 1;
+        public float currentHP {
+            get => currentHPCache;
+            set {
+                if (value != currentHPCache) {
+                    if (value < currentHPCache) {
+                        animator.SetTrigger("DamageTaken");
+                    } else {
+                        animator.SetTrigger("DamageHealed");
+                    }
+                    currentHPCache = value;
+                }
+            }
+        }
+        private float currentHPCache;
+        public bool isAlive { get; private set; } = true;
+        public new Rigidbody rigidbody { get; private set; }
+
+        private Animator animator;
+
+        // Start is called before the first frame update
+        void Start() {
+            currentHPCache = maxHP;
+            animator = GetComponent<Animator>();
+        }
+
+        // Update is called once per frame
+        void Update() {
+            if (isAlive && currentHP <= 0) {
+                isAlive = false;
+                animator.SetTrigger("Dead");
+                Destroy(gameObject);
+            }
+        }
+    }
+}
