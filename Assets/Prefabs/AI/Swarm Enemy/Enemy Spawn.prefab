@@ -44,4 +44,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyCount: 2000
-  prefab: {fileID: 1454478478354520096, guid: cbecd25edcda1cf469221966a9827872, type: 3}
+  prefab: {fileID: 2297923806211810383, guid: dd2ab9eec40f1e84c9771ab1a01e35b7, type: 3}

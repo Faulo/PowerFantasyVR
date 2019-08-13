@@ -13,7 +13,12 @@
         "UnityEngine.UI",
         "EntityComponentSystem",
         "LowPolyWater",
-        "ParticlePack"
+        "ParticlePack",
+        "Unity.Entities",
+        "Unity.Collections",
+        "Unity.Transforms",
+        "Unity.Rendering.Hybrid",
+        "Unity.Mathematics"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
