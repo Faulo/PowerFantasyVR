@@ -29,6 +29,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1343413063784427579}
   - {fileID: 7694922590320629798}
   - {fileID: 242020003329452562}
   m_Father: {fileID: 0}
@@ -137,7 +138,7 @@ PrefabInstance:
     - target: {fileID: 249688707502179397, guid: cd376719f21e01b4eb500863c43f1c0c,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 249688707502179397, guid: cd376719f21e01b4eb500863c43f1c0c,
         type: 3}
@@ -443,6 +444,86 @@ MeshRenderer:
     type: 3}
   m_PrefabInstance: {fileID: 12597548676394583}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2511627971938854628
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 609499434741422486}
+    m_Modifications:
+    - target: {fileID: 3494752925365098177, guid: 15302ef78d22473419d43e500b3afcdd,
+        type: 3}
+      propertyPath: m_Name
+      value: Goblet.IdleSound
+      objectReference: {fileID: 0}
+    - target: {fileID: 3494752925365098177, guid: 15302ef78d22473419d43e500b3afcdd,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 3494752925365098207, guid: 15302ef78d22473419d43e500b3afcdd,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3494752925365098207, guid: 15302ef78d22473419d43e500b3afcdd,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3494752925365098207, guid: 15302ef78d22473419d43e500b3afcdd,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3494752925365098207, guid: 15302ef78d22473419d43e500b3afcdd,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3494752925365098207, guid: 15302ef78d22473419d43e500b3afcdd,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3494752925365098207, guid: 15302ef78d22473419d43e500b3afcdd,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3494752925365098207, guid: 15302ef78d22473419d43e500b3afcdd,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3494752925365098207, guid: 15302ef78d22473419d43e500b3afcdd,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3494752925365098207, guid: 15302ef78d22473419d43e500b3afcdd,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3494752925365098207, guid: 15302ef78d22473419d43e500b3afcdd,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3494752925365098207, guid: 15302ef78d22473419d43e500b3afcdd,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 15302ef78d22473419d43e500b3afcdd, type: 3}
+--- !u!4 &1343413063784427579 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3494752925365098207, guid: 15302ef78d22473419d43e500b3afcdd,
+    type: 3}
+  m_PrefabInstance: {fileID: 2511627971938854628}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4388991716793942088
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -453,7 +534,7 @@ PrefabInstance:
     - target: {fileID: 6206259241935837294, guid: 9f677270603ea354faa22e42dbf7beda,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6206259241935837294, guid: 9f677270603ea354faa22e42dbf7beda,
         type: 3}
