@@ -12,9 +12,9 @@ namespace PFVR.SFX {
         [SerializeField]
         private bool loop = false;
         [Space]
-        [SerializeField, Range(0, 1)]
+        [SerializeField, Range(0, 10)]
         private float volMin = 1;
-        [SerializeField, Range(0, 1)]
+        [SerializeField, Range(0, 10)]
         private float volMax = 1;
         [Space]
         [SerializeField, Range(0, 10)]
