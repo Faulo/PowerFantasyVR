@@ -24,6 +24,7 @@ namespace PFVR.OurPhysics {
         private float currentHPCache;
         public bool isAlive { get; private set; } = true;
         public new Rigidbody rigidbody { get; private set; }
+        public Vector3 position => transform.position;
 
         private Animator animator;
 

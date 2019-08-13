@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c0bcd332042a2d44b576144b166d93d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maximumScaling: 1
   scalingCurve:
     serializedVersion: 2
     m_Curve:
@@ -83,33 +84,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df4bf2fdb78408843b076e2a0fd03d6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 15
-  maximumForce: 20
-  forceOverDistance:
+  maximumScaling: 10
+  scalingCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
-      inSlope: -1
-      outSlope: -1
+      value: 0
+      inSlope: 1
+      outSlope: 1
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.33333334
+      outWeight: 0
     - serializedVersion: 3
       time: 1
-      value: 0
-      inSlope: -1
-      outSlope: -1
+      value: 1
+      inSlope: 1
+      outSlope: 1
       tangentMode: 34
       weightedMode: 0
-      inWeight: 0.33333334
+      inWeight: 0
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  maximumDamage: 40
+  maximumRange: 100
+  maximumForce: 100
+  upwardsModifier: 0.5
+  maximumDamage: 100
   damageOverDistance:
     serializedVersion: 2
     m_Curve:
@@ -134,7 +137,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  upwardsModifier: 0.5
 --- !u!1001 &246187061185124081
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -202,6 +204,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: FireBall.Light
       objectReference: {fileID: 0}
+    - target: {fileID: 7154907995507304272, guid: 60b194cadf276d64cb383a8dd50457a8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60b194cadf276d64cb383a8dd50457a8, type: 3}
 --- !u!4 &4006067066871641262 stripped
@@ -249,6 +256,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TinyExplosion
       objectReference: {fileID: 0}
+    - target: {fileID: 1337198075554910, guid: 25c7aa9ad705fe143a4d71c1c8deb7d4, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 198175801688348628, guid: 25c7aa9ad705fe143a4d71c1c8deb7d4,
         type: 3}
       propertyPath: UVModule.flipU
@@ -258,6 +269,14 @@ PrefabInstance:
         type: 3}
       propertyPath: UVModule.flipV
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1793989332680384, guid: 25c7aa9ad705fe143a4d71c1c8deb7d4, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1220994428806852, guid: 25c7aa9ad705fe143a4d71c1c8deb7d4, type: 3}
+      propertyPath: m_Layer
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25c7aa9ad705fe143a4d71c1c8deb7d4, type: 3}
@@ -333,6 +352,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: OneShot
+      objectReference: {fileID: 0}
+    - target: {fileID: 2785517421695468922, guid: 7e1c94bd432ecb8488be4416fc196a4c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 4058099465869877981, guid: 7e1c94bd432ecb8488be4416fc196a4c,
         type: 3}

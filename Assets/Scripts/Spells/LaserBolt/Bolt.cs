@@ -20,7 +20,8 @@ namespace PFVR.Spells.LaserBolt {
             if ((LayerMask.GetMask(LayerMask.LayerToName(collision.gameObject.layer)) & LayerMask.GetMask("Default", "Spell", "Obstacle", "Ground")) == 0) {
                 return;
             }
-            Explosion.Instantiate(explosionPrefab, transform.position, explosionSize);
+            var explosion = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+            explosion.GetComponent<Explosion>().scaling = explosionSize;
             Destroy(gameObject);
         }
     }

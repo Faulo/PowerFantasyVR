@@ -62,7 +62,7 @@ namespace PFVR.Environment {
         private float levelOfDetailCutoff = 0.005f;
         private float volume => transform.localScale.x * transform.localScale.y * transform.localScale.z;
 
-        private void Awake() {
+        private void Start() {
             ApplyType();
         }
 
