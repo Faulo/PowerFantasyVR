@@ -1501,6 +1501,36 @@ PrefabInstance:
       propertyPath: ColorModule.gradient.maxGradient.atime1
       value: 37008
       objectReference: {fileID: 0}
+    - target: {fileID: 317140289746853199, guid: cbecd25edcda1cf469221966a9827872,
+        type: 3}
+      propertyPath: volMin
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 317140289746853199, guid: cbecd25edcda1cf469221966a9827872,
+        type: 3}
+      propertyPath: volMax
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 317140289746853199, guid: cbecd25edcda1cf469221966a9827872,
+        type: 3}
+      propertyPath: spatialBlend
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3278532591158791656, guid: cbecd25edcda1cf469221966a9827872,
+        type: 3}
+      propertyPath: spatialBlend
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3278532591158791656, guid: cbecd25edcda1cf469221966a9827872,
+        type: 3}
+      propertyPath: volMin
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3278532591158791656, guid: cbecd25edcda1cf469221966a9827872,
+        type: 3}
+      propertyPath: volMax
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7966852764842532171, guid: cbecd25edcda1cf469221966a9827872, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cbecd25edcda1cf469221966a9827872, type: 3}
