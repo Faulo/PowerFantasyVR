@@ -22,6 +22,9 @@ namespace PFVR.SFX {
         [SerializeField, Range(0, 10)]
         private float pitchMax = 1;
         [Space]
+        [SerializeField, Range(0, 1)]
+        private float spatialBlend = 1;
+        [Space]
         [SerializeField]
         private AudioSource audioSource = default;
 
@@ -32,7 +35,7 @@ namespace PFVR.SFX {
                     audioSource = gameObject.AddComponent<AudioSource>();
                 }
             }
-            audioSource.spatialBlend = 1f;
+            audioSource.spatialBlend = spatialBlend;
             if (playOnStart) {
                 Play();
             }
@@ -58,5 +61,10 @@ namespace PFVR.SFX {
 
         public void Pause() => audioSource.Pause();
         public void UnPause() => audioSource.UnPause();
+
+        public void IncreasePitch(float delta) {
+            pitchMin += delta;
+            pitchMax += delta;
+        }
     }
 }
