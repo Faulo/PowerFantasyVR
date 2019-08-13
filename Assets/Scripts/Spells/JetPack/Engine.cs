@@ -67,12 +67,9 @@ namespace PFVR.Spells.JetPack {
                     isBoostingCache = value;
                     if (value) {
                         particleColor = Color.red;
-                        audioSource.clip = boostSound;
-                        audioSource.Play();
+                        audioSource.PlayOneShot(boostSound);
                     } else {
                         particleColor = Color.white;
-                        audioSource.clip = continuousSound;
-                        audioSource.Play();
                     }
                 }
             }

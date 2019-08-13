@@ -5,29 +5,31 @@ using UnityEngine;
 
 namespace PFVR.OurPhysics {
     [RequireComponent(typeof(Animator))]
-    public class Destroyable : MonoBehaviour {
+    public class AnimatedDestroyable : MonoBehaviour, IDestroyable {
         [SerializeField, Range(1, 100)]
         private float maxHP = 1;
         public float currentHP {
             get => currentHPCache;
             set {
-                if (value < currentHPCache) {
-                    animator.SetTrigger("DamageTaken");
+                if (value != currentHPCache) {
+                    if (value < currentHPCache) {
+                        animator.SetTrigger("DamageTaken");
+                    } else {
+                        animator.SetTrigger("DamageHealed");
+                    }
+                    currentHPCache = value;
                 }
-                currentHPCache = value;
             }
         }
         private float currentHPCache;
-        private bool isAlive = true;
-
-        [SerializeField]
-        private GameObject destructionPrefab = default;
+        public bool isAlive { get; private set; } = true;
+        public new Rigidbody rigidbody { get; private set; }
 
         private Animator animator;
 
         // Start is called before the first frame update
         void Start() {
-            currentHP = maxHP;
+            currentHPCache = maxHP;
             animator = GetComponent<Animator>();
         }
 
@@ -35,14 +37,7 @@ namespace PFVR.OurPhysics {
         void Update() {
             if (isAlive && currentHP <= 0) {
                 isAlive = false;
-                if (destructionPrefab) {
-                    var destruction = Instantiate(destructionPrefab, transform.position, Quaternion.identity);
-                    var thisBody = GetComponent<Rigidbody>();
-                    var thatBody = destruction.GetComponent<Rigidbody>();
-                    if (thisBody && thatBody) {
-                        thatBody.velocity = thisBody.velocity;
-                    }
-                }
+                animator.SetTrigger("Dead");
                 Destroy(gameObject);
             }
         }

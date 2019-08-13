@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4112504727747986}
   - component: {fileID: 6067776112320999516}
   - component: {fileID: 6463919432993858620}
+  - component: {fileID: 2093360290297428045}
   m_Layer: 14
   m_Name: Bush_1
   m_TagString: Untagged
@@ -46,8 +47,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 3
-  rigidbodyDensity: 50
+  rigidbodyDensity: 5
   rigidbodyDrag: 1
+  waterPlaneWidth: 0
+  waterPlaneHeight: 0
+  waterPlaneWaveWidth: 1
+  waterPlaneWaveHeight: 1
+  waterPlaneAutoUpdate: 0
+  waterfallTopFoam: {fileID: 0}
+  waterfallBottomFoam: {fileID: 0}
+  destroyableHPDensity: 1
+  destroyableDamageTakenPrefab: {fileID: 7648092028806189602, guid: 02cba40431647444b83d262426fcc852,
+    type: 3}
+  destroyableDamageHealedPrefab: {fileID: 0}
+  destroyableDeadPrefab: {fileID: 7648092028806189602, guid: b08b2e5b53d2e6242bc142581214d0de,
+    type: 3}
   levelOfDetail: 1
   levelOfDetailCutoff: 0.05
 --- !u!205 &6463919432993858620
@@ -69,6 +83,24 @@ LODGroup:
     renderers:
     - renderer: {fileID: 8592864488437576727}
   m_Enabled: 1
+--- !u!114 &2093360290297428045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1732752170155260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 349b507bcdfa5144787503956a2b811d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHP: 50
+  damageTakenPrefab: {fileID: 7648092028806189602, guid: 02cba40431647444b83d262426fcc852,
+    type: 3}
+  damageHealedPrefab: {fileID: 0}
+  deadPrefab: {fileID: 7648092028806189602, guid: b08b2e5b53d2e6242bc142581214d0de,
+    type: 3}
 --- !u!64 &2505300863458669786
 MeshCollider:
   m_ObjectHideFlags: 0
