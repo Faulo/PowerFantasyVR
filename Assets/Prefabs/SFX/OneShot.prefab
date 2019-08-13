@@ -45,7 +45,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioClips:
   - {fileID: 0}
-  playOnAwake: 1
+  playOnStart: 1
+  loop: 0
   volMin: 1
   volMax: 1
   pitchMin: 1

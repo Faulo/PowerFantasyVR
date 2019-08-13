@@ -24,26 +24,27 @@ namespace PFVR.AI
         // Evade in a fixed direction for whole life. Only evade when new player attack. Evade in same direction for whole take.
         private static Vector3 EvadeMethod90(Vector3 playerPosition, Vector3 objectPosition)
         {
-            Vector3 evadeVector = new Vector3(playerPosition.x, playerPosition.y, playerPosition.z) - objectPosition;
-            return Quaternion.AngleAxis(90, evadeVector) * evadeVector;
+            return Rotate(playerPosition, objectPosition, 90);
         }
 
         private static Vector3 EvadeMethodMinus90(Vector3 playerPosition, Vector3 objectPosition)
         {
-            Vector3 evadeVector = new Vector3(playerPosition.x, playerPosition.y, playerPosition.z) - objectPosition;
-            return evadeVector = Quaternion.AngleAxis(-90, evadeVector) * evadeVector;
+            return Rotate(playerPosition, objectPosition, -90);
         }
 
         private static Vector3 EvadeMethod180(Vector3 playerPosition, Vector3 objectPosition)
         {
-            Vector3 evadeVector = new Vector3(playerPosition.x, playerPosition.y, playerPosition.z) - objectPosition;
-            return evadeVector = Quaternion.AngleAxis(180, evadeVector) * evadeVector;
+            return Rotate(playerPosition, objectPosition, 180);
         }
 
-        private static Vector3 EvadeMethod0(Vector3 playerPosition, Vector3 objectPosition)
-        {
-            Vector3 evadeVector = new Vector3(playerPosition.x, playerPosition.y, playerPosition.z) - objectPosition;
-            return evadeVector = Quaternion.AngleAxis(0, evadeVector) * evadeVector;
+        private static Vector3 EvadeMethod0(Vector3 playerPosition, Vector3 objectPosition) {
+            return Rotate(playerPosition, objectPosition, 0);
+        }
+
+        private static Vector3 Rotate(Vector3 playerPosition, Vector3 objectPosition, float angle) {
+            Vector3 evadeVector = playerPosition - objectPosition;
+            Vector3 norm = Vector3.Cross(playerPosition, objectPosition);
+            return (Quaternion.AngleAxis(angle, evadeVector) * norm).normalized;
         }
     }
 }
