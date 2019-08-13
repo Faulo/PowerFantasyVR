@@ -59,5 +59,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rayPrefab: {fileID: 8505999473017453898, guid: 69f6b7392e1ac62418789caeda3e220c,
     type: 3}
-  rumbleDuration: 5
-  rumbleForce: 1
+  rumbleDuration: 100
+  rumbleForceIdle: 0.3
+  rumbleForceCutting: 1

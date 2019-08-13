@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4227784882853702}
   - component: {fileID: -4068367748127416679}
   - component: {fileID: 5639417727143356029}
+  - component: {fileID: 3090720939109215316}
   m_Layer: 14
   m_Name: SNature_Tree
   m_TagString: Untagged
@@ -46,8 +47,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 3
-  rigidbodyDensity: 50
+  rigidbodyDensity: 5
   rigidbodyDrag: 1
+  waterPlaneWidth: 0
+  waterPlaneHeight: 0
+  waterPlaneWaveWidth: 1
+  waterPlaneWaveHeight: 1
+  waterPlaneAutoUpdate: 0
+  waterfallTopFoam: {fileID: 0}
+  waterfallBottomFoam: {fileID: 0}
+  destroyableHPDensity: 1
+  destroyableDamageTakenPrefab: {fileID: 7648092028806189602, guid: 02cba40431647444b83d262426fcc852,
+    type: 3}
+  destroyableDamageHealedPrefab: {fileID: 0}
+  destroyableDeadPrefab: {fileID: 7648092028806189602, guid: b08b2e5b53d2e6242bc142581214d0de,
+    type: 3}
   levelOfDetail: 1
   levelOfDetailCutoff: 0.05
 --- !u!205 &5639417727143356029
@@ -69,6 +83,24 @@ LODGroup:
     renderers:
     - renderer: {fileID: 2547932116937149329}
   m_Enabled: 1
+--- !u!114 &3090720939109215316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1095773145228200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 349b507bcdfa5144787503956a2b811d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHP: 50
+  damageTakenPrefab: {fileID: 7648092028806189602, guid: 02cba40431647444b83d262426fcc852,
+    type: 3}
+  damageHealedPrefab: {fileID: 0}
+  deadPrefab: {fileID: 7648092028806189602, guid: b08b2e5b53d2e6242bc142581214d0de,
+    type: 3}
 --- !u!64 &3414506254363478828
 MeshCollider:
   m_ObjectHideFlags: 0

@@ -6,6 +6,9 @@ namespace PFVR.Player {
     [RequireComponent(typeof(PlayerBehaviour))]
     public class FPSController : MonoBehaviour {
         [SerializeField, Range(0, 1000)]
+        private float accelerationSpeed = 100;
+
+        [SerializeField, Range(0, 1000)]
         private float turnSpeed = 100;
 
         [SerializeField, Range(0, 1000)]
@@ -25,12 +28,13 @@ namespace PFVR.Player {
 
         void FixedUpdate() {
             transform.Rotate(0, Input.GetAxis("Horizontal") * Time.deltaTime * turnSpeed, 0);
-            player.motor.Move(transform.forward * Input.GetAxis("Vertical") * Time.deltaTime * walkSpeed);
+            var velocity = transform.forward * Input.GetAxis("Vertical") * walkSpeed;
             if (Input.GetKey(KeyCode.Space)) {
-                player.motor.Move(transform.up * Time.deltaTime * jumpSpeed);
+                velocity += transform.up * jumpSpeed;
             } else {
-                player.motor.Move(transform.up * Time.deltaTime * fallSpeed * -1);
+                velocity -= transform.up * fallSpeed;
             }
+            player.motor.LerpVelocity(velocity, Time.deltaTime * accelerationSpeed);
         }
     }
 }
