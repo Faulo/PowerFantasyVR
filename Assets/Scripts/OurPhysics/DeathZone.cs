@@ -10,7 +10,7 @@ namespace PFVR.OurPhysics {
         }
         void OnTriggerExit(Collider collider) {
             if (!bounds.Contains(collider.transform.position)) {
-                Debug.Log(collider.gameObject.name + " hit the death zone at " + collider.transform.position + "!");
+                //Debug.Log(collider.gameObject.name + " hit the death zone at " + collider.transform.position + "!");
                 Destroy(collider.gameObject);
             }
         }

@@ -77,5 +77,35 @@ PrefabInstance:
       propertyPath: gravity
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5622079449204971196, guid: ad544f0f79eab2544ba2506e8a21c770,
+        type: 3}
+      propertyPath: timeOverSpeed.m_Curve.Array.data[0].time
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5622079449204971196, guid: ad544f0f79eab2544ba2506e8a21c770,
+        type: 3}
+      propertyPath: timeOverSpeed.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5622079449204971196, guid: ad544f0f79eab2544ba2506e8a21c770,
+        type: 3}
+      propertyPath: timeOverSpeed.m_Curve.Array.data[0].inSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5622079449204971196, guid: ad544f0f79eab2544ba2506e8a21c770,
+        type: 3}
+      propertyPath: timeOverSpeed.m_Curve.Array.data[0].outSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5622079449204971196, guid: ad544f0f79eab2544ba2506e8a21c770,
+        type: 3}
+      propertyPath: timeOverSpeed.m_Curve.Array.data[0].tangentMode
+      value: 34
+      objectReference: {fileID: 0}
+    - target: {fileID: 5622079449204971196, guid: ad544f0f79eab2544ba2506e8a21c770,
+        type: 3}
+      propertyPath: timeOverSpeed.m_Curve.Array.data[1].tangentMode
+      value: 34
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad544f0f79eab2544ba2506e8a21c770, type: 3}

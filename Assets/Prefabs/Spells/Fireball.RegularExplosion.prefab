@@ -84,7 +84,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df4bf2fdb78408843b076e2a0fd03d6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maximumScaling: 10
+  maximumScaling: 1
   scalingCurve:
     serializedVersion: 2
     m_Curve:
@@ -109,10 +109,10 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  maximumRange: 100
+  maximumRange: 25
   maximumForce: 100
   upwardsModifier: 0.5
-  maximumDamage: 100
+  maximumDamage: 1000
   damageOverDistance:
     serializedVersion: 2
     m_Curve:
@@ -120,19 +120,19 @@ MonoBehaviour:
       time: 0
       value: 1
       inSlope: -1
-      outSlope: -1
-      tangentMode: 34
+      outSlope: -0.2117647
+      tangentMode: 1
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.33333334
+      outWeight: 0.16666667
     - serializedVersion: 3
       time: 1
       value: 0
-      inSlope: -1
-      outSlope: -1
-      tangentMode: 34
+      inSlope: -2.9278777
+      outSlope: -2.9278777
+      tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
+      inWeight: 0.042592585
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -251,6 +251,18 @@ PrefabInstance:
     - target: {fileID: 4441266138185142, guid: 25c7aa9ad705fe143a4d71c1c8deb7d4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4441266138185142, guid: 25c7aa9ad705fe143a4d71c1c8deb7d4, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4441266138185142, guid: 25c7aa9ad705fe143a4d71c1c8deb7d4, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4441266138185142, guid: 25c7aa9ad705fe143a4d71c1c8deb7d4, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1337198075554910, guid: 25c7aa9ad705fe143a4d71c1c8deb7d4, type: 3}
       propertyPath: m_Name

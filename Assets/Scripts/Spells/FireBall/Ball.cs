@@ -43,6 +43,11 @@ namespace PFVR.Spells.FireBall {
             trailRenderer = GetComponentInChildren<TrailRenderer>();
         }
 
+        private void Update() {
+            trailRenderer.startWidth = scaledScaling;
+            trailRenderer.endWidth = scaledScaling;
+        }
+
         private void OnCollisionEnter(Collision collision) {
             currentHP = 0;
         }
@@ -57,8 +62,9 @@ namespace PFVR.Spells.FireBall {
         private void ExplodeWith(GameObject prefab) {
             if (isAlive) {
                 isAlive = false;
-                var explosion = Instantiate(prefab, transform.position, Quaternion.identity);
-                explosion.GetComponent<Explosion>().scaling = scaling;
+                var explosion = Instantiate(prefab, transform.position, Quaternion.identity).GetComponent<Explosion>();
+                explosion.maximumScaling = maximumScaling;
+                explosion.scaling = scaling;
                 Destroy(gameObject);
             }
         }

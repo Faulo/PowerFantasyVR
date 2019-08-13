@@ -113,7 +113,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  regularExplosionPrefab: {fileID: 3679691998973720690, guid: 07fb9b5a1e4e5ab4d910b1495c4f8983,
+  regularExplosionPrefab: {fileID: 3679691998973720690, guid: 120eab5e70711a740b09c00ec7e98e7d,
     type: 3}
   laserExplosionPrefab: {fileID: 3679691998973720690, guid: b306b6ad1ff28a4438ed9854bc412928,
     type: 3}

@@ -19,11 +19,12 @@ namespace PFVR.Spells {
         private AnimationCurve damageOverDistance = default;
 
         void Start() {
-            Physics.OverlapSphere(transform.position, maximumRange * scaling, LayerMask.GetMask("Default", "Obstacle", "Spell"))
+            Physics.OverlapSphere(transform.position, maximumRange * scaling, LayerMask.GetMask("Default", "Obstacle"), QueryTriggerInteraction.Collide)
                 .SelectMany(collider => collider.GetComponentsInParent<IDestroyable>())
                 .Distinct()
                 .ForAll(destroyable => {
-                    destroyable.currentHP -= maximumDamage * scaling * damageOverDistance.Evaluate(Vector3.Distance(transform.position, destroyable.position));
+                    destroyable.currentHP -= maximumDamage * scaling * damageOverDistance.Evaluate(Vector3.Distance(transform.position, destroyable.position) / maximumRange);
+                    //Debug.Log(destroyable + " " + destroyable.currentHP);
                     if (destroyable.rigidbody) {
                         destroyable.rigidbody.AddExplosionForce(maximumForce * scaling, transform.position, maximumRange * scaling, upwardsModifier, ForceMode.VelocityChange);
                     }

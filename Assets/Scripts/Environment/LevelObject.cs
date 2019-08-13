@@ -93,7 +93,7 @@ namespace PFVR.Environment {
                 case LevelObjectType.Rigidbody:
                     SetStatic(false);
                     EnableColliders();
-                    EnableRigidbody();
+                    EnableGravityRigidbody();
                     EnableDynamicLighting();
                     AddDestroyable();
                     SetLayer("Obstacle");
@@ -187,13 +187,25 @@ namespace PFVR.Environment {
                 DestroyImmediate(rigidbody);
             }
         }
-        private void EnableRigidbody() {
+        private void EnableGravityRigidbody() {
             var rigidbody = GetComponent<Rigidbody>();
             if (!rigidbody) {
                 rigidbody = gameObject.AddComponent<Rigidbody>();
             }
             rigidbody.mass = rigidbodyDensity * volume;
             rigidbody.drag = rigidbodyDrag;
+            rigidbody.useGravity = true;
+            rigidbody.isKinematic = false;
+        }
+        private void EnableKinematicRigidbody() {
+            var rigidbody = GetComponent<Rigidbody>();
+            if (!rigidbody) {
+                rigidbody = gameObject.AddComponent<Rigidbody>();
+            }
+            rigidbody.mass = rigidbodyDensity * volume;
+            rigidbody.drag = rigidbodyDrag;
+            rigidbody.useGravity = false;
+            rigidbody.isKinematic = true;
         }
 
         private void SetLayer(string layerName) {
