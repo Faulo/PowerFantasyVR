@@ -14,7 +14,7 @@ namespace PFVR.Spells.LaserRay {
         private float rayDamagePerSecond = 0;
 
         public void Start() {
-            //transform.SetScaleZ(rayRange);
+            transform.SetScaleZ(rayRange);
         }
 
         private void OnTriggerStay(Collider other) {
