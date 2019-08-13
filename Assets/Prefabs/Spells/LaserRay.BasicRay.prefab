@@ -60,7 +60,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2222188682446853590
 Transform:
   m_ObjectHideFlags: 0
@@ -4752,7 +4752,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6ee3b72c30444624aa5e22a49af7c543, type: 2}
+  - {fileID: 2100000, guid: 00652c7d2ad2e4b43a18d98a7b9afb13, type: 2}
   - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -4933,16 +4933,46 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 9070084775656733770, guid: 27f87470ed27ab14baab9de020d24f91,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9070084775347132911, guid: 27f87470ed27ab14baab9de020d24f91,
         type: 3}
       propertyPath: m_Layer
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 9070084775347132911, guid: 27f87470ed27ab14baab9de020d24f91,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9070084774862181506, guid: 27f87470ed27ab14baab9de020d24f91,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 00652c7d2ad2e4b43a18d98a7b9afb13, type: 2}
+    - target: {fileID: 9070084775656733812, guid: 27f87470ed27ab14baab9de020d24f91,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 00652c7d2ad2e4b43a18d98a7b9afb13, type: 2}
+    - target: {fileID: 9070084775656733812, guid: 27f87470ed27ab14baab9de020d24f91,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 00652c7d2ad2e4b43a18d98a7b9afb13, type: 2}
     - target: {fileID: 9070084775656733813, guid: 27f87470ed27ab14baab9de020d24f91,
         type: 3}
       propertyPath: EmissionModule.enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9070084775347132905, guid: 27f87470ed27ab14baab9de020d24f91,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 00652c7d2ad2e4b43a18d98a7b9afb13, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27f87470ed27ab14baab9de020d24f91, type: 3}
 --- !u!4 &3681572379702614044 stripped
