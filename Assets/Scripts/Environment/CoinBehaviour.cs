@@ -6,12 +6,16 @@ using UnityEngine;
 
 namespace PFVR.Environment {
     public class CoinBehaviour : MonoBehaviour {
-        private GameEventSource eventSource => GetComponent<GameEventSource>();
-        void OnTriggerEnter(Collider collider) {
-            var connector = collider.gameObject.GetComponentInParent<PlayerBehaviour>();
-            if (connector) {
+        [SerializeField]
+        private LayerMask collectingLayer = default;
+        [SerializeField]
+        private GameEventSource eventSource = default;
+
+        void OnTriggerEnter(Collider other) {
+            Debug.Log(other + ": " + other.gameObject.layer);
+            if (((1 << other.gameObject.layer) & collectingLayer) != 0) {
                 eventSource.Raise(GameEventType.CoinCollected);
-                Destroy(gameObject);
+                Destroy(eventSource.gameObject);
             }
         }
     }
