@@ -1,15 +1,17 @@
 ﻿using PFVR.Events;
+using PFVR.Player;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace PFVR.Player {
-    public class CollectableScript : MonoBehaviour {
-        private GameEventTarget eventTarget => GetComponent<GameEventTarget>();
+namespace PFVR.Environment {
+    public class CoinBehaviour : MonoBehaviour {
+        private GameEventSource eventSource => GetComponent<GameEventSource>();
         void OnTriggerEnter(Collider collider) {
             var connector = collider.gameObject.GetComponentInParent<PlayerBehaviour>();
             if (connector) {
-                eventTarget.Raise(GameEventType.CoinCollected);
+                eventSource.Raise(GameEventType.CoinCollected);
+                Destroy(gameObject);
             }
         }
     }
