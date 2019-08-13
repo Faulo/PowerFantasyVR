@@ -21,7 +21,7 @@ namespace PFVR.Spells.FireBall {
         private Coroutine rumbleRoutine;
 
         [Space]
-        [SerializeField, Range(1, 10)]
+        [SerializeField, Range(0, 100)]
         private float launchVelocityMultiplier = 1;
         [SerializeField, Range(1, 10)]
         private float maximumChargeTime = 1f;
@@ -56,7 +56,6 @@ namespace PFVR.Spells.FireBall {
             if (ball != null) {
                 anchor.ReleaseFrom(ball);
                 ball.rigidbody.velocity += hand.velocity;
-                ball.rigidbody.drag = 0;
                 ball.rigidbody.velocity *= launchVelocityMultiplier;
                 ball.rigidbody.gameObject.AddComponent<KinematicRigidbody>();
                 ball = null;
