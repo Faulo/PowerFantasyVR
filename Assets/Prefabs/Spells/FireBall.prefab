@@ -61,48 +61,33 @@ MonoBehaviour:
     type: 3}
   anchorPrefab: {fileID: 7456059992113307746, guid: fc50f321b4852c348ba3556dcc1c7565,
     type: 3}
-  rumbleInterval: 50
-  rumbleForceOverDistance:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: -0.48986807
-      outSlope: -0.48986807
-      tangentMode: 0
-      weightedMode: 3
-      inWeight: 0
-      outWeight: 0.19907856
-    - serializedVersion: 3
-      time: 3
-      value: 0
-      inSlope: -0.0006386803
-      outSlope: -0.0006386803
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.26454347
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
+  rumbleInterval: 100
   rumbleForceOverSize:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
       value: 0.5
-      inSlope: 0.5
-      outSlope: 0.5
+      inSlope: 0.3030303
+      outSlope: 0.3030303
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
+      time: 0.99
+      value: 0.8
+      inSlope: 0.3030303
+      outSlope: 20.000017
+      tangentMode: 69
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
       time: 1
       value: 1
-      inSlope: 0.5
-      outSlope: 0.5
+      inSlope: 20.000017
+      outSlope: 20.000017
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
@@ -110,5 +95,5 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  maximumChargeTime: 3
-  breakSpeed: 0.1
+  launchVelocityMultiplier: 5
+  maximumChargeTime: 5

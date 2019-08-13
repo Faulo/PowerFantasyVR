@@ -49,14 +49,15 @@ namespace PFVR.Disaster {
         void Burst() {
             var direction = transform.forward * launchVelocity + Random.insideUnitSphere * launchDiffusion;
             var projectile = Instantiate(projectilePrefabs.RandomElement(), transform.position, Quaternion.identity);
-            projectile.GetComponent<Rigidbody>().velocity = direction;
-            projectile.GetComponent<Rigidbody>().drag *= Random.value + 0.5f;
             projectile.transform.position += direction;
-            var ball = projectile.GetComponent<Ball>();
-            if (ball) {
-                ball.size = projectileScale.Evaluate(Random.value);
-            } else {
-                projectile.GetComponent<ScalableObject>().scaling = projectileScale.Evaluate(Random.value);
+            var rigidbody = projectile.GetComponent<Rigidbody>();
+            if (rigidbody) {
+                rigidbody.velocity = direction;
+                rigidbody.drag *= Random.value + 0.5f;
+            }
+            var scalable = projectile.GetComponent<ScalableObject>();
+            if (scalable) {
+                scalable.scaling = projectileScale.Evaluate(Random.value);
             }
         }
     }

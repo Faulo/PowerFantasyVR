@@ -8,99 +8,65 @@ using System.Linq;
 using UnityEngine;
 
 namespace PFVR.Spells.FireBall {
-    [RequireComponent(typeof(ScalableObject))]
-    public class Ball : MonoBehaviour {
-        [SerializeField, Range(1, 10)]
-        private float velocityMultiplier = 1;
-
+    public class Ball : ScalableObject, IDestroyable {
         [SerializeField]
         private GameObject regularExplosionPrefab = default;
-
-        [SerializeField]
-        private GameObject mergeExplosionPrefab = default;
-
         [SerializeField]
         private GameObject laserExplosionPrefab = default;
 
-        public float size {
-            get => scale.scaling;
-            set => scale.scaling = value;
-        }
+        public new Collider collider { get; private set; }
 
-        private ScalableObject scale => GetComponent<ScalableObject>();
-        public Rigidbody body => GetComponentInChildren<Rigidbody>();
-        private new Collider collider => GetComponentInChildren<Collider>();
+        public new Rigidbody rigidbody { get; private set; }
+
+        public TrailRenderer trailRenderer { get; private set; }
 
         public bool explodable {
             get => collider.enabled;
             set => collider.enabled = value;
         }
 
-        public void ConnectTo(Joint anchor) {
-            explodable = false;
-            transform.position = anchor.transform.position;
-            anchor.connectedBody = body;
+        public float currentHP {
+            get => 0;
+            set {
+                if (value <= 0) {
+                    RegularExplode();
+                }
+            }
         }
 
-        public void ReleaseFrom(Joint anchor) {
-            transform.parent = transform.parent.parent;
-            explodable = true;
-            anchor.connectedBody = null;
-            body.drag = 0;
-            body.velocity *= velocityMultiplier;
-            body.gameObject.AddComponent<KinematicRigidbody>();
+        public bool isAlive { get; private set; } = true;
+        public Vector3 position => transform.position;
+
+        private void Awake() {
+            collider = GetComponentInChildren<Collider>();
+            rigidbody = GetComponentInChildren<Rigidbody>();
+            trailRenderer = GetComponentInChildren<TrailRenderer>();
         }
 
-        void OnCollisionEnter(Collision collision) {
-            if ((LayerMask.GetMask(LayerMask.LayerToName(collision.gameObject.layer)) & LayerMask.GetMask("Default", "Spell", "Obstacle", "Ground")) == 0) {
-                return;
-            }
-            var ball = collision.gameObject.GetComponentInParent<Ball>();
-            if (ball != null) {
-                var explosionPosition = (transform.position + ball.transform.position) / 2;
-                var explosionSize = (size + ball.size) / 2;
-                Explosion.Instantiate(mergeExplosionPrefab, explosionPosition, explosionSize);
-                Destroy(gameObject);
-                Destroy(ball.gameObject);
-                return;
-            }
-            var laser = collision.gameObject.GetComponentInParent<BasicRay>();
-            if (laser != null) {
-                LaserExplode();
-                Destroy(gameObject);
-                return;
-            }
-            var bolt = collision.gameObject.GetComponentInParent<Bolt>();
-            if (bolt != null) {
-                LaserExplode();
-                return;
-            }
-            Explode();
+        private void Update() {
+            trailRenderer.startWidth = scaledScaling;
+            trailRenderer.endWidth = scaledScaling;
         }
 
-        /*
-        void Update() {
-            if (explodable) {
-                Physics.OverlapSphere(transform.position, mergeRange, LayerMask.GetMask("Spell"))
-                    .SelectMany(collider => collider.GetComponents<Ball>())
-                    .Where(ball => ball.explodable && ball != this)
-                    .ForAll(ball => {
-                        var position = (transform.position + ball.transform.position) / 2;
-                        var explosion = Instantiate(mergeExplosionPrefab, position, Quaternion.identity).GetComponent<Explosion>();
-                        explosion.size = (size + ball.size) / 2;
-                        Destroy(gameObject);
-                        Destroy(ball.gameObject);
-                    });
-            }
+        private void OnCollisionEnter(Collision collision) {
+            currentHP = 0;
         }
-        //*/
-        public void Explode() {
-            Explosion.Instantiate(regularExplosionPrefab, transform.position, size);
-            Destroy(gameObject);
+
+        public void RegularExplode() {
+            ExplodeWith(regularExplosionPrefab);
         }
         public void LaserExplode() {
-            Explosion.Instantiate(laserExplosionPrefab, transform.position, size);
-            Destroy(gameObject);
+            ExplodeWith(laserExplosionPrefab);
+        }
+
+        private void ExplodeWith(GameObject prefab) {
+            if (isAlive) {
+                isAlive = false;
+                var explosion = Instantiate(prefab, transform.position, Quaternion.identity).GetComponent<Explosion>();
+                explosion.maximumScaling = maximumScaling;
+                explosion.scaling = scaling;
+                Destroy(gameObject);
+            }
         }
     }
 }

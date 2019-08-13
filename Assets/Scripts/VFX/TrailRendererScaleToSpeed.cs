@@ -29,6 +29,7 @@ namespace PFVR.VFX {
             velocity = Vector3.Lerp(velocity, transform.position - position, scaleSpeed * Time.deltaTime);
             position = transform.position;
             trailRenderer.time = Mathf.Lerp(trailRenderer.time, maximumTime * timeOverSpeed.Evaluate(velocity.magnitude), timeSpeed * Time.deltaTime);
+            trailRenderer.emitting = trailRenderer.time > Mathf.Epsilon;
         }
     }
 }

@@ -8,34 +8,50 @@ using System.Linq;
 using UnityEngine;
 
 namespace PFVR.Spells.EnergyWave {
-    [RequireComponent(typeof(ScalableObject))]
-    public class Wave : MonoBehaviour {
+    public class Wave : ScalableObject, IDestroyable {
         [SerializeField]
         private GameObject regularExplosionPrefab = default;
 
-        public float size {
-            get => scale.scaling;
-            set => scale.scaling = value;
-        }
-
-        private ScalableObject scale => GetComponent<ScalableObject>();
-        public KinematicRigidbody body => GetComponent<KinematicRigidbody>();
-        private new Collider collider => GetComponent<Collider>();
+        public new Rigidbody rigidbody { get; private set; }
+        public new Collider collider { get; private set; }
 
         public bool explodable {
             get => collider.enabled;
             set => collider.enabled = value;
         }
 
-        void OnCollisionEnter(Collision collision) {
-            if ((LayerMask.GetMask(LayerMask.LayerToName(collision.gameObject.layer)) & LayerMask.GetMask("Default", "Spell", "Obstacle", "Ground")) == 0) {
-                return;
+        public float currentHP {
+            get => 0;
+            set {
+                if (value <= 0) {
+                    RegularExplode();
+                }
             }
-            Explode();
         }
-        public void Explode() {
-            Explosion.Instantiate(regularExplosionPrefab, transform.position, size);
-            Destroy(gameObject);
+
+        public bool isAlive { get; private set; }
+        public Vector3 position => transform.position;
+
+        private void Awake() {
+            collider = GetComponentInChildren<Collider>();
+            rigidbody = GetComponentInChildren<Rigidbody>();
+        }
+
+        private void OnTriggerEnter(Collider other) {
+            currentHP = 0;
+        }
+
+        public void RegularExplode() {
+            ExplodeWith(regularExplosionPrefab);
+        }
+
+        private void ExplodeWith(GameObject prefab) {
+            if (isAlive) {
+                isAlive = false;
+                var explosion = Instantiate(prefab, transform.position, Quaternion.identity);
+                explosion.GetComponent<Explosion>().scaling = scaling;
+                Destroy(gameObject);
+            }
         }
     }
 }
