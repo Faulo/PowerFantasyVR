@@ -1,4 +1,5 @@
-﻿using Slothsoft.UnityExtensions;
+﻿using PFVR.OurPhysics;
+using Slothsoft.UnityExtensions;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -20,7 +21,7 @@ namespace PFVR.Environment {
         private LevelObjectType type = default;
 
         [Space]
-        [SerializeField, Range(0, 100)]
+        [SerializeField, Range(0, 10)]
         private float rigidbodyDensity = 1;
         [SerializeField, Range(0, 100)]
         private float rigidbodyDrag = 0;
@@ -45,10 +46,21 @@ namespace PFVR.Environment {
         private ParticleSystem waterfallBottomFoam = default;
 
         [Space]
+        [SerializeField, Range(0, 10)]
+        private float destroyableHPDensity = 1;
+        [SerializeField]
+        private GameObject destroyableDamageTakenPrefab = default;
+        [SerializeField]
+        private GameObject destroyableDamageHealedPrefab = default;
+        [SerializeField]
+        private GameObject destroyableDeadPrefab = default;
+
+        [Space]
         [SerializeField]
         private bool levelOfDetail = false;
         [SerializeField, Range(0, 1)]
         private float levelOfDetailCutoff = 0.005f;
+        private float volume => transform.localScale.x * transform.localScale.y * transform.localScale.z;
 
         private void Awake() {
             ApplyType();
@@ -67,6 +79,7 @@ namespace PFVR.Environment {
                     DisableColliders();
                     DisableRigidbody();
                     DisableLighting();
+                    RemoveDestroyable();
                     SetLayer("Ignore Raycast");
                     break;
                 case LevelObjectType.StaticCollider:
@@ -74,6 +87,7 @@ namespace PFVR.Environment {
                     EnableColliders();
                     DisableRigidbody();
                     EnableStaticLighting();
+                    RemoveDestroyable();
                     SetLayer("Ground");
                     break;
                 case LevelObjectType.Rigidbody:
@@ -81,6 +95,7 @@ namespace PFVR.Environment {
                     EnableColliders();
                     EnableRigidbody();
                     EnableDynamicLighting();
+                    AddDestroyable();
                     SetLayer("Obstacle");
                     break;
                 case LevelObjectType.Tree:
@@ -88,6 +103,7 @@ namespace PFVR.Environment {
                     EnableColliders();
                     DisableRigidbody();
                     EnableStaticLighting();
+                    AddDestroyable();
                     SetLayer("Obstacle");
                     break;
                 case LevelObjectType.Water:
@@ -95,6 +111,7 @@ namespace PFVR.Environment {
                     DisableColliders();
                     DisableRigidbody();
                     DisableLighting();
+                    RemoveDestroyable();
                     SetLayer("Water");
                     if (!Application.isPlaying && waterPlaneAutoUpdate) {
 #if UNITY_EDITOR
@@ -107,6 +124,7 @@ namespace PFVR.Environment {
                     DisableColliders();
                     DisableRigidbody();
                     DisableLighting();
+                    RemoveDestroyable();
                     SetLayer("Water");
                     if (!Application.isPlaying && waterPlaneAutoUpdate) {
 #if UNITY_EDITOR
@@ -174,7 +192,7 @@ namespace PFVR.Environment {
             if (!rigidbody) {
                 rigidbody = gameObject.AddComponent<Rigidbody>();
             }
-            rigidbody.mass = rigidbodyDensity * transform.localScale.x * transform.localScale.y * transform.localScale.z;
+            rigidbody.mass = rigidbodyDensity * volume;
             rigidbody.drag = rigidbodyDrag;
         }
 
@@ -197,6 +215,24 @@ namespace PFVR.Environment {
             var lodGroup = GetComponent<LODGroup>();
             if (lodGroup) {
                 DestroyImmediate(lodGroup);
+            }
+        }
+
+
+        private void AddDestroyable() {
+            var destroyable = GetComponent<BasicDestroyable>();
+            if (!destroyable) {
+                destroyable = gameObject.AddComponent<BasicDestroyable>();
+            }
+            destroyable.maxHP = destroyableHPDensity * volume;
+            destroyable.damageTakenPrefab = destroyableDamageTakenPrefab;
+            destroyable.damageHealedPrefab = destroyableDamageHealedPrefab;
+            destroyable.deadPrefab = destroyableDeadPrefab;
+        }
+        private void RemoveDestroyable() {
+            var destroyable = GetComponent<BasicDestroyable>();
+            if (destroyable) {
+                DestroyImmediate(destroyable);
             }
         }
 

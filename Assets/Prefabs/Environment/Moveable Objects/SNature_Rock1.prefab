@@ -45,8 +45,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 2
-  rigidbodyDensity: 1
+  rigidbodyDensity: 0.1
   rigidbodyDrag: 0
+  waterPlaneWidth: 0
+  waterPlaneHeight: 0
+  waterPlaneWaveWidth: 1
+  waterPlaneWaveHeight: 1
+  waterPlaneAutoUpdate: 0
+  waterfallTopFoam: {fileID: 0}
+  waterfallBottomFoam: {fileID: 0}
+  destroyableHPDensity: 0.01
+  destroyableDamageTakenPrefab: {fileID: 7648092028806189602, guid: ee6134b5e053a764da953a99e4c9fb95,
+    type: 3}
+  destroyableDamageHealedPrefab: {fileID: 0}
+  destroyableDeadPrefab: {fileID: 7648092028806189602, guid: fd62e02cbcba1d049b66967d9af6c395,
+    type: 3}
   levelOfDetail: 1
   levelOfDetailCutoff: 0.05
 --- !u!64 &1307089650478640270
@@ -70,6 +83,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4741473621726338}
     m_Modifications:
+    - target: {fileID: 1074482753184668, guid: 3b79445135ce0e44b92d66c8f235531c, type: 3}
+      propertyPath: m_Name
+      value: SNature_Rock1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1074482753184668, guid: 3b79445135ce0e44b92d66c8f235531c, type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
     - target: {fileID: 4741473621726338, guid: 3b79445135ce0e44b92d66c8f235531c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -125,14 +146,6 @@ PrefabInstance:
     - target: {fileID: 4741473621726338, guid: 3b79445135ce0e44b92d66c8f235531c, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1074482753184668, guid: 3b79445135ce0e44b92d66c8f235531c, type: 3}
-      propertyPath: m_Name
-      value: SNature_Rock1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1074482753184668, guid: 3b79445135ce0e44b92d66c8f235531c, type: 3}
-      propertyPath: m_Layer
-      value: 14
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b79445135ce0e44b92d66c8f235531c, type: 3}

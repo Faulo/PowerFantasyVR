@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 297401968887477066}
   - component: {fileID: 7207397716250474700}
   - component: {fileID: 5406051403449557555}
+  - component: {fileID: 7350542740087381784}
   m_Layer: 14
   m_Name: LowPoly - FirTree A
   m_TagString: Untagged
@@ -60,8 +61,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 3
-  rigidbodyDensity: 50
+  rigidbodyDensity: 5
   rigidbodyDrag: 1
+  waterPlaneWidth: 0
+  waterPlaneHeight: 0
+  waterPlaneWaveWidth: 1
+  waterPlaneWaveHeight: 1
+  waterPlaneAutoUpdate: 0
+  waterfallTopFoam: {fileID: 0}
+  waterfallBottomFoam: {fileID: 0}
+  destroyableHPDensity: 1
+  destroyableDamageTakenPrefab: {fileID: 7648092028806189602, guid: 02cba40431647444b83d262426fcc852,
+    type: 3}
+  destroyableDamageHealedPrefab: {fileID: 0}
+  destroyableDeadPrefab: {fileID: 7648092028806189602, guid: b08b2e5b53d2e6242bc142581214d0de,
+    type: 3}
   levelOfDetail: 1
   levelOfDetailCutoff: 0.05
 --- !u!205 &5406051403449557555
@@ -83,6 +97,24 @@ LODGroup:
     renderers:
     - renderer: {fileID: 7163092006703428128}
   m_Enabled: 1
+--- !u!114 &7350542740087381784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8569137944603872153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 349b507bcdfa5144787503956a2b811d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHP: 50
+  damageTakenPrefab: {fileID: 7648092028806189602, guid: 02cba40431647444b83d262426fcc852,
+    type: 3}
+  damageHealedPrefab: {fileID: 0}
+  deadPrefab: {fileID: 7648092028806189602, guid: b08b2e5b53d2e6242bc142581214d0de,
+    type: 3}
 --- !u!1001 &7150194859939585922
 PrefabInstance:
   m_ObjectHideFlags: 0

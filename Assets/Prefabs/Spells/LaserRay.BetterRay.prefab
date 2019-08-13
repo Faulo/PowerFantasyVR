@@ -34,6 +34,7 @@ MonoBehaviour:
   volMax: 1
   pitchMin: 0.9
   pitchMax: 1.1
+  spatialBlend: 1
   audioSource: {fileID: 0}
 --- !u!1 &8505999473017453898
 GameObject:
@@ -119,6 +120,7 @@ MonoBehaviour:
   volMax: 1
   pitchMin: 0.9
   pitchMax: 1.1
+  spatialBlend: 1
   audioSource: {fileID: 0}
 --- !u!1001 &5385965938845543311
 PrefabInstance:
@@ -127,6 +129,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7691482487888886817}
     m_Modifications:
+    - target: {fileID: 122648, guid: 11530f2b0a0cd2442949827ecbb622f2, type: 3}
+      propertyPath: m_Name
+      value: VolumetricLinePrefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 122648, guid: 11530f2b0a0cd2442949827ecbb622f2, type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 436056, guid: 11530f2b0a0cd2442949827ecbb622f2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -170,14 +180,6 @@ PrefabInstance:
     - target: {fileID: 436056, guid: 11530f2b0a0cd2442949827ecbb622f2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 122648, guid: 11530f2b0a0cd2442949827ecbb622f2, type: 3}
-      propertyPath: m_Name
-      value: VolumetricLinePrefab
-      objectReference: {fileID: 0}
-    - target: {fileID: 122648, guid: 11530f2b0a0cd2442949827ecbb622f2, type: 3}
-      propertyPath: m_Layer
-      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 3305964, guid: 11530f2b0a0cd2442949827ecbb622f2, type: 3}
       propertyPath: m_Mesh

@@ -48,7 +48,7 @@ namespace PFVR.Spells {
                             body.AddForce(Vector3.up * force * upwardsModifier, ForceMode.Impulse);
                         });
                     collider
-                        .GetComponentsInParent<Destroyable>()
+                        .GetComponentsInParent<IDestroyable>()
                         .Log()
                         .ForAll(destroyable => destroyable.currentHP -= damage);
                 });
