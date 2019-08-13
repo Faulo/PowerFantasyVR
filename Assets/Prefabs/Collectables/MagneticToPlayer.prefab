@@ -43,7 +43,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 100
+  m_Radius: 25
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &-4885000177017253019
 MonoBehaviour:
@@ -62,4 +62,4 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8192
   accelerationSpeed: 50
-  maximumSpeed: 250
+  maximumSpeed: 100

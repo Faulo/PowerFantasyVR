@@ -46,8 +46,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 2
-  rigidbodyDensity: 1
+  rigidbodyDensity: 0.1
   rigidbodyDrag: 0
+  waterPlaneWidth: 0
+  waterPlaneHeight: 0
+  waterPlaneWaveWidth: 1
+  waterPlaneWaveHeight: 1
+  waterPlaneAutoUpdate: 0
+  waterfallTopFoam: {fileID: 0}
+  waterfallBottomFoam: {fileID: 0}
+  destroyableHPDensity: 0.01
+  destroyableDamageTakenPrefab: {fileID: 7648092028806189602, guid: ee6134b5e053a764da953a99e4c9fb95,
+    type: 3}
+  destroyableDamageHealedPrefab: {fileID: 0}
+  destroyableDeadPrefab: {fileID: 7648092028806189602, guid: fd62e02cbcba1d049b66967d9af6c395,
+    type: 3}
   levelOfDetail: 1
   levelOfDetailCutoff: 0.05
 --- !u!54 &6148637364544024612
