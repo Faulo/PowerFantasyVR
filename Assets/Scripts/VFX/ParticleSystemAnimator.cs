@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace PFVR.VFX {
-    [ExecuteInEditMode, RequireComponent(typeof(ParticleSystem))]
+    [RequireComponent(typeof(ParticleSystem))]
     public class ParticleSystemAnimator : MonoBehaviour {
         [SerializeField]
         private int burstCount = 1;
