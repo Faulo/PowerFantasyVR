@@ -7,11 +7,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1248415012965565170, guid: fd4b8a1a3ab1f954a891bf2ff706f604,
-        type: 3}
-      propertyPath: m_Name
-      value: PowerUp.HandGun
-      objectReference: {fileID: 0}
     - target: {fileID: 609499434741422486, guid: fd4b8a1a3ab1f954a891bf2ff706f604,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -67,7 +62,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1248415012965565170, guid: fd4b8a1a3ab1f954a891bf2ff706f604,
+        type: 3}
+      propertyPath: m_Name
+      value: PowerUp.HandGun
+      objectReference: {fileID: 0}
     - target: {fileID: 1575495850451226452, guid: fd4b8a1a3ab1f954a891bf2ff706f604,
+        type: 3}
+      propertyPath: gestureToUnlock
+      value: 
+      objectReference: {fileID: 11400000, guid: 0c19bc6d599d4f5468fe94858616ef80,
+        type: 2}
+    - target: {fileID: 2537151924802106560, guid: fd4b8a1a3ab1f954a891bf2ff706f604,
         type: 3}
       propertyPath: gestureToUnlock
       value: 
