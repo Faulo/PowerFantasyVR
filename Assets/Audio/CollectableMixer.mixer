@@ -1,5 +1,19 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!244 &-4215566079139067885
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: af07a432082fe5d4799c2bb24e1a7368
+  m_EffectName: Attenuation
+  m_MixLevel: 48464ec8d6e258740aea4a94f0860d7a
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
 --- !u!244 &-2461548920329390034
 AudioMixerEffectController:
   m_ObjectHideFlags: 3
@@ -34,7 +48,7 @@ AudioMixerController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: GobletMixer
+  m_Name: CollectableMixer
   m_OutputGroup: {fileID: 5842838371519816991, guid: 0a02f920b97f2f942944a256e687f180,
     type: 2}
   m_MasterGroup: {fileID: 24300002}
@@ -50,6 +64,7 @@ AudioMixerController:
     - 42de650d754c933488c26847ca0e97fe
     - 94e95cc7c6eee944d9ee4d41bc5417dd
     - 03918bdf04a1d1c4da60f1275da6b7a5
+    - 307f3847a2dedec418c499b11ed0246d
     name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500006}
@@ -65,6 +80,7 @@ AudioMixerGroupController:
   m_Children:
   - {fileID: 7881301438722304043}
   - {fileID: 1604841020916035348}
+  - {fileID: 9185281906012253330}
   m_Volume: 8b6952bcfec089648b5deb43419f3c63
   m_Pitch: 492ba31072b99764383703842b154d3d
   m_Send: 00000000000000000000000000000000
@@ -107,7 +123,7 @@ AudioMixerGroupController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Idle
+  m_Name: GobletIdle
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: 94e95cc7c6eee944d9ee4d41bc5417dd
   m_Children: []
@@ -126,7 +142,7 @@ AudioMixerGroupController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Absorbed
+  m_Name: GobletCollected
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: 03918bdf04a1d1c4da60f1275da6b7a5
   m_Children: []
@@ -135,6 +151,25 @@ AudioMixerGroupController:
   m_Send: 00000000000000000000000000000000
   m_Effects:
   - {fileID: -2461548920329390034}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
+--- !u!243 &9185281906012253330
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: CoinCollected
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: 307f3847a2dedec418c499b11ed0246d
+  m_Children: []
+  m_Volume: 892abc01465110c4ca31bedbd0a52bff
+  m_Pitch: cad14aecec8a7e444a8676ca86cc3a7b
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: -4215566079139067885}
   m_UserColorIndex: 0
   m_Mute: 0
   m_Solo: 0
