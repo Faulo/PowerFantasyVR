@@ -43,7 +43,7 @@ namespace PFVR.Backend {
                 button.selected = true;
                 currentGestureSet = profile.gestureSet;
                 gestureManager.OnlyShow((gesture) => {
-                    return currentGestureSet.gestureNames.Contains(gesture.name);
+                    return !gesture.isComplex && currentGestureSet.gestureNames.Contains(gesture.name);
                 });
             });
 
