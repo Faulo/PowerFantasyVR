@@ -77,7 +77,7 @@ PrefabInstance:
     - target: {fileID: 4122932527643675932, guid: 4b505a81926f2144baa1981f7e8970b5,
         type: 3}
       propertyPath: burstInterval
-      value: 60
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4122932527643675932, guid: 4b505a81926f2144baa1981f7e8970b5,
         type: 3}
