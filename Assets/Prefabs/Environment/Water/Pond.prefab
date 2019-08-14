@@ -54,6 +54,10 @@ MonoBehaviour:
   waterPlaneAutoUpdate: 1
   waterfallTopFoam: {fileID: 0}
   waterfallBottomFoam: {fileID: 0}
+  destroyableHPDensity: 1
+  destroyableDamageTakenPrefab: {fileID: 0}
+  destroyableDamageHealedPrefab: {fileID: 0}
+  destroyableDeadPrefab: {fileID: 0}
   levelOfDetail: 0
   levelOfDetailCutoff: 0.005
 --- !u!1 &4004868446588797633
@@ -143,7 +147,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4004868446588797633}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5c6a6df342b52d24092cf6bbb590c535, type: 3}
   m_Name: 
