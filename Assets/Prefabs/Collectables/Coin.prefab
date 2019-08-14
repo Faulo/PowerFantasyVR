@@ -191,11 +191,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8266478810118140558}
     m_Modifications:
-    - target: {fileID: 5056174711384541268, guid: 1939af074a490e64cb1ead9b9bb4b5c3,
-        type: 3}
-      propertyPath: m_Name
-      value: MagneticToPlayer
-      objectReference: {fileID: 0}
     - target: {fileID: 4091077913349740243, guid: 1939af074a490e64cb1ead9b9bb4b5c3,
         type: 3}
       propertyPath: m_RootOrder
@@ -215,6 +210,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5056174711384541268, guid: 1939af074a490e64cb1ead9b9bb4b5c3,
+        type: 3}
+      propertyPath: m_Name
+      value: MagneticToPlayer
       objectReference: {fileID: 0}
     - target: {fileID: -4885000177017253019, guid: 1939af074a490e64cb1ead9b9bb4b5c3,
         type: 3}

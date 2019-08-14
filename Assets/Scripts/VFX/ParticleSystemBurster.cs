@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace PFVR.VFX {
-    [ExecuteInEditMode, RequireComponent(typeof(ParticleSystem))]
+    [RequireComponent(typeof(ParticleSystem))]
     public class ParticleSystemBurster : MonoBehaviour {
         [SerializeField, Range(0, 10)]
         public float burstMultiplier = 1;

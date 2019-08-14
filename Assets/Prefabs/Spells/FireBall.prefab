@@ -95,5 +95,5 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  launchVelocityMultiplier: 5
+  launchVelocityMultiplier: 15
   maximumChargeTime: 5

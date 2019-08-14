@@ -62,4 +62,4 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8192
   accelerationSpeed: 50
-  maximumSpeed: 100
+  maximumSpeed: 200

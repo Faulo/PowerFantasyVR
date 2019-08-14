@@ -7,11 +7,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1248415012965565170, guid: fd4b8a1a3ab1f954a891bf2ff706f604,
-        type: 3}
-      propertyPath: m_Name
-      value: PowerUp.OpenPalm
-      objectReference: {fileID: 0}
     - target: {fileID: 609499434741422486, guid: fd4b8a1a3ab1f954a891bf2ff706f604,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -67,7 +62,23 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1248415012965565170, guid: fd4b8a1a3ab1f954a891bf2ff706f604,
+        type: 3}
+      propertyPath: m_Name
+      value: PowerUp.OpenPalm
+      objectReference: {fileID: 0}
     - target: {fileID: 1575495850451226452, guid: fd4b8a1a3ab1f954a891bf2ff706f604,
+        type: 3}
+      propertyPath: gestureToUnlock
+      value: 
+      objectReference: {fileID: 11400000, guid: 19c4ab53f64693942839c48d65f0eda2,
+        type: 2}
+    - target: {fileID: 7694922590320629794, guid: fd4b8a1a3ab1f954a891bf2ff706f604,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2537151924802106560, guid: fd4b8a1a3ab1f954a891bf2ff706f604,
         type: 3}
       propertyPath: gestureToUnlock
       value: 

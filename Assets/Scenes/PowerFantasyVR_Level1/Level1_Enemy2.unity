@@ -840,7 +840,7 @@ PrefabInstance:
     - target: {fileID: 3541223668277272589, guid: 6eb1ade4cb631bb4cbd528c955eb3a61,
         type: 3}
       propertyPath: enemyCount
-      value: 1000
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6eb1ade4cb631bb4cbd528c955eb3a61, type: 3}
@@ -2493,6 +2493,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DeathZone
+      objectReference: {fileID: 0}
+    - target: {fileID: 1478269143532995229, guid: b1e522ef8b6620f4f9d1657edb5a807e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5281951323208533329, guid: b1e522ef8b6620f4f9d1657edb5a807e,
         type: 3}

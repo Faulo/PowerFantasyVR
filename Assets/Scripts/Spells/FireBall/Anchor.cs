@@ -5,28 +5,37 @@ using UnityEngine;
 
 namespace PFVR.Spells.FireBall {
     public class Anchor : MonoBehaviour {
-        private SpringJoint joint;
+        [SerializeField, Range(0, 100)]
+        private float maximumSpeed = 10;
+        [SerializeField, Range(0, 100)]
+        private float accelerationSpeed = 10;
 
-        private void Awake() {
-            joint = GetComponent<SpringJoint>();
-        }
+        private Transform target;
+        private Vector3 targetVelocity;
 
         public void ConnectTo(Ball ball) {
+            target = ball.transform;
+            targetVelocity = Vector3.zero;
+
             ball.explodable = false;
             ball.transform.position = transform.position;
-            joint.connectedBody = ball.rigidbody;
+            ball.rigidbody.isKinematic = true;
+            ball.rigidbody.collisionDetectionMode = CollisionDetectionMode.Discrete;
         }
 
         public void ReleaseFrom(Ball ball) {
             ball.explodable = true;
             ball.transform.parent = ball.transform.parent.parent;
-            joint.connectedBody = null;
+            ball.rigidbody.isKinematic = false;
+            ball.rigidbody.collisionDetectionMode = CollisionDetectionMode.Continuous;
+            ball.rigidbody.velocity = targetVelocity;
+            target = null;
         }
 
         private void Update() {
-            if (joint.connectedBody) {
-                var distance = transform.position - joint.connectedBody.transform.position;
-                joint.connectedBody.AddForce(distance * Time.deltaTime, ForceMode.VelocityChange);
+            if (target) {
+                targetVelocity = Vector3.Lerp(targetVelocity, maximumSpeed * (transform.position - target.position), accelerationSpeed * Time.deltaTime);
+                target.Translate(targetVelocity * Time.deltaTime);
             }
         }
     }
