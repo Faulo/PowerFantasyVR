@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 576863565135050826}
   - component: {fileID: 576863565135050827}
   - component: {fileID: 576863565135050824}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: Swarm Beacon
   m_TagString: Beacon
   m_Icon: {fileID: 0}
