@@ -315,11 +315,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 375773423126128350}
     m_Modifications:
-    - target: {fileID: 2818178774279222481, guid: 52b8b6d0030cb8a488967f2b1e0cc5d0,
-        type: 3}
-      propertyPath: m_Name
-      value: CoinCollector
-      objectReference: {fileID: 0}
     - target: {fileID: 1003054683838805921, guid: 52b8b6d0030cb8a488967f2b1e0cc5d0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -374,6 +369,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2818178774279222481, guid: 52b8b6d0030cb8a488967f2b1e0cc5d0,
+        type: 3}
+      propertyPath: m_Name
+      value: SoundCollector
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52b8b6d0030cb8a488967f2b1e0cc5d0, type: 3}
