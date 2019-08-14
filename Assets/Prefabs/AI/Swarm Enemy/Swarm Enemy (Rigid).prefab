@@ -30,7 +30,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   alphaFactor: 0.5
   betaFactor: 2
-  playerVelocityTheshold: 10
+  playerVelocityTheshold: 30
   playerDistanceThreshold: 100
   idleDiffusion: 100
   chasingDiffusion: 0
