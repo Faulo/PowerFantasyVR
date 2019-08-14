@@ -31,8 +31,10 @@ namespace PFVR.DataModels {
 
         public void Put(string fileName) {
             File.WriteAllText(fileName, text);
+#if UNITY_EDITOR
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
+#endif
         }
     }
 }

@@ -43,7 +43,7 @@ namespace PFVR.Backend {
                 button.selected = true;
                 currentGestureSet = profile.gestureSet;
                 gestureManager.OnlyShow((gesture) => {
-                    return currentGestureSet.gestureNames.Contains(gesture.name);
+                    return !gesture.isComplex && currentGestureSet.gestureNames.Contains(gesture.name);
                 });
             });
 
@@ -63,7 +63,7 @@ namespace PFVR.Backend {
                 return;
             }
             var gestures = gestureManager.elements
-                .Where(gesture => currentGestureSet.gestureNames.Contains(gesture.name));
+                .Where(gesture => !gesture.isComplex && currentGestureSet.gestureNames.Contains(gesture.name));
             currentRoutine = StartCoroutine(RecordGesturesRoutine(gestures.ToArray()));
         }
         public void RecordCurrentGesture() {

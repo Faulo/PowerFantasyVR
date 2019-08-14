@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.XR;
+using Valve.VR;
 
 namespace PFVR.Backend {
     public class StatusScreen : MonoBehaviour {
@@ -35,6 +37,9 @@ namespace PFVR.Backend {
                 args["rightGlove"] = glove.wrist;
                 args["rightTracker"] = SteamConnector.rightTracker.rotation;
             };
+
+            XRSettings.LoadDeviceByName("OpenVR");
+            SteamVR.Initialize(true);
         }
 
         // Update is called once per frame

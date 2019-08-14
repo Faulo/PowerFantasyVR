@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 802852843521154341}
   - component: {fileID: 1958973317509654721}
+  - component: {fileID: 5070202575006369283}
   m_Layer: 0
   m_Name: PlayerSpawn
   m_TagString: Untagged
@@ -46,5 +47,19 @@ MonoBehaviour:
   playerType: 1
   basicPlayerPrefab: {fileID: 8859262723068756767, guid: ec5016abb676d61428a544fc6fe7f7d2,
     type: 3}
-  vrPlayerPrefab: {fileID: 6034624076104744032, guid: f7459615569844e43b24fe18b557b152,
+  vrPlayerPrefab: {fileID: 6034624076104744032, guid: 7d9c6d5fbdb63e046805725d87e60db1,
     type: 3}
+--- !u!114 &5070202575006369283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6857837150613229411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db0c9f47387c26a40b7d2976b96c4280, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hotKey: 293
+  fileName: Screenshot #

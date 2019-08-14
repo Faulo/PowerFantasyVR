@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 539273600442433196}
   - component: {fileID: 929189606759738810}
   - component: {fileID: 3319969867492806563}
+  - component: {fileID: -2795339027294969188}
   m_Layer: 15
   m_Name: Fireball.MergeExplosion
   m_TagString: Untagged
@@ -29,7 +30,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 5625957409482215601}
+  - {fileID: 4945585952155095933}
   - {fileID: 5303884163528737254}
   - {fileID: 832946227572085856}
   m_Father: {fileID: 0}
@@ -47,6 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c0bcd332042a2d44b576144b166d93d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maximumScaling: 1
   scalingCurve:
     serializedVersion: 2
     m_Curve:
@@ -83,33 +85,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df4bf2fdb78408843b076e2a0fd03d6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 4
-  maximumForce: 30
-  forceOverDistance:
+  maximumScaling: 1
+  scalingCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
-      inSlope: -1
-      outSlope: -1
+      value: 0
+      inSlope: 1
+      outSlope: 1
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.33333334
+      outWeight: 0
     - serializedVersion: 3
       time: 1
-      value: 0
-      inSlope: -1
-      outSlope: -1
+      value: 1
+      inSlope: 1
+      outSlope: 1
       tangentMode: 34
       weightedMode: 0
-      inWeight: 0.33333334
+      inWeight: 0
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  maximumDamage: 60
+  maximumRange: 25
+  maximumForce: 100
+  upwardsModifier: 0.5
+  maximumDamage: 1000
   damageOverDistance:
     serializedVersion: 2
     m_Curve:
@@ -117,24 +121,36 @@ MonoBehaviour:
       time: 0
       value: 1
       inSlope: -1
-      outSlope: -1
-      tangentMode: 34
+      outSlope: -0.2117647
+      tangentMode: 1
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.33333334
+      outWeight: 0.16666667
     - serializedVersion: 3
       time: 1
       value: 0
-      inSlope: -1
-      outSlope: -1
-      tangentMode: 34
+      inSlope: -2.9278777
+      outSlope: -2.9278777
+      tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
+      inWeight: 0.042592585
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  upwardsModifier: 0.5
+--- !u!114 &-2795339027294969188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3679691998973720690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0aaa67b32db875b4e898f4acf9d5071b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetObject: {fileID: 0}
 --- !u!1001 &1610561425484035659
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -202,6 +218,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: OneShot
       objectReference: {fileID: 0}
+    - target: {fileID: 2785517421695468922, guid: 7e1c94bd432ecb8488be4416fc196a4c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 4058099465869877981, guid: 7e1c94bd432ecb8488be4416fc196a4c,
         type: 3}
       propertyPath: audioClips.Array.data[0]
@@ -216,6 +237,16 @@ PrefabInstance:
         type: 3}
       propertyPath: pitchMax
       value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4058099465869877981, guid: 7e1c94bd432ecb8488be4416fc196a4c,
+        type: 3}
+      propertyPath: volMin
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4058099465869877981, guid: 7e1c94bd432ecb8488be4416fc196a4c,
+        type: 3}
+      propertyPath: volMax
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 9162571011732137168, guid: 7e1c94bd432ecb8488be4416fc196a4c,
         type: 3}
@@ -247,11 +278,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 539273600442433196}
     m_Modifications:
-    - target: {fileID: 7154907995507304272, guid: 60b194cadf276d64cb383a8dd50457a8,
-        type: 3}
-      propertyPath: m_Name
-      value: FireBall.Light
-      objectReference: {fileID: 0}
     - target: {fileID: 3815332932163920479, guid: 60b194cadf276d64cb383a8dd50457a8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -307,10 +333,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 36433850314817931, guid: 60b194cadf276d64cb383a8dd50457a8,
+    - target: {fileID: 7154907995507304272, guid: 60b194cadf276d64cb383a8dd50457a8,
         type: 3}
-      propertyPath: m_Intensity
-      value: 200
+      propertyPath: m_Name
+      value: FireBall.Light
+      objectReference: {fileID: 0}
+    - target: {fileID: 7154907995507304272, guid: 60b194cadf276d64cb383a8dd50457a8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60b194cadf276d64cb383a8dd50457a8, type: 3}
@@ -320,7 +351,7 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 4575078019602150975}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &5628652694173218951
+--- !u!1001 &4948848515100621643
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -355,19 +386,25 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4388947112716342, guid: e1b08032bec16ba4eb1ae23cbd572664, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4388947112716342, guid: e1b08032bec16ba4eb1ae23cbd572664, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4388947112716342, guid: e1b08032bec16ba4eb1ae23cbd572664, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1121192042590650, guid: e1b08032bec16ba4eb1ae23cbd572664, type: 3}
       propertyPath: m_Name
       value: BigExplosion
       objectReference: {fileID: 0}
-    - target: {fileID: 198917022394846920, guid: e1b08032bec16ba4eb1ae23cbd572664,
-        type: 3}
-      propertyPath: UVModule.flipU
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 198917022394846920, guid: e1b08032bec16ba4eb1ae23cbd572664,
-        type: 3}
-      propertyPath: UVModule.flipV
-      value: 0
+    - target: {fileID: 1121192042590650, guid: e1b08032bec16ba4eb1ae23cbd572664, type: 3}
+      propertyPath: m_Layer
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 1490421183863458, guid: e1b08032bec16ba4eb1ae23cbd572664, type: 3}
       propertyPath: m_Layer
@@ -377,11 +414,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 15
       objectReference: {fileID: 0}
-    - target: {fileID: 1754131149069982, guid: e1b08032bec16ba4eb1ae23cbd572664, type: 3}
+    - target: {fileID: 1716462130679846, guid: e1b08032bec16ba4eb1ae23cbd572664, type: 3}
       propertyPath: m_Layer
       value: 15
       objectReference: {fileID: 0}
-    - target: {fileID: 1716462130679846, guid: e1b08032bec16ba4eb1ae23cbd572664, type: 3}
+    - target: {fileID: 1754131149069982, guid: e1b08032bec16ba4eb1ae23cbd572664, type: 3}
       propertyPath: m_Layer
       value: 15
       objectReference: {fileID: 0}
@@ -389,12 +426,22 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 15
       objectReference: {fileID: 0}
-    - target: {fileID: 198604367962915600, guid: e1b08032bec16ba4eb1ae23cbd572664,
+    - target: {fileID: 199630755385234010, guid: e1b08032bec16ba4eb1ae23cbd572664,
+        type: 3}
+      propertyPath: m_Flip.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 199630755385234010, guid: e1b08032bec16ba4eb1ae23cbd572664,
+        type: 3}
+      propertyPath: m_Flip.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 198917022394846920, guid: e1b08032bec16ba4eb1ae23cbd572664,
         type: 3}
       propertyPath: UVModule.flipU
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 198604367962915600, guid: e1b08032bec16ba4eb1ae23cbd572664,
+    - target: {fileID: 198917022394846920, guid: e1b08032bec16ba4eb1ae23cbd572664,
         type: 3}
       propertyPath: UVModule.flipV
       value: 0
@@ -407,11 +454,31 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 199375762842987212, guid: e1b08032bec16ba4eb1ae23cbd572664,
+        type: 3}
+      propertyPath: m_Flip.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 199375762842987212, guid: e1b08032bec16ba4eb1ae23cbd572664,
+        type: 3}
+      propertyPath: m_Flip.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 198604367962915600, guid: e1b08032bec16ba4eb1ae23cbd572664,
+        type: 3}
+      propertyPath: UVModule.flipU
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198604367962915600, guid: e1b08032bec16ba4eb1ae23cbd572664,
+        type: 3}
+      propertyPath: UVModule.flipV
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1b08032bec16ba4eb1ae23cbd572664, type: 3}
---- !u!4 &5625957409482215601 stripped
+--- !u!4 &4945585952155095933 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4388947112716342, guid: e1b08032bec16ba4eb1ae23cbd572664,
     type: 3}
-  m_PrefabInstance: {fileID: 5628652694173218951}
+  m_PrefabInstance: {fileID: 4948848515100621643}
   m_PrefabAsset: {fileID: 0}

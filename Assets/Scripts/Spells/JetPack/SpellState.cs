@@ -6,29 +6,40 @@ using UnityEngine;
 namespace PFVR.Spells.JetPack {
     [RequireComponent(typeof(AbstractSpell))]
     public class SpellState : MonoBehaviour, ISpellState {
-        [SerializeField]
-        [Range(0, 100)]
+        [SerializeField, Range(0, 100)]
         private float propulsionForce = 10;
-
-        [SerializeField]
-        [Range(-1, 0)]
-        private float gravityNegation = 0;
-
-        [SerializeField, Range(1, 1000)]
-        private ushort rumbleInterval = 100;
-
-        [SerializeField, Range(0f, 1f)]
-        private float rumbleForce = 0.5f;
-
-        private Coroutine rumbleRoutine;
-
         [SerializeField]
         private AnimationCurve propulsionOverTime = default;
+        [SerializeField]
+        private AnimationCurve propulsionOverAltitude = default;
+        [SerializeField, Range(0f, 1f)]
+        private float propulsionRumble = 0.5f;
+        [SerializeField, Range(0f, 1000f)]
+        private float maximumAltitude = 100f;
+        private float altitude => Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, maximumAltitude, LayerMask.GetMask("Ground"))
+                    ? hit.distance
+                    : maximumAltitude;
+        private float normalizedAltitude => altitude / maximumAltitude;
 
+        [Space]
+        [SerializeField, Range(0, 1000)]
+        private float boostForce = 100;
         [SerializeField, Range(0, 10)]
-        private float startupSpeed = 1f;
-        [SerializeField, Range(0, 1)]
+        private float boostDuration = 1;
+        [SerializeField, Range(0f, 1f)]
+        private float boostRumble = 1f;
+        private float boostTime = 0;
+
+        [Space]
+        [SerializeField, Range(0, 100)]
         private float turnSpeed = 1f;
+        [SerializeField, Range(-1, 0)]
+        private float gravityNegation = 0;
+
+        [Space]
+        [SerializeField, Range(1, 1000)]
+        private ushort rumbleInterval = 100;
+        private Coroutine rumbleRoutine;
 
         private float runTime {
             get => runTimeCache;
@@ -49,30 +60,35 @@ namespace PFVR.Spells.JetPack {
             if (engine == null) {
                 engine = Instantiate(enginePrefab, hand.wrist).GetComponent<Engine>();
             }
-            engine.TurnOn();
+            engine.isTurnedOn = true;
             rumbleRoutine = StartCoroutine(CreateRumbleRoutine(hand.laterality));
             runTime = 0;
-
-            player.rigidbody.AddForce(hand.wrist.up * propulsionForce * Time.deltaTime * engine.propulsion * startupSpeed, ForceMode.VelocityChange);
         }
         public void OnExit(PlayerBehaviour player, PlayerHandBehaviour hand) {
-            engine.TurnOff();
+            engine.isTurnedOn = false;
             if (rumbleRoutine != null) {
                 StopCoroutine(rumbleRoutine);
             }
         }
         public void OnUpdate(PlayerBehaviour player, PlayerHandBehaviour hand) {
             runTime += Time.deltaTime;
-            var turn = player.rigidbody.velocity + hand.wrist.up;
-            if (turn.magnitude < player.rigidbody.velocity.magnitude) {
-                player.rigidbody.velocity = Vector3.Lerp(player.rigidbody.velocity, turn, turnSpeed);
+            boostTime -= Time.deltaTime;
+            if (hand.isShaking) {
+                boostTime = boostDuration;
             }
-            player.rigidbody.AddForce(hand.wrist.up * propulsionForce * Time.deltaTime * engine.propulsion, ForceMode.VelocityChange);
-            player.rigidbody.AddForce(Physics.gravity * gravityNegation * Time.deltaTime, ForceMode.VelocityChange);
+            engine.isBoosting = boostTime > 0;
+
+            var turn = player.motor.velocity + hand.wrist.up;
+            if (turn.magnitude < player.motor.speed) {
+                player.motor.LerpVelocity(turn, turnSpeed * Time.deltaTime);
+            }
+            var direction = new Vector3(hand.wrist.up.x, hand.wrist.up.y * propulsionOverAltitude.Evaluate(normalizedAltitude), hand.wrist.up.z);
+            player.motor.AddVelocity(direction * (engine.isBoosting ? boostForce : propulsionForce) * Time.deltaTime * engine.propulsion);
+            player.motor.AddVelocity(Physics.gravity * gravityNegation * Time.deltaTime);
         }
         private IEnumerator CreateRumbleRoutine(GloveLaterality side) {
             while (true) {
-                ManusConnector.Rumble(side, rumbleInterval, engine.propulsion * rumbleForce);
+                ManusConnector.Rumble(side, rumbleInterval, engine.propulsion * (engine.isBoosting ? boostRumble : propulsionRumble));
                 yield return new WaitForSeconds(rumbleInterval / 1000f);
             }
         }

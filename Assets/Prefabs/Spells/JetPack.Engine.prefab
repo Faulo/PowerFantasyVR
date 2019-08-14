@@ -43,7 +43,8 @@ AudioSource:
   m_GameObject: {fileID: 8718152847802425796}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 5130484874274154893, guid: f260376765e68c34d9fdc350f137889a,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -53,7 +54,7 @@ AudioSource:
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
-  DopplerLevel: 1
+  DopplerLevel: 0
   MinDistance: 1
   MaxDistance: 500
   Pan2D: 0
@@ -170,6 +171,7 @@ MonoBehaviour:
   startupSound: {fileID: 8300000, guid: 81a5d7034070a244e914ed1b42af2a65, type: 3}
   continuousSound: {fileID: 8300000, guid: be2c8c0b31568d246835a99cb5ed3e93, type: 3}
   shutdownSound: {fileID: 8300000, guid: e7e46a21123aaff43a5b9f0f4a04f108, type: 3}
+  boostSound: {fileID: 8300000, guid: 9909e06213d71da49bf4b507e91cd1fa, type: 3}
 --- !u!169 &-7310490827113901800
 AudioLowPassFilter:
   m_ObjectHideFlags: 0

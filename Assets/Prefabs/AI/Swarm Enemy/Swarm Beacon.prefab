@@ -12,9 +12,7 @@ GameObject:
   - component: {fileID: 576863565135050826}
   - component: {fileID: 576863565135050827}
   - component: {fileID: 576863565135050824}
-  - component: {fileID: 576863565135050825}
-  - component: {fileID: -6551131797533256316}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: Swarm Beacon
   m_TagString: Beacon
   m_Icon: {fileID: 0}
@@ -61,7 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -95,34 +93,3 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &576863565135050825
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 576863565135050831}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 1
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 0
---- !u!114 &-6551131797533256316
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 576863565135050831}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60b74d06f1bb19842ade2f4e65f643d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  alphaFactor: 2
-  attackPlayerDistance: 500
-  ankorThreshold: 1500

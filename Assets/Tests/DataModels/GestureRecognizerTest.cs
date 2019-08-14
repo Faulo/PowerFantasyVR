@@ -1,4 +1,5 @@
 ﻿using Microsoft.ML;
+using Microsoft.ML.Data;
 using NUnit.Framework;
 using PFVR.DataModels;
 using PFVR.ScriptableObjects;
@@ -7,10 +8,32 @@ using UnityEngine;
 
 namespace Tests.DataModels {
     public class GestureRecognizerTest {
+        private GestureProfile profile => Resources.LoadAll<GestureProfile>("ScriptableObjects")[0];
+
+        [Test]
+        public void TestCreateMLContext() {
+            var mlContext = new MLContext();
+            Assert.IsInstanceOf<MLContext>(mlContext);
+        }
+
+        [Test]
+        public void TestLoadModel() {
+            var mlContext = new MLContext();
+            var model = mlContext.Model.Load(profile.modelDataPath, out DataViewSchema inputSchema);
+            Assert.IsInstanceOf<ITransformer>(model);
+            Assert.IsInstanceOf<DataViewSchema>(inputSchema);
+        }
+
+        [Test]
+        public void TestCreatePredictionEngine() {
+            var mlContext = new MLContext();
+            var model = mlContext.Model.Load(profile.modelDataPath, out DataViewSchema inputSchema);
+            var engine = mlContext.Model.CreatePredictionEngine<GestureModel, StringPrediction>(model);
+            Assert.IsInstanceOf<PredictionEngine<GestureModel, StringPrediction>>(engine);
+        }
+
         [Test]
         public void TestAllGestureSets() {
-            var random = new System.Random();
-
             var profiles = Resources.LoadAll<GestureProfile>("ScriptableObjects");
             foreach (var profile in profiles) {
                 var mlContext = new MLContext();
@@ -18,16 +41,16 @@ namespace Tests.DataModels {
                 var predEngine = mlContext.Model.CreatePredictionEngine<GestureModel, StringPrediction>(mlModel);
                 var sampleData = new GestureModel {
                     gesture = "",
-                    indexMedial = (float)random.NextDouble(),
-                    indexProximal = (float)random.NextDouble(),
-                    middleMedial = (float)random.NextDouble(),
-                    middleProximal = (float)random.NextDouble(),
-                    pinkyMedial = (float)random.NextDouble(),
-                    pinkyProximal = (float)random.NextDouble(),
-                    ringMedial = (float)random.NextDouble(),
-                    ringProximal = (float)random.NextDouble(),
-                    thumbMedial = (float)random.NextDouble(),
-                    thumbProximal = (float)random.NextDouble()
+                    indexMedial = Random.value,
+                    indexProximal = Random.value,
+                    middleMedial = Random.value,
+                    middleProximal = Random.value,
+                    pinkyMedial = Random.value,
+                    pinkyProximal = Random.value,
+                    ringMedial = Random.value,
+                    ringProximal = Random.value,
+                    thumbMedial = Random.value,
+                    thumbProximal = Random.value
                 };
                 var predictionResult = predEngine.Predict(sampleData);
 

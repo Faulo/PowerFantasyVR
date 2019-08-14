@@ -9,7 +9,6 @@ namespace PFVR.AI
     {
         public static float Next()
         {
-            
             Vector2 validDouble = Random.insideUnitCircle;
             float s = validDouble.sqrMagnitude;
             if(s == 0)
@@ -17,6 +16,11 @@ namespace PFVR.AI
                 return Next();
             }
             return validDouble.x * Mathf.Sqrt((-2 * Mathf.Log(s)) / s);
+        }
+
+        public static Vector3 NextVector3()
+        {
+            return new Vector3(Next(), Next(), Next());
         }
     }
 }

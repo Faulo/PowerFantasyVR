@@ -22,44 +22,80 @@ namespace PFVR.Spells.JetPack {
         [SerializeField]
         private AudioClip shutdownSound = default;
 
+        [SerializeField]
+        private AudioClip boostSound = default;
+
+        private Color particleColor {
+            get => particleSystemMain.startColor.color;
+            set => particleSystemMain.startColor = value;
+        }
         public float propulsion {
             get => propulsionCache;
-            set => propulsionCache = Mathf.Clamp(value, 0, 1);
+            set => propulsionCache = Mathf.Clamp01(value);
         }
         private float propulsionCache;
-        private AudioSource audioSource => GetComponent<AudioSource>();
-        private AudioLowPassFilter lowPassFilter => GetComponent<AudioLowPassFilter>();
-        private PlayerBehaviour player => GetComponentInParent<PlayerBehaviour>();
-        private new ParticleSystem particleSystem => GetComponentInChildren<ParticleSystem>();
+        private AudioSource audioSource;
+        private AudioLowPassFilter lowPassFilter;
+        private PlayerBehaviour player;
+        private new ParticleSystem particleSystem;
+        private ParticleSystem.MainModule particleSystemMain;
         private Coroutine playSoundsRoutine;
-        private bool turnedOn = false;
 
-        public void TurnOn() {
-            turnedOn = true;
-            particleSystem.Play();
-            if (playSoundsRoutine != null) {
-                StopCoroutine(playSoundsRoutine);
+        public bool isTurnedOn {
+            get => isTurnedOnCache;
+            set {
+                if (isTurnedOnCache != value) {
+                    isTurnedOnCache = value;
+                    if (value) {
+                        particleSystem.Play();
+                        if (playSoundsRoutine != null) {
+                            StopCoroutine(playSoundsRoutine);
+                        }
+                        playSoundsRoutine = StartCoroutine(PlayEngineSounds());
+                    } else {
+                        particleSystem.Stop();
+                    }
+                }
             }
-            playSoundsRoutine = StartCoroutine(PlayEngineSounds());
         }
+        private bool isTurnedOnCache;
 
-        public void TurnOff() {
-            turnedOn = false;
-            particleSystem.Stop();
+        public bool isBoosting {
+            get => isBoostingCache;
+            set {
+                if (isBoostingCache != value) {
+                    isBoostingCache = value;
+                    if (value) {
+                        particleColor = Color.red;
+                        audioSource.PlayOneShot(boostSound);
+                    } else {
+                        particleColor = Color.white;
+                    }
+                }
+            }
+        }
+        private bool isBoostingCache = false;
+
+        private void Awake() {
+            audioSource = GetComponent<AudioSource>();
+            lowPassFilter = GetComponent<AudioLowPassFilter>();
+            particleSystem = GetComponentInChildren<ParticleSystem>();
+            particleSystemMain = particleSystem.main;
+            player = GetComponentInParent<PlayerBehaviour>();
         }
 
         private IEnumerator PlayEngineSounds() {
             audioSource.loop = false;
             audioSource.clip = startupSound;
             audioSource.Play();
-            while (turnedOn && audioSource.isPlaying) {
+            while (isTurnedOn && audioSource.isPlaying) {
                 yield return null;
             }
 
             audioSource.loop = true;
             audioSource.clip = continuousSound;
             audioSource.Play();
-            while (turnedOn) {
+            while (isTurnedOn) {
                 yield return null;
             }
 
@@ -78,7 +114,7 @@ namespace PFVR.Spells.JetPack {
 
         void Update() {
             audioSource.volume = maximumVolume * propulsion;
-            lowPassFilter.cutoffFrequency = cutoffFrequencyOverSpeed.Evaluate(player.speed);
+            lowPassFilter.cutoffFrequency = cutoffFrequencyOverSpeed.Evaluate(player.motor.speed);
         }
     }
 }

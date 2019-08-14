@@ -9,7 +9,16 @@
         "Slothsoft.UnityExtensions",
         "AstarPathfindingProject",
         "BOXOPHOBIC",
-        "Unity.Postprocessing.Runtime"
+        "Unity.Postprocessing.Runtime",
+        "UnityEngine.UI",
+        "EntityComponentSystem",
+        "LowPolyWater",
+        "ParticlePack",
+        "Unity.Entities",
+        "Unity.Collections",
+        "Unity.Transforms",
+        "Unity.Rendering.Hybrid",
+        "Unity.Mathematics"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

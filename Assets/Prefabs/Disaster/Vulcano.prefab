@@ -39,11 +39,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1904209326717239819}
     m_Modifications:
-    - target: {fileID: 4122932527643675923, guid: 4b505a81926f2144baa1981f7e8970b5,
-        type: 3}
-      propertyPath: m_Name
-      value: FireBallCannon
-      objectReference: {fileID: 0}
     - target: {fileID: 4122932527643675933, guid: 4b505a81926f2144baa1981f7e8970b5,
         type: 3}
       propertyPath: m_RootOrder
@@ -64,10 +59,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4122932527643675923, guid: 4b505a81926f2144baa1981f7e8970b5,
+        type: 3}
+      propertyPath: m_Name
+      value: FireBallCannon
+      objectReference: {fileID: 0}
+    - target: {fileID: 4122932527643675932, guid: 4b505a81926f2144baa1981f7e8970b5,
+        type: 3}
+      propertyPath: projectilePrefabs.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4122932527643675932, guid: 4b505a81926f2144baa1981f7e8970b5,
         type: 3}
       propertyPath: burstCount
-      value: 50
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4122932527643675932, guid: 4b505a81926f2144baa1981f7e8970b5,
         type: 3}
@@ -78,6 +83,27 @@ PrefabInstance:
         type: 3}
       propertyPath: launchVelocity
       value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 4122932527643675932, guid: 4b505a81926f2144baa1981f7e8970b5,
+        type: 3}
+      propertyPath: projectilePrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 4516263588768738402, guid: a5129b491a44e1646a043f45fc0d0776,
+        type: 3}
+    - target: {fileID: 4122932527643675932, guid: 4b505a81926f2144baa1981f7e8970b5,
+        type: 3}
+      propertyPath: projectileScale.m_Curve.Array.data[0].value
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4122932527643675932, guid: 4b505a81926f2144baa1981f7e8970b5,
+        type: 3}
+      propertyPath: projectileScale.m_Curve.Array.data[0].tangentMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4122932527643675932, guid: 4b505a81926f2144baa1981f7e8970b5,
+        type: 3}
+      propertyPath: projectileScale.m_Curve.Array.data[1].tangentMode
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b505a81926f2144baa1981f7e8970b5, type: 3}
@@ -94,11 +120,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1904209326717239819}
     m_Modifications:
-    - target: {fileID: 4122932527643675923, guid: 4b505a81926f2144baa1981f7e8970b5,
-        type: 3}
-      propertyPath: m_Name
-      value: RockCannon
-      objectReference: {fileID: 0}
     - target: {fileID: 4122932527643675933, guid: 4b505a81926f2144baa1981f7e8970b5,
         type: 3}
       propertyPath: m_RootOrder
@@ -119,6 +140,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4122932527643675923, guid: 4b505a81926f2144baa1981f7e8970b5,
+        type: 3}
+      propertyPath: m_Name
+      value: RockCannon
+      objectReference: {fileID: 0}
+    - target: {fileID: 4122932527643675923, guid: 4b505a81926f2144baa1981f7e8970b5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4122932527643675932, guid: 4b505a81926f2144baa1981f7e8970b5,
+        type: 3}
+      propertyPath: projectilePrefabs.Array.size
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4122932527643675932, guid: 4b505a81926f2144baa1981f7e8970b5,
         type: 3}
       propertyPath: projectilePrefab
@@ -128,7 +164,7 @@ PrefabInstance:
     - target: {fileID: 4122932527643675932, guid: 4b505a81926f2144baa1981f7e8970b5,
         type: 3}
       propertyPath: burstCount
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4122932527643675932, guid: 4b505a81926f2144baa1981f7e8970b5,
         type: 3}
@@ -137,38 +173,59 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4122932527643675932, guid: 4b505a81926f2144baa1981f7e8970b5,
         type: 3}
-      propertyPath: projectileScale.m_Curve.Array.data[0].value
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 4122932527643675932, guid: 4b505a81926f2144baa1981f7e8970b5,
-        type: 3}
-      propertyPath: projectileScale.m_Curve.Array.data[0].inSlope
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 4122932527643675932, guid: 4b505a81926f2144baa1981f7e8970b5,
-        type: 3}
-      propertyPath: projectileScale.m_Curve.Array.data[0].outSlope
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 4122932527643675932, guid: 4b505a81926f2144baa1981f7e8970b5,
-        type: 3}
-      propertyPath: projectileScale.m_Curve.Array.data[1].inSlope
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 4122932527643675932, guid: 4b505a81926f2144baa1981f7e8970b5,
-        type: 3}
-      propertyPath: projectileScale.m_Curve.Array.data[1].outSlope
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 4122932527643675932, guid: 4b505a81926f2144baa1981f7e8970b5,
-        type: 3}
-      propertyPath: projectileScale.m_Curve.Array.data[1].value
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 4122932527643675932, guid: 4b505a81926f2144baa1981f7e8970b5,
-        type: 3}
       propertyPath: launchVelocity
       value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 4122932527643675932, guid: 4b505a81926f2144baa1981f7e8970b5,
+        type: 3}
+      propertyPath: projectilePrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 3603344050764869919, guid: 4c38db99107b9ab48a42afda19ccbc64,
+        type: 3}
+    - target: {fileID: 4122932527643675932, guid: 4b505a81926f2144baa1981f7e8970b5,
+        type: 3}
+      propertyPath: projectilePrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 3723656024834733314, guid: 0feb789d47ae34f42b098986940a947a,
+        type: 3}
+    - target: {fileID: 4122932527643675932, guid: 4b505a81926f2144baa1981f7e8970b5,
+        type: 3}
+      propertyPath: projectilePrefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 50514082420455768, guid: 37108791b07e1d8438e65a54167aa4c2,
+        type: 3}
+    - target: {fileID: 4122932527643675932, guid: 4b505a81926f2144baa1981f7e8970b5,
+        type: 3}
+      propertyPath: projectilePrefabs.Array.data[3]
+      value: 
+      objectReference: {fileID: 3286369132363417316, guid: ad3b3160ddd7cb644844bc42762c37b9,
+        type: 3}
+    - target: {fileID: 4122932527643675932, guid: 4b505a81926f2144baa1981f7e8970b5,
+        type: 3}
+      propertyPath: projectilePrefabs.Array.data[4]
+      value: 
+      objectReference: {fileID: 1418488503122968296, guid: 66819e6b265df41419b18bf0e344c685,
+        type: 3}
+    - target: {fileID: 4122932527643675932, guid: 4b505a81926f2144baa1981f7e8970b5,
+        type: 3}
+      propertyPath: projectilePrefabs.Array.data[5]
+      value: 
+      objectReference: {fileID: 2939961370568407056, guid: b621d6917e218dd4e8ddc44f95baf867,
+        type: 3}
+    - target: {fileID: 4122932527643675932, guid: 4b505a81926f2144baa1981f7e8970b5,
+        type: 3}
+      propertyPath: projectileScale.m_Curve.Array.data[0].value
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4122932527643675932, guid: 4b505a81926f2144baa1981f7e8970b5,
+        type: 3}
+      propertyPath: projectileScale.m_Curve.Array.data[0].tangentMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4122932527643675932, guid: 4b505a81926f2144baa1981f7e8970b5,
+        type: 3}
+      propertyPath: projectileScale.m_Curve.Array.data[1].tangentMode
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b505a81926f2144baa1981f7e8970b5, type: 3}

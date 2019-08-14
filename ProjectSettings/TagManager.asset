@@ -11,6 +11,10 @@ TagManager:
   - Beacon
   - LeaderTarget
   - Ankor
+  - Leaders
+  - projectile
+  - FxTemporaire
+  - Collectable
   layers:
   - Default
   - TransparentFX
@@ -28,9 +32,9 @@ TagManager:
   - Player
   - Obstacle
   - Spell
-  - 
-  - 
-  - 
+  - Collectable
+  - DeathZone
+  - Enemy
   - 
   - 
   - 

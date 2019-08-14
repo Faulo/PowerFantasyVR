@@ -1,6 +1,7 @@
 /*
 /*/
 
+!.gitattributes
 !.gitignore
 !.gitmodules
 !*.json
@@ -9,4 +10,7 @@
 
 !/Assets/
 !/ProjectSettings/
-!/Build/
+
+/Assets/Meshes/Environment/Water/
+!/Assets/Meshes/Environment/Water/Water.txt
+!/Assets/Meshes/Environment/Water/Water.txt.meta

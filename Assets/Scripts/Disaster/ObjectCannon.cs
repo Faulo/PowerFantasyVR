@@ -1,5 +1,6 @@
 ﻿using PFVR.OurPhysics;
 using PFVR.Spells.FireBall;
+using Slothsoft.UnityExtensions;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,7 +9,7 @@ namespace PFVR.Disaster {
 
     public class ObjectCannon : MonoBehaviour {
         [SerializeField]
-        private GameObject projectilePrefab = default;
+        private GameObject[] projectilePrefabs = default;
 
         [SerializeField]
         private AnimationCurve projectileScale = default;
@@ -47,14 +48,16 @@ namespace PFVR.Disaster {
         }
         void Burst() {
             var direction = transform.forward * launchVelocity + Random.insideUnitSphere * launchDiffusion;
-            var projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
-            projectile.GetComponent<Rigidbody>().velocity = direction;
+            var projectile = Instantiate(projectilePrefabs.RandomElement(), transform.position, Quaternion.identity);
             projectile.transform.position += direction;
-            var ball = projectile.GetComponent<Ball>();
-            if (ball) {
-                ball.size = projectileScale.Evaluate(Random.value);
-            } else {
-                projectile.GetComponent<ScalableObject>().scaling = projectileScale.Evaluate(Random.value);
+            var rigidbody = projectile.GetComponent<Rigidbody>();
+            if (rigidbody) {
+                rigidbody.velocity = direction;
+                rigidbody.drag *= Random.value + 0.5f;
+            }
+            var scalable = projectile.GetComponent<ScalableObject>();
+            if (scalable) {
+                scalable.scaling = projectileScale.Evaluate(Random.value);
             }
         }
     }

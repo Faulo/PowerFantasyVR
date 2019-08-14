@@ -12,28 +12,23 @@ namespace PFVR.Spells.FireBall {
         [SerializeField]
         private GameObject anchorPrefab = default;
 
-
+        [Space]
         [SerializeField, Range(1, 1000)]
         private ushort rumbleInterval = 100;
-
-        [SerializeField]
-        private AnimationCurve rumbleForceOverDistance = default;
-
         [SerializeField]
         private AnimationCurve rumbleForceOverSize = default;
 
         private Coroutine rumbleRoutine;
 
-        private SpringJoint anchor;
-
-        private Ball ball;
-
-        [SerializeField]
+        [Space]
+        [SerializeField, Range(0, 100)]
+        private float launchVelocityMultiplier = 1;
+        [SerializeField, Range(1, 10)]
         private float maximumChargeTime = 1f;
         private float currentChargeTime = 0;
 
-        [SerializeField, Range(0, 1)]
-        private float breakSpeed = 1f;
+        private Anchor anchor;
+        private Ball ball;
 
         private float chargeTime {
             get {
@@ -42,25 +37,27 @@ namespace PFVR.Spells.FireBall {
             set {
                 currentChargeTime = Mathf.Clamp(value, 0, maximumChargeTime);
                 if (ball != null) {
-                    ball.size = currentChargeTime / maximumChargeTime;
+                    ball.scaling = currentChargeTime / maximumChargeTime;
                 }
             }
         }
 
         public void OnEnter(PlayerBehaviour player, PlayerHandBehaviour hand) {
             if (anchor == null) {
-                anchor = Instantiate(anchorPrefab, hand.wrist).GetComponent<SpringJoint>();
+                anchor = Instantiate(anchorPrefab, hand.wrist).GetComponent<Anchor>();
             }
-            ball = Instantiate(ballPrefab).GetComponent<Ball>();
-            ball.ConnectTo(anchor);
+            ball = Instantiate(ballPrefab, player.transform).GetComponent<Ball>();
+            anchor.ConnectTo(ball);
             chargeTime = 0;
             rumbleRoutine = StartCoroutine(CreateRumbleRoutine(hand));
         }
 
         public void OnExit(PlayerBehaviour player, PlayerHandBehaviour hand) {
             if (ball != null) {
-                ball.body.velocity -= player.velocity;
-                ball.ReleaseFrom(anchor);
+                anchor.ReleaseFrom(ball);
+                ball.rigidbody.velocity += hand.velocity;
+                ball.rigidbody.velocity *= launchVelocityMultiplier;
+                ball.rigidbody.gameObject.AddComponent<KinematicRigidbody>();
                 ball = null;
             }
             if (rumbleRoutine != null) {
@@ -70,19 +67,11 @@ namespace PFVR.Spells.FireBall {
 
         public void OnUpdate(PlayerBehaviour player, PlayerHandBehaviour hand) {
             chargeTime += Time.deltaTime;
-            if (ball != null && anchor != null) {
-                var distance = anchor.transform.position - ball.transform.position;
-                ball.body.AddForce(distance, ForceMode.VelocityChange);
-                //anchor.damper = Mathf.Clamp(1 / distance.magnitude, 1, 1000);
-                anchor.spring = Mathf.Clamp(player.speed, 1, 1000);
-            }
-            player.rigidbody.velocity = Vector3.Lerp(player.rigidbody.velocity, Vector3.zero, breakSpeed);
         }
         private IEnumerator CreateRumbleRoutine(PlayerHandBehaviour hand) {
             while (true) {
                 if (ball != null) {
-                    var distance = (anchor.transform.position - ball.transform.position).magnitude;
-                    ManusConnector.Rumble(hand.laterality, rumbleInterval, rumbleForceOverDistance.Evaluate(distance) * rumbleForceOverSize.Evaluate(ball.size));
+                    ManusConnector.Rumble(hand.laterality, rumbleInterval, rumbleForceOverSize.Evaluate(ball.scaling));
                 }
                 yield return new WaitForSeconds(rumbleInterval / 1000f);
             }
