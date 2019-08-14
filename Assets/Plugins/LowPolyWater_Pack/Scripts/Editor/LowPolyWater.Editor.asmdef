@@ -1,0 +1,16 @@
+{
+    "name": "LowPolyWater.Editor",
+    "references": [
+        "GUID:6c674768619b8d440831ae994fdc59f9"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": []
+}
