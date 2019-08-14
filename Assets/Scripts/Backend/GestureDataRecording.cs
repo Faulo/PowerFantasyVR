@@ -63,7 +63,7 @@ namespace PFVR.Backend {
                 return;
             }
             var gestures = gestureManager.elements
-                .Where(gesture => currentGestureSet.gestureNames.Contains(gesture.name));
+                .Where(gesture => !gesture.isComplex && currentGestureSet.gestureNames.Contains(gesture.name));
             currentRoutine = StartCoroutine(RecordGesturesRoutine(gestures.ToArray()));
         }
         public void RecordCurrentGesture() {
