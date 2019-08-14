@@ -194,6 +194,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy.Die
       objectReference: {fileID: 0}
+    - target: {fileID: 7648092028806189602, guid: 78fca7628bf0b8a46a7eaa16d9b4dfc4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5707358116862692214, guid: 78fca7628bf0b8a46a7eaa16d9b4dfc4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -458,6 +463,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Enemy.Idle
+      objectReference: {fileID: 0}
+    - target: {fileID: 4709703652683967148, guid: ae6d492d4dcc9714faf28e42b4edad52,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ae6d492d4dcc9714faf28e42b4edad52, type: 3}

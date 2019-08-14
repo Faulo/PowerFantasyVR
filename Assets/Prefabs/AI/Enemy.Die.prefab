@@ -170,7 +170,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 2
+      scalar: 10
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -286,7 +286,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.1
+      scalar: 0.5
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -4835,11 +4835,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5707358116862692214}
     m_Modifications:
-    - target: {fileID: 7932698076668194850, guid: 93190c7d420ce79488f0799a4565540f,
-        type: 3}
-      propertyPath: m_Name
-      value: EnemyDieSound
-      objectReference: {fileID: 0}
     - target: {fileID: 1769350303809647889, guid: 93190c7d420ce79488f0799a4565540f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4894,6 +4889,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7932698076668194850, guid: 93190c7d420ce79488f0799a4565540f,
+        type: 3}
+      propertyPath: m_Name
+      value: EnemyDieSound
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 93190c7d420ce79488f0799a4565540f, type: 3}

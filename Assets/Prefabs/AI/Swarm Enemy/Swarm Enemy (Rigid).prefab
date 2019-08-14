@@ -54,16 +54,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4966665924665988893, guid: cbecd25edcda1cf469221966a9827872,
-        type: 3}
-      propertyPath: InitialModule.startSpeed.scalar
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 4966665924665988893, guid: cbecd25edcda1cf469221966a9827872,
-        type: 3}
-      propertyPath: InitialModule.startSize.scalar
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 6799056467832476311, guid: cbecd25edcda1cf469221966a9827872,
         type: 3}
       propertyPath: m_IsActive
