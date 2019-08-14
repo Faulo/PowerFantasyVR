@@ -96,6 +96,7 @@ namespace PFVR.AI
                 yield return wait;
             }
         }
+        
         IEnumerator FindGoalRoutine()
         {
             var wait = new WaitForSeconds(1.0f);
