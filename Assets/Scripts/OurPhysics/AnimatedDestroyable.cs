@@ -6,7 +6,7 @@ using UnityEngine;
 namespace PFVR.OurPhysics {
     [RequireComponent(typeof(Animator))]
     public class AnimatedDestroyable : MonoBehaviour, IDestroyable {
-        [SerializeField, Range(1, 100)]
+        [SerializeField, Range(1, 1000)]
         private float maxHP = 1;
         private float waited = 0.0f;
         public float currentHP {
@@ -42,11 +42,6 @@ namespace PFVR.OurPhysics {
                 animator.SetBool("IsAlive", false);
                 waited = 0.0f;
             }
-            //if(!isAlive && animator.GetAnimatorTransitionInfo(1).duration <= waited)
-            //{
-            //    Destroy(gameObject);
-            //}
-            //waited += Time.deltaTime;
         }
     }
 }

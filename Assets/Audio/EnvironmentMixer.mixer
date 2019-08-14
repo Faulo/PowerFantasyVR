@@ -34,7 +34,7 @@ AudioMixerGroupController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: CaveGroup
+  m_Name: ForestGroup
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: 4abbeb1faa3082d48a7022da10020d73
   m_Children: []
@@ -134,7 +134,8 @@ AudioMixerSnapshotController:
   m_Name: Snapshot
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: ce1da6b0426087347adedb70841d9130
-  m_FloatValues: {}
+  m_FloatValues:
+    c5d247e58d21ec84d8abf5fc8163dfb2: -0.27209902
   m_TransitionOverrides: {}
 --- !u!243 &3382386973980845145
 AudioMixerGroupController:

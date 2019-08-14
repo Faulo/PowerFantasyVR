@@ -64,6 +64,11 @@ PrefabInstance:
       propertyPath: alphaFactor
       value: 0.8
       objectReference: {fileID: 0}
+    - target: {fileID: 576863565135050831, guid: 5c4db31084fdc294eaec39aaa631298c,
+        type: 3}
+      propertyPath: m_Name
+      value: Swarm Beacon 1
+      objectReference: {fileID: 0}
     - target: {fileID: 576863565135050830, guid: 5c4db31084fdc294eaec39aaa631298c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -119,11 +124,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 576863565135050831, guid: 5c4db31084fdc294eaec39aaa631298c,
-        type: 3}
-      propertyPath: m_Name
-      value: Swarm Beacon 1
-      objectReference: {fileID: 0}
     - target: {fileID: 576863565135050827, guid: 5c4db31084fdc294eaec39aaa631298c,
         type: 3}
       propertyPath: m_Enabled
@@ -154,6 +154,11 @@ PrefabInstance:
     - target: {fileID: 0}
       propertyPath: alphaFactor
       value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 576863565135050831, guid: 5c4db31084fdc294eaec39aaa631298c,
+        type: 3}
+      propertyPath: m_Name
+      value: Swarm Beacon 2
       objectReference: {fileID: 0}
     - target: {fileID: 576863565135050830, guid: 5c4db31084fdc294eaec39aaa631298c,
         type: 3}
@@ -210,11 +215,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 576863565135050831, guid: 5c4db31084fdc294eaec39aaa631298c,
-        type: 3}
-      propertyPath: m_Name
-      value: Swarm Beacon 2
-      objectReference: {fileID: 0}
     - target: {fileID: 576863565135050827, guid: 5c4db31084fdc294eaec39aaa631298c,
         type: 3}
       propertyPath: m_Enabled
@@ -243,6 +243,11 @@ PrefabInstance:
     - target: {fileID: 0}
       propertyPath: alphaFactor
       value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 576863565135050831, guid: 5c4db31084fdc294eaec39aaa631298c,
+        type: 3}
+      propertyPath: m_Name
+      value: Swarm Beacon 3
       objectReference: {fileID: 0}
     - target: {fileID: 576863565135050830, guid: 5c4db31084fdc294eaec39aaa631298c,
         type: 3}
@@ -299,11 +304,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 576863565135050831, guid: 5c4db31084fdc294eaec39aaa631298c,
-        type: 3}
-      propertyPath: m_Name
-      value: Swarm Beacon 3
-      objectReference: {fileID: 0}
     - target: {fileID: 576863565135050827, guid: 5c4db31084fdc294eaec39aaa631298c,
         type: 3}
       propertyPath: m_Enabled
@@ -334,6 +334,11 @@ PrefabInstance:
     - target: {fileID: 0}
       propertyPath: alphaFactor
       value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 576863565135050831, guid: 5c4db31084fdc294eaec39aaa631298c,
+        type: 3}
+      propertyPath: m_Name
+      value: Swarm Beacon 6
       objectReference: {fileID: 0}
     - target: {fileID: 576863565135050830, guid: 5c4db31084fdc294eaec39aaa631298c,
         type: 3}
@@ -390,11 +395,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 576863565135050831, guid: 5c4db31084fdc294eaec39aaa631298c,
-        type: 3}
-      propertyPath: m_Name
-      value: Swarm Beacon 6
-      objectReference: {fileID: 0}
     - target: {fileID: 576863565135050827, guid: 5c4db31084fdc294eaec39aaa631298c,
         type: 3}
       propertyPath: m_Enabled
@@ -423,6 +423,11 @@ PrefabInstance:
     - target: {fileID: 0}
       propertyPath: alphaFactor
       value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 576863565135050831, guid: 5c4db31084fdc294eaec39aaa631298c,
+        type: 3}
+      propertyPath: m_Name
+      value: Swarm Beacon 4
       objectReference: {fileID: 0}
     - target: {fileID: 576863565135050830, guid: 5c4db31084fdc294eaec39aaa631298c,
         type: 3}
@@ -479,11 +484,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 576863565135050831, guid: 5c4db31084fdc294eaec39aaa631298c,
-        type: 3}
-      propertyPath: m_Name
-      value: Swarm Beacon 4
-      objectReference: {fileID: 0}
     - target: {fileID: 576863565135050827, guid: 5c4db31084fdc294eaec39aaa631298c,
         type: 3}
       propertyPath: m_Enabled
@@ -512,6 +512,11 @@ PrefabInstance:
     - target: {fileID: 0}
       propertyPath: alphaFactor
       value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 576863565135050831, guid: 5c4db31084fdc294eaec39aaa631298c,
+        type: 3}
+      propertyPath: m_Name
+      value: Swarm Beacon middle
       objectReference: {fileID: 0}
     - target: {fileID: 576863565135050830, guid: 5c4db31084fdc294eaec39aaa631298c,
         type: 3}
@@ -567,16 +572,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 576863565135050831, guid: 5c4db31084fdc294eaec39aaa631298c,
-        type: 3}
-      propertyPath: m_Name
-      value: Swarm Beacon middle
-      objectReference: {fileID: 0}
-    - target: {fileID: 576863565135050827, guid: 5c4db31084fdc294eaec39aaa631298c,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 576863565135050827, guid: 5c4db31084fdc294eaec39aaa631298c,
         type: 3}
