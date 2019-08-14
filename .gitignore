@@ -1,6 +1,5 @@
 /*
 /*/
-/Assets/Meshes/Environment/Water/
 
 !.gitattributes
 !.gitignore
@@ -11,3 +10,7 @@
 
 !/Assets/
 !/ProjectSettings/
+
+/Assets/Meshes/Environment/Water/
+!/Assets/Meshes/Environment/Water/Water.txt
+!/Assets/Meshes/Environment/Water/Water.txt.meta

@@ -19,7 +19,7 @@ namespace PFVR.Spells {
         private AnimationCurve damageOverDistance = default;
 
         void Start() {
-            Physics.OverlapSphere(transform.position, maximumRange * scaling, LayerMask.GetMask("Default", "Obstacle"), QueryTriggerInteraction.Collide)
+            Physics.OverlapSphere(transform.position, maximumRange * scaling, LayerMask.GetMask("Default", "Obstacle", "Enemy"), QueryTriggerInteraction.Collide)
                 .SelectMany(collider => collider.GetComponentsInParent<IDestroyable>())
                 .Distinct()
                 .ForAll(destroyable => {
