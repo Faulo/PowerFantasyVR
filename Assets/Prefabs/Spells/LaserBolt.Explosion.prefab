@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c0bcd332042a2d44b576144b166d93d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maximumScaling: 1
   scalingCurve:
     serializedVersion: 2
     m_Curve:
@@ -81,33 +82,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df4bf2fdb78408843b076e2a0fd03d6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 5
-  maximumForce: 5
-  forceOverDistance:
+  maximumScaling: 1
+  scalingCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
-      inSlope: -1
-      outSlope: -1
+      value: 0
+      inSlope: 1
+      outSlope: 1
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.33333334
+      outWeight: 0
     - serializedVersion: 3
       time: 1
-      value: 0
-      inSlope: -1
-      outSlope: -1
+      value: 1
+      inSlope: 1
+      outSlope: 1
       tangentMode: 34
       weightedMode: 0
-      inWeight: 0.33333334
+      inWeight: 0
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  maximumDamage: 10
+  maximumRange: 10
+  maximumForce: 5
+  upwardsModifier: 0
+  maximumDamage: 25
   damageOverDistance:
     serializedVersion: 2
     m_Curve:
@@ -132,7 +135,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  upwardsModifier: 0
 --- !u!1001 &5338476057594479181
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -140,10 +142,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 539273600442433196}
     m_Modifications:
-    - target: {fileID: 1337198075554910, guid: 25c7aa9ad705fe143a4d71c1c8deb7d4, type: 3}
-      propertyPath: m_Name
-      value: TinyExplosion
-      objectReference: {fileID: 0}
     - target: {fileID: 4441266138185142, guid: 25c7aa9ad705fe143a4d71c1c8deb7d4, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -171,6 +169,10 @@ PrefabInstance:
     - target: {fileID: 4441266138185142, guid: 25c7aa9ad705fe143a4d71c1c8deb7d4, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1337198075554910, guid: 25c7aa9ad705fe143a4d71c1c8deb7d4, type: 3}
+      propertyPath: m_Name
+      value: TinyExplosion
       objectReference: {fileID: 0}
     - target: {fileID: 198175801688348628, guid: 25c7aa9ad705fe143a4d71c1c8deb7d4,
         type: 3}

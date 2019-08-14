@@ -44,7 +44,7 @@ namespace PFVR.Spells.EnergyWave {
             set {
                 currentChargeTime = Mathf.Clamp(value, 0, maximumChargeTime);
                 if (wave != null) {
-                    wave.size = currentChargeTime / maximumChargeTime;
+                    wave.scaling = currentChargeTime / maximumChargeTime;
                 }
             }
         }
@@ -80,7 +80,7 @@ namespace PFVR.Spells.EnergyWave {
                     .ForAll(renderer => renderer.enabled = true);
                 wave.transform.parent = wave.transform.parent.parent;
                 wave.explodable = true;
-                wave.body.velocity = handLaunchMultiplier * (player.leftHand.velocity + player.rightHand.velocity) + directionLaunchMultiplier * (leftChargeCenter.position - player.leftHand.wrist.position + rightChargeCenter.position - player.rightHand.wrist.position);
+                wave.rigidbody.velocity = handLaunchMultiplier * (player.leftHand.velocity + player.rightHand.velocity) + directionLaunchMultiplier * (leftChargeCenter.position - player.leftHand.wrist.position + rightChargeCenter.position - player.rightHand.wrist.position);
                 wave = null;
             }
             if (rumbleRoutine != null) {
@@ -103,8 +103,8 @@ namespace PFVR.Spells.EnergyWave {
         private IEnumerator CreateRumbleRoutine() {
             while (true) {
                 if (wave != null) {
-                    ManusConnector.Rumble(GloveLaterality.GLOVE_LEFT, rumbleInterval, rumbleForceOverSize.Evaluate(wave.size));
-                    ManusConnector.Rumble(GloveLaterality.GLOVE_RIGHT, rumbleInterval, rumbleForceOverSize.Evaluate(wave.size));
+                    ManusConnector.Rumble(GloveLaterality.GLOVE_LEFT, rumbleInterval, rumbleForceOverSize.Evaluate(wave.scaling));
+                    ManusConnector.Rumble(GloveLaterality.GLOVE_RIGHT, rumbleInterval, rumbleForceOverSize.Evaluate(wave.scaling));
                 }
                 yield return new WaitForSeconds(rumbleInterval / 1000f);
             }

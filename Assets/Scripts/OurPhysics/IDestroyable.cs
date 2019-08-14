@@ -8,5 +8,6 @@ namespace PFVR.OurPhysics {
         float currentHP { get; set; }
         bool isAlive { get; }
         Rigidbody rigidbody { get; }
+        Vector3 position { get; }
     }
 }

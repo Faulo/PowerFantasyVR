@@ -43,33 +43,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31377d2836a86134cbaba9b2b0b3a80d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 2041536302393913971, guid: b745ebd82e7e12c4ebb7896cb7dd7c07,
-    type: 3}
+  projectilePrefabs: []
   projectileScale:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
       value: 1
-      inSlope: 9
-      outSlope: 9
+      inSlope: 0
+      outSlope: 0
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.33333334
+      outWeight: 0
     - serializedVersion: 3
       time: 1
-      value: 10
-      inSlope: 9
-      outSlope: 9
+      value: 1
+      inSlope: 0
+      outSlope: 0
       tangentMode: 34
       weightedMode: 0
-      inWeight: 0.33333334
+      inWeight: 0
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
   launchVelocity: 100
   launchDiffusion: 100
-  burstInterval: 10
-  burstCount: 100
+  burstInterval: 60
+  burstCount: 10
