@@ -11,7 +11,7 @@ namespace PFVR.Spells.Shield {
             Destroy(gameObject);
         }
         void OnCollisionEnter(Collision collision) {
-            if ((LayerMask.GetMask(LayerMask.LayerToName(collision.gameObject.layer)) & LayerMask.GetMask("Default", "Spell", "Obstacle", "Ground")) == 0) {
+            if ((LayerMask.GetMask(LayerMask.LayerToName(collision.gameObject.layer)) & LayerMask.GetMask("Default", "Spell", "Obstacle", "Ground", "Enemy")) == 0) {
                 return;
             }
             onCollision?.Invoke(collision.gameObject);
