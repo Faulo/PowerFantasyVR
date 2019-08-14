@@ -9,10 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7239202865233513487}
-  - component: {fileID: 229001447628847152}
   - component: {fileID: 7003954808630239581}
+  - component: {fileID: -724435505655084052}
+  - component: {fileID: 8746802864399785310}
   m_Layer: 13
-  m_Name: HandGatherDetector
+  m_Name: Detector.HandGathering
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,21 +33,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &229001447628847152
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3869374558814033562}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f18fa48b7fe48054cb8d0f08d3ccac67, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  triggeredGesture: {fileID: 11400000, guid: 7d02e44a6ffbd924daaedfa317aacacc, type: 2}
-  toggleFrames: 15
-  isPrimary: 0
 --- !u!136 &7003954808630239581
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -61,3 +47,36 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-724435505655084052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3869374558814033562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dee341e857ed5d74cba0020359f68750, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggeredGesture: {fileID: 11400000, guid: 7d02e44a6ffbd924daaedfa317aacacc, type: 2}
+  toggleFrames: 15
+  isPrimary: 0
+  otherHandDetector: {fileID: 0}
+  maximumDistance: 1
+--- !u!114 &8746802864399785310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3869374558814033562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52860405b97dbf241b96254eb4a9904c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggeredGesture: {fileID: 11400000, guid: 7d02e44a6ffbd924daaedfa317aacacc, type: 2}
+  toggleFrames: 15
+  otherHandDetector: {fileID: 0}
+  maximumDistance: 1

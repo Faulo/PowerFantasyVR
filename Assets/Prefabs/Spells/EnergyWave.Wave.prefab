@@ -73,6 +73,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c0bcd332042a2d44b576144b166d93d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maximumScaling: 1
   scalingCurve:
     serializedVersion: 2
     m_Curve:
@@ -109,6 +110,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 492d06918dd64c64e8458982f944b2b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maximumScaling: 1
+  scalingCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   regularExplosionPrefab: {fileID: 3679691998973720690, guid: b306b6ad1ff28a4438ed9854bc412928,
     type: 3}
 --- !u!114 &2379799190364716784
@@ -159,6 +167,7 @@ MonoBehaviour:
   volMax: 0.5
   pitchMin: 0.9
   pitchMax: 1.1
+  spatialBlend: 1
   audioSource: {fileID: 0}
 --- !u!1001 &163431775107679141
 PrefabInstance:

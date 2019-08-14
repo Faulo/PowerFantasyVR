@@ -43385,8 +43385,9 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3137177859524603148}
   m_Enabled: 1
-  serializedVersion: 9
+  serializedVersion: 10
   m_Type: 2
+  m_Shape: 0
   m_Color: {r: 1, g: 0.9333241, b: 0.5801887, a: 1}
   m_Intensity: 1
   m_Range: 11.09
@@ -48288,8 +48289,9 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3137177860143808358}
   m_Enabled: 1
-  serializedVersion: 9
+  serializedVersion: 10
   m_Type: 2
+  m_Shape: 0
   m_Color: {r: 1, g: 0.9333241, b: 0.5801887, a: 1}
   m_Intensity: 1
   m_Range: 11.09
@@ -53105,10 +53107,10 @@ GameObject:
   - component: {fileID: 4868801616180455265}
   - component: {fileID: -8729031936267939547}
   - component: {fileID: 4221245690310807352}
-  - component: {fileID: 2264036736969940031}
   - component: {fileID: 798796639517312723}
   - component: {fileID: 5030239820821194950}
   - component: {fileID: 6996924038070044516}
+  - component: {fileID: 884726458987066612}
   m_Layer: 15
   m_Name: EnergyWave.MetroidWave
   m_TagString: Untagged
@@ -53165,42 +53167,6 @@ MonoBehaviour:
   mass: 1
   velocity: {x: 0, y: 0, z: 0}
   transferForce: 1
---- !u!114 &2264036736969940031
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4565798225603373984}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c0bcd332042a2d44b576144b166d93d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scalingCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0.1
-      inSlope: 0.49499997
-      outSlope: 0.49499997
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 20
-      value: 10
-      inSlope: 0.49499997
-      outSlope: 0.49499997
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!114 &798796639517312723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53213,6 +53179,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3a5757e25a57364898215060d43c27a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maximumScaling: 1
+  scalingCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   regularExplosionPrefab: {fileID: 3679691998973720690, guid: b306b6ad1ff28a4438ed9854bc412928,
     type: 3}
   cannonParticleShooter: {fileID: 0}
@@ -53231,8 +53222,8 @@ MonoBehaviour:
   punchVibrato: 5
   punchDuration: 0.3
   punchElasticity: 0.5
-  normalEmissionColor: {r: 0, g: 0, b: 0, a: 0}
-  finalEmissionColor: {r: 0, g: 0, b: 0, a: 0}
+  normalEmissionColor: {r: 2.4441023, g: 2.513089, b: 0.5617493, a: 1}
+  finalEmissionColor: {r: 9.789205, g: 10.052356, b: 2.2630959, a: 1}
 --- !u!96 &5030239820821194950
 TrailRenderer:
   serializedVersion: 2
@@ -53338,8 +53329,9 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4565798225603373984}
   m_Enabled: 1
-  serializedVersion: 9
+  serializedVersion: 10
   m_Type: 2
+  m_Shape: 0
   m_Color: {r: 0.9991466, g: 1, b: 0.6367924, a: 1}
   m_Intensity: 5
   m_Range: 10
@@ -53390,3 +53382,19 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!54 &884726458987066612
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4565798225603373984}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
