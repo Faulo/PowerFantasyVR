@@ -5,13 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/CityScene.unity
-    guid: 1a4e37fe1d5bcef448eaacca8ef81fad
-  - enabled: 0
-    path: Assets/Scenes/Backend/Tracking Data Viewer.unity
-    guid: 3d23f6d729700f946afbbd4151bcd66d
   - enabled: 1
-    path: Assets/Scenes/PowerFantasyVR_Level1/Level1_Beta_Performance.unity
-    guid: f4dc54684e22cd448b68f85364743743
+    path: Assets/Scenes/Main Menu.unity
+    guid: 9aedcd59e273c4441b0358ddf8a2d3a7
+  - enabled: 1
+    path: Assets/Scenes/PowerFantasyVR_Level1/Level1_Presentation.unity
+    guid: 9534cf96bd799644fb60db2b33184aae
   m_configObjects: {}
