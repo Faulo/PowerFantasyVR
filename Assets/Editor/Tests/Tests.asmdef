@@ -1,7 +1,8 @@
 {
-    "name": "PFVR.Tests",
+    "name": "PFVR.Editor.Tests",
     "references": [
-        "PFVR"
+        "PFVR",
+        "PFVR.Editor"
     ],
     "optionalUnityReferences": [
         "TestAssemblies"
