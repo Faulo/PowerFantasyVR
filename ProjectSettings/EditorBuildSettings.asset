@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Main Menu.unity
     guid: 9aedcd59e273c4441b0358ddf8a2d3a7
+  - enabled: 1
+    path: Assets/Scenes/PowerFantasyVR_Level1/Level1_Presentation.unity
+    guid: 9534cf96bd799644fb60db2b33184aae
   m_configObjects: {}
