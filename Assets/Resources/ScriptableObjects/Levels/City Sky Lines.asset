@@ -9,10 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21757a0db03fe9949b01e283198a6a37, type: 3}
-  m_Name: PFVR.Settings
+  m_Script: {fileID: 11500000, guid: eb31ae2efd5f6d34f82b0b14b0cf5a8b, type: 3}
+  m_Name: City Sky Lines
   m_EditorClassIdentifier: 
-  interfaceType: 0
-  mainMenu: {fileID: 102900000, guid: 9aedcd59e273c4441b0358ddf8a2d3a7, type: 3}
-  levels:
-  - {fileID: 102900000, guid: 9534cf96bd799644fb60db2b33184aae, type: 3}
+  scene: {fileID: 102900000, guid: 1a4e37fe1d5bcef448eaacca8ef81fad, type: 3}
