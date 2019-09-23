@@ -21,19 +21,11 @@ namespace PFVR.Settings {
 
         void Update() {
             if (Input.GetKeyDown(KeyCode.Escape)) {
-                LoadScene(settings.mainMenu);
-            }
-            if (Input.GetKeyDown(KeyCode.F1)) {
-                LoadLevel(settings.levels[0]);
-            }
-            if (Input.GetKeyDown(KeyCode.F2)) {
-                LoadLevel(settings.levels[1]);
-            }
-            if (Input.GetKeyDown(KeyCode.F3)) {
-                LoadLevel(settings.levels[2]);
-            }
-            if (Input.GetKeyDown(KeyCode.F4)) {
-                LoadLevel(settings.levels[3]);
+                if (SceneManager.GetActiveScene().path == settings.mainMenu.ScenePath) {
+                    Application.Quit();
+                } else {
+                    LoadScene(settings.mainMenu);
+                }
             }
         }
         private void LoadScene(SceneReference scene) => SceneManager.LoadScene(scene.ScenePath);
