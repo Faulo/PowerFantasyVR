@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb31ae2efd5f6d34f82b0b14b0cf5a8b, type: 3}
   m_Name: City Sky Lines
   m_EditorClassIdentifier: 
-  scene: {fileID: 102900000, guid: 1a4e37fe1d5bcef448eaacca8ef81fad, type: 3}
+  scene:
+    sceneAsset: {fileID: 102900000, guid: 1a4e37fe1d5bcef448eaacca8ef81fad, type: 3}
+    scenePath: Assets/Scenes/CitySkyLines/CityScene.unity

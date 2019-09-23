@@ -36,7 +36,7 @@ namespace PFVR.Settings {
                 LoadLevel(settings.levels[3]);
             }
         }
-        private void LoadScene(SceneAsset scene) => SceneManager.LoadScene(scene.name);
+        private void LoadScene(SceneReference scene) => SceneManager.LoadScene(scene.ScenePath);
         public void LoadLevel(Level level) => LoadScene(level.scene);
     }
 }

@@ -15,7 +15,7 @@ namespace PFVR.Settings {
         public InterfaceType interfaceType;
 
         [Header("Level Settings")]
-        public SceneAsset mainMenu;
+        public SceneReference mainMenu;
         public Level[] levels;
     }
 }
