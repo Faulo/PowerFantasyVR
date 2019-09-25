@@ -1,0 +1,32 @@
+{
+    "name": "PFVR.Editor.Tests",
+    "references": [
+        "PFVR",
+        "PFVR.Editor"
+    ],
+    "optionalUnityReferences": [
+        "TestAssemblies"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "nunit.framework.dll",
+        "Microsoft.ML.Core.dll",
+        "Microsoft.ML.CpuMath.dll",
+        "Microsoft.ML.Data.dll",
+        "Microsoft.ML.DataView.dll",
+        "Microsoft.ML.KMeansClustering.dll",
+        "Microsoft.ML.PCA.dll",
+        "Microsoft.ML.SamplesUtils.dll",
+        "Microsoft.ML.StandardTrainers.dll",
+        "Microsoft.ML.Transforms.dll",
+        "Newtonsoft.Json.dll"
+    ],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": []
+}

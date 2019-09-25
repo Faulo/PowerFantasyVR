@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Main Menu.unity
     guid: 9aedcd59e273c4441b0358ddf8a2d3a7
   - enabled: 1
-    path: Assets/Scenes/PowerFantasyVR_Level1/Level1_Presentation.unity
+    path: Assets/Scenes/VulcanoRavens/Level1_Presentation.unity
     guid: 9534cf96bd799644fb60db2b33184aae
+  - enabled: 1
+    path: Assets/Scenes/CitySkyLines/CityScene.unity
+    guid: 1a4e37fe1d5bcef448eaacca8ef81fad
   m_configObjects: {}
