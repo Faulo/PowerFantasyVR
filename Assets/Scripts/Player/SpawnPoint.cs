@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿using PFVR.ScriptableObjects;
+using PFVR.Settings;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.VR;
@@ -6,13 +8,8 @@ using UnityEngine.XR;
 using Valve.VR;
 
 namespace PFVR.Player {
-    public class SpawnPoint : MonoBehaviour {
-        public enum PlayerType {
-            Basic,
-            VR
-        }
-        [SerializeField]
-        private PlayerType playerType = default;
+    public partial class SpawnPoint : MonoBehaviour {
+        private InterfaceType playerType => GameSettings.instance.interfaceType;
         [SerializeField]
         private GameObject basicPlayerPrefab = default;
         [SerializeField]
@@ -21,9 +18,9 @@ namespace PFVR.Player {
         private string xrDevice {
             get {
                 switch (playerType) {
-                    case PlayerType.Basic:
+                    case InterfaceType.MouseAndKeyboard:
                         return "None";
-                    case PlayerType.VR:
+                    case InterfaceType.ManusVR:
                         return "OpenVR";
                 }
                 throw new System.Exception("???" + playerType);
@@ -33,9 +30,9 @@ namespace PFVR.Player {
         private GameObject playerPrefab {
             get {
                 switch (playerType) {
-                    case PlayerType.Basic:
+                    case InterfaceType.MouseAndKeyboard:
                         return basicPlayerPrefab;
-                    case PlayerType.VR:
+                    case InterfaceType.ManusVR:
                         return vrPlayerPrefab;
                 }
                 throw new System.Exception("???" + playerType);
@@ -48,12 +45,12 @@ namespace PFVR.Player {
 
         void Start() {
             switch (playerType) {
-                case PlayerType.Basic:
+                case InterfaceType.MouseAndKeyboard:
                     if (XRSettings.loadedDeviceName != xrDevice) {
                         XRSettings.LoadDeviceByName(xrDevice);
                     }
                     break;
-                case PlayerType.VR:
+                case InterfaceType.ManusVR:
                     if (XRSettings.loadedDeviceName != xrDevice) {
                         XRSettings.LoadDeviceByName(xrDevice);
                         SteamVR.Initialize(true);

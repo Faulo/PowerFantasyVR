@@ -18,7 +18,8 @@
         "Unity.Collections",
         "Unity.Transforms",
         "Unity.Rendering.Hybrid",
-        "Unity.Mathematics"
+        "Unity.Mathematics",
+        "UnitySceneReference"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
@@ -27,5 +28,6 @@
     "precompiledReferences": [],
     "autoReferenced": true,
     "defineConstraints": [],
-    "versionDefines": []
+    "versionDefines": [],
+    "noEngineReferences": false
 }

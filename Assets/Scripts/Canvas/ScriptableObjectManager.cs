@@ -19,12 +19,16 @@ namespace PFVR.Canvas {
             }
         }
 
-        public ScriptableObjectManager(LayoutGroup root) {
+        public ScriptableObjectManager(LayoutGroup root) : this(root, Resources.LoadAll<T>("ScriptableObjects")) {
+        }
+
+        public ScriptableObjectManager(LayoutGroup root, T[] scriptableObjects) {
             this.root = root;
+            this.scriptableObjects = scriptableObjects;
+
             scriptablePrefab = root.GetComponentInChildren<BasicButton>().gameObject;
             scriptablePrefab.SetActive(false);
 
-            scriptableObjects = Resources.LoadAll<T>("ScriptableObjects");
             scriptableButtons = scriptableObjects
                 .Select(obj => {
                     var button = UnityEngine.Object.Instantiate(scriptablePrefab, root.transform).GetComponent<BasicButton>();

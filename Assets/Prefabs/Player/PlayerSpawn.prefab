@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98517d3f880fa1744bd834d7e577133c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerType: 1
+  settings: {fileID: 11400000, guid: f2745780aec47c242ae25a81d7dd1646, type: 2}
   basicPlayerPrefab: {fileID: 8859262723068756767, guid: ec5016abb676d61428a544fc6fe7f7d2,
     type: 3}
   vrPlayerPrefab: {fileID: 6034624076104744032, guid: 7d9c6d5fbdb63e046805725d87e60db1,
@@ -62,4 +62,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hotKey: 293
-  fileName: Screenshot #
