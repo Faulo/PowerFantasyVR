@@ -69,7 +69,7 @@ namespace PFVR.AI
             arrayOfBeacons = GameObject.FindGameObjectsWithTag("Beacon");
             leaderBehavior = GameObject.FindGameObjectWithTag("Leaders").GetComponent<LeaderBehavior>();
 
-            playerMotor = leaderBehavior.GetPlayer().motor;
+            playerMotor = leaderBehavior.GetPlayerMotor();
 
             evadeVector = new Vector3();
             evadeBehavior = EnemyEvation.FindEvadeBehavior(UnityEngine.Random.Range(0, 4));
