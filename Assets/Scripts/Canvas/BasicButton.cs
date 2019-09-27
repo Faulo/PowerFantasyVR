@@ -5,12 +5,14 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace PFVR.Canvas {
+    /// <summary>
+    /// A wrapper for <see cref="Unityengine.UI.Button"/>. 
+    /// </summary>
     public class BasicButton : MonoBehaviour {
         public bool selected {
             set {
                 if (value) {
                     image.color = button.colors.selectedColor;
-                    //EventSystem.current.SetSelectedGameObject(gameObject);
                 } else {
                     image.color = button.colors.normalColor;
                 }

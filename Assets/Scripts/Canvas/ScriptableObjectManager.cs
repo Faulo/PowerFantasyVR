@@ -6,7 +6,10 @@ using UnityEngine;
 using UnityEngine.UI;
 
 namespace PFVR.Canvas {
-
+    /// <summary>
+    /// A helper class to configure a LayoutGroup that contains a bunch of BasicButtons, each of which gets assigned a ScriptableObject.
+    /// </summary>
+    /// <typeparam name="T">The type of ScriptableObject to be layouted.</typeparam>
     public class ScriptableObjectManager<T> where T : ScriptableObject {
         private LayoutGroup root;
         private GameObject scriptablePrefab;
