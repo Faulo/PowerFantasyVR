@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 namespace PFVR.Canvas {
     /// <summary>
-    /// A wrapper for <see cref="Unityengine.UI.Button"/>. 
+    /// A wrapper for <see cref="Button"/>. 
     /// </summary>
     public class BasicButton : MonoBehaviour {
         public bool selected {

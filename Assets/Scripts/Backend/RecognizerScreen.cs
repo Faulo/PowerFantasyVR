@@ -6,6 +6,9 @@ using TMPro;
 using UnityEngine;
 
 namespace PFVR.Backend {
+    /// <summary>
+    /// A widget for displaying recognized gestures. Requires a working <see cref="GestureConnector"/>.
+    /// </summary>
     public class RecognizerScreen : MonoBehaviour {
         private TextMeshProUGUI mesh;
         private string format;

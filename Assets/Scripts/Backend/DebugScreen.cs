@@ -3,6 +3,9 @@ using TMPro;
 using UnityEngine;
 
 namespace PFVR.Backend {
+    /// <summary>
+    /// A widget for displaying log data.
+    /// </summary>
     public class DebugScreen : MonoBehaviour {
         private TextMeshProUGUI mesh;
 

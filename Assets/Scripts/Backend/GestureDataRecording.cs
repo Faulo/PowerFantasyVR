@@ -11,6 +11,9 @@ using UnityEngine;
 using UnityEngine.UI;
 
 namespace PFVR.Backend {
+    /// <summary>
+    /// The data model used by <see cref="GestureData"/>.
+    /// </summary>
     public class GestureDataRecording : MonoBehaviour {
         [SerializeField, Range(1, 60)]
         private int recordingTime = 10;
