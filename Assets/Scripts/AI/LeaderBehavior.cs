@@ -7,8 +7,6 @@ using PFVR.OurPhysics;
 
 namespace PFVR.AI
 {
-
-
     public class LeaderBehavior : MonoBehaviour
     {
         public float alphaFactor = 0.2f;

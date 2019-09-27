@@ -7,7 +7,7 @@ using Unity.Collections;
 using Unity.Rendering;
 using Unity.Mathematics;
 
-public class Rotator : MonoBehaviour
+public class ECS_Testscript : MonoBehaviour
 {
     [SerializeField] private Mesh mesh;
     [SerializeField] private Material material;

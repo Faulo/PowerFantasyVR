@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace PFVR.AI
 {
-    public static class EnemyEvation
+    public static class EnemyEvasion
     {
 
         public static Func<Vector3, Vector3, Vector3> FindEvadeBehavior(int evadeDirection)

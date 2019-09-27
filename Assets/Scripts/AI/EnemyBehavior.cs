@@ -72,7 +72,7 @@ namespace PFVR.AI
             playerMotor = leaderBehavior.GetPlayerMotor();
 
             evadeVector = new Vector3();
-            evadeBehavior = EnemyEvation.FindEvadeBehavior(UnityEngine.Random.Range(0, 4));
+            evadeBehavior = EnemyEvasion.FindEvadeBehavior(UnityEngine.Random.Range(0, 4));
 
             animator = GetComponent<Animator>();
             StartCoroutine(FindGoalRoutine());
