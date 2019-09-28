@@ -166,7 +166,6 @@ namespace PFVR.AI
             alphaFactorUsed = alphaFactor;
 
             // *** Evade Player ***
-            // Todo: Get it working! Aktuell kummuliert hier irgendwas, sodass es immer mehr lagged, je öfter der player durchfliegt!
             if (evadePlayer)
             {
                 //Debug.Log("Evade the Player detected!");
