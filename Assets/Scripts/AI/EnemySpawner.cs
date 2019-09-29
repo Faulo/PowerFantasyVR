@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace PFVR.AI
 {
+    /**
+     * <summary> Instantiate a defined amount of enemies at the starting of the scene.</summary>
+     **/
     public class EnemySpawner : MonoBehaviour
     {
         public int enemyCount = 1000;

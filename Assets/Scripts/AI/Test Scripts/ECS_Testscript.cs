@@ -7,6 +7,9 @@ using Unity.Collections;
 using Unity.Rendering;
 using Unity.Mathematics;
 
+/**
+ * <summary>Test class for trying out the ECS architecture.</summary>
+ **/
 public class ECS_Testscript : MonoBehaviour
 {
     [SerializeField] private Mesh mesh;
@@ -100,6 +103,7 @@ public class MoveSystem : ComponentSystem
     }
 }
 
+// Tried to move objects with Rigidbody and AddRelative Force, but didn't work
 //public class PhysicsSystem : ComponentSystem
 //{
 //    protected override void OnUpdate()

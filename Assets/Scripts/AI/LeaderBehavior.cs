@@ -7,12 +7,20 @@ using PFVR.OurPhysics;
 
 namespace PFVR.AI
 {
+    /**
+     * <summary>Movement script for the group of leaders. Homes in on each target after another.</summary>
+     **/
     public class LeaderBehavior : MonoBehaviour
     {
+        /** <summary><value>The <c>alphaFactor</c> defines the factor for calculating the drift (alpha > 0).</value></summary>*/
         public float alphaFactor = 0.2f;
         private float alphaFactorUsed;
+        /** <summary><value>The <c>attackPlayerDistance</c> defines the distance before attacking the player.</value></summary>*/
         public float attackPlayerDistance = 500.0f;
+        /** <summary><value>The <c>ankorThreshold</c> defines the distance to the home area before returning.</value></summary>*/
         public float ankorThreshold = 1000.0f;
+        /** <summary><value>The <c>chasePlayer</c> sets a boolean value for deciding if player is currently chased.</value></summary>*/
+        public bool chasePlayer = false;
 
         private IMotor motor;
         private GameObject ankor;
@@ -27,8 +35,6 @@ namespace PFVR.AI
         private bool lookForPlayer = false;
         private bool normalize = false;
         private Vector3 transformationVector;
-        
-        public bool chasePlayer = false;
 
         // Start is called before the first frame update
         void Start()

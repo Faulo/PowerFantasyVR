@@ -8,26 +8,34 @@ using PFVR.Player;
 
 namespace PFVR.AI
 {
+    /**
+     * <summary>
+     * Movement skript for one enemy object. Movement depending on current location, player contact and distance from home area. </summary>
+     * <para>This is the base class for moving swarm objects. The abstract method <c>MoveObject</c> must be implemented.</para>
+     **/
     public abstract class EnemyBehavior : MonoBehaviour
     {
-        // Fields to set
-        // Alpha > 0; Factor for velocity of agents
+        /** <summary><value>The <c>alphaFactor</c> defines the factor for calculating the drift (alpha > 0).</value></summary>*/
         [SerializeField, Range(0, 5)]
         private float alphaFactor = 0.4f;
-
-        // Beta > 0; Factor for diffusion intensity
+        
+        /** <summary><value>The <c>betaFactor</c> defines the factor for calculating the diffusion intensity (beta > 0).</value></summary>*/
         [SerializeField, Range(0, 10)]
         private float betaFactor = 1.0f;
 
+        /** <summary><value>The <c>playerVelocityThreshold</c> defines the minimum velocity of the player for starting to evade attack.</value></summary>*/
         [SerializeField, Range(0, 200.0f)]
         private float playerVelocityTheshold = 100.0f;
 
+        /** <summary><value>The <c>playerDistanceThreshold</c> defines the maximum distance of the player before starting to chase them.</value></summary>*/
         [SerializeField, Range(0, 1000)]
         private float playerDistanceThreshold = 30.0f;
 
+        /** <summary><value>The <c>idleDiffusion</c> defines the diffusion value when idle.</value></summary>*/
         [SerializeField, Range(0, 1000)]
         private float idleDiffusion = 100.0f;
 
+        /** <summary><value>The <c>idleDiffusion</c> defines the diffusion value when chasing.</value></summary>*/
         [SerializeField, Range(0, 1000)]
         private float chasingDiffusion = 0.0f;
 

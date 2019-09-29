@@ -3,9 +3,16 @@ using UnityEngine;
 
 namespace PFVR.AI
 {
+    /**
+     * <summary>Static class for returning one of four possible methods for calculating an evasion direction.</summary>
+     **/
     public static class EnemyEvasion
     {
-
+        /**
+         * <summary>Decides which method for calculating an evasion direction to return.</summary>
+         * <param name="evadeDirection">Integer value between 1 and 4 for deciding which way to evade. Is set in the calling class once per object.</param>
+         * <returns>The Function for calculating an evade direction vector with the object position and player position as input and the new Vector3 as output.</returns>
+         **/
         public static Func<Vector3, Vector3, Vector3> FindEvadeBehavior(int evadeDirection)
         {
             switch (evadeDirection)
