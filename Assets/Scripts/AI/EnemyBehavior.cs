@@ -10,8 +10,7 @@ namespace PFVR.AI
 {
     /**
      * <summary>
-     * Movement skript for one enemy object. Movement depending on current location, player contact and distance from home area. </summary>
-     * <para>This is the base class for moving swarm objects. The abstract method <c>MoveObject</c> must be implemented.</para>
+     * Movement skript for one enemy object. Movement depending on current location, player contact and distance from home area. This is the base class for moving swarm objects. The abstract method <c>MoveObject</c> must be implemented.</summary>
      **/
     public abstract class EnemyBehavior : MonoBehaviour
     {
