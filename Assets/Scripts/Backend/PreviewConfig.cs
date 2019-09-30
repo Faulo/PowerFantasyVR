@@ -3,6 +3,9 @@ using UnityEngine;
 using Valve.VR;
 
 namespace PFVR.Backend {
+    /// <summary>
+    /// Adds glove and/or tracker materials to any descendant <see cref="SteamVR_RenderModel"/>s.
+    /// </summary>
     [ExecuteInEditMode]
     public class PreviewConfig : MonoBehaviour {
         [SerializeField]

@@ -4,6 +4,7 @@
 !.gitattributes
 !.gitignore
 !.gitmodules
+!README.md
 !*.json
 !*.bat
 !*.vssettings
