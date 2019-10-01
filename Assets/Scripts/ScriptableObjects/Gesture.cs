@@ -2,6 +2,9 @@
 using UnityEngine;
 
 namespace PFVR.ScriptableObjects {
+    /// <summary>
+    /// A single gesture. Its name will be used as ID elsewhere.
+    /// </summary>
     [CreateAssetMenu(fileName = "New Gesture", menuName = "Gameplay/Gesture", order = 1)]
     public class Gesture : ScriptableObject {
         public GameObject spellPrefab = default;

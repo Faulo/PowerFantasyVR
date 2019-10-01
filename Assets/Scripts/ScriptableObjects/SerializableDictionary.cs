@@ -3,6 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace PFVR.ScriptableObjects {
+    /// <summary>
+    /// A <see cref="Dictionary&lt;TKey, TValue>"/>, but serializable.
+    /// 
+    /// Taken from <a href="https://answers.unity.com/questions/460727/how-to-serialize-dictionary-with-unity-serializati.html">the Internet</a>.
+    /// </summary>
+    /// <typeparam name="TKey"><seealso cref="Dictionary&lt;TKey, TValue>"/></typeparam>
+    /// <typeparam name="TValue"><seealso cref="Dictionary&lt;TKey, TValue>"/></typeparam>
     public class SerializableDictionary<TKey, TValue> : Dictionary<TKey, TValue>, ISerializationCallbackReceiver {
         [SerializeField]
         private List<TKey> keys = new List<TKey>();

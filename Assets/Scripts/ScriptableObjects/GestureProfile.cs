@@ -5,6 +5,11 @@ using UnityEditor;
 using UnityEngine;
 
 namespace PFVR.ScriptableObjects {
+    /// <summary>
+    /// A serializable tuple of <see cref="GestureSet"/> and tracking data, to easily switch which tracking data is used in-game.
+    /// 
+    /// Its name will be used for the names of the tracking data .csv and .zip files.
+    /// </summary>
     [CreateAssetMenu(fileName = "GestureProfile.Player", menuName = "Gameplay/Gesture Profile", order = 3)]
     public class GestureProfile : ScriptableObject {
         [SerializeField]
