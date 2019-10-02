@@ -4,10 +4,13 @@
 !.gitattributes
 !.gitignore
 !.gitmodules
-!README.md
 !*.json
 !*.bat
 !*.vssettings
+
+!README.md
+!packages.config
+!app.config
 
 !/Assets/
 !/ProjectSettings/
