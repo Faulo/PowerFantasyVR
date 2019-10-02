@@ -8,7 +8,6 @@ namespace PFVR.OurPhysics {
     public class AnimatedDestroyable : MonoBehaviour, IDestroyable {
         [SerializeField, Range(1, 1000)]
         private float maxHP = 1;
-        private float waited = 0.0f;
         public float currentHP {
             get => currentHPCache;
             set {
@@ -40,7 +39,6 @@ namespace PFVR.OurPhysics {
             if (isAlive && currentHP <= 0) {
                 isAlive = false;
                 animator.SetBool("IsAlive", false);
-                waited = 0.0f;
             }
         }
     }

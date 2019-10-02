@@ -5,6 +5,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace PFVR.Environment {
+    /// <summary>
+    /// Basic collectible.
+    /// </summary>
     public class CoinBehaviour : MonoBehaviour {
         [SerializeField]
         private LayerMask collectingLayer = default;

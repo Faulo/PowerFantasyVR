@@ -4,13 +4,19 @@
 !.gitattributes
 !.gitignore
 !.gitmodules
-!README.md
 !*.json
 !*.bat
 !*.vssettings
 
+!README.md
+!packages.config
+!app.config
+
 !/Assets/
 !/ProjectSettings/
+
+!/docfx_project/
+!/docs/
 
 /Assets/Meshes/Environment/Water/
 !/Assets/Meshes/Environment/Water/Water.txt

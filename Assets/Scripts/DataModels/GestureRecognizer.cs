@@ -1,7 +1,11 @@
 ﻿using Microsoft.ML;
 using UnityEngine;
+using PFVR.ScriptableObjects;
 
 namespace PFVR.DataModels {
+    /// <summary>
+    /// Sets up an <see cref="MLContext"/> to guess <see cref="Gesture"/> IDs based on <see cref="GestureModel"/>s.
+    /// </summary>
     public class GestureRecognizer {
         private MLContext context;
         private PredictionEngine<GestureModel, StringPrediction> engine;

@@ -3,6 +3,9 @@ using System;
 using UnityEngine;
 
 namespace PFVR.DataModels {
+    /// <summary>
+    /// A model for ManusVR glove data. Can be converted to <see cref="GestureModel"/>.
+    /// </summary>
     [Serializable]
     public class GloveData {
         public device_type_t device;

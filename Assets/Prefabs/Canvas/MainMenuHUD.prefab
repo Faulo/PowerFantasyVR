@@ -831,7 +831,6 @@ GameObject:
   - component: {fileID: 9127095473339858607}
   - component: {fileID: 9127095473339858576}
   - component: {fileID: 9127095473339858605}
-  - component: {fileID: 9127095473339858604}
   m_Layer: 5
   m_Name: Interface Selection
   m_TagString: Untagged
@@ -972,18 +971,6 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
---- !u!114 &9127095473339858604
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9127095473339858578}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55241f6cc62985b4ab90bbac8dd63938, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &9127095473438951688
 GameObject:
   m_ObjectHideFlags: 0
@@ -1911,11 +1898,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8034316500106415042}
     m_Modifications:
-    - target: {fileID: 1747697223946012648, guid: ab2fdba2775a4ff4bb4d21e97bf0da54,
-        type: 3}
-      propertyPath: m_Name
-      value: LevelSelectButton
-      objectReference: {fileID: 0}
     - target: {fileID: 3358091877231729855, guid: ab2fdba2775a4ff4bb4d21e97bf0da54,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2020,6 +2002,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1747697223946012648, guid: ab2fdba2775a4ff4bb4d21e97bf0da54,
+        type: 3}
+      propertyPath: m_Name
+      value: LevelSelectButton
       objectReference: {fileID: 0}
     - target: {fileID: 1799511287946135359, guid: ab2fdba2775a4ff4bb4d21e97bf0da54,
         type: 3}

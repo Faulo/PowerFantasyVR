@@ -4,6 +4,9 @@ using System.Linq;
 using UnityEngine;
 
 namespace PFVR.Player.Gestures {
+    /// <summary>
+    /// An example <see cref="AbstractDetctor"/> implementation. Detects when hands are within a certain distance towards each other.
+    /// </summary>
     public class BasicDetector : AbstractDetector {
         [SerializeField]
         private Transform otherHandDetector = default;

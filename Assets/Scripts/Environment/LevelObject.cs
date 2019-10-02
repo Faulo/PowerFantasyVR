@@ -6,6 +6,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace PFVR.Environment {
+    /// <summary>
+    /// Utility class that lets game objects easily switch between their physics behavior.
+    /// 
+    /// All visible objects in a scene should have this as one of their root components.
+    /// </summary>
     [ExecuteAlways]
     public class LevelObject : MonoBehaviour {
         enum LevelObjectType {

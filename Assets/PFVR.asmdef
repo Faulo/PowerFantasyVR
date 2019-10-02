@@ -19,7 +19,8 @@
         "Unity.Transforms",
         "Unity.Rendering.Hybrid",
         "Unity.Mathematics",
-        "UnitySceneReference"
+        "UnitySceneReference",
+        "VolumetricLines"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

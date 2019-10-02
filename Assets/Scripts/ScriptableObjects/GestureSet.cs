@@ -5,6 +5,9 @@ using UnityEditor;
 using UnityEngine;
 
 namespace PFVR.ScriptableObjects {
+    /// <summary>
+    /// A serializable set of <see cref="Gesture"/>s, to store which of them are active in-game.
+    /// </summary>
     [CreateAssetMenu(fileName = "New Gesture Set", menuName = "Gameplay/Gesture Set", order = 2)]
     public class GestureSet : ScriptableObject {
         [Serializable]
@@ -12,12 +15,6 @@ namespace PFVR.ScriptableObjects {
 
         [SerializeField, HideInInspector]
         private Gesture[] gestures = new Gesture[0];
-
-        public string trackingDataPath {
-            get {
-                return "Assets/Resources/TrackingData/" + name + ".csv";
-            }
-        }
 
         public IEnumerable<Gesture> gestureObjects => gestures;
         public IEnumerable<string> gestureNames => gestureObjects
