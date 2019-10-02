@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace PFVR.Events {
+    /// <summary>
+    /// All the different kinds of events.
+    /// </summary>
     public enum GameEventType {
         PlayerHpChanged,
         PowerUpCollected,

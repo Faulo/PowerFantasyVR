@@ -5,6 +5,11 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 namespace PFVR.Player.Gestures {
+    /// <summary>
+    /// The base class for all complex (i.e., two-hand) gestures.
+    /// 
+    /// Implementing scripts call <see cref="TurnOn"/> when they detect that hands have entered their trigger state, and <see cref="TurnOff"/> when they leave it.
+    /// </summary>
     public class AbstractDetector : MonoBehaviour {
         [SerializeField]
         private Gesture triggeredGesture = default;

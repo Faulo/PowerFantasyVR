@@ -3,24 +3,30 @@ using System.Collections.Generic;
 using UnityEngine;
 using Unity.Transforms;
 using Unity.Mathematics;
-using PFVR.Player;
+using PFVR.OurPhysics;
 
 namespace PFVR.AI
 {
-
-
+    /**
+     * <summary>Movement script for the group of leaders. Homes in on each target after another.</summary>
+     **/
     public class LeaderBehavior : MonoBehaviour
     {
+        /** <summary><value>The <c>alphaFactor</c> defines the factor for calculating the drift (alpha > 0).</value></summary>*/
         public float alphaFactor = 0.2f;
         private float alphaFactorUsed;
+        /** <summary><value>The <c>attackPlayerDistance</c> defines the distance before attacking the player.</value></summary>*/
         public float attackPlayerDistance = 500.0f;
+        /** <summary><value>The <c>ankorThreshold</c> defines the distance to the home area before returning.</value></summary>*/
         public float ankorThreshold = 1000.0f;
+        /** <summary><value>The <c>chasePlayer</c> sets a boolean value for deciding if player is currently chased.</value></summary>*/
+        public bool chasePlayer = false;
 
-        private PlayerBehaviour playerBehavior;
+        private IMotor motor;
         private GameObject ankor;
         private GameObject[] arrayOfTargets;
 
-        private Transform currentTarget;
+        private Vector3 currentTarget;
         private float currentDistance;
         private int num;
         private float nearTarget = 10.0f;
@@ -29,8 +35,6 @@ namespace PFVR.AI
         private bool lookForPlayer = false;
         private bool normalize = false;
         private Vector3 transformationVector;
-        
-        public bool chasePlayer = false;
 
         // Start is called before the first frame update
         void Start()
@@ -38,7 +42,7 @@ namespace PFVR.AI
             // Retrieve all targets
             arrayOfTargets = GameObject.FindGameObjectsWithTag("LeaderTarget");
             //Retrieve player behavior script
-            playerBehavior = FindObjectOfType<PlayerBehaviour>();
+            motor = transform.root.GetComponentInChildren<IMotor>();
             //Retrieve ankor
             ankor = GameObject.FindGameObjectWithTag("Ankor");
             // Set number of Targets
@@ -55,9 +59,9 @@ namespace PFVR.AI
             {
                 num = arrayOfTargets.Length - 1;
             }
-            currentTarget = arrayOfTargets[num].transform;
+            currentTarget = arrayOfTargets[num].transform.position;
 
-            currentDistance = Vector3.Distance(currentTarget.position, transform.position);
+            currentDistance = Vector3.Distance(currentTarget, transform.position);
             if (currentDistance < nearTarget)
             {
                 num--;
@@ -65,13 +69,13 @@ namespace PFVR.AI
                 lookForPlayer = true;
             }
             // Find player nearby
-            if (playerBehavior != null)
+            if (motor != null)
             {
-                playerDistance = Vector3.Distance(playerBehavior.motor.position, transform.position);
+                playerDistance = Vector3.Distance(motor.position, transform.position);
                 ankorDistance = Vector3.Distance(ankor.transform.position, transform.position);
                 if (playerDistance < attackPlayerDistance && ankorDistance < ankorThreshold && lookForPlayer)
                 {
-                    currentTarget = playerBehavior.transform;
+                    currentTarget = motor.position;
                     chasePlayer = true;
                     alphaFactorUsed = alphaFactor + 2.0f;
 
@@ -86,7 +90,7 @@ namespace PFVR.AI
             }
 
             // Move leader to target
-            transformationVector = new Vector3(currentTarget.position.x, currentTarget.position.y, currentTarget.position.z) - transform.position;
+            transformationVector = new Vector3(currentTarget.x, currentTarget.y, currentTarget.z) - transform.position;
             if (normalize)
             {
                 Vector3.Normalize(transformationVector);
@@ -96,9 +100,9 @@ namespace PFVR.AI
             transform.Translate(transformationVector * alphaFactorUsed * Time.deltaTime);
         }
 
-        public PlayerBehaviour GetPlayer()
+        public IMotor GetPlayerMotor()
         {
-            return playerBehavior;
+            return motor;
         }
     }
 }

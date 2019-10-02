@@ -9,6 +9,9 @@ using UnityEngine;
 using UnityEngine.UI;
 
 namespace PFVR.Canvas {
+    /// <summary>
+    /// The in-game HUD, containing unlocked gestures and such.
+    /// </summary>
     public class PlayerHUD : MonoBehaviour {
         [SerializeField]
         private LayoutGroup leftGestureGroup = default;

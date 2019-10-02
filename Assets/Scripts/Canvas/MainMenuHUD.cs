@@ -9,6 +9,9 @@ using UnityEngine;
 using UnityEngine.UI;
 
 namespace PFVR.Canvas {
+    /// <summary>
+    /// The HUD used by the main menu, containing the level selection and options.
+    /// </summary>
     public class MainMenuHUD : MonoBehaviour {
         [SerializeField]
         private LayoutGroup levelSelectGroup = default;
@@ -19,13 +22,10 @@ namespace PFVR.Canvas {
 
         void Start() {
             levelSelectManager = new ScriptableObjectManager<Level>(levelSelectGroup, GameSettings.instance.levels);
-            levelSelectManager.AddClickAction((level, button) => {
-                GameManager.instance.LoadLevel(level);
-            });
+            levelSelectManager.AddClickAction((level, button) => GameManager.instance.LoadLevel(level));
 
             interfaceTypeDropdown.value = (int)GameSettings.instance.interfaceType;
-            interfaceTypeDropdown.onValueChanged.AddListener((int value) => GameSettings.instance.interfaceType = (InterfaceType)value);
-
+            interfaceTypeDropdown.onValueChanged.AddListener((value) => GameSettings.instance.interfaceType = (InterfaceType)value);
         }
     }
 }

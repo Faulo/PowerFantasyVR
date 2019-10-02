@@ -6,7 +6,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace PFVR.Disaster {
-
+    /// <summary>
+    /// Fires stuff into the game world!
+    /// </summary>
     public class ObjectCannon : MonoBehaviour {
         [SerializeField]
         private GameObject[] projectilePrefabs = default;

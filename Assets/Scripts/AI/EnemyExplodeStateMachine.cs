@@ -2,12 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyExplodeStateMachine : StateMachineBehaviour
+namespace PFVR.AI
 {
-
-    // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
-    override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    /**
+     * <summary>This class makes sure the explosion animation is played when the object ist destroyed.</summary>
+     **/
+    public class EnemyExplodeStateMachine : StateMachineBehaviour
     {
-        animator.SetBool("EnemyExploded", true);
+        // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
+        override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+        {
+            animator.SetBool("EnemyExploded", true);
+        }
     }
 }

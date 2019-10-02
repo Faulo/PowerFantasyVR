@@ -8,6 +8,9 @@ using UnityEditor;
 using UnityEngine;
 
 namespace PFVR.Backend {
+    /// <summary>
+    /// A class for storing raw <see cref="ManusConnector"/> data alongside a reference <see cref="Gesture"/>.
+    /// </summary>
     public class GestureRecorder {
         enum RecordState {
             Inactive,

@@ -1,0 +1,1578 @@
+{
+  "homepages": [],
+  "source_base_path": "C:/Unity/workspace/PowerFantasyVR/docfx_project",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.AI.EnemyBehavior.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.AI.EnemyBehavior.html",
+          "hash": "om28UjBU7mzWnwqrENhd2Q=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.AI.EnemyBehaviorRigid.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.AI.EnemyBehaviorRigid.html",
+          "hash": "yciKwPTs3EnfqTVFhqQwZA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.AI.EnemyBehaviorTranslate.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.AI.EnemyBehaviorTranslate.html",
+          "hash": "7De/a+9rFL4cHwg85UrPrQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.AI.EnemyEvasion.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.AI.EnemyEvasion.html",
+          "hash": "MisJWOACa21goOSFKh7KqA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.AI.EnemyExplodeStateMachine.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.AI.EnemyExplodeStateMachine.html",
+          "hash": "Hjsxjgw86xam43j7n3H4BQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.AI.EnemySpawner.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.AI.EnemySpawner.html",
+          "hash": "yE3B34ePk+Jk/xzEZqnzoQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.AI.LeaderBehavior.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.AI.LeaderBehavior.html",
+          "hash": "/Z1c3VZnklor7ElH1mv2sQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.AI.MarsagliaGenerator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.AI.MarsagliaGenerator.html",
+          "hash": "djKYloXWbDzLunRWKZpyqA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.AI.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.AI.html",
+          "hash": "yq13h+Q6QsF+sPrJ6TTsGg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.Backend.DebugScreen.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.Backend.DebugScreen.html",
+          "hash": "QRGautRj7se4wigx38QEKg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.Backend.GestureDataRecording.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.Backend.GestureDataRecording.html",
+          "hash": "NSDyeCVicsFUl03hvKos6Q=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.Backend.GestureRecorder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.Backend.GestureRecorder.html",
+          "hash": "NrIqwG1N4JH6RhbVo58mwA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.Backend.PreviewConfig.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.Backend.PreviewConfig.html",
+          "hash": "/aGRHPVy7VIsqGpvBlOPjA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.Backend.RecognizerScreen.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.Backend.RecognizerScreen.html",
+          "hash": "SfjzPugz1qm39uvgOKC3eQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.Backend.StatusScreen.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.Backend.StatusScreen.html",
+          "hash": "5piv3xWEET59ife2vcl1XQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.Backend.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.Backend.html",
+          "hash": "jjpfw1/Q0C3RudRWOeCUsg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.Canvas.BasicButton.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.Canvas.BasicButton.html",
+          "hash": "i1w1uXqJkFdonXqbQ4EfdQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.Canvas.MainMenuHUD.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.Canvas.MainMenuHUD.html",
+          "hash": "4UrJgIbN7qXXgofzXD9Zew=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.Canvas.PlayerHUD.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.Canvas.PlayerHUD.html",
+          "hash": "H2xlNqkl+hbqdCG9/KQhNA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.Canvas.ScriptableObjectManager-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.Canvas.ScriptableObjectManager-1.html",
+          "hash": "TLZ8r0eJwDdkfHilXLKFPQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.Canvas.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.Canvas.html",
+          "hash": "q1kG3dyomab2jwdXtPlvkQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.DataModels.GestureModel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.DataModels.GestureModel.html",
+          "hash": "8l2fwgf3B3jKHEeM8tY39A=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.DataModels.GestureRecognizer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.DataModels.GestureRecognizer.html",
+          "hash": "Xtmgg5QhrgkonDmdsr9l3Q=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.DataModels.GloveData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.DataModels.GloveData.html",
+          "hash": "V+M+Sw2dSukb5zyjgBC3NA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.DataModels.ModelMerger.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.DataModels.ModelMerger.html",
+          "hash": "lz8ONlL+jVEQUL9UzFG7jA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.DataModels.ModelWriter-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.DataModels.ModelWriter-1.html",
+          "hash": "n6Cpk2NpMQCaDZPZYOrIYg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.DataModels.StringPrediction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.DataModels.StringPrediction.html",
+          "hash": "54LIZnQ69L2wuG4tBMvl9Q=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.DataModels.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.DataModels.html",
+          "hash": "ejXbtZ6vTfitha1aka7O5A=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.Disaster.ObjectCannon.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.Disaster.ObjectCannon.html",
+          "hash": "4QRhE4wtCePo29MqeI0hcA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.Disaster.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.Disaster.html",
+          "hash": "ruNfjDTYUYyt64lNYmom2g=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.Environment.CoinBehaviour.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.Environment.CoinBehaviour.html",
+          "hash": "CnJ/HvvE89TM3msbOX7ldQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.Environment.LevelObject.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.Environment.LevelObject.html",
+          "hash": "VylUEgo2sEkmMqgxF+UaXA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.Environment.Magnetic.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.Environment.Magnetic.html",
+          "hash": "g3W86wufoofeDTkCU3q3og=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.Environment.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.Environment.html",
+          "hash": "Gcqiq8Wx6kJVafHidpNuiA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.Events.GameEvent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.Events.GameEvent.html",
+          "hash": "8Ex7AK7KtlVsqYebhgkQ/g=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.Events.GameEventListener.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.Events.GameEventListener.html",
+          "hash": "DNGTRWAtyKFhZdi/Jkq82g=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.Events.GameEventResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.Events.GameEventResponse.html",
+          "hash": "vb/cqZn8/FlfP24wfB2d0Q=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.Events.GameEventSource.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.Events.GameEventSource.html",
+          "hash": "H4qZUk9VNMD1wh4hCyXAUQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.Events.GameEventType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.Events.GameEventType.html",
+          "hash": "3rJxizRBpF3FgYgzJhSzhg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.Events.GameEventTypeExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.Events.GameEventTypeExtensions.html",
+          "hash": "z2/nA+TpjSOvN7MnVesYDw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.Events.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.Events.html",
+          "hash": "dMNf2OSdsVo8dObH4zTWTA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.OurPhysics.AnimatedDestroyable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.OurPhysics.AnimatedDestroyable.html",
+          "hash": "ii328kbhy5xRmWk4sbNMQw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.OurPhysics.BasicDestroyable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.OurPhysics.BasicDestroyable.html",
+          "hash": "7IcdNpl7EOnnFtHpCxVHPQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.OurPhysics.CenterOfMass.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.OurPhysics.CenterOfMass.html",
+          "hash": "I9J3Cw25dvKXMPbsEasJdg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.OurPhysics.CharacterControllerMotor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.OurPhysics.CharacterControllerMotor.html",
+          "hash": "9QZClckh6jx0DGcrGQ7Zrg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.OurPhysics.DeathZone.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.OurPhysics.DeathZone.html",
+          "hash": "G4SoD/XPEeemt1ZxO0pBsw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.OurPhysics.DestroyOnCollision.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.OurPhysics.DestroyOnCollision.html",
+          "hash": "qau6YzXdqHE/+9leZXSMAg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.OurPhysics.FakeGravity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.OurPhysics.FakeGravity.html",
+          "hash": "WS7mzcp1ZiIlfwRciT/NDQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.OurPhysics.Floater.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.OurPhysics.Floater.html",
+          "hash": "Ot4KvIz7PFelQCWm7WuUYw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.OurPhysics.IDestroyable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.OurPhysics.IDestroyable.html",
+          "hash": "Y+7UisXLSNmf2cVRo5OulQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.OurPhysics.IMotor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.OurPhysics.IMotor.html",
+          "hash": "qRYW6/gcmxTvohg7M86aZw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.OurPhysics.KinematicRigidbody.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.OurPhysics.KinematicRigidbody.html",
+          "hash": "X0VkOSvD8EBTRwuP+jIZ7Q=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.OurPhysics.ReverseNormals.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.OurPhysics.ReverseNormals.html",
+          "hash": "3uyU3/OlpDntbmhqT3M5nA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.OurPhysics.RigidbodyDensity.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.OurPhysics.RigidbodyDensity.html",
+          "hash": "y1hNCaTFYWYYFna8hyCOEA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.OurPhysics.RigidbodyMotor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.OurPhysics.RigidbodyMotor.html",
+          "hash": "QzwZMwGgJQ3ZCFpRueamDw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.OurPhysics.ScalableObject.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.OurPhysics.ScalableObject.html",
+          "hash": "SXwSv5al8vNZ5kphdELFUQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.OurPhysics.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.OurPhysics.html",
+          "hash": "ctGEm4rThXZ+dneF/vk+uQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.Player.FPSController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.Player.FPSController.html",
+          "hash": "IKJreRNZLbwyXlKs4vC6Sw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.Player.GestureConnector.NewGesture.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.Player.GestureConnector.NewGesture.html",
+          "hash": "Yxm40mni1juoCnVBNkljSA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.Player.GestureConnector.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.Player.GestureConnector.html",
+          "hash": "ioOvKfj0HE7WAfMWNA0Bqg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.Player.Gestures.AbstractDetector.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.Player.Gestures.AbstractDetector.html",
+          "hash": "eIS3sZ4uOm0tCilQmLLw7A=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.Player.Gestures.BasicDetector.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.Player.Gestures.BasicDetector.html",
+          "hash": "u9Ybnv5eXwJDXd0SHdQCkA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.Player.Gestures.ClapDetector.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.Player.Gestures.ClapDetector.html",
+          "hash": "Uew60ZppEuqTQIqMaBJV2Q=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.Player.Gestures.HandGatheringDetector.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.Player.Gestures.HandGatheringDetector.html",
+          "hash": "9FqR2DXDICA5N6pgbUUPjQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.Player.Gestures.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.Player.Gestures.html",
+          "hash": "3iVyrABXQ+maT8ll1qlgow=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.Player.InterfaceType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.Player.InterfaceType.html",
+          "hash": "Uv7wsT617JpAkDsthkMvxQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.Player.ManusConnector.NewGloveData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.Player.ManusConnector.NewGloveData.html",
+          "hash": "O/8C6/YCgMESDhfsHuNKlg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.Player.ManusConnector.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.Player.ManusConnector.html",
+          "hash": "Zf51PY9jYOIvWEOEGHlOfQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.Player.PlayerBehaviour.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.Player.PlayerBehaviour.html",
+          "hash": "+X7fubNpO+u0643sPpGZMQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.Player.PlayerHandBehaviour.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.Player.PlayerHandBehaviour.html",
+          "hash": "Tglc6XBdkebvaFpz0qP+Yg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.Player.PowerUp.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.Player.PowerUp.html",
+          "hash": "e7Bs74FZC78hDr9A5ZEUoQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.Player.RumbleMixer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.Player.RumbleMixer.html",
+          "hash": "coqydfLkBf6hPG/9fvOhkw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.Player.SpawnPoint.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.Player.SpawnPoint.html",
+          "hash": "Z2QTnD9R7d9M/0nx40gcHg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.Player.SteamConnector.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.Player.SteamConnector.html",
+          "hash": "XCLePCdA4+ObMs3O8+wcmg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.Player.VRCollider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.Player.VRCollider.html",
+          "hash": "F136A2oDDWJfi+OcYPWpQg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.Player.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.Player.html",
+          "hash": "DxGa6EYho3a+p8ohM0vu0w=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.SFX.OneShot.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.SFX.OneShot.html",
+          "hash": "nvT4Yo8oCmEa9kKpRC0z+Q=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.SFX.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.SFX.html",
+          "hash": "AT+pvrqctZemyW+fxWrJNg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.ScriptableObjects.Gesture.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.ScriptableObjects.Gesture.html",
+          "hash": "muY8AiueuFXqBf7KjkLjBQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.ScriptableObjects.GestureProfile.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.ScriptableObjects.GestureProfile.html",
+          "hash": "7D5eqrrZsJCOFsD8g56nBQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.ScriptableObjects.GestureSet.GestureDictionary.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.ScriptableObjects.GestureSet.GestureDictionary.html",
+          "hash": "lMenvhWclTMrYuP43xT7Uw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.ScriptableObjects.GestureSet.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.ScriptableObjects.GestureSet.html",
+          "hash": "nCPYc/HKF0wZb4vc7L4u6w=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.ScriptableObjects.Level.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.ScriptableObjects.Level.html",
+          "hash": "0YloKAnB6M9rrWeUyEek1g=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.ScriptableObjects.SerializableDictionary-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.ScriptableObjects.SerializableDictionary-2.html",
+          "hash": "ooMkejiDxTMI3io2JPz9Xw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.ScriptableObjects.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.ScriptableObjects.html",
+          "hash": "Cx7H0wE/iHKC2tINqNHxkA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.Settings.GameManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.Settings.GameManager.html",
+          "hash": "tB5nMyqZqlP+LC6zjbv9ZA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.Settings.GameSettings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.Settings.GameSettings.html",
+          "hash": "0dOR18sjZ6qv+7IFxLlvqQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.Settings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.Settings.html",
+          "hash": "N2QaD256aSxEpIFtbGelUQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.Spells.AbstractSpell.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.Spells.AbstractSpell.html",
+          "hash": "MtPQ9OArPGulenkAMIvEXw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.Spells.EnergyWave.MetroidWave.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.Spells.EnergyWave.MetroidWave.html",
+          "hash": "TICa8myxLff1WuWYBR9qSg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.Spells.EnergyWave.SpellState.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.Spells.EnergyWave.SpellState.html",
+          "hash": "C3dIOmGqvtMuPBdLQsbW7A=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.Spells.EnergyWave.Wave.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.Spells.EnergyWave.Wave.html",
+          "hash": "EBm1KdRAjRPcZx28xcCxAQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.Spells.EnergyWave.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.Spells.EnergyWave.html",
+          "hash": "CzN4MHPVa9R4FgiGhv+dUw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.Spells.Explosion.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.Spells.Explosion.html",
+          "hash": "qpJAQdLsVazKKoJkecJI7w=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.Spells.FireBall.Anchor.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.Spells.FireBall.Anchor.html",
+          "hash": "JzAi+PgWEjC4TKYxyp4KkA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.Spells.FireBall.Ball.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.Spells.FireBall.Ball.html",
+          "hash": "BX5PjjbyNGrHt0D5vW2COw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.Spells.FireBall.SpellState.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.Spells.FireBall.SpellState.html",
+          "hash": "DsG6Ns+Ox8GXWhSz+UBNfA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.Spells.FireBall.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.Spells.FireBall.html",
+          "hash": "BAlnzrkuzQP7R4cAYUh0Bg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.Spells.ISpellState.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.Spells.ISpellState.html",
+          "hash": "x3CfdfSp+7DDh4HC0pfC3g=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.Spells.JetPack.Engine.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.Spells.JetPack.Engine.html",
+          "hash": "jQAkU+yjJZ5zf9529rCH9A=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.Spells.JetPack.SpellState.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.Spells.JetPack.SpellState.html",
+          "hash": "92F/8Vl71WDDYCt43PQWpw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.Spells.JetPack.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.Spells.JetPack.html",
+          "hash": "U/xqbFB0RXTrfTZm17Li2w=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.Spells.LaserBolt.Bolt.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.Spells.LaserBolt.Bolt.html",
+          "hash": "mUVxEcTQMD8KG+vrMJXh/A=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.Spells.LaserBolt.SpellState.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.Spells.LaserBolt.SpellState.html",
+          "hash": "2UbZ8FbRrqbjvIZ5ctIEow=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.Spells.LaserBolt.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.Spells.LaserBolt.html",
+          "hash": "CJkWsAqTw01PZDyyQYx2vQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.Spells.LaserRay.BasicRay.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.Spells.LaserRay.BasicRay.html",
+          "hash": "I/7vwq7zTTEIdQA8Y3fQ+w=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.Spells.LaserRay.SpellState.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.Spells.LaserRay.SpellState.html",
+          "hash": "ITMogf82V6r+/egDwvdTpw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.Spells.LaserRay.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.Spells.LaserRay.html",
+          "hash": "WYOiHXGMiJwi/LJi17fVRA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.Spells.Shield.HamsterBall.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.Spells.Shield.HamsterBall.html",
+          "hash": "hLSpQ0dWbh+0ooNLYydLVQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.Spells.Shield.IShield.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.Spells.Shield.IShield.html",
+          "hash": "/jOFJKJYNiOShso8nBb47w=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.Spells.Shield.KnightShield.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.Spells.Shield.KnightShield.html",
+          "hash": "rXKXXrGWyRPaKl0Oe4XLyg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.Spells.Shield.SpellState.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.Spells.Shield.SpellState.html",
+          "hash": "A7XHWsktUf509yc9BgujWg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.Spells.Shield.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.Spells.Shield.html",
+          "hash": "kxg2GC3DlQZKIJrYEgkJSw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.Spells.TimeStop.SpellState.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.Spells.TimeStop.SpellState.html",
+          "hash": "ymSapSchirZeMui5hEBAhw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.Spells.TimeStop.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.Spells.TimeStop.html",
+          "hash": "KlQ6VJRPUIxQvSF/LUtThg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.Spells.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.Spells.html",
+          "hash": "SFbnmoIBkOKX/AUpJa28nA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.VFX.ChromaticAberrationOverSpeed.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.VFX.ChromaticAberrationOverSpeed.html",
+          "hash": "gKF3MRXKoh8irukFJOjLRw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.VFX.ParticleSystemAnimator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.VFX.ParticleSystemAnimator.html",
+          "hash": "2ZCXLHEyPFqFRvtTdjD2Zw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.VFX.ParticleSystemBurster.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.VFX.ParticleSystemBurster.html",
+          "hash": "li/wIQN0YXx9Nr/nOVaRxQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.VFX.ParticleSystemDestroyOnFinish.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.VFX.ParticleSystemDestroyOnFinish.html",
+          "hash": "MvBertSEqMoE4eW62HVk0w=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.VFX.TracerParticles.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.VFX.TracerParticles.html",
+          "hash": "wYstEJ0aV7d9p2KMcZiaTQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.VFX.TrailRendererScaleToSpeed.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.VFX.TrailRendererScaleToSpeed.html",
+          "hash": "QxbCQ+uj6eDB30pOHLT2jg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/PFVR.VFX.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/PFVR.VFX.html",
+          "hash": "W47vnKqmwwqgS7Fg09Np9g=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/index.html",
+          "hash": "FomLH/DxApeLbxcYwXmsxA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html",
+          "hash": "5R/dFQRjyIuG39Eu+zpNDw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html",
+          "hash": "qhAtJY6R4xIM8MwXQ+6Mlg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html",
+          "hash": "CTRBtwqjkNOufjixN6uYcg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    }
+  ],
+  "incremental_info": [
+    {
+      "status": {
+        "can_incremental": true,
+        "incrementalPhase": "build",
+        "total_file_count": 0,
+        "skipped_file_count": 0
+      },
+      "processors": {
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
+          "skipped_file_count": 0
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": true,
+          "incrementalPhase": "build",
+          "total_file_count": 123,
+          "skipped_file_count": 123
+        },
+        "ConceptualDocumentProcessor": {
+          "can_incremental": true,
+          "incrementalPhase": "build",
+          "total_file_count": 2,
+          "skipped_file_count": 1
+        }
+      }
+    },
+    {
+      "status": {
+        "can_incremental": true,
+        "details": "Can support incremental post processing.",
+        "incrementalPhase": "postProcessing",
+        "total_file_count": 0,
+        "skipped_file_count": 0
+      },
+      "processors": {}
+    }
+  ],
+  "version_info": {},
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

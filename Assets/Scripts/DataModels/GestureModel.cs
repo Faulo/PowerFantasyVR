@@ -2,6 +2,9 @@
 using System;
 
 namespace PFVR.DataModels {
+    /// <summary>
+    /// The source data model used by <see cref="MLContext"/>.
+    /// </summary>
     [Serializable]
     public class GestureModel {
         [ColumnName("pinkyProximal"), LoadColumn(0)]

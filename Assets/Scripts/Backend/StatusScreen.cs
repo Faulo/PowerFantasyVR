@@ -9,6 +9,9 @@ using UnityEngine.XR;
 using Valve.VR;
 
 namespace PFVR.Backend {
+    /// <summary>
+    /// A widget for displaying raw Manus glove data. Requires a working <see cref="ManusConnector"/>.
+    /// </summary>
     public class StatusScreen : MonoBehaviour {
         private TextMeshProUGUI mesh;
         private string format;
