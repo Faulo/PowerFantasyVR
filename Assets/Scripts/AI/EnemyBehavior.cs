@@ -58,7 +58,8 @@ namespace PFVR.AI
         private GameObject[] arrayOfBeacons;
 
         // Evation variables
-        private IMotor playerMotor;
+        private IMotor playerMotor => PlayerBehaviour.instance.motor;
+
         private bool evadePlayer;
         private float playerVelocity;
         private float playerEnemyDistance;
@@ -75,8 +76,6 @@ namespace PFVR.AI
             // Retrieve all Beacons
             arrayOfBeacons = GameObject.FindGameObjectsWithTag("Beacon");
             leaderBehavior = GameObject.FindGameObjectWithTag("Leaders").GetComponent<LeaderBehavior>();
-
-            playerMotor = leaderBehavior.GetPlayerMotor();
 
             evadeVector = new Vector3();
             evadeBehavior = EnemyEvasion.FindEvadeBehavior(UnityEngine.Random.Range(0, 4));
