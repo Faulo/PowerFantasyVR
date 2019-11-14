@@ -11,13 +11,9 @@
         "BOXOPHOBIC",
         "Unity.Postprocessing.Runtime",
         "UnityEngine.UI",
-        "EntityComponentSystem",
         "LowPolyWater",
         "ParticlePack",
-        "Unity.Entities",
         "Unity.Collections",
-        "Unity.Transforms",
-        "Unity.Rendering.Hybrid",
         "Unity.Mathematics",
         "UnitySceneReference",
         "VolumetricLines"
