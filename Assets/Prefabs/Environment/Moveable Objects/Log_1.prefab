@@ -63,7 +63,7 @@ MonoBehaviour:
   destroyableDeadPrefab: {fileID: 7648092028806189602, guid: 23b3909450ee5a9408aca91ec66621f3,
     type: 3}
   levelOfDetail: 1
-  levelOfDetailCutoff: 0.05
+  levelOfDetailCutoff: 0.005
 --- !u!54 &4615381326681999701
 Rigidbody:
   m_ObjectHideFlags: 0

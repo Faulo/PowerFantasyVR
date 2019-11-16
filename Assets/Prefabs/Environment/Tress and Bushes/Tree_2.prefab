@@ -63,7 +63,7 @@ MonoBehaviour:
   destroyableDeadPrefab: {fileID: 7648092028806189602, guid: b08b2e5b53d2e6242bc142581214d0de,
     type: 3}
   levelOfDetail: 1
-  levelOfDetailCutoff: 0.05
+  levelOfDetailCutoff: 0.01
 --- !u!205 &866720621860227098
 LODGroup:
   m_ObjectHideFlags: 0
@@ -197,6 +197,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4905684144481780}
     m_Modifications:
+    - target: {fileID: 1327385724211766, guid: 45da35d058e8aed4995fc7059900d6ac, type: 3}
+      propertyPath: m_Name
+      value: Tree_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1327385724211766, guid: 45da35d058e8aed4995fc7059900d6ac, type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1327385724211766, guid: 45da35d058e8aed4995fc7059900d6ac, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4905684144481780, guid: 45da35d058e8aed4995fc7059900d6ac, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -252,18 +264,6 @@ PrefabInstance:
     - target: {fileID: 4905684144481780, guid: 45da35d058e8aed4995fc7059900d6ac, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 1327385724211766, guid: 45da35d058e8aed4995fc7059900d6ac, type: 3}
-      propertyPath: m_Name
-      value: Tree_2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1327385724211766, guid: 45da35d058e8aed4995fc7059900d6ac, type: 3}
-      propertyPath: m_Layer
-      value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 1327385724211766, guid: 45da35d058e8aed4995fc7059900d6ac, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 1908851322758640, guid: 45da35d058e8aed4995fc7059900d6ac, type: 3}
       propertyPath: m_Layer

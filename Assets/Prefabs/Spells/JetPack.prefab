@@ -88,26 +88,26 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 1
-      inSlope: -0.27619863
-      outSlope: -0.27619863
+      inSlope: -0.16981125
+      outSlope: -0.16981125
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.109922566
+      outWeight: 0.1625
     - serializedVersion: 3
       time: 1
-      value: 0.1
-      inSlope: -2.4545462
-      outSlope: -2.4545462
+      value: 0.5
+      inSlope: -1.5735841
+      outSlope: -1.5735841
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.04074073
+      inWeight: 0.0625
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
   propulsionRumble: 0.6
-  maximumAltitude: 300
+  maximumAltitude: 500
   boostForce: 50
   boostDuration: 2
   boostRumble: 1
