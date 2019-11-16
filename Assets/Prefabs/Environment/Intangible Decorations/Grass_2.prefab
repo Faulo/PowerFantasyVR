@@ -48,8 +48,19 @@ MonoBehaviour:
   type: 0
   rigidbodyDensity: 1
   rigidbodyDrag: 0
+  waterPlaneWidth: 0
+  waterPlaneHeight: 0
+  waterPlaneWaveWidth: 1
+  waterPlaneWaveHeight: 1
+  waterPlaneAutoUpdate: 0
+  waterfallTopFoam: {fileID: 0}
+  waterfallBottomFoam: {fileID: 0}
+  destroyableHPDensity: 1
+  destroyableDamageTakenPrefab: {fileID: 0}
+  destroyableDamageHealedPrefab: {fileID: 0}
+  destroyableDeadPrefab: {fileID: 0}
   levelOfDetail: 1
-  levelOfDetailCutoff: 0.005
+  levelOfDetailCutoff: 0.001
 --- !u!205 &1817410023492284748
 LODGroup:
   m_ObjectHideFlags: 0
@@ -76,6 +87,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4956255927207046}
     m_Modifications:
+    - target: {fileID: 1835125518048470, guid: 3c77b7beb8b64e64f92bdc8121a060da, type: 3}
+      propertyPath: m_Name
+      value: Grass_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1835125518048470, guid: 3c77b7beb8b64e64f92bdc8121a060da, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1835125518048470, guid: 3c77b7beb8b64e64f92bdc8121a060da, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4956255927207046, guid: 3c77b7beb8b64e64f92bdc8121a060da, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0
@@ -119,18 +142,6 @@ PrefabInstance:
     - target: {fileID: 4956255927207046, guid: 3c77b7beb8b64e64f92bdc8121a060da, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1835125518048470, guid: 3c77b7beb8b64e64f92bdc8121a060da, type: 3}
-      propertyPath: m_Name
-      value: Grass_2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1835125518048470, guid: 3c77b7beb8b64e64f92bdc8121a060da, type: 3}
-      propertyPath: m_Layer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1835125518048470, guid: 3c77b7beb8b64e64f92bdc8121a060da, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 23711529704809334, guid: 3c77b7beb8b64e64f92bdc8121a060da,
         type: 3}

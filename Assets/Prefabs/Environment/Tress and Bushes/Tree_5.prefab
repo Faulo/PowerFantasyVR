@@ -63,7 +63,7 @@ MonoBehaviour:
   destroyableDeadPrefab: {fileID: 7648092028806189602, guid: b08b2e5b53d2e6242bc142581214d0de,
     type: 3}
   levelOfDetail: 1
-  levelOfDetailCutoff: 0.05
+  levelOfDetailCutoff: 0.01
 --- !u!205 &2496448945937682601
 LODGroup:
   m_ObjectHideFlags: 0
@@ -122,6 +122,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4345878849055200}
     m_Modifications:
+    - target: {fileID: 1457318384898378, guid: ed6e5b1d2f26395489aaa939b5842132, type: 3}
+      propertyPath: m_Name
+      value: EM_Tree9a_PRE
+      objectReference: {fileID: 0}
+    - target: {fileID: 1457318384898378, guid: ed6e5b1d2f26395489aaa939b5842132, type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1457318384898378, guid: ed6e5b1d2f26395489aaa939b5842132, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4100746201267738, guid: ed6e5b1d2f26395489aaa939b5842132, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -149,18 +161,6 @@ PrefabInstance:
     - target: {fileID: 4100746201267738, guid: ed6e5b1d2f26395489aaa939b5842132, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1457318384898378, guid: ed6e5b1d2f26395489aaa939b5842132, type: 3}
-      propertyPath: m_Name
-      value: EM_Tree9a_PRE
-      objectReference: {fileID: 0}
-    - target: {fileID: 1457318384898378, guid: ed6e5b1d2f26395489aaa939b5842132, type: 3}
-      propertyPath: m_Layer
-      value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 1457318384898378, guid: ed6e5b1d2f26395489aaa939b5842132, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 1591559258581584, guid: ed6e5b1d2f26395489aaa939b5842132, type: 3}
       propertyPath: m_Layer

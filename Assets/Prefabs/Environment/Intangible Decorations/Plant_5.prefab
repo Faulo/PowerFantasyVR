@@ -48,8 +48,19 @@ MonoBehaviour:
   type: 0
   rigidbodyDensity: 1
   rigidbodyDrag: 0
+  waterPlaneWidth: 0
+  waterPlaneHeight: 0
+  waterPlaneWaveWidth: 1
+  waterPlaneWaveHeight: 1
+  waterPlaneAutoUpdate: 0
+  waterfallTopFoam: {fileID: 0}
+  waterfallBottomFoam: {fileID: 0}
+  destroyableHPDensity: 1
+  destroyableDamageTakenPrefab: {fileID: 0}
+  destroyableDamageHealedPrefab: {fileID: 0}
+  destroyableDeadPrefab: {fileID: 0}
   levelOfDetail: 1
-  levelOfDetailCutoff: 0.005
+  levelOfDetailCutoff: 0.001
 --- !u!205 &8089406038082200860
 LODGroup:
   m_ObjectHideFlags: 0

@@ -63,7 +63,7 @@ MonoBehaviour:
   destroyableDeadPrefab: {fileID: 7648092028806189602, guid: b08b2e5b53d2e6242bc142581214d0de,
     type: 3}
   levelOfDetail: 1
-  levelOfDetailCutoff: 0.05
+  levelOfDetailCutoff: 0.01
 --- !u!205 &6463919432993858620
 LODGroup:
   m_ObjectHideFlags: 0
@@ -122,6 +122,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4112504727747986}
     m_Modifications:
+    - target: {fileID: 1732752170155260, guid: a3b2fb56a672c374db5e7480ea25da1e, type: 3}
+      propertyPath: m_Name
+      value: Bush_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1732752170155260, guid: a3b2fb56a672c374db5e7480ea25da1e, type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1732752170155260, guid: a3b2fb56a672c374db5e7480ea25da1e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4112504727747986, guid: a3b2fb56a672c374db5e7480ea25da1e, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -137,18 +149,6 @@ PrefabInstance:
     - target: {fileID: 4112504727747986, guid: a3b2fb56a672c374db5e7480ea25da1e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1732752170155260, guid: a3b2fb56a672c374db5e7480ea25da1e, type: 3}
-      propertyPath: m_Name
-      value: Bush_1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1732752170155260, guid: a3b2fb56a672c374db5e7480ea25da1e, type: 3}
-      propertyPath: m_Layer
-      value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 1732752170155260, guid: a3b2fb56a672c374db5e7480ea25da1e, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a3b2fb56a672c374db5e7480ea25da1e, type: 3}
