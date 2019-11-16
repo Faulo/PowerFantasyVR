@@ -12,10 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21757a0db03fe9949b01e283198a6a37, type: 3}
   m_Name: PFVR.Settings
   m_EditorClassIdentifier: 
-  interfaceType: 0
+  menuKey: 27
+  screenshotKey: 293
+  interfaceType: 1
   mainMenu:
     sceneAsset: {fileID: 102900000, guid: 9aedcd59e273c4441b0358ddf8a2d3a7, type: 3}
     scenePath: Assets/Scenes/Main Menu.unity
   levels:
   - {fileID: 11400000, guid: 3da35903ee1b2a342a60913f63bde2ef, type: 2}
   - {fileID: 11400000, guid: 88c14cd83ccf16e48a78a608a2753ecc, type: 2}
+  screenshotPath: Temp/Screenshot {0}.png

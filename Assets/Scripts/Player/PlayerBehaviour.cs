@@ -7,6 +7,16 @@ using PFVR.OurPhysics;
 
 namespace PFVR.Player {
     public class PlayerBehaviour : MonoBehaviour {
+        public static PlayerBehaviour instance {
+            get {
+                if (instanceCache == null) {
+                    instanceCache = FindObjectOfType<PlayerBehaviour>();
+                }
+                return instanceCache;
+            }
+        }
+        private static PlayerBehaviour instanceCache;
+
         public IMotor motor { get; private set; }
 
         [SerializeField]

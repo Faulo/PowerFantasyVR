@@ -1,9 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Unity.Transforms;
-using Unity.Mathematics;
 using PFVR.OurPhysics;
+using PFVR.Player;
 
 namespace PFVR.AI
 {
@@ -22,7 +21,7 @@ namespace PFVR.AI
         /** <summary><value>The <c>chasePlayer</c> sets a boolean value for deciding if player is currently chased.</value></summary>*/
         public bool chasePlayer = false;
 
-        private IMotor motor;
+        private IMotor motor => PlayerBehaviour.instance.motor;
         private GameObject ankor;
         private GameObject[] arrayOfTargets;
 
@@ -41,8 +40,6 @@ namespace PFVR.AI
         {
             // Retrieve all targets
             arrayOfTargets = GameObject.FindGameObjectsWithTag("LeaderTarget");
-            //Retrieve player behavior script
-            motor = transform.root.GetComponentInChildren<IMotor>();
             //Retrieve ankor
             ankor = GameObject.FindGameObjectWithTag("Ankor");
             // Set number of Targets
@@ -98,11 +95,6 @@ namespace PFVR.AI
             }
             //rigidBody.AddRelativeForce(transformationVector * alphaFactorUsed);
             transform.Translate(transformationVector * alphaFactorUsed * Time.deltaTime);
-        }
-
-        public IMotor GetPlayerMotor()
-        {
-            return motor;
         }
     }
 }
