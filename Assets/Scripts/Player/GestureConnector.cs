@@ -9,7 +9,7 @@ using UnityEngine;
 
 
 namespace PFVR.Player {
-    public class GestureConnector : MonoBehaviour {
+    public class GestureConnector : MonoBehaviour, IGestureDictionary {
         public static GestureConnector instance { get; private set; }
 
         [SerializeField]
@@ -18,13 +18,11 @@ namespace PFVR.Player {
         [SerializeField]
         private int gestureTriggerFrames = 1;
 
-        private Dictionary<string, bool> unlockedGestures = new Dictionary<string, bool>() {
-            ["Nothing"] = true
-        };
+        [SerializeField, HideInInspector]
+        private Gesture[] unlockedGestures = new Gesture[0];
 
-        public IEnumerable<Gesture> availableGestures => unlockedGestures
-            .Where(keyval => keyval.Value)
-            .Select(keyval => gestureProfile.gestureSet[keyval.Key]);
+        public IEnumerable<Gesture> possibleGestures => gestureProfile.gestureSet.gestureObjects;
+        public IEnumerable<Gesture> availableGestures => unlockedGestures;
 
         public delegate void NewGesture(Gesture gesture);
 
@@ -47,7 +45,6 @@ namespace PFVR.Player {
         [SerializeField]
         private Gesture[] debugGestures = default;
         private Gesture defaultGesture => debugGestures[0];
-
 
         void Start() {
             if (gestureProfile == null) {
@@ -120,28 +117,28 @@ namespace PFVR.Player {
 
         private IEnumerator Init() {
             yield return new WaitForSeconds(1);
-            unlockedGestures.Keys.ToArray().ForAll(Unlock);
+            unlockedGestures.ForAll(Unlock);
             onLeftGesture?.Invoke(defaultGesture);
             onRightGesture?.Invoke(defaultGesture);
             yield return null;
         }
-        public bool IsUnlocked(string gestureId) {
-            return unlockedGestures.ContainsKey(gestureId)
-                ? unlockedGestures[gestureId]
-                : false;
-        }
-        public bool IsUnlocked(Gesture gesture) => IsUnlocked(gesture.name);
 
-        public void Unlock(string gestureId) {
-            unlockedGestures[gestureId] = true;
-            onGestureUnlock?.Invoke(gestureProfile.gestureSet[gestureId]);
+        public bool IsUnlocked(string gestureId) {
+            return unlockedGestures.Any(gesture => gesture.name == gestureId);
         }
-        public void Unlock(Gesture gesture) => Unlock(gesture.name);
-        public void Lock(string gestureId) {
-            unlockedGestures[gestureId] = false;
-            onGestureLock?.Invoke(gestureProfile.gestureSet[gestureId]);
+        public bool IsUnlocked(Gesture gesture) => unlockedGestures.Contains(gesture);
+
+        public void Unlock(string gestureId) => Unlock(gestureProfile.gestureSet[gestureId]);
+        public void Unlock(Gesture gesture) {
+            AddGesture(gesture);
+            onGestureUnlock?.Invoke(gesture);
         }
-        public void Lock(Gesture gesture) => Lock(gesture.name);
+
+        public void Lock(string gestureId) => Lock(gestureProfile.gestureSet[gestureId]);
+        public void Lock(Gesture gesture) {
+            RemoveGesture(gesture);
+            onGestureLock?.Invoke(gesture);
+        }
 
         private void Update() {
             for (int i = 0; i < debugKeys.Length; i++) {
@@ -153,6 +150,22 @@ namespace PFVR.Player {
                         Unlock(id);
                     }
                 }
+            }
+        }
+
+        public bool HasGesture(Gesture gesture) => unlockedGestures.Contains(gesture);
+        public void AddGesture(Gesture gesture) {
+            if (!HasGesture(gesture)) {
+                var list = unlockedGestures.ToList();
+                list.Add(gesture);
+                unlockedGestures = list.ToArray();
+            }
+        }
+        public void RemoveGesture(Gesture gesture) {
+            if (HasGesture(gesture)) {
+                var list = unlockedGestures.ToList();
+                list.Remove(gesture);
+                unlockedGestures = list.ToArray();
             }
         }
     }

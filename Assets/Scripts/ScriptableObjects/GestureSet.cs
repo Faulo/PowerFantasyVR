@@ -9,10 +9,7 @@ namespace PFVR.ScriptableObjects {
     /// A serializable set of <see cref="Gesture"/>s, to store which of them are active in-game.
     /// </summary>
     [CreateAssetMenu(fileName = "New Gesture Set", menuName = "Gameplay/Gesture Set", order = 2)]
-    public class GestureSet : ScriptableObject {
-        [Serializable]
-        public class GestureDictionary : SerializableDictionary<Gesture, bool> { }
-
+    public class GestureSet : ScriptableObject, IGestureDictionary {
         [SerializeField, HideInInspector]
         private Gesture[] gestures = new Gesture[0];
 
@@ -27,17 +24,18 @@ namespace PFVR.ScriptableObjects {
                     .FirstOrDefault();
             }
         }
-        
-        public bool Contains(Gesture gesture) => gestures.Contains(gesture);
-        public void Append(Gesture gesture) {
-            if (!Contains(gesture)) {
+
+        public IEnumerable<Gesture> possibleGestures => Resources.LoadAll<Gesture>("ScriptableObjects");
+        public bool HasGesture(Gesture gesture) => gestures.Contains(gesture);
+        public void AddGesture(Gesture gesture) {
+            if (!HasGesture(gesture)) {
                 var list = gestures.ToList();
                 list.Add(gesture);
                 gestures = list.ToArray();
             }
         }
-        public void Remove(Gesture gesture) {
-            if (Contains(gesture)) {
+        public void RemoveGesture(Gesture gesture) {
+            if (HasGesture(gesture)) {
                 var list = gestures.ToList();
                 list.Remove(gesture);
                 gestures = list.ToArray();
