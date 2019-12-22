@@ -6,7 +6,7 @@
         "ManusVR",
         "Unity.TextMeshPro",
         "ML.NET",
-        "Slothsoft.UnityExtensions",
+        "Slothsoft.UnityExtensions.Runtime",
         "BOXOPHOBIC",
         "Unity.Postprocessing.Runtime",
         "UnityEngine.UI",
