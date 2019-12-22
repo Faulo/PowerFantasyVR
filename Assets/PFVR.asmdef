@@ -12,8 +12,6 @@
         "UnityEngine.UI",
         "LowPolyWater",
         "ParticlePack",
-        "Unity.Collections",
-        "Unity.Mathematics",
         "UnitySceneReference",
         "VolumetricLines"
     ],
