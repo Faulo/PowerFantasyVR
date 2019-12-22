@@ -15,7 +15,7 @@ namespace PFVR.Backend {
     public class StatusScreen : MonoBehaviour {
         private TextMeshProUGUI mesh;
         private string format;
-        private Dictionary<string, Quaternion> args = new Dictionary<string, Quaternion>();
+        private Dictionary<string, Vector3> args = new Dictionary<string, Vector3>();
 
         [SerializeField]
         private int roundingPrecision = 10;
@@ -25,20 +25,22 @@ namespace PFVR.Backend {
 
             mesh = GetComponent<TextMeshProUGUI>();
             format = mesh.text;
-            args["leftGlove"] = default;
-            args["leftTracker"] = default;
-            args["leftDelta"] = default;
-            args["rightGlove"] = default;
-            args["rightTracker"] = default;
-            args["rightDelta"] = default;
+            args["leftGloveRotation"] = default;
+            args["leftTrackerRotation"] = default;
+            args["leftTrackerPosition"] = default;
+            args["rightGloveRotation"] = default;
+            args["rightTrackerRotation"] = default;
+            args["rightTrackerPosition"] = default;
 
             ManusConnector.onLeftGloveData += (GloveData glove) => {
-                args["leftGlove"] = glove.wrist;
-                args["leftTracker"] = SteamConnector.leftTracker.rotation;
+                args["leftGloveRotation"] = glove.wrist.eulerAngles;
+                args["leftTrackerRotation"] = SteamConnector.leftTracker.rotation.eulerAngles;
+                args["leftTrackerPosition"] = SteamConnector.leftTracker.position;
             };
             ManusConnector.onRightGloveData += (GloveData glove) => {
-                args["rightGlove"] = glove.wrist;
-                args["rightTracker"] = SteamConnector.rightTracker.rotation;
+                args["rightGloveRotation"] = glove.wrist.eulerAngles;
+                args["rightTrackerRotation"] = SteamConnector.rightTracker.rotation.eulerAngles;
+                args["rightTrackerPosition"] = SteamConnector.rightTracker.position;
             };
 
             XRSettings.LoadDeviceByName("OpenVR");
@@ -47,9 +49,6 @@ namespace PFVR.Backend {
 
         // Update is called once per frame
         void Update() {
-            args["leftDelta"] = Difference(args["leftTracker"], args["leftGlove"]);
-            args["rightDelta"] = Difference(args["rightTracker"], args["rightGlove"]);
-
             mesh.text = string.Format(
                 format,
                 args.Values
