@@ -13,21 +13,22 @@ namespace PFVR.Backend {
         private TextMeshProUGUI mesh;
         private string format;
 
-        private Dictionary<string, Gesture> args = new Dictionary<string, Gesture>();
+        private Dictionary<string, IEnumerable<Gesture>> args = new Dictionary<string, IEnumerable<Gesture>>();
 
         // Start is called before the first frame update
         void Start() {
             mesh = GetComponent<TextMeshProUGUI>();
             format = mesh.text;
 
+            args["available"] = GestureConnector.instance.availableGestures;
             args["left"] = null;
             args["right"] = null;
 
             GestureConnector.onLeftGesture += (Gesture gesture) => {
-                args["left"] = gesture;
+                args["left"] = new Gesture[]{ gesture };
             };
             GestureConnector.onRightGesture += (Gesture gesture) => {
-                args["right"] = gesture;
+                args["right"] = new Gesture[] { gesture };
             };
         }
 
@@ -39,6 +40,11 @@ namespace PFVR.Backend {
                     .Select(Format)
                     .ToArray()
             );
+        }
+        string Format(IEnumerable<Gesture> gestures) {
+            return gestures == null
+                ? "???"
+                : string.Join(", ", gestures.Select(Format));
         }
         string Format(Gesture gesture) {
             return gesture == null

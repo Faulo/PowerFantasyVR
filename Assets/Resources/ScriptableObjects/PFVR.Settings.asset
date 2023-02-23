@@ -21,4 +21,5 @@ MonoBehaviour:
   levels:
   - {fileID: 11400000, guid: 3da35903ee1b2a342a60913f63bde2ef, type: 2}
   - {fileID: 11400000, guid: 88c14cd83ccf16e48a78a608a2753ecc, type: 2}
+  - {fileID: 11400000, guid: c6fc78553b2dc1a4fa7586ecc5879d23, type: 2}
   screenshotPath: Temp/Screenshot {0}.png
