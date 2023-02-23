@@ -1,19 +1,16 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using ManusVR.Core.Apollo;
-using Slothsoft.UnityExtensions;
 using UnityEngine;
 
 namespace PFVR.Player {
     public class RumbleMixer {
-        private GloveLaterality side;
-        private ushort interval;
-        private bool mix;
-        private float[] rumbles = new float[100];
-        private int rumbleIndex;
-        private IEnumerable<int> rumbleIndexes {
+        GloveLaterality side;
+        ushort interval;
+        bool mix;
+        float[] rumbles = new float[100];
+        int rumbleIndex;
+        IEnumerable<int> rumbleIndexes {
             get {
                 for (int i = 0; i < rumbles.Length; i++) {
                     yield return (i + rumbleIndex) % rumbles.Length;
@@ -31,7 +28,7 @@ namespace PFVR.Player {
             if (mix) {
                 var wait = new WaitForSecondsRealtime((float)interval / 1000);
                 while (true) {
-                    var power = Mathf.Clamp01(rumbles[rumbleIndex]);
+                    float power = Mathf.Clamp01(rumbles[rumbleIndex]);
                     if (power > 0) {
                         Apollo.rumble(side, interval, (ushort)(ushort.MaxValue * power));
                         rumbles[rumbleIndex] = 0;

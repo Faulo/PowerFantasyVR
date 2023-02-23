@@ -1,7 +1,6 @@
 ﻿using ManusVR.Core.Apollo;
 using ManusVR.Core.Hands;
 using PFVR.DataModels;
-using System.Collections;
 using UnityEngine;
 
 namespace PFVR.Player {
@@ -12,12 +11,12 @@ namespace PFVR.Player {
         public static event NewGloveData onRightGloveData;
 
         [SerializeField]
-        private bool useRumbleMixer = false;
+        bool useRumbleMixer = false;
         [SerializeField, Range(1, 1000)]
-        private ushort rumbleInterval = 1;
+        ushort rumbleInterval = 1;
 
-        private static RumbleMixer leftRumble;
-        private static RumbleMixer rightRumble;
+        static RumbleMixer leftRumble;
+        static RumbleMixer rightRumble;
         public static void Rumble(GloveLaterality side, ushort duration, float power) {
             switch (side) {
                 case GloveLaterality.GLOVE_LEFT:
@@ -29,11 +28,11 @@ namespace PFVR.Player {
             }
         }
 
-        private int playerId = 1;
+        int playerId = 1;
 
         void Start() {
             leftRumble = new RumbleMixer(GloveLaterality.GLOVE_LEFT, rumbleInterval, useRumbleMixer);
-            rightRumble = new RumbleMixer(GloveLaterality.GLOVE_RIGHT , rumbleInterval, useRumbleMixer);
+            rightRumble = new RumbleMixer(GloveLaterality.GLOVE_RIGHT, rumbleInterval, useRumbleMixer);
             StartCoroutine(leftRumble.RumbleMixerRoutine());
             StartCoroutine(rightRumble.RumbleMixerRoutine());
         }
@@ -45,9 +44,9 @@ namespace PFVR.Player {
                 onRightGloveData(glove);
             }
         }
-        
 
-        private bool TryToFetch(device_type_t gloveType, GloveLaterality laterality, Transform tracker, out GloveData output) {
+
+        bool TryToFetch(device_type_t gloveType, GloveLaterality laterality, Transform tracker, out GloveData output) {
             try {
                 if (HandDataManager.CanGetHandData(playerId, gloveType)) {
                     var data = HandDataManager.GetHandData(playerId, gloveType);
@@ -70,7 +69,7 @@ namespace PFVR.Player {
                     };
                     return true;
                 }
-            } catch(System.NullReferenceException e) {
+            } catch (System.NullReferenceException e) {
                 Debug.Log(e);
             }
             output = null;

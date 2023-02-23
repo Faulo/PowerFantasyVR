@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace PFVR.Player.Gestures {
     /// <summary>
@@ -9,9 +6,9 @@ namespace PFVR.Player.Gestures {
     /// </summary>
     public class ClapDetector : AbstractDetector {
         [SerializeField]
-        private bool isPrimary = false;
+        bool isPrimary = false;
 
-        private void OnTriggerEnter(Collider other) {
+        void OnTriggerEnter(Collider other) {
             if (isPrimary) {
                 var otherDetector = other.GetComponent<ClapDetector>();
                 if (otherDetector != null) {
@@ -24,7 +21,7 @@ namespace PFVR.Player.Gestures {
             }
         }
 
-        private void OnTriggerExit(Collider other) {
+        void OnTriggerExit(Collider other) {
             if (isPrimary) {
                 var otherDetector = other.GetComponent<ClapDetector>();
                 if (otherDetector != null) {

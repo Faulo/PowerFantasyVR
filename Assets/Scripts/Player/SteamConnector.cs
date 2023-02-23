@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using Valve.VR;
 
 namespace PFVR.Player {
     public static class SteamConnector {
@@ -8,14 +7,14 @@ namespace PFVR.Player {
                 if (leftTrackerCache == null) {
                     try {
                         leftTrackerCache = Object.FindObjectOfType<SteamVR_ControllerManager>().left.transform;
-                    } catch(System.Exception) {
+                    } catch (System.Exception) {
                         Debug.Log("Scene is missing either 'SteamVR_ControllerManager' or its left field, help!");
                     }
                 }
                 return leftTrackerCache;
             }
         }
-        private static Transform leftTrackerCache;
+        static Transform leftTrackerCache;
         public static Transform rightTracker {
             get {
                 if (rightTrackerCache == null) {
@@ -28,6 +27,6 @@ namespace PFVR.Player {
                 return rightTrackerCache;
             }
         }
-        private static Transform rightTrackerCache;
+        static Transform rightTrackerCache;
     }
 }

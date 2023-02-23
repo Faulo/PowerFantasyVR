@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using PFVR.ScriptableObjects;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,10 +10,10 @@ namespace PFVR.Canvas {
     /// </summary>
     /// <typeparam name="T">The type of <see cref="ScriptableObject"/> to be layouted.</typeparam>
     public class ScriptableObjectManager<T> where T : ScriptableObject {
-        private LayoutGroup root;
-        private GameObject scriptablePrefab;
-        private T[] scriptableObjects;
-        private BasicButton[] scriptableButtons;
+        LayoutGroup root;
+        GameObject scriptablePrefab;
+        T[] scriptableObjects;
+        BasicButton[] scriptableButtons;
 
         public IEnumerable<T> elements {
             get {

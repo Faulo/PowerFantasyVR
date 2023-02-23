@@ -1,7 +1,6 @@
 ﻿using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace PFVR.Canvas {
@@ -32,12 +31,12 @@ namespace PFVR.Canvas {
                 textMesh.text = value;
             }
         }
-        private TextMeshProUGUI textMesh {
+        TextMeshProUGUI textMesh {
             get {
                 return GetComponentInChildren<TextMeshProUGUI>();
             }
         }
-        private Image image => GetComponent<Image>();
-        private Button button => GetComponent<Button>();
+        Image image => GetComponent<Image>();
+        Button button => GetComponent<Button>();
     }
 }

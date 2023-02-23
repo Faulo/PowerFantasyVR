@@ -1,12 +1,5 @@
-﻿using PFVR;
-using PFVR.Player;
-using PFVR.Spells;
-using Slothsoft.UnityExtensions;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
+﻿using PFVR.Player;
 using UnityEngine;
-using Valve.VR;
 
 namespace PFVR.Spells {
     public class AbstractSpell : MonoBehaviour, ISpellState {

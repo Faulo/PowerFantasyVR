@@ -1,18 +1,12 @@
 ﻿using PFVR.OurPhysics;
-using PFVR.Spells.LaserBolt;
-using PFVR.Spells.LaserRay;
-using Slothsoft.UnityExtensions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 namespace PFVR.Spells.FireBall {
     public class Ball : ScalableObject, IDestroyable {
         [SerializeField]
-        private GameObject regularExplosionPrefab = default;
+        GameObject regularExplosionPrefab = default;
         [SerializeField]
-        private GameObject laserExplosionPrefab = default;
+        GameObject laserExplosionPrefab = default;
 
         public new Collider collider { get; private set; }
 
@@ -37,18 +31,18 @@ namespace PFVR.Spells.FireBall {
         public bool isAlive { get; private set; } = true;
         public Vector3 position => transform.position;
 
-        private void Awake() {
+        void Awake() {
             collider = GetComponentInChildren<Collider>();
             rigidbody = GetComponentInChildren<Rigidbody>();
             trailRenderer = GetComponentInChildren<TrailRenderer>();
         }
 
-        private void Update() {
+        void Update() {
             trailRenderer.startWidth = scaledScaling;
             trailRenderer.endWidth = scaledScaling;
         }
 
-        private void OnCollisionEnter(Collision collision) {
+        void OnCollisionEnter(Collision collision) {
             currentHP = 0;
         }
 
@@ -59,7 +53,7 @@ namespace PFVR.Spells.FireBall {
             ExplodeWith(laserExplosionPrefab);
         }
 
-        private void ExplodeWith(GameObject prefab) {
+        void ExplodeWith(GameObject prefab) {
             if (isAlive) {
                 isAlive = false;
                 var explosion = Instantiate(prefab, transform.position, Quaternion.identity).GetComponent<Explosion>();

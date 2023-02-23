@@ -1,11 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace PFVR.OurPhysics {
     [RequireComponent(typeof(Rigidbody))]
     public class RigidbodyMotor : MonoBehaviour, IMotor {
-        private new Rigidbody rigidbody;
+        new Rigidbody rigidbody;
 
         public Vector3 position => transform.position;
         public Vector3 velocity {

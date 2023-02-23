@@ -5,9 +5,9 @@ using UnityEngine;
 namespace PFVR.OurPhysics {
     public class DestroyOnCollision : MonoBehaviour {
         [SerializeField]
-        private Material destruction = default;
+        Material destruction = default;
 
-        private void OnCollisionEnter(Collision collision) {
+        void OnCollisionEnter(Collision collision) {
             var body = collision.rigidbody;
             if (body != null) {
                 if (body.GetComponentInParent<PlayerBehaviour>()) {

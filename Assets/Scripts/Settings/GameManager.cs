@@ -1,8 +1,5 @@
 ﻿using System;
-using PFVR.Player;
 using PFVR.ScriptableObjects;
-using TMPro;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -19,7 +16,7 @@ namespace PFVR.Settings {
                 return instanceCache;
             }
         }
-        private static GameManager instanceCache;
+        static GameManager instanceCache;
 
         public GameSettings settings;
 
@@ -36,7 +33,7 @@ namespace PFVR.Settings {
             }
         }
 
-        private bool IsInMainMenu() {
+        bool IsInMainMenu() {
             return SceneManager.GetActiveScene().path == settings.mainMenu.ScenePath;
         }
 
@@ -45,12 +42,12 @@ namespace PFVR.Settings {
         }
 
         public void TakeScreenshot() {
-            var name = string.Format(settings.screenshotPath, DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss"));
+            string name = string.Format(settings.screenshotPath, DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss"));
             ScreenCapture.CaptureScreenshot(name, 4);
             Debug.Log("Screenshot '" + name + "' done!");
         }
 
-        private void LoadScene(SceneReference scene) => SceneManager.LoadScene(scene.ScenePath);
+        void LoadScene(SceneReference scene) => SceneManager.LoadScene(scene.ScenePath);
         public void LoadLevel(Level level) => LoadScene(level.scene);
         public void LoadMainMenu() => LoadScene(settings.mainMenu);
     }

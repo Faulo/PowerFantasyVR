@@ -1,19 +1,17 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using PFVR.Events;
 using PFVR.ScriptableObjects;
-using PFVR.Events;
 using Slothsoft.UnityExtensions;
+using UnityEngine;
 
 namespace PFVR.Player {
     [RequireComponent(typeof(GameEventSource))]
     public class PowerUp : MonoBehaviour {
         [SerializeField]
-        private Gesture gestureToUnlock = default;
+        Gesture gestureToUnlock = default;
         [SerializeField]
-        private MeshRenderer[] meshesToColorize = default;
+        MeshRenderer[] meshesToColorize = default;
 
-        private GameEventSource eventTarget;
+        GameEventSource eventTarget;
 
         // Start is called before the first frame update
         void Start() {

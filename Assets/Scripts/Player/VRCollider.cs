@@ -1,15 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-using Valve.VR;
+﻿using UnityEngine;
 
 namespace PFVR.Player {
     [RequireComponent(typeof(CapsuleCollider))]
     public class VRCollider : MonoBehaviour {
         [SerializeField]
-        private Camera headMountedDisplay = default;
-        private new CapsuleCollider collider;
+        Camera headMountedDisplay = default;
+        new CapsuleCollider collider;
 
         void Start() {
             collider = GetComponent<CapsuleCollider>();

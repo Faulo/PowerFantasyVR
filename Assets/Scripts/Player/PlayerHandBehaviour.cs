@@ -1,10 +1,10 @@
-﻿using ManusVR.Core.Apollo;
+﻿using System.Collections.Generic;
+using System.Linq;
+using ManusVR.Core.Apollo;
 using ManusVR.Core.Hands;
 using PFVR.ScriptableObjects;
 using PFVR.Spells;
 using Slothsoft.UnityExtensions;
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 namespace PFVR.Player {
@@ -21,32 +21,32 @@ namespace PFVR.Player {
 
         public bool enableDebugging;
 
-        private GameObject currentSpellPrefab;
+        GameObject currentSpellPrefab;
 
-        private Hand manusHand;
+        Hand manusHand;
 
         [SerializeField, Range(0, 100)]
-        private float shakeMinSpeed = 1;
+        float shakeMinSpeed = 1;
         [SerializeField, Range(0, 100)]
-        private float shakeMinAngle = 1;
+        float shakeMinAngle = 1;
         public bool isShaking => angle > shakeMinAngle && velocity.magnitude > shakeMinSpeed;
 
         [SerializeField, Range(0, 100)]
-        private float accelerationUpdateSpeed = 1;
+        float accelerationUpdateSpeed = 1;
         public Vector3 acceleration { get; private set; }
-        private Vector3 oldVelocity = Vector3.zero;
+        Vector3 oldVelocity = Vector3.zero;
 
         [SerializeField, Range(0, 100)]
-        private float velocityUpdateSpeed = 1;
+        float velocityUpdateSpeed = 1;
         public Vector3 velocity { get; private set; }
-        private Vector3 oldPosition = Vector3.zero;
+        Vector3 oldPosition = Vector3.zero;
 
         [SerializeField, Range(0, 100)]
-        private float angleUpdateSpeed = 1;
+        float angleUpdateSpeed = 1;
         public float angle { get; private set; }
-        private Quaternion oldRotation = Quaternion.identity;
+        Quaternion oldRotation = Quaternion.identity;
 
-        private IEnumerable<ISpellState> currentStates {
+        IEnumerable<ISpellState> currentStates {
             get {
                 if (currentSpellPrefab == null) {
                     return Enumerable.Empty<ISpellState>();
@@ -57,9 +57,9 @@ namespace PFVR.Player {
                 return allStates[currentSpellPrefab].GetComponents<ISpellState>();
             }
         }
-        private Dictionary<GameObject, GameObject> allStates = new Dictionary<GameObject, GameObject>();
+        Dictionary<GameObject, GameObject> allStates = new Dictionary<GameObject, GameObject>();
 
-        private new Renderer renderer {
+        new Renderer renderer {
             get {
                 if (rendererCache == null) {
                     rendererCache = GetComponentInChildren<Renderer>();
@@ -67,9 +67,9 @@ namespace PFVR.Player {
                 return rendererCache;
             }
         }
-        private Renderer rendererCache;
+        Renderer rendererCache;
 
-        private string statusText {
+        string statusText {
             get {
                 return status.GetComponent<TextMesh>().text;
             }

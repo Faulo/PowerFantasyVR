@@ -1,11 +1,11 @@
-﻿using PFVR.Canvas;
-using PFVR.DataModels;
-using PFVR.ScriptableObjects;
-using System;
+﻿using System;
 using System.Collections;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using PFVR.Canvas;
+using PFVR.DataModels;
+using PFVR.ScriptableObjects;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -16,25 +16,25 @@ namespace PFVR.Backend {
     /// </summary>
     public class GestureDataRecording : MonoBehaviour {
         [SerializeField, Range(1, 60)]
-        private int recordingTime = 10;
+        int recordingTime = 10;
         [SerializeField, Range(1, 600)]
-        private int trainingTime = 60;
+        int trainingTime = 60;
         [Space]
         [SerializeField]
-        private LayoutGroup gestureSetGroup = default;
+        LayoutGroup gestureSetGroup = default;
         [SerializeField]
-        private LayoutGroup gestureGroup = default;
+        LayoutGroup gestureGroup = default;
         [SerializeField]
-        private TextMeshProUGUI log = default;
+        TextMeshProUGUI log = default;
 
-        private ScriptableObjectManager<GestureProfile> gestureProfileManager;
-        private ScriptableObjectManager<Gesture> gestureManager;
+        ScriptableObjectManager<GestureProfile> gestureProfileManager;
+        ScriptableObjectManager<Gesture> gestureManager;
 
-        private GestureProfile currentProfile;
-        private GestureSet currentGestureSet;
-        private Gesture currentGesture;
-        private Coroutine currentRoutine;
-        private GestureRecorder currentRecorder;
+        GestureProfile currentProfile;
+        GestureSet currentGestureSet;
+        Gesture currentGesture;
+        Coroutine currentRoutine;
+        GestureRecorder currentRecorder;
 
         // Start is called before the first frame update
         void Start() {
@@ -80,7 +80,7 @@ namespace PFVR.Backend {
             }
             currentRoutine = StartCoroutine(RecordGesturesRoutine(currentGesture));
         }
-        private IEnumerator RecordGesturesRoutine(params Gesture[] gestures) {
+        IEnumerator RecordGesturesRoutine(params Gesture[] gestures) {
             foreach (var gesture in gestures) {
                 currentRecorder = new GestureRecorder(currentProfile, gesture, recordingTime, log);
                 yield return currentRecorder.Record();
@@ -110,12 +110,12 @@ namespace PFVR.Backend {
                 return;
             }
             try {
-                var batchFile = Application.dataPath + "/../trainModel.bat";
-                var name = currentProfile.name;
-                var csvFile = currentProfile.trackingDataPath;
-                var zipFile = currentProfile.modelDataPath;
+                string batchFile = Application.dataPath + "/../trainModel.bat";
+                string name = currentProfile.name;
+                string csvFile = currentProfile.trackingDataPath;
+                string zipFile = currentProfile.modelDataPath;
 
-                var args = string.Join(" ", new[] { name, csvFile, zipFile, trainingTime.ToString() }.Select(QuoteShellArgument));
+                string args = string.Join(" ", new[] { name, csvFile, zipFile, trainingTime.ToString() }.Select(QuoteShellArgument));
 
                 log.text = "Training model '" + Path.GetFileName(zipFile) + "' with data '" + Path.GetFileName(csvFile) + "'...";
 
@@ -125,11 +125,11 @@ namespace PFVR.Backend {
                 print(e);
             }
         }
-        private string QuoteShellArgument(string argument) {
+        string QuoteShellArgument(string argument) {
             //TODO: find the proper C# way to do this 
             return "\"" + argument + "\"";
         }
-        private void OnApplicationQuit() {
+        void OnApplicationQuit() {
             if (currentRecorder != null) {
                 currentRecorder.Abort();
                 StopCoroutine(currentRoutine);

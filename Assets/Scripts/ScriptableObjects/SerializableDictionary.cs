@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 namespace PFVR.ScriptableObjects {
@@ -12,16 +11,16 @@ namespace PFVR.ScriptableObjects {
     /// <typeparam name="TValue"><seealso cref="Dictionary&lt;TKey, TValue>"/></typeparam>
     public class SerializableDictionary<TKey, TValue> : Dictionary<TKey, TValue>, ISerializationCallbackReceiver {
         [SerializeField]
-        private List<TKey> keys = new List<TKey>();
+        List<TKey> keys = new List<TKey>();
 
         [SerializeField]
-        private List<TValue> values = new List<TValue>();
+        List<TValue> values = new List<TValue>();
 
         // save the dictionary to lists
         public void OnBeforeSerialize() {
             keys.Clear();
             values.Clear();
-            foreach (KeyValuePair<TKey, TValue> pair in this) {
+            foreach (var pair in this) {
                 keys.Add(pair.Key);
                 values.Add(pair.Value);
             }
@@ -29,13 +28,15 @@ namespace PFVR.ScriptableObjects {
 
         // load dictionary from lists
         public void OnAfterDeserialize() {
-            this.Clear();
+            Clear();
 
-            if (keys.Count != values.Count)
+            if (keys.Count != values.Count) {
                 throw new System.Exception(string.Format("there are {0} keys and {1} values after deserialization. Make sure that both key and value types are serializable."));
+            }
 
-            for (int i = 0; i < keys.Count; i++)
-                this.Add(keys[i], values[i]);
+            for (int i = 0; i < keys.Count; i++) {
+                Add(keys[i], values[i]);
+            }
         }
     }
 }

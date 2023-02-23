@@ -1,21 +1,17 @@
-﻿using PFVR.ScriptableObjects;
-using PFVR.Settings;
-using System.Collections;
-using System.Collections.Generic;
+﻿using PFVR.Settings;
 using UnityEngine;
-using UnityEngine.VR;
 using UnityEngine.XR;
 using Valve.VR;
 
 namespace PFVR.Player {
     public partial class SpawnPoint : MonoBehaviour {
-        private InterfaceType playerType => GameSettings.instance.interfaceType;
+        InterfaceType playerType => GameSettings.instance.interfaceType;
         [SerializeField]
-        private GameObject basicPlayerPrefab = default;
+        GameObject basicPlayerPrefab = default;
         [SerializeField]
-        private GameObject vrPlayerPrefab = default;
+        GameObject vrPlayerPrefab = default;
 
-        private string xrDevice {
+        string xrDevice {
             get {
                 switch (playerType) {
                     case InterfaceType.MouseAndKeyboard:
@@ -27,7 +23,7 @@ namespace PFVR.Player {
             }
         }
 
-        private GameObject playerPrefab {
+        GameObject playerPrefab {
             get {
                 switch (playerType) {
                     case InterfaceType.MouseAndKeyboard:
@@ -57,7 +53,7 @@ namespace PFVR.Player {
                     }
                     break;
             }
-            
+
         }
     }
 }

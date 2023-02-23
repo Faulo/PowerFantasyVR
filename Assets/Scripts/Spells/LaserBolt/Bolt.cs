@@ -1,7 +1,4 @@
-﻿using PFVR.OurPhysics;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace PFVR.Spells.LaserBolt {
     [RequireComponent(typeof(Rigidbody))]
@@ -12,9 +9,9 @@ namespace PFVR.Spells.LaserBolt {
         }
 
         [SerializeField]
-        private GameObject explosionPrefab = default;
+        GameObject explosionPrefab = default;
         [SerializeField, Range(0, 1)]
-        private float explosionSize = 1;
+        float explosionSize = 1;
 
         void OnCollisionEnter(Collision collision) {
             if ((LayerMask.GetMask(LayerMask.LayerToName(collision.gameObject.layer)) & LayerMask.GetMask("Default", "Spell", "Obstacle", "Ground", "Enemy")) == 0) {

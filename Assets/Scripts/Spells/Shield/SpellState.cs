@@ -1,22 +1,20 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using PFVR.Player;
+﻿using PFVR.Player;
 using UnityEngine;
 
 namespace PFVR.Spells.Shield {
     public class SpellState : MonoBehaviour, ISpellState {
         [SerializeField]
-        private GameObject shieldPrefab = default;
+        GameObject shieldPrefab = default;
 
         [SerializeField, Range(0f, 100f)]
-        private float breakSpeed = 0f;
+        float breakSpeed = 0f;
 
         [SerializeField, Range(0, 10000)]
-        private ushort rumbleDuration = 1000;
+        ushort rumbleDuration = 1000;
         [SerializeField, Range(0f, 1f)]
-        private float rumbleForce = 1f;
+        float rumbleForce = 1f;
 
-        private IShield shield;
+        IShield shield;
 
         public void OnEnter(PlayerBehaviour player, PlayerHandBehaviour hand) {
             shield = Instantiate(shieldPrefab, hand.middleFinger).GetComponent<IShield>();

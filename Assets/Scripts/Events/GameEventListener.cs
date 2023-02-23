@@ -1,6 +1,4 @@
-﻿using System;
-using UnityEngine;
-using UnityEngine.Events;
+﻿using UnityEngine;
 
 namespace PFVR.Events {
     /// <summary>
@@ -8,13 +6,13 @@ namespace PFVR.Events {
     /// </summary>
     public class GameEventListener : MonoBehaviour {
         [SerializeField]
-        private GameEventType trigger = default;
+        GameEventType trigger = default;
         [SerializeField]
-        private GameEventResponse response = default;
-        private void OnEnable() {
+        GameEventResponse response = default;
+        void OnEnable() {
             trigger.AddEventListener(response);
         }
-        private void OnDisable() {
+        void OnDisable() {
             trigger.RemoveEventListener(response);
         }
     }

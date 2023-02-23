@@ -1,11 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace PFVR.OurPhysics {
     public class DeathZone : MonoBehaviour {
-        private Bounds bounds;
-        private void Awake() {
+        Bounds bounds;
+        void Awake() {
             bounds = GetComponent<BoxCollider>().bounds;
         }
         void OnTriggerExit(Collider collider) {

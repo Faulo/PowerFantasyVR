@@ -1,6 +1,6 @@
-﻿using Microsoft.ML;
+﻿using System;
+using Microsoft.ML;
 using Microsoft.ML.Data;
-using System;
 
 namespace PFVR.DataModels {
     /// <summary>

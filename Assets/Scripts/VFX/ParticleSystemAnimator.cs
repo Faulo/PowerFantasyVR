@@ -1,18 +1,16 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace PFVR.VFX {
     [RequireComponent(typeof(ParticleSystem))]
     public class ParticleSystemAnimator : MonoBehaviour {
         [SerializeField]
-        private int burstCount = 1;
+        int burstCount = 1;
 
         public bool bursting;
 
-        private new ParticleSystem particleSystem;
+        new ParticleSystem particleSystem;
 
-        private void Start() {
+        void Start() {
             particleSystem = GetComponent<ParticleSystem>();
         }
 

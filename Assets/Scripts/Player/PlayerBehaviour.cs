@@ -1,9 +1,6 @@
 ﻿using ManusVR.Core.Apollo;
-using PFVR.ScriptableObjects;
-using PFVR.Player;
-using UnityEngine;
-using System.Collections.Generic;
 using PFVR.OurPhysics;
+using UnityEngine;
 
 namespace PFVR.Player {
     public class PlayerBehaviour : MonoBehaviour {
@@ -15,7 +12,7 @@ namespace PFVR.Player {
                 return instanceCache;
             }
         }
-        private static PlayerBehaviour instanceCache;
+        static PlayerBehaviour instanceCache;
 
         public IMotor motor { get; private set; }
 

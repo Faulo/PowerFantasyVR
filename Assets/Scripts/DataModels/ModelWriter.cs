@@ -9,10 +9,10 @@ namespace PFVR.DataModels {
     /// </summary>
     /// <typeparam name="T">A <see cref="MLContext"/>-compatible source model, like <see cref="GestureModel"/>.</typeparam>
     public class ModelWriter<T> {
-        private const string SEPARATOR = ",";
-        private string fileName;
-        private StreamWriter writer;
-        private IEnumerable<PropertyInfo> properties;
+        const string SEPARATOR = ",";
+        string fileName;
+        StreamWriter writer;
+        IEnumerable<PropertyInfo> properties;
 
         public ModelWriter(string path) {
             fileName = Path.GetFullPath(path) + Path.DirectorySeparatorChar + System.DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss") + ".csv";
@@ -30,7 +30,7 @@ namespace PFVR.DataModels {
             writer.WriteLine(string.Join(SEPARATOR, data.Values));
             writer.Flush();
         }
-        private Dictionary<string, string> ToData(T model) {
+        Dictionary<string, string> ToData(T model) {
             var dict = new Dictionary<string, string>();
             foreach (var property in properties) {
                 dict[property.Name] = property.GetValue(model, null).ToString().Replace(",", "."); //hackity-hack

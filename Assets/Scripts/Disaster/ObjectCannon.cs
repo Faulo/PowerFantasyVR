@@ -1,8 +1,5 @@
 ﻿using PFVR.OurPhysics;
-using PFVR.Spells.FireBall;
 using Slothsoft.UnityExtensions;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace PFVR.Disaster {
@@ -11,25 +8,25 @@ namespace PFVR.Disaster {
     /// </summary>
     public class ObjectCannon : MonoBehaviour {
         [SerializeField]
-        private GameObject[] projectilePrefabs = default;
+        GameObject[] projectilePrefabs = default;
 
         [SerializeField]
-        private AnimationCurve projectileScale = default;
+        AnimationCurve projectileScale = default;
 
         [SerializeField, Range(0, 1000)]
-        private float launchVelocity = 10;
+        float launchVelocity = 10;
 
         [SerializeField, Range(0, 1000)]
-        private float launchDiffusion = 10;
+        float launchDiffusion = 10;
 
         [SerializeField, Range(1, 100)]
-        private float burstInterval = 1;
+        float burstInterval = 1;
 
         [SerializeField, Range(1, 100)]
-        private float burstCount = 1;
+        float burstCount = 1;
 
-        private float burstTimer = 0;
-        private float burstCountdown;
+        float burstTimer = 0;
+        float burstCountdown;
 
         // Start is called before the first frame update
         void Start() {

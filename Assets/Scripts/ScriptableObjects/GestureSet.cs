@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditor;
 using UnityEngine;
 
 namespace PFVR.ScriptableObjects {
@@ -11,7 +10,7 @@ namespace PFVR.ScriptableObjects {
     [CreateAssetMenu(fileName = "New Gesture Set", menuName = "Gameplay/Gesture Set", order = 2)]
     public class GestureSet : ScriptableObject, IGestureDictionary {
         [SerializeField, HideInInspector]
-        private Gesture[] gestures = new Gesture[0];
+        Gesture[] gestures = new Gesture[0];
 
         public IEnumerable<Gesture> gestureObjects => gestures;
         public IEnumerable<string> gestureNames => gestureObjects

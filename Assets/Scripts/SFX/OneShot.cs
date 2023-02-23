@@ -1,6 +1,4 @@
 ﻿using Slothsoft.UnityExtensions;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace PFVR.SFX {
@@ -9,27 +7,27 @@ namespace PFVR.SFX {
     /// </summary>
     public class OneShot : MonoBehaviour {
         [SerializeField]
-        private AudioClip[] audioClips = default;
+        AudioClip[] audioClips = default;
         [SerializeField]
-        private bool playOnStart = true;
+        bool playOnStart = true;
         [SerializeField]
-        private bool loop = false;
+        bool loop = false;
         [Space]
         [SerializeField, Range(0, 10)]
-        private float volMin = 1;
+        float volMin = 1;
         [SerializeField, Range(0, 10)]
-        private float volMax = 1;
+        float volMax = 1;
         [Space]
         [SerializeField, Range(0, 10)]
-        private float pitchMin = 1;
+        float pitchMin = 1;
         [SerializeField, Range(0, 10)]
-        private float pitchMax = 1;
+        float pitchMax = 1;
         [Space]
         [SerializeField, Range(0, 1)]
-        private float spatialBlend = 1;
+        float spatialBlend = 1;
         [Space]
         [SerializeField]
-        private AudioSource audioSource = default;
+        AudioSource audioSource = default;
 
         void Start() {
             if (!audioSource) {

@@ -1,21 +1,18 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace PFVR.OurPhysics {
     [RequireComponent(typeof(CharacterController))]
     public class CharacterControllerMotor : MonoBehaviour, IMotor {
-        private CharacterController characterController;
+        CharacterController characterController;
 
         [SerializeField, Range(0, 1)]
-        private float groundDrag = 0;
+        float groundDrag = 0;
 
         [SerializeField, Range(0, 1)]
-        private float airDrag = 0;
+        float airDrag = 0;
 
         [SerializeField, Range(0, 10)]
-        private float gravityMultiplier = 1;
+        float gravityMultiplier = 1;
 
         public Vector3 position => transform.position;
         public Vector3 velocity { get; private set; }

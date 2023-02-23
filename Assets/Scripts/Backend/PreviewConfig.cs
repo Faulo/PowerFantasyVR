@@ -9,10 +9,10 @@ namespace PFVR.Backend {
     [ExecuteInEditMode]
     public class PreviewConfig : MonoBehaviour {
         [SerializeField]
-        private Material gloveMaterial = default;
+        Material gloveMaterial = default;
 
         [SerializeField]
-        private Material trackerMaterial = default;
+        Material trackerMaterial = default;
 
         void OnValidate() {
             if (gloveMaterial != null) {

@@ -1,6 +1,5 @@
-﻿using PFVR.Player;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
+using PFVR.Player;
 using UnityEngine;
 
 namespace PFVR.Spells.JetPack {
@@ -8,24 +7,24 @@ namespace PFVR.Spells.JetPack {
     [RequireComponent(typeof(AudioLowPassFilter))]
     public class Engine : MonoBehaviour {
         [SerializeField]
-        private float maximumVolume = 1;
+        float maximumVolume = 1;
 
         [SerializeField]
-        private AnimationCurve cutoffFrequencyOverSpeed = default;
+        AnimationCurve cutoffFrequencyOverSpeed = default;
 
         [SerializeField]
-        private AudioClip startupSound = default;
+        AudioClip startupSound = default;
 
         [SerializeField]
-        private AudioClip continuousSound = default;
+        AudioClip continuousSound = default;
 
         [SerializeField]
-        private AudioClip shutdownSound = default;
+        AudioClip shutdownSound = default;
 
         [SerializeField]
-        private AudioClip boostSound = default;
+        AudioClip boostSound = default;
 
-        private Color particleColor {
+        Color particleColor {
             get => particleSystemMain.startColor.color;
             set => particleSystemMain.startColor = value;
         }
@@ -33,13 +32,13 @@ namespace PFVR.Spells.JetPack {
             get => propulsionCache;
             set => propulsionCache = Mathf.Clamp01(value);
         }
-        private float propulsionCache;
-        private AudioSource audioSource;
-        private AudioLowPassFilter lowPassFilter;
-        private PlayerBehaviour player;
-        private new ParticleSystem particleSystem;
-        private ParticleSystem.MainModule particleSystemMain;
-        private Coroutine playSoundsRoutine;
+        float propulsionCache;
+        AudioSource audioSource;
+        AudioLowPassFilter lowPassFilter;
+        PlayerBehaviour player;
+        new ParticleSystem particleSystem;
+        ParticleSystem.MainModule particleSystemMain;
+        Coroutine playSoundsRoutine;
 
         public bool isTurnedOn {
             get => isTurnedOnCache;
@@ -58,7 +57,7 @@ namespace PFVR.Spells.JetPack {
                 }
             }
         }
-        private bool isTurnedOnCache;
+        bool isTurnedOnCache;
 
         public bool isBoosting {
             get => isBoostingCache;
@@ -74,9 +73,9 @@ namespace PFVR.Spells.JetPack {
                 }
             }
         }
-        private bool isBoostingCache = false;
+        bool isBoostingCache = false;
 
-        private void Awake() {
+        void Awake() {
             audioSource = GetComponent<AudioSource>();
             lowPassFilter = GetComponent<AudioLowPassFilter>();
             particleSystem = GetComponentInChildren<ParticleSystem>();
@@ -84,7 +83,7 @@ namespace PFVR.Spells.JetPack {
             player = GetComponentInParent<PlayerBehaviour>();
         }
 
-        private IEnumerator PlayEngineSounds() {
+        IEnumerator PlayEngineSounds() {
             audioSource.loop = false;
             audioSource.clip = startupSound;
             audioSource.Play();

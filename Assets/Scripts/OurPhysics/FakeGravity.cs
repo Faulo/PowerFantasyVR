@@ -1,13 +1,11 @@
 ﻿using Slothsoft.UnityExtensions;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace PFVR.OurPhysics {
     public class FakeGravity : MonoBehaviour {
         [SerializeField]
-        [Range(-10,10)]
-        private float gravity = default;
+        [Range(-10, 10)]
+        float gravity = default;
 
         void FixedUpdate() {
             GetComponents<Rigidbody>()

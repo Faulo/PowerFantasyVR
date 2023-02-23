@@ -1,36 +1,35 @@
-﻿using ManusVR.Core.Apollo;
+﻿using System.Collections;
 using PFVR.OurPhysics;
 using PFVR.Player;
-using System.Collections;
 using UnityEngine;
 
 namespace PFVR.Spells.FireBall {
     public class SpellState : MonoBehaviour, ISpellState {
         [SerializeField]
-        private GameObject ballPrefab = default;
+        GameObject ballPrefab = default;
 
         [SerializeField]
-        private GameObject anchorPrefab = default;
+        GameObject anchorPrefab = default;
 
         [Space]
         [SerializeField, Range(1, 1000)]
-        private ushort rumbleInterval = 100;
+        ushort rumbleInterval = 100;
         [SerializeField]
-        private AnimationCurve rumbleForceOverSize = default;
+        AnimationCurve rumbleForceOverSize = default;
 
-        private Coroutine rumbleRoutine;
+        Coroutine rumbleRoutine;
 
         [Space]
         [SerializeField, Range(0, 100)]
-        private float launchVelocityMultiplier = 1;
+        float launchVelocityMultiplier = 1;
         [SerializeField, Range(1, 10)]
-        private float maximumChargeTime = 1f;
-        private float currentChargeTime = 0;
+        float maximumChargeTime = 1f;
+        float currentChargeTime = 0;
 
-        private Anchor anchor;
-        private Ball ball;
+        Anchor anchor;
+        Ball ball;
 
-        private float chargeTime {
+        float chargeTime {
             get {
                 return currentChargeTime;
             }
@@ -68,7 +67,7 @@ namespace PFVR.Spells.FireBall {
         public void OnUpdate(PlayerBehaviour player, PlayerHandBehaviour hand) {
             chargeTime += Time.deltaTime;
         }
-        private IEnumerator CreateRumbleRoutine(PlayerHandBehaviour hand) {
+        IEnumerator CreateRumbleRoutine(PlayerHandBehaviour hand) {
             while (true) {
                 if (ball != null) {
                     ManusConnector.Rumble(hand.laterality, rumbleInterval, rumbleForceOverSize.Evaluate(ball.scaling));

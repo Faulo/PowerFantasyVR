@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace PFVR.Player.Gestures {
     /// <summary>
@@ -9,15 +6,15 @@ namespace PFVR.Player.Gestures {
     /// </summary>
     public class HandGatheringDetector : AbstractDetector {
         [SerializeField]
-        private bool isPrimary = false;
+        bool isPrimary = false;
 
-        private new CapsuleCollider collider;
+        new CapsuleCollider collider;
 
-        private void Start() {
+        void Start() {
             collider = GetComponent<CapsuleCollider>();
         }
 
-        private void OnTriggerEnter(Collider other) {
+        void OnTriggerEnter(Collider other) {
             if (isPrimary) {
                 var otherDetector = other.GetComponent<HandGatheringDetector>();
                 if (otherDetector != null) {
@@ -30,7 +27,7 @@ namespace PFVR.Player.Gestures {
             }
         }
 
-        private void OnTriggerExit(Collider other) {
+        void OnTriggerExit(Collider other) {
             if (isPrimary) {
                 var otherDetector = other.GetComponent<HandGatheringDetector>();
                 if (otherDetector != null) {
@@ -42,7 +39,7 @@ namespace PFVR.Player.Gestures {
                 }
             }
         }
-        
+
         protected override void TurnOn() {
             collider.height *= 4;
             base.TurnOn();

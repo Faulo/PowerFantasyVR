@@ -1,8 +1,5 @@
 ﻿using PFVR.OurPhysics;
 using Slothsoft.UnityExtensions;
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace PFVR.Environment {
@@ -23,61 +20,61 @@ namespace PFVR.Environment {
             Collectable
         }
         [SerializeField]
-        private LevelObjectType type = default;
+        LevelObjectType type = default;
 
         [Space]
         [SerializeField, Range(0, 10)]
-        private float rigidbodyDensity = 1;
+        float rigidbodyDensity = 1;
         [SerializeField, Range(0, 100)]
-        private float rigidbodyDrag = 0;
+        float rigidbodyDrag = 0;
         [Space]
         [SerializeField, Range(0, 1000)]
-        private int waterPlaneWidth = 0;
+        int waterPlaneWidth = 0;
         [SerializeField, Range(0, 1000)]
-        private int waterPlaneHeight = 0;
+        int waterPlaneHeight = 0;
         [SerializeField, Range(0, 100)]
-        private int waterPlaneWaveWidth = 1;
+        int waterPlaneWaveWidth = 1;
         [SerializeField, Range(0, 100)]
-        private int waterPlaneWaveHeight = 1;
+        int waterPlaneWaveHeight = 1;
         [SerializeField]
-        private bool waterPlaneAutoUpdate = false;
+        bool waterPlaneAutoUpdate = false;
         public static string waterPlaneObjectName = "Water";
         public static string waterPlaneSaveLocation = "Assets/Meshes/Environment/Water/";
-        private float waterPlaneRoutineId;
+        float waterPlaneRoutineId;
         [Space]
         [SerializeField]
-        private ParticleSystem waterfallTopFoam = default;
+        ParticleSystem waterfallTopFoam = default;
         [SerializeField]
-        private ParticleSystem waterfallBottomFoam = default;
+        ParticleSystem waterfallBottomFoam = default;
 
         [Space]
         [SerializeField, Range(0, 10)]
-        private float destroyableHPDensity = 1;
+        float destroyableHPDensity = 1;
         [SerializeField]
-        private GameObject destroyableDamageTakenPrefab = default;
+        GameObject destroyableDamageTakenPrefab = default;
         [SerializeField]
-        private GameObject destroyableDamageHealedPrefab = default;
+        GameObject destroyableDamageHealedPrefab = default;
         [SerializeField]
-        private GameObject destroyableDeadPrefab = default;
+        GameObject destroyableDeadPrefab = default;
 
         [Space]
         [SerializeField]
-        private bool levelOfDetail = false;
+        bool levelOfDetail = false;
         [SerializeField, Range(0, 1)]
-        private float levelOfDetailCutoff = 0.005f;
-        private float volume => transform.localScale.x * transform.localScale.y * transform.localScale.z;
+        float levelOfDetailCutoff = 0.005f;
+        float volume => transform.localScale.x * transform.localScale.y * transform.localScale.z;
 
-        private void Start() {
+        void Start() {
             ApplyType();
         }
 
-        private void Update() {
+        void Update() {
             if (!Application.isPlaying) {
                 ApplyType();
             }
         }
 
-        private void ApplyType() {
+        void ApplyType() {
             switch (type) {
                 case LevelObjectType.Intangible:
                     SetStatic(true);
@@ -154,24 +151,24 @@ namespace PFVR.Environment {
         }
 
 
-        private void SetStatic(bool value) {
+        void SetStatic(bool value) {
             GetComponentsInChildren<Transform>().ForAll(transform => transform.gameObject.isStatic = value);
         }
-        private void DisableLighting() {
+        void DisableLighting() {
             GetComponentsInChildren<Renderer>().ForAll(renderer => {
                 renderer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
                 renderer.receiveShadows = false;
                 renderer.allowOcclusionWhenDynamic = true;
             });
         }
-        private void EnableStaticLighting() {
+        void EnableStaticLighting() {
             GetComponentsInChildren<Renderer>().ForAll(renderer => {
                 renderer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
                 renderer.receiveShadows = true;
                 renderer.allowOcclusionWhenDynamic = true;
             });
         }
-        private void EnableDynamicLighting() {
+        void EnableDynamicLighting() {
             GetComponentsInChildren<Renderer>().ForAll(renderer => {
                 renderer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
                 renderer.receiveShadows = true;
@@ -179,20 +176,20 @@ namespace PFVR.Environment {
             });
         }
 
-        private void DisableColliders() {
+        void DisableColliders() {
             GetComponentsInChildren<Collider>().ForAll(collider => collider.enabled = false);
         }
-        private void EnableColliders() {
+        void EnableColliders() {
             GetComponentsInChildren<Collider>().ForAll(collider => collider.enabled = true);
         }
 
-        private void DisableRigidbody() {
+        void DisableRigidbody() {
             var rigidbody = GetComponent<Rigidbody>();
             if (rigidbody) {
                 DestroyImmediate(rigidbody);
             }
         }
-        private void EnableGravityRigidbody() {
+        void EnableGravityRigidbody() {
             var rigidbody = GetComponent<Rigidbody>();
             if (!rigidbody) {
                 rigidbody = gameObject.AddComponent<Rigidbody>();
@@ -202,7 +199,7 @@ namespace PFVR.Environment {
             rigidbody.useGravity = true;
             rigidbody.isKinematic = false;
         }
-        private void EnableKinematicRigidbody() {
+        void EnableKinematicRigidbody() {
             var rigidbody = GetComponent<Rigidbody>();
             if (!rigidbody) {
                 rigidbody = gameObject.AddComponent<Rigidbody>();
@@ -213,12 +210,12 @@ namespace PFVR.Environment {
             rigidbody.isKinematic = true;
         }
 
-        private void SetLayer(string layerName) {
-            var layerId = LayerMask.NameToLayer(layerName);
+        void SetLayer(string layerName) {
+            int layerId = LayerMask.NameToLayer(layerName);
             GetComponentsInChildren<Transform>().ForAll(transform => transform.gameObject.layer = layerId);
         }
 
-        private void EnableLevelOfDetail() {
+        void EnableLevelOfDetail() {
             var lodGroup = GetComponent<LODGroup>();
             if (!lodGroup) {
                 lodGroup = gameObject.AddComponent<LODGroup>();
@@ -228,7 +225,7 @@ namespace PFVR.Environment {
             lods[0].screenRelativeTransitionHeight = levelOfDetailCutoff;
             lodGroup.SetLODs(lods);
         }
-        private void DisableLevelOfDetail() {
+        void DisableLevelOfDetail() {
             var lodGroup = GetComponent<LODGroup>();
             if (lodGroup) {
                 DestroyImmediate(lodGroup);
@@ -236,7 +233,7 @@ namespace PFVR.Environment {
         }
 
 
-        private void AddDestroyable() {
+        void AddDestroyable() {
             var destroyable = GetComponent<BasicDestroyable>();
             if (!destroyable) {
                 destroyable = gameObject.AddComponent<BasicDestroyable>();
@@ -246,7 +243,7 @@ namespace PFVR.Environment {
             destroyable.damageHealedPrefab = destroyableDamageHealedPrefab;
             destroyable.deadPrefab = destroyableDeadPrefab;
         }
-        private void RemoveDestroyable() {
+        void RemoveDestroyable() {
             var destroyable = GetComponent<BasicDestroyable>();
             if (destroyable) {
                 DestroyImmediate(destroyable);
@@ -257,7 +254,7 @@ namespace PFVR.Environment {
 
 
 
-        private void CreateWaterPlaneCall() {
+        void CreateWaterPlaneCall() {
             if (!this || !gameObject || !transform) {
                 return;
             }
@@ -273,7 +270,7 @@ namespace PFVR.Environment {
                 CreateWaterPlane(waterPlaneWidth, waterPlaneHeight, waterPlaneWaveWidth, waterPlaneWaveHeight);
             }
         }
-        private void CreateWaterfallFoamCall() {
+        void CreateWaterfallFoamCall() {
             if (!this || !gameObject || !transform) {
                 return;
             }
@@ -290,13 +287,13 @@ namespace PFVR.Environment {
                 }
             }
         }
-        private void CreateWaterPlane(int planeWidth, int planeHeight, int waveWidth, int waveHeight) {
+        void CreateWaterPlane(int planeWidth, int planeHeight, int waveWidth, int waveHeight) {
 #if UNITY_EDITOR
             foreach (var meshFilter in GetComponentsInChildren<MeshFilter>()) {
-                var widthSegments = waveWidth > 0
+                int widthSegments = waveWidth > 0
                     ? planeWidth / waveWidth
                     : 1;
-                var heightSegments = waveHeight > 0
+                int heightSegments = waveHeight > 0
                     ? planeHeight / waveHeight
                     : 1;
 
@@ -310,24 +307,25 @@ namespace PFVR.Environment {
                                             + "W" + planeWidth + "H" + planeHeight + ".asset";
 
                 //Load the mesh from the save location
-                Mesh mesh = (Mesh)UnityEditor.AssetDatabase.LoadAssetAtPath(waterPlaneSaveLocation + planeMeshAssetName, typeof(Mesh));
+                var mesh = (Mesh)UnityEditor.AssetDatabase.LoadAssetAtPath(waterPlaneSaveLocation + planeMeshAssetName, typeof(Mesh));
 
                 //If there isn't a mesh located under assets, create the mesh
                 if (mesh == null) {
-                    mesh = new Mesh();
-                    mesh.name = planeMeshAssetName;
+                    mesh = new Mesh {
+                        name = planeMeshAssetName
+                    };
 
                     int hCount2 = widthSegments + 1;
                     int vCount2 = heightSegments + 1;
                     int numTriangles = widthSegments * heightSegments * 6;
                     int numVertices = hCount2 * vCount2;
 
-                    Vector3[] vertices = new Vector3[numVertices];
-                    Vector2[] uvs = new Vector2[numVertices];
+                    var vertices = new Vector3[numVertices];
+                    var uvs = new Vector2[numVertices];
                     int[] triangles = new int[numTriangles];
-                    Vector4[] tangents = new Vector4[numVertices];
-                    Vector4 tangent = new Vector4(1f, 0f, 0f, -1f);
-                    Vector2 anchorOffset = Vector2.zero;
+                    var tangents = new Vector4[numVertices];
+                    var tangent = new Vector4(1f, 0f, 0f, -1f);
+                    var anchorOffset = Vector2.zero;
 
                     int index = 0;
                     float uvFactorX = 1.0f / widthSegments;

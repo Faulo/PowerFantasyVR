@@ -1,43 +1,41 @@
-﻿using ManusVR.Core.Apollo;
-using PFVR.OurPhysics;
+﻿using System.Collections;
+using ManusVR.Core.Apollo;
 using PFVR.Player;
-using PFVR.Player.Gestures;
 using Slothsoft.UnityExtensions;
-using System.Collections;
 using UnityEngine;
 
 namespace PFVR.Spells.EnergyWave {
     public class SpellState : MonoBehaviour, ISpellState {
         [SerializeField]
-        private GameObject wavePrefab = default;
+        GameObject wavePrefab = default;
 
         [SerializeField, Range(0, 100)]
-        private float breakSpeed = 0;
+        float breakSpeed = 0;
 
         [SerializeField, Range(0, 1000)]
-        private float handLaunchMultiplier = 1;
+        float handLaunchMultiplier = 1;
         [SerializeField, Range(0, 1000)]
-        private float directionLaunchMultiplier = 1;
+        float directionLaunchMultiplier = 1;
 
 
         [SerializeField, Range(1, 1000)]
-        private ushort rumbleInterval = 100;
+        ushort rumbleInterval = 100;
 
         [SerializeField]
-        private AnimationCurve rumbleForceOverSize = default;
+        AnimationCurve rumbleForceOverSize = default;
 
-        private Coroutine rumbleRoutine;
+        Coroutine rumbleRoutine;
 
-        private Wave wave;
+        Wave wave;
 
         [SerializeField]
-        private float maximumChargeTime = 1f;
-        private float currentChargeTime = 0;
+        float maximumChargeTime = 1f;
+        float currentChargeTime = 0;
 
         [SerializeField, Range(0, 100)]
-        private float followSpeed = 1f;
+        float followSpeed = 1f;
 
-        private float chargeTime {
+        float chargeTime {
             get {
                 return currentChargeTime;
             }
@@ -49,9 +47,9 @@ namespace PFVR.Spells.EnergyWave {
             }
         }
 
-        private Transform leftChargeCenter;
-        private Transform rightChargeCenter;
-        private Vector3 chargeCenter => (leftChargeCenter.position + rightChargeCenter.position) / 2;
+        Transform leftChargeCenter;
+        Transform rightChargeCenter;
+        Vector3 chargeCenter => (leftChargeCenter.position + rightChargeCenter.position) / 2;
 
         public void OnEnter(PlayerBehaviour player, PlayerHandBehaviour hand) {
             if (hand.laterality == GloveLaterality.GLOVE_LEFT) {
@@ -100,7 +98,7 @@ namespace PFVR.Spells.EnergyWave {
             player.motor.Break(breakSpeed * Time.deltaTime);
         }
 
-        private IEnumerator CreateRumbleRoutine() {
+        IEnumerator CreateRumbleRoutine() {
             while (true) {
                 if (wave != null) {
                     ManusConnector.Rumble(GloveLaterality.GLOVE_LEFT, rumbleInterval, rumbleForceOverSize.Evaluate(wave.scaling));

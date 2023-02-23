@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace PFVR.Player.Gestures {
     /// <summary>
@@ -9,12 +6,12 @@ namespace PFVR.Player.Gestures {
     /// </summary>
     public class BasicDetector : AbstractDetector {
         [SerializeField]
-        private Transform otherHandDetector = default;
+        Transform otherHandDetector = default;
 
         [SerializeField, Range(0, 10)]
-        private float maximumDistance = 1;
+        float maximumDistance = 1;
 
-        private void Update() {
+        void Update() {
             if (otherHandDetector) {
                 if (Vector3.Distance(transform.position, otherHandDetector.position) < maximumDistance) {
                     if (isOn) {
@@ -31,7 +28,7 @@ namespace PFVR.Player.Gestures {
                 }
             }
         }
-        
+
         protected override void TurnOn() {
             //maximumDistance *= 2;
             base.TurnOn();

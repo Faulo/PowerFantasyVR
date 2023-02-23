@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace PFVR.VFX {
     [RequireComponent(typeof(ParticleSystem))]
@@ -9,9 +6,9 @@ namespace PFVR.VFX {
         [SerializeField, Range(0, 10)]
         public float burstMultiplier = 1;
 
-        private new ParticleSystem particleSystem;
+        new ParticleSystem particleSystem;
 
-        private void Start() {
+        void Start() {
             particleSystem = GetComponent<ParticleSystem>();
         }
 

@@ -1,7 +1,4 @@
 ﻿using PFVR.Events;
-using PFVR.Player;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace PFVR.Environment {
@@ -10,9 +7,9 @@ namespace PFVR.Environment {
     /// </summary>
     public class CoinBehaviour : MonoBehaviour {
         [SerializeField]
-        private LayerMask collectingLayer = default;
+        LayerMask collectingLayer = default;
         [SerializeField]
-        private GameEventSource eventSource = default;
+        GameEventSource eventSource = default;
 
         void OnTriggerEnter(Collider other) {
             if (((1 << other.gameObject.layer) & collectingLayer) != 0) {

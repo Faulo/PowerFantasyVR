@@ -4,17 +4,17 @@ using UnityEngine;
 namespace PFVR.Spells.TimeStop {
     [RequireComponent(typeof(AbstractSpell))]
     public class SpellState : MonoBehaviour, ISpellState {
-        private float defaultTimeScale = 1;
+        float defaultTimeScale = 1;
 
         [SerializeField, Range(0, 1)]
-        private float stoppedTimeScale = 0;
+        float stoppedTimeScale = 0;
 
         [SerializeField, Range(0, 100)]
-        private float breakSpeed = 1;
+        float breakSpeed = 1;
 
         [SerializeField]
-        private GameObject postProcessingPrefab = default;
-        private GameObject postProcessing;
+        GameObject postProcessingPrefab = default;
+        GameObject postProcessing;
 
         public void OnEnter(PlayerBehaviour player, PlayerHandBehaviour hand) {
             Time.timeScale = stoppedTimeScale;

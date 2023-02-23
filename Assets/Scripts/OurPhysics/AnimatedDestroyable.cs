@@ -1,13 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 
 namespace PFVR.OurPhysics {
     [RequireComponent(typeof(Animator))]
     public class AnimatedDestroyable : MonoBehaviour, IDestroyable {
         [SerializeField, Range(1, 1000)]
-        private float maxHP = 1;
+        float maxHP = 1;
         public float currentHP {
             get => currentHPCache;
             set {
@@ -21,12 +19,12 @@ namespace PFVR.OurPhysics {
                 }
             }
         }
-        private float currentHPCache;
+        float currentHPCache;
         public bool isAlive { get; private set; } = true;
         public new Rigidbody rigidbody { get; private set; }
         public Vector3 position => transform.position;
 
-        private Animator animator;
+        Animator animator;
 
         // Start is called before the first frame update
         void Start() {

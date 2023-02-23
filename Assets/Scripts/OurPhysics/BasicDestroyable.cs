@@ -1,6 +1,4 @@
 ﻿using PFVR.VFX;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -19,14 +17,14 @@ namespace PFVR.OurPhysics {
                 }
             }
         }
-        private float currentHPCache;
+        float currentHPCache;
         public bool isAlive { get; private set; } = true;
         public new Rigidbody rigidbody { get; private set; }
         public Vector3 position => transform.position;
 
         [SerializeField]
         public GameObject damageTakenPrefab = default;
-        private ParticleSystemBurster damageTakenBurster;
+        ParticleSystemBurster damageTakenBurster;
         [SerializeField]
         public GameObject damageHealedPrefab = default;
         [SerializeField]
@@ -49,7 +47,7 @@ namespace PFVR.OurPhysics {
             }
         }
 
-        private void AnimateState(GameObject prefab) {
+        void AnimateState(GameObject prefab) {
             var state = Instantiate(prefab, transform.position, Quaternion.identity);
             state.transform.localScale = transform.localScale;
             if (rigidbody && state.GetComponent<Rigidbody>()) {

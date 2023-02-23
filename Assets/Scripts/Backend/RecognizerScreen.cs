@@ -1,7 +1,7 @@
-﻿using PFVR.Player;
-using PFVR.ScriptableObjects;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using PFVR.Player;
+using PFVR.ScriptableObjects;
 using TMPro;
 using UnityEngine;
 
@@ -10,10 +10,10 @@ namespace PFVR.Backend {
     /// A widget for displaying recognized gestures. Requires a working <see cref="GestureConnector"/>.
     /// </summary>
     public class RecognizerScreen : MonoBehaviour {
-        private TextMeshProUGUI mesh;
-        private string format;
+        TextMeshProUGUI mesh;
+        string format;
 
-        private Dictionary<string, IEnumerable<Gesture>> args = new Dictionary<string, IEnumerable<Gesture>>();
+        Dictionary<string, IEnumerable<Gesture>> args = new Dictionary<string, IEnumerable<Gesture>>();
 
         // Start is called before the first frame update
         void Start() {
@@ -25,7 +25,7 @@ namespace PFVR.Backend {
             args["right"] = null;
 
             GestureConnector.onLeftGesture += (Gesture gesture) => {
-                args["left"] = new Gesture[]{ gesture };
+                args["left"] = new Gesture[] { gesture };
             };
             GestureConnector.onRightGesture += (Gesture gesture) => {
                 args["right"] = new Gesture[] { gesture };

@@ -8,7 +8,7 @@ namespace PFVR.OurPhysics {
             if (filter != null) {
                 var mesh = filter.mesh;
                 var normals = mesh.normals;
-                for (int i = 0; i < normals.Length; i++) { 
+                for (int i = 0; i < normals.Length; i++) {
                     normals[i] = -normals[i];
                 }
                 mesh.normals = normals;

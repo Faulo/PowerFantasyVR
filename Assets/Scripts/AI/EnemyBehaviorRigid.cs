@@ -1,21 +1,13 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using PFVR.OurPhysics;
-using PFVR.Player;
+﻿using UnityEngine;
 
-namespace PFVR.AI
-{
+namespace PFVR.AI {
     /**
      * <summary>Implements the <c>EnemyBehavior</c> base class.</summary>
      **/
-    public class EnemyBehaviorRigid : EnemyBehavior
-    {
-        private Rigidbody thisRigidbody;
-        
-        protected override void Start()
-        {
+    public class EnemyBehaviorRigid : EnemyBehavior {
+        Rigidbody thisRigidbody;
+
+        protected override void Start() {
             base.Start();
             thisRigidbody = GetComponent<Rigidbody>();
         }
@@ -23,8 +15,7 @@ namespace PFVR.AI
         /**
          * <summary>Moves swarm object by adding force to the rigidbody.</summary>
          **/
-        public override void MoveObject()
-        {
+        public override void MoveObject() {
             thisRigidbody.AddRelativeForce(finalMovementVector);
         }
     }

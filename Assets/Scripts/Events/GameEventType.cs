@@ -1,7 +1,5 @@
-﻿using Slothsoft.UnityExtensions;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using System.Collections.Generic;
+using Slothsoft.UnityExtensions;
 
 namespace PFVR.Events {
     /// <summary>
@@ -13,7 +11,7 @@ namespace PFVR.Events {
         CoinCollected
     }
     public static class GameEventTypeExtensions {
-        private static IDictionary<GameEventType, ISet<GameEventResponse>> listeners = new Dictionary<GameEventType, ISet<GameEventResponse>>();
+        static IDictionary<GameEventType, ISet<GameEventResponse>> listeners = new Dictionary<GameEventType, ISet<GameEventResponse>>();
         public static void AddEventListener(this GameEventType type, GameEventResponse response) {
             if (!listeners.ContainsKey(type)) {
                 listeners[type] = new HashSet<GameEventResponse>();

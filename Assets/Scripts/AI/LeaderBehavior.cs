@@ -1,19 +1,15 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using PFVR.OurPhysics;
+﻿using PFVR.OurPhysics;
 using PFVR.Player;
+using UnityEngine;
 
-namespace PFVR.AI
-{
+namespace PFVR.AI {
     /**
      * <summary>Movement script for the group of leaders. Homes in on each target after another.</summary>
      **/
-    public class LeaderBehavior : MonoBehaviour
-    {
+    public class LeaderBehavior : MonoBehaviour {
         /** <summary><value>The <c>alphaFactor</c> defines the factor for calculating the drift (alpha > 0).</value></summary>*/
         public float alphaFactor = 0.2f;
-        private float alphaFactorUsed;
+        float alphaFactorUsed;
         /** <summary><value>The <c>attackPlayerDistance</c> defines the distance before attacking the player.</value></summary>*/
         public float attackPlayerDistance = 500.0f;
         /** <summary><value>The <c>ankorThreshold</c> defines the distance to the home area before returning.</value></summary>*/
@@ -21,23 +17,22 @@ namespace PFVR.AI
         /** <summary><value>The <c>chasePlayer</c> sets a boolean value for deciding if player is currently chased.</value></summary>*/
         public bool chasePlayer = false;
 
-        private IMotor motor => PlayerBehaviour.instance.motor;
-        private GameObject ankor;
-        private GameObject[] arrayOfTargets;
+        IMotor motor => PlayerBehaviour.instance.motor;
+        GameObject ankor;
+        GameObject[] arrayOfTargets;
 
-        private Vector3 currentTarget;
-        private float currentDistance;
-        private int num;
-        private float nearTarget = 10.0f;
-        private float playerDistance;
-        private float ankorDistance;
-        private bool lookForPlayer = false;
-        private bool normalize = false;
-        private Vector3 transformationVector;
+        Vector3 currentTarget;
+        float currentDistance;
+        int num;
+        float nearTarget = 10.0f;
+        float playerDistance;
+        float ankorDistance;
+        bool lookForPlayer = false;
+        bool normalize = false;
+        Vector3 transformationVector;
 
         // Start is called before the first frame update
-        void Start()
-        {
+        void Start() {
             // Retrieve all targets
             arrayOfTargets = GameObject.FindGameObjectsWithTag("LeaderTarget");
             //Retrieve ankor
@@ -48,37 +43,30 @@ namespace PFVR.AI
         }
 
         // Update is called once per frame
-        void Update()
-        {
+        void Update() {
             alphaFactorUsed = alphaFactor;
             // Find next target
-            if (num < 0)
-            {
+            if (num < 0) {
                 num = arrayOfTargets.Length - 1;
             }
             currentTarget = arrayOfTargets[num].transform.position;
 
             currentDistance = Vector3.Distance(currentTarget, transform.position);
-            if (currentDistance < nearTarget)
-            {
+            if (currentDistance < nearTarget) {
                 num--;
                 normalize = false;
                 lookForPlayer = true;
             }
             // Find player nearby
-            if (motor != null)
-            {
+            if (motor != null) {
                 playerDistance = Vector3.Distance(motor.position, transform.position);
                 ankorDistance = Vector3.Distance(ankor.transform.position, transform.position);
-                if (playerDistance < attackPlayerDistance && ankorDistance < ankorThreshold && lookForPlayer)
-                {
+                if (playerDistance < attackPlayerDistance && ankorDistance < ankorThreshold && lookForPlayer) {
                     currentTarget = motor.position;
                     chasePlayer = true;
                     alphaFactorUsed = alphaFactor + 2.0f;
 
-                }
-                else if (ankorDistance > ankorThreshold)
-                {
+                } else if (ankorDistance > ankorThreshold) {
                     lookForPlayer = false;
                     chasePlayer = false;
                     alphaFactorUsed = alphaFactor;
@@ -88,8 +76,7 @@ namespace PFVR.AI
 
             // Move leader to target
             transformationVector = new Vector3(currentTarget.x, currentTarget.y, currentTarget.z) - transform.position;
-            if (normalize)
-            {
+            if (normalize) {
                 Vector3.Normalize(transformationVector);
                 transformationVector = transformationVector * 0.4f;
             }

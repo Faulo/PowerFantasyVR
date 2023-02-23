@@ -1,5 +1,5 @@
-﻿using ManusVR.Core.Apollo;
-using System;
+﻿using System;
+using ManusVR.Core.Apollo;
 using UnityEngine;
 
 namespace PFVR.DataModels {

@@ -1,8 +1,7 @@
-﻿using PFVR.DataModels;
-using PFVR.ScriptableObjects;
+﻿using System.Collections;
+using PFVR.DataModels;
 using PFVR.Player;
-using System;
-using System.Collections;
+using PFVR.ScriptableObjects;
 using TMPro;
 using UnityEditor;
 using UnityEngine;
@@ -18,12 +17,12 @@ namespace PFVR.Backend {
             Recording,
             Done
         }
-        private TextMeshProUGUI log;
-        private GestureProfile profile;
-        private Gesture gesture;
-        private int recordingTime;
-        private ModelWriter<GestureModel> writer;
-        private RecordState state = RecordState.Inactive;
+        TextMeshProUGUI log;
+        GestureProfile profile;
+        Gesture gesture;
+        int recordingTime;
+        ModelWriter<GestureModel> writer;
+        RecordState state = RecordState.Inactive;
 
         public GestureRecorder(GestureProfile profile, Gesture gesture, int recordingTime, TextMeshProUGUI log) {
             this.profile = profile;
@@ -43,7 +42,7 @@ namespace PFVR.Backend {
 
             ManusConnector.onLeftGloveData += RecordGlove;
             ManusConnector.onRightGloveData += RecordGlove;
-            
+
             Log("Recording '" + gesture.name + "' in 3...");
             yield return new WaitForSeconds(1);
             Log("Recording '" + gesture.name + "' in 2...");
@@ -60,7 +59,7 @@ namespace PFVR.Backend {
             writer.Finish();
         }
 
-        private string EnsureFolder(string path, string name) {
+        string EnsureFolder(string path, string name) {
 #if UNITY_EDITOR
             if (!AssetDatabase.IsValidFolder(path + "/" + name)) {
                 AssetDatabase.CreateFolder(path, name);
@@ -69,7 +68,7 @@ namespace PFVR.Backend {
             return path + "/" + name;
         }
 
-        private void RecordGlove(GloveData data) {
+        void RecordGlove(GloveData data) {
             switch (state) {
                 case RecordState.Inactive:
                     break;
@@ -84,7 +83,7 @@ namespace PFVR.Backend {
                     break;
             }
         }
-        private void Log(string text) {
+        void Log(string text) {
             Debug.Log(text);
             if (log != default) {
                 log.text = text;

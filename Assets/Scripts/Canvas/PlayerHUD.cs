@@ -1,10 +1,5 @@
 ﻿using PFVR.Player;
 using PFVR.ScriptableObjects;
-using PFVR.Spells;
-using Slothsoft.UnityExtensions;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,15 +9,15 @@ namespace PFVR.Canvas {
     /// </summary>
     public class PlayerHUD : MonoBehaviour {
         [SerializeField]
-        private LayoutGroup leftGestureGroup = default;
+        LayoutGroup leftGestureGroup = default;
         [SerializeField]
-        private LayoutGroup rightGestureGroup = default;
+        LayoutGroup rightGestureGroup = default;
         [SerializeField]
-        private GameObject iconPrefab = default;
+        GameObject iconPrefab = default;
 
-        private GestureConnector player => GetComponentInParent<GestureConnector>();
-        private ScriptableObjectManager<Gesture> leftGestureManager;
-        private ScriptableObjectManager<Gesture> rightGestureManager;
+        GestureConnector player => GetComponentInParent<GestureConnector>();
+        ScriptableObjectManager<Gesture> leftGestureManager;
+        ScriptableObjectManager<Gesture> rightGestureManager;
 
         // Start is called before the first frame update
         void Start() {
@@ -44,8 +39,8 @@ namespace PFVR.Canvas {
             rightGestureManager.OnlyShow(gesture => player.IsUnlocked(gesture));
         }
 
-        private void DisplayIcon(Gesture gesture, BasicButton button) {
-            if (gesture.icon != null) { 
+        void DisplayIcon(Gesture gesture, BasicButton button) {
+            if (gesture.icon != null) {
                 button.text = "";
                 var icon = Instantiate(iconPrefab, button.transform);
                 icon.GetComponent<Image>().sprite = gesture.icon;

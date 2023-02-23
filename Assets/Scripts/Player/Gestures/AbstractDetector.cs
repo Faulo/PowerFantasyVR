@@ -1,8 +1,4 @@
 ﻿using PFVR.ScriptableObjects;
-using Slothsoft.UnityExtensions;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 namespace PFVR.Player.Gestures {
     /// <summary>
@@ -12,19 +8,19 @@ namespace PFVR.Player.Gestures {
     /// </summary>
     public class AbstractDetector : MonoBehaviour {
         [SerializeField]
-        private Gesture triggeredGesture = default;
+        Gesture triggeredGesture = default;
 
         protected bool isOn { get; private set; } = false;
         protected bool isTurningOn { get; set; } = false;
         protected bool isTurningOff { get; set; } = false;
 
         [SerializeField, Range(0, 60)]
-        private int toggleFrames = 1;
+        int toggleFrames = 1;
 
-        private int startupFrames;
-        private int shutoffFrames;
+        int startupFrames;
+        int shutoffFrames;
 
-        private void FixedUpdate() {
+        void FixedUpdate() {
             if (isOn) {
                 if (isTurningOff) {
                     shutoffFrames++;

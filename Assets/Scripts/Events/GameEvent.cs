@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-namespace PFVR.Events {
+﻿namespace PFVR.Events {
     /// <summary>
     /// The model used for the instance of an event.
     /// </summary>

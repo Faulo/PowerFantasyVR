@@ -1,7 +1,4 @@
-﻿using DG.Tweening;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace PFVR.Spells.EnergyWave {
     public class MetroidWave : Wave {
@@ -20,8 +17,8 @@ namespace PFVR.Spells.EnergyWave {
         public float holdTime = 1;
         public float chargeTime = .5f;
 
-        private float holdTimer;
-        private float chargeTimer;
+        float holdTimer;
+        float chargeTimer;
 
         [Space]
 

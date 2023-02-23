@@ -22,7 +22,7 @@ namespace PFVR.OurPhysics {
             transform.Translate(velocity * Time.deltaTime, Space.World);
         }
 
-        private void OnCollisionEnter(Collision collision) {
+        void OnCollisionEnter(Collision collision) {
             if (transferForce && collision.rigidbody != null) {
                 collision.rigidbody.AddForce(velocity * mass, ForceMode.Impulse);
             }

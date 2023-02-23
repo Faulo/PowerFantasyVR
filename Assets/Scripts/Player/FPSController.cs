@@ -1,26 +1,24 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace PFVR.Player {
     [RequireComponent(typeof(PlayerBehaviour))]
     public class FPSController : MonoBehaviour {
         [SerializeField, Range(0, 1000)]
-        private float accelerationSpeed = 100;
+        float accelerationSpeed = 100;
 
         [SerializeField, Range(0, 1000)]
-        private float turnSpeed = 100;
+        float turnSpeed = 100;
 
         [SerializeField, Range(0, 1000)]
-        private float walkSpeed = 100;
+        float walkSpeed = 100;
 
         [SerializeField, Range(0, 1000)]
-        private float jumpSpeed = 100;
+        float jumpSpeed = 100;
 
         [SerializeField, Range(0, 1000)]
-        private float fallSpeed = 100;
+        float fallSpeed = 100;
 
-        private PlayerBehaviour player;
+        PlayerBehaviour player;
 
         void Start() {
             player = GetComponent<PlayerBehaviour>();

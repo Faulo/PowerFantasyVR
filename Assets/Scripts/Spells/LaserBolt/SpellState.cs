@@ -1,31 +1,29 @@
-﻿using ManusVR.Core.Apollo;
-using PFVR.OurPhysics;
+﻿using System.Collections;
 using PFVR.Player;
-using System.Collections;
 using UnityEngine;
 
 namespace PFVR.Spells.LaserBolt {
     [RequireComponent(typeof(AbstractSpell))]
     public class SpellState : MonoBehaviour, ISpellState {
         [SerializeField]
-        private GameObject boltPrefab = default;
+        GameObject boltPrefab = default;
 
         [SerializeField, Range(1, 1000)]
-        private float boltVelocity = 100;
+        float boltVelocity = 100;
 
         [SerializeField, Range(1, 1000)]
-        private float boltInterval = 1000;
+        float boltInterval = 1000;
 
         [SerializeField, Range(0, 60)]
-        private float boltLifetime = 10;
+        float boltLifetime = 10;
 
         [SerializeField, Range(1, 1000)]
-        private ushort rumbleDuration = 100;
+        ushort rumbleDuration = 100;
 
         [SerializeField, Range(0f, 1f)]
-        private float rumbleForce = 0.5f;
+        float rumbleForce = 0.5f;
 
-        private Coroutine boltRoutine;
+        Coroutine boltRoutine;
 
         public void OnEnter(PlayerBehaviour player, PlayerHandBehaviour hand) {
             boltRoutine = StartCoroutine(CreateBoltRoutine(hand));
@@ -37,7 +35,7 @@ namespace PFVR.Spells.LaserBolt {
         }
         public void OnUpdate(PlayerBehaviour player, PlayerHandBehaviour hand) {
         }
-        private IEnumerator CreateBoltRoutine(PlayerHandBehaviour hand) {
+        IEnumerator CreateBoltRoutine(PlayerHandBehaviour hand) {
             while (true) {
                 var bolt = Instantiate(boltPrefab, hand.indexFinger.position, hand.indexFinger.rotation).GetComponent<Bolt>();
                 bolt.velocity = bolt.transform.forward * boltVelocity;

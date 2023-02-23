@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using UnityEditor;
@@ -11,9 +9,9 @@ namespace PFVR.DataModels {
     /// Takes a folder with many .csv files and merges them into one, using only the first .csv file's header row.
     /// </summary>
     public class ModelMerger {
-        private string text {
+        string text {
             get {
-                var assets = folders
+                string[] assets = folders
                     .SelectMany(name => Resources.LoadAll<TextAsset>(name))
                     .Select(asset => asset.text)
                     .ToArray();
@@ -26,7 +24,7 @@ namespace PFVR.DataModels {
                 return string.Join("", assets);
             }
         }
-        private IEnumerable<string> folders;
+        IEnumerable<string> folders;
 
         public ModelMerger(IEnumerable<string> folders) {
             this.folders = folders;

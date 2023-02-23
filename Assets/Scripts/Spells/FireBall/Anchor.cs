@@ -1,17 +1,15 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 
 namespace PFVR.Spells.FireBall {
     public class Anchor : MonoBehaviour {
         [SerializeField, Range(0, 100)]
-        private float maximumSpeed = 10;
+        float maximumSpeed = 10;
         [SerializeField, Range(0, 100)]
-        private float accelerationSpeed = 10;
+        float accelerationSpeed = 10;
 
-        private Transform target;
-        private Vector3 targetVelocity;
+        Transform target;
+        Vector3 targetVelocity;
 
         public void ConnectTo(Ball ball) {
             target = ball.transform;
@@ -32,7 +30,7 @@ namespace PFVR.Spells.FireBall {
             target = null;
         }
 
-        private void Update() {
+        void Update() {
             if (target) {
                 targetVelocity = Vector3.Lerp(targetVelocity, maximumSpeed * (transform.position - target.position), accelerationSpeed * Time.deltaTime);
                 target.Translate(targetVelocity * Time.deltaTime);

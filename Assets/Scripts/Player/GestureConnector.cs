@@ -1,10 +1,10 @@
-﻿using PFVR.DataModels;
-using PFVR.ScriptableObjects;
-using Slothsoft.UnityExtensions;
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using PFVR.DataModels;
+using PFVR.ScriptableObjects;
+using Slothsoft.UnityExtensions;
 using UnityEngine;
 
 
@@ -13,13 +13,13 @@ namespace PFVR.Player {
         public static GestureConnector instance { get; private set; }
 
         [SerializeField]
-        private GestureProfile gestureProfile = default;
+        GestureProfile gestureProfile = default;
 
         [SerializeField]
-        private int gestureTriggerFrames = 1;
+        int gestureTriggerFrames = 1;
 
         [SerializeField, HideInInspector]
-        private Gesture[] unlockedGestures = new Gesture[0];
+        Gesture[] unlockedGestures = new Gesture[0];
 
         public IEnumerable<Gesture> possibleGestures => gestureProfile.gestureSet.gestureObjects;
         public IEnumerable<Gesture> availableGestures => unlockedGestures;
@@ -32,19 +32,19 @@ namespace PFVR.Player {
         public static event NewGesture onGestureUnlock;
         public static event NewGesture onGestureLock;
 
-        private string nextLeftGestureId;
-        private string nextRightGestureId;
+        string nextLeftGestureId;
+        string nextRightGestureId;
 
-        private int nextLeftGestureCount;
-        private int nextRightGestureCount;
+        int nextLeftGestureCount;
+        int nextRightGestureCount;
 
-        private Gesture currentComplexGesture;
+        Gesture currentComplexGesture;
 
         [SerializeField]
-        private KeyCode[] debugKeys = default;
+        KeyCode[] debugKeys = default;
         [SerializeField]
-        private Gesture[] debugGestures = default;
-        private Gesture defaultGesture => debugGestures[0];
+        Gesture[] debugGestures = default;
+        Gesture defaultGesture => debugGestures[0];
 
         void Start() {
             if (gestureProfile == null) {
@@ -59,7 +59,7 @@ namespace PFVR.Player {
                 if (currentComplexGesture) {
                     onLeftGesture?.Invoke(currentComplexGesture);
                 } else {
-                    var gestureId = recognizer.Guess(glove.ToGestureModel());
+                    string gestureId = recognizer.Guess(glove.ToGestureModel());
                     gestureId = UnlockedOrDefault(gestureId);
                     if (nextLeftGestureId != gestureId) {
                         nextLeftGestureId = gestureId;
@@ -76,7 +76,7 @@ namespace PFVR.Player {
                 if (currentComplexGesture) {
                     onRightGesture?.Invoke(currentComplexGesture);
                 } else {
-                    var gestureId = recognizer.Guess(glove.ToGestureModel());
+                    string gestureId = recognizer.Guess(glove.ToGestureModel());
                     gestureId = UnlockedOrDefault(gestureId);
                     if (nextRightGestureId != gestureId) {
                         nextRightGestureId = gestureId;
@@ -104,18 +104,18 @@ namespace PFVR.Player {
             }
         }
 
-        private string UnlockedOrDefault(string gestureId) {
+        string UnlockedOrDefault(string gestureId) {
             return IsUnlocked(gestureId)
                 ? gestureId
                 : defaultGesture.name;
         }
-        private Gesture UnlockedOrDefault(Gesture gesture) {
+        Gesture UnlockedOrDefault(Gesture gesture) {
             return IsUnlocked(gesture)
                 ? gesture
                 : defaultGesture;
         }
 
-        private IEnumerator Init() {
+        IEnumerator Init() {
             yield return new WaitForSeconds(1);
             unlockedGestures.ForAll(Unlock);
             onLeftGesture?.Invoke(defaultGesture);
@@ -140,7 +140,7 @@ namespace PFVR.Player {
             onGestureLock?.Invoke(gesture);
         }
 
-        private void Update() {
+        void Update() {
             for (int i = 0; i < debugKeys.Length; i++) {
                 if (Input.GetKeyDown(debugKeys[i])) {
                     var id = debugGestures[i];
