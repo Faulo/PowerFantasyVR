@@ -18,6 +18,9 @@
 !/docfx_project/
 !/docs/
 
+!.editorconfig
+!Jenkinsfile
+
 /Assets/Meshes/Environment/Water/
 !/Assets/Meshes/Environment/Water/Water.txt
 !/Assets/Meshes/Environment/Water/Water.txt.meta
