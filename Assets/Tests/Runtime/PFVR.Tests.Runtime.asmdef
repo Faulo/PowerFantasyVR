@@ -7,9 +7,7 @@
         "UnityEditor.TestRunner"
     ],
     "includePlatforms": [],
-    "excludePlatforms": [
-        "LinuxStandalone64"
-    ],
+    "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": true,
     "precompiledReferences": [
@@ -27,7 +25,8 @@
     ],
     "autoReferenced": false,
     "defineConstraints": [
-        "UNITY_INCLUDE_TESTS"
+        "UNITY_INCLUDE_TESTS",
+        "UNITY_EDITOR_WIN"
     ],
     "versionDefines": [],
     "noEngineReferences": false
