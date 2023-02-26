@@ -1,14 +1,13 @@
-﻿using Microsoft.ML;
-using Microsoft.ML.Data;
+﻿using System.Linq;
+using Microsoft.ML;
 using NUnit.Framework;
 using PFVR.DataModels;
 using PFVR.ScriptableObjects;
-using System.Linq;
 using UnityEngine;
 
-namespace Tests.DataModels {
+namespace PFVR.Tests.Runtime.DataModels {
     public class GestureRecognizerTest {
-        private GestureProfile profile => Resources.LoadAll<GestureProfile>("ScriptableObjects")[0];
+        GestureProfile profile => Resources.LoadAll<GestureProfile>("ScriptableObjects")[0];
 
         [Test]
         public void TestCreateMLContext() {
@@ -19,7 +18,7 @@ namespace Tests.DataModels {
         [Test]
         public void TestLoadModel() {
             var mlContext = new MLContext();
-            var model = mlContext.Model.Load(profile.modelDataPath, out DataViewSchema inputSchema);
+            var model = mlContext.Model.Load(profile.modelDataPath, out var inputSchema);
             Assert.IsInstanceOf<ITransformer>(model);
             Assert.IsInstanceOf<DataViewSchema>(inputSchema);
         }
@@ -27,7 +26,7 @@ namespace Tests.DataModels {
         [Test]
         public void TestCreatePredictionEngine() {
             var mlContext = new MLContext();
-            var model = mlContext.Model.Load(profile.modelDataPath, out DataViewSchema inputSchema);
+            var model = mlContext.Model.Load(profile.modelDataPath, out var inputSchema);
             var engine = mlContext.Model.CreatePredictionEngine<GestureModel, StringPrediction>(model);
             Assert.IsInstanceOf<PredictionEngine<GestureModel, StringPrediction>>(engine);
         }

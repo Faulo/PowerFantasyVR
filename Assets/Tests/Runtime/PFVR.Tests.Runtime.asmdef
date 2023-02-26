@@ -1,15 +1,12 @@
 {
-    "name": "PFVR.Editor.Tests",
+    "name": "PFVR.Tests.Runtime",
     "references": [
         "PFVR",
-        "PFVR.Editor"
+        "PFVR.Editor",
+        "UnityEngine.TestRunner",
+        "UnityEditor.TestRunner"
     ],
-    "optionalUnityReferences": [
-        "TestAssemblies"
-    ],
-    "includePlatforms": [
-        "Editor"
-    ],
+    "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": true,
@@ -27,6 +24,10 @@
         "Newtonsoft.Json.dll"
     ],
     "autoReferenced": false,
-    "defineConstraints": [],
-    "versionDefines": []
+    "defineConstraints": [
+        "UNITY_INCLUDE_TESTS",
+        "UNITY_STANDALONE_WIN"
+    ],
+    "versionDefines": [],
+    "noEngineReferences": false
 }
