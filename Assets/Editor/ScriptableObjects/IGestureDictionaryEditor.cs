@@ -1,15 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using PFVR.Player;
+using PFVR.ScriptableObjects;
 using UnityEditor;
-using Microsoft.ML;
-using PFVR.DataModels;
-using PFVR.Player;
 
-namespace PFVR.ScriptableObjects {
-    public class IGestureDictionaryEditor : Editor {
+namespace PFVR.Editor.ScriptableObjects {
+    public class IGestureDictionaryEditor : UnityEditor.Editor {
         bool showDictionary = true;
-            
+
         public override void OnInspectorGUI() {
             // Draw the default inspector
             DrawDefaultInspector();
