@@ -1,4 +1,4 @@
-node {
+node('unity && windows') {
     checkout scm
     
     unityProject {
