@@ -261,11 +261,11 @@ namespace PFVR.Environment {
             if (waterPlaneWidth > 0 && waterPlaneHeight > 0) {
                 if (transform.localScale.x != 1) {
                     waterPlaneWidth = (int)(waterPlaneWidth * transform.localScale.x);
-                    transform.SetScaleX(1);
+                    transform.localScale = transform.localScale.WithX(1);
                 }
                 if (transform.localScale.y != 1) {
                     waterPlaneHeight = (int)(waterPlaneHeight * transform.localScale.y);
-                    transform.SetScaleY(1);
+                    transform.localScale = transform.localScale.WithY(1);
                 }
                 CreateWaterPlane(waterPlaneWidth, waterPlaneHeight, waterPlaneWaveWidth, waterPlaneWaveHeight);
             }

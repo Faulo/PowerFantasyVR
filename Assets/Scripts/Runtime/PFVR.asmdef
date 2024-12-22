@@ -6,14 +6,14 @@
         "ManusVR",
         "Unity.TextMeshPro",
         "ML.NET",
-        "Slothsoft.UnityExtensions.Runtime",
         "BOXOPHOBIC",
         "Unity.Postprocessing.Runtime",
         "UnityEngine.UI",
         "LowPolyWater",
         "ParticlePack",
         "UnitySceneReference",
-        "VolumetricLines"
+        "VolumetricLines",
+        "Slothsoft.UnityExtensions"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

@@ -16,7 +16,7 @@ namespace PFVR.Spells.LaserRay {
         public bool isCutting => destroyables.Count > 0;
 
         public void Start() {
-            transform.SetScaleZ(rayRange);
+            transform.localScale = transform.localScale.WithZ(rayRange);
         }
 
         void OnTriggerEnter(Collider other) {
