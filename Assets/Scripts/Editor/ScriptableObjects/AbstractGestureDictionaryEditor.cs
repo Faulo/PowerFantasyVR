@@ -1,9 +1,8 @@
-﻿using PFVR.Player;
-using PFVR.ScriptableObjects;
+﻿using PFVR.ScriptableObjects;
 using UnityEditor;
 
 namespace PFVR.Editor.ScriptableObjects {
-    public class IGestureDictionaryEditor : UnityEditor.Editor {
+    abstract class AbstractGestureDictionaryEditor : UnityEditor.Editor {
         bool showDictionary = true;
 
         public override void OnInspectorGUI() {
@@ -21,17 +20,13 @@ namespace PFVR.Editor.ScriptableObjects {
                         } else {
                             gestureDictionary.RemoveGesture(gesture);
                         }
+
                         EditorUtility.SetDirty(target);
                     }
                 }
             }
+
             EditorGUILayout.EndFoldoutHeaderGroup();
         }
-    }
-    [CustomEditor(typeof(GestureSet), true)]
-    public class GestureSetEditor : IGestureDictionaryEditor {
-    }
-    [CustomEditor(typeof(GestureConnector), true)]
-    public class GestureConnectorEditor : IGestureDictionaryEditor {
     }
 }

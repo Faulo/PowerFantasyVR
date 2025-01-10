@@ -6,7 +6,8 @@ using PFVR.ScriptableObjects;
 using UnityEngine;
 
 namespace PFVR.Tests.Runtime.DataModels {
-    public class GestureRecognizerTest {
+    [TestFixture]
+    sealed class GestureRecognizerTest {
         GestureProfile profile => Resources.LoadAll<GestureProfile>("ScriptableObjects")[0];
 
         [Test]
