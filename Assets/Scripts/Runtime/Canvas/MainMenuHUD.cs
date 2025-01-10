@@ -9,7 +9,7 @@ namespace PFVR.Canvas {
     /// <summary>
     /// The HUD used by the main menu, containing the level selection and options.
     /// </summary>
-    public class MainMenuHUD : MonoBehaviour {
+    public sealed class MainMenuHUD : MonoBehaviour {
         [SerializeField]
         LayoutGroup levelSelectGroup = default;
         [SerializeField]

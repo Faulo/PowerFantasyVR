@@ -2,7 +2,7 @@
 
 namespace PFVR.VFX {
     [RequireComponent(typeof(ParticleSystem))]
-    public class ParticleSystemAnimator : MonoBehaviour {
+    public sealed class ParticleSystemAnimator : MonoBehaviour {
         [SerializeField]
         int burstCount = 1;
 

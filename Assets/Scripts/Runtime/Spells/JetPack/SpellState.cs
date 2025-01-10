@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace PFVR.Spells.JetPack {
     [RequireComponent(typeof(AbstractSpell))]
-    public class SpellState : MonoBehaviour, ISpellState {
+    public sealed class SpellState : MonoBehaviour, ISpellState {
         [SerializeField, Range(0, 100)]
         float propulsionForce = 10;
         [SerializeField]

@@ -6,7 +6,7 @@ namespace PFVR.DataModels {
     /// <summary>
     /// Sets up an <see cref="MLContext"/> to guess <see cref="Gesture"/> IDs based on <see cref="GestureModel"/>s.
     /// </summary>
-    public class GestureRecognizer {
+    public sealed class GestureRecognizer {
         MLContext context;
         PredictionEngine<GestureModel, StringPrediction> engine;
 

@@ -6,7 +6,7 @@ namespace PFVR.AI {
     /**
      * <summary>Movement script for the group of leaders. Homes in on each target after another.</summary>
      **/
-    public class LeaderBehavior : MonoBehaviour {
+    public sealed class LeaderBehavior : MonoBehaviour {
         /** <summary><value>The <c>alphaFactor</c> defines the factor for calculating the drift (alpha > 0).</value></summary>*/
         public float alphaFactor = 0.2f;
         float alphaFactorUsed;

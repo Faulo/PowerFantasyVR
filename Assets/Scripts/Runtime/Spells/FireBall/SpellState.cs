@@ -4,7 +4,7 @@ using PFVR.Player;
 using UnityEngine;
 
 namespace PFVR.Spells.FireBall {
-    public class SpellState : MonoBehaviour, ISpellState {
+    public sealed class SpellState : MonoBehaviour, ISpellState {
         [SerializeField]
         GameObject ballPrefab = default;
 

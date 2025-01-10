@@ -3,7 +3,7 @@ using PFVR.OurPhysics;
 using UnityEngine;
 
 namespace PFVR.Player {
-    public class PlayerBehaviour : MonoBehaviour {
+    public sealed class PlayerBehaviour : MonoBehaviour {
         public static PlayerBehaviour instance {
             get {
                 if (instanceCache == null) {

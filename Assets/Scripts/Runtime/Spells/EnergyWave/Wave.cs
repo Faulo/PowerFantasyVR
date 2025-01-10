@@ -26,12 +26,12 @@ namespace PFVR.Spells.EnergyWave {
         public bool isAlive { get; private set; }
         public Vector3 position => transform.position;
 
-        void Awake() {
+        protected virtual void Awake() {
             collider = GetComponentInChildren<Collider>();
             rigidbody = GetComponentInChildren<Rigidbody>();
         }
 
-        void OnTriggerEnter(Collider other) {
+        protected virtual void OnTriggerEnter(Collider other) {
             currentHP = 0;
         }
 

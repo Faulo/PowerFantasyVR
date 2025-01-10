@@ -7,7 +7,7 @@ namespace PFVR.ScriptableObjects {
     /// Its name will be used for the names of the tracking data .csv and .zip files.
     /// </summary>
     [CreateAssetMenu(fileName = "GestureProfile.Player", menuName = "Gameplay/Gesture Profile", order = 3)]
-    public class GestureProfile : ScriptableObject {
+    public sealed class GestureProfile : ScriptableObject {
         [SerializeField]
         public GestureSet gestureSet = default;
 

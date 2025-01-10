@@ -2,7 +2,7 @@
 
 namespace PFVR.VFX {
     [RequireComponent(typeof(TrailRenderer))]
-    public class TrailRendererScaleToSpeed : MonoBehaviour {
+    public sealed class TrailRendererScaleToSpeed : MonoBehaviour {
         [SerializeField, Range(0, 100)]
         float scaleSpeed = 1;
         [SerializeField, Range(0, 100)]

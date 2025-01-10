@@ -4,7 +4,7 @@ namespace PFVR.AI {
     /**
      * <summary>Implements the <c>EnemyBehavior</c> base class.</summary>
      **/
-    public class EnemyBehaviorTranslate : EnemyBehavior {
+    public sealed class EnemyBehaviorTranslate : EnemyBehavior {
         /**
          * <summary>Moves swarm object by translation.</summary>
          **/

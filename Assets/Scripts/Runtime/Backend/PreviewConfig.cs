@@ -7,7 +7,7 @@ namespace PFVR.Backend {
     /// Adds glove and/or tracker materials to any descendant <see cref="SteamVR_RenderModel"/>s.
     /// </summary>
     [ExecuteInEditMode]
-    public class PreviewConfig : MonoBehaviour {
+    public sealed class PreviewConfig : MonoBehaviour {
         [SerializeField]
         Material gloveMaterial = default;
 

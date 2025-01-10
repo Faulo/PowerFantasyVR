@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 namespace PFVR.OurPhysics {
-    public class Floater : MonoBehaviour {
+    public sealed class Floater : MonoBehaviour {
         public float degreesPerSecond = 15.0f;
         public float amplitude = 0.5f;
         public float frequency = 1f;

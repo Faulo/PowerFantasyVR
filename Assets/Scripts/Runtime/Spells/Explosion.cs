@@ -4,7 +4,7 @@ using Slothsoft.UnityExtensions;
 using UnityEngine;
 
 namespace PFVR.Spells {
-    public class Explosion : ScalableObject {
+    public sealed class Explosion : ScalableObject {
         [SerializeField]
         float maximumRange = 1;
         [SerializeField]

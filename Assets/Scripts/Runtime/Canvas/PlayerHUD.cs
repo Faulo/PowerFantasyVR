@@ -7,7 +7,7 @@ namespace PFVR.Canvas {
     /// <summary>
     /// The in-game HUD, containing unlocked gestures and such.
     /// </summary>
-    public class PlayerHUD : MonoBehaviour {
+    public sealed class PlayerHUD : MonoBehaviour {
         [SerializeField]
         LayoutGroup leftGestureGroup = default;
         [SerializeField]

@@ -2,7 +2,7 @@
 using UnityEngine;
 
 namespace PFVR.Spells {
-    public class AbstractSpell : MonoBehaviour, ISpellState {
+    public sealed class AbstractSpell : MonoBehaviour, ISpellState {
         [SerializeField, ColorUsage(true, true)]
         [Tooltip("The color the infinity stone will be glowing in.")]
         public Color glowColor = default;

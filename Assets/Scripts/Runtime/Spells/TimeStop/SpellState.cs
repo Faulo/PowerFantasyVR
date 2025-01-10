@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace PFVR.Spells.TimeStop {
     [RequireComponent(typeof(AbstractSpell))]
-    public class SpellState : MonoBehaviour, ISpellState {
+    public sealed class SpellState : MonoBehaviour, ISpellState {
         float defaultTimeScale = 1;
 
         [SerializeField, Range(0, 1)]

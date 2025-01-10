@@ -2,7 +2,7 @@
 using UnityEngine;
 
 namespace PFVR.OurPhysics {
-    public class FakeGravity : MonoBehaviour {
+    public sealed class FakeGravity : MonoBehaviour {
         [SerializeField]
         [Range(-10, 10)]
         float gravity = default;

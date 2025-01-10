@@ -9,7 +9,7 @@ namespace PFVR.Backend {
     /// <summary>
     /// A widget for displaying recognized gestures. Requires a working <see cref="GestureConnector"/>.
     /// </summary>
-    public class RecognizerScreen : MonoBehaviour {
+    public sealed class RecognizerScreen : MonoBehaviour {
         TextMeshProUGUI mesh;
         string format;
 

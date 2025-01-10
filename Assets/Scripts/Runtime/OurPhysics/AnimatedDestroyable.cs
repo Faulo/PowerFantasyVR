@@ -3,7 +3,7 @@
 
 namespace PFVR.OurPhysics {
     [RequireComponent(typeof(Animator))]
-    public class AnimatedDestroyable : MonoBehaviour, IDestroyable {
+    public sealed class AnimatedDestroyable : MonoBehaviour, IDestroyable {
         [SerializeField, Range(1, 1000)]
         float maxHP = 1;
         public float currentHP {

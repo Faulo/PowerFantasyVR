@@ -7,7 +7,7 @@ namespace PFVR.Settings {
     /// <summary>
     /// Some global keybindings and level load code.
     /// </summary>
-    public class GameManager : MonoBehaviour {
+    public sealed class GameManager : MonoBehaviour {
         public static GameManager instance {
             get {
                 if (instanceCache == null) {

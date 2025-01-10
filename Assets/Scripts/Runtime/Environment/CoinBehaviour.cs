@@ -5,7 +5,7 @@ namespace PFVR.Environment {
     /// <summary>
     /// Basic collectible.
     /// </summary>
-    public class CoinBehaviour : MonoBehaviour {
+    public sealed class CoinBehaviour : MonoBehaviour {
         [SerializeField]
         LayerMask collectingLayer = default;
         [SerializeField]

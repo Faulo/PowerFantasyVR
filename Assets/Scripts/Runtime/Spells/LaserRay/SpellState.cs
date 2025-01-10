@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace PFVR.Spells.LaserRay {
     [RequireComponent(typeof(AbstractSpell))]
-    public class SpellState : MonoBehaviour, ISpellState {
+    public sealed class SpellState : MonoBehaviour, ISpellState {
         [SerializeField]
         GameObject rayPrefab = default;
 

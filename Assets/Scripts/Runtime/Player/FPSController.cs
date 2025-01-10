@@ -2,7 +2,7 @@
 
 namespace PFVR.Player {
     [RequireComponent(typeof(PlayerBehaviour))]
-    public class FPSController : MonoBehaviour {
+    public sealed class FPSController : MonoBehaviour {
         [SerializeField, Range(0, 1000)]
         float accelerationSpeed = 100;
 

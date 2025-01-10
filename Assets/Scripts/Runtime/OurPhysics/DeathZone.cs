@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 namespace PFVR.OurPhysics {
-    public class DeathZone : MonoBehaviour {
+    public sealed class DeathZone : MonoBehaviour {
         Bounds bounds;
         void Awake() {
             bounds = GetComponent<BoxCollider>().bounds;

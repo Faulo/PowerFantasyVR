@@ -6,7 +6,7 @@ namespace PFVR.Player.Gestures {
     /// 
     /// Implementing scripts call <see cref="TurnOn"/> when they detect that hands have entered their trigger state, and <see cref="TurnOff"/> when they leave it.
     /// </summary>
-    public class AbstractDetector : MonoBehaviour {
+    public abstract class AbstractDetector : MonoBehaviour {
         [SerializeField]
         Gesture triggeredGesture = default;
 
@@ -20,7 +20,7 @@ namespace PFVR.Player.Gestures {
         int startupFrames;
         int shutoffFrames;
 
-        void FixedUpdate() {
+        protected virtual void FixedUpdate() {
             if (isOn) {
                 if (isTurningOff) {
                     shutoffFrames++;

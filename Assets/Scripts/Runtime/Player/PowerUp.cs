@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace PFVR.Player {
     [RequireComponent(typeof(GameEventSource))]
-    public class PowerUp : MonoBehaviour {
+    public sealed class PowerUp : MonoBehaviour {
         [SerializeField]
         Gesture gestureToUnlock = default;
         [SerializeField]

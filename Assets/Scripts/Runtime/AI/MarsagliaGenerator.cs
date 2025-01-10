@@ -2,7 +2,7 @@
 
 namespace PFVR.AI {
     // Class created by Robin Daraban and permittedly used
-    public class MarsagliaGenerator {
+    public sealed class MarsagliaGenerator {
         public static float Next() {
             var validDouble = Random.insideUnitCircle;
             float s = validDouble.sqrMagnitude;

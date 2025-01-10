@@ -6,7 +6,7 @@ namespace PFVR.Backend {
     /// <summary>
     /// A widget for displaying log data.
     /// </summary>
-    public class DebugScreen : MonoBehaviour {
+    public sealed class DebugScreen : MonoBehaviour {
         TextMeshProUGUI mesh;
 
         string myLog;

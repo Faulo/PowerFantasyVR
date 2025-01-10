@@ -8,7 +8,7 @@ namespace PFVR.DataModels {
     /// <summary>
     /// Takes a folder with many .csv files and merges them into one, using only the first .csv file's header row.
     /// </summary>
-    public class ModelMerger {
+    public sealed class ModelMerger {
         string text {
             get {
                 string[] assets = folders

@@ -2,7 +2,7 @@
 
 namespace PFVR.OurPhysics {
     [RequireComponent(typeof(Rigidbody))]
-    public class RigidbodyMotor : MonoBehaviour, IMotor {
+    public sealed class RigidbodyMotor : MonoBehaviour, IMotor {
         new Rigidbody rigidbody;
 
         public Vector3 position => transform.position;

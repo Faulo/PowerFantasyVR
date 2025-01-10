@@ -3,7 +3,7 @@ using UnityEngine;
 
 
 namespace PFVR.OurPhysics {
-    public class BasicDestroyable : MonoBehaviour, IDestroyable {
+    public sealed class BasicDestroyable : MonoBehaviour, IDestroyable {
         [SerializeField, Range(1, 100)]
         public float maxHP = 1;
         public float currentHP {

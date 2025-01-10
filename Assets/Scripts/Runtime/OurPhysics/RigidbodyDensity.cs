@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace PFVR.OurPhysics {
     [RequireComponent(typeof(Rigidbody)), ExecuteInEditMode]
-    public class RigidbodyDensity : MonoBehaviour {
+    public sealed class RigidbodyDensity : MonoBehaviour {
         [SerializeField, Range(0, 100)]
         float density = 1;
         float volume => transform.localScale.x * transform.localScale.y * transform.localScale.z;

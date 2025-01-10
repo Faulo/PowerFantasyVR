@@ -4,7 +4,7 @@ namespace PFVR.Player.Gestures {
     /// <summary>
     /// An example <see cref="AbstractDetctor"/> implementation. Detects when hands are within a certain distance towards each other.
     /// </summary>
-    public class BasicDetector : AbstractDetector {
+    public sealed class BasicDetector : AbstractDetector {
         [SerializeField]
         Transform otherHandDetector = default;
 

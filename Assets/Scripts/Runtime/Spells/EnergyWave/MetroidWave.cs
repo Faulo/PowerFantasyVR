@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 namespace PFVR.Spells.EnergyWave {
-    public class MetroidWave : Wave {
+    public sealed class MetroidWave : Wave {
         [Space]
         public ParticleSystem cannonParticleShooter;
         public ParticleSystem chargingParticle;

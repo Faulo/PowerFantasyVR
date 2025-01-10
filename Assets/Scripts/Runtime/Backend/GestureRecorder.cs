@@ -10,7 +10,7 @@ namespace PFVR.Backend {
     /// <summary>
     /// A class for storing raw <see cref="ManusConnector"/> data alongside a reference <see cref="Gesture"/>.
     /// </summary>
-    public class GestureRecorder {
+    public sealed class GestureRecorder {
         enum RecordState {
             Inactive,
             Preparing,

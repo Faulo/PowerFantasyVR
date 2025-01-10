@@ -4,7 +4,7 @@ namespace PFVR.Player.Gestures {
     /// <summary>
     /// A script to detect when hands are in a Kame-Hame-Ha-like position, i.e., palms facing each other and 10-20 cm apart.
     /// </summary>
-    public class HandGatheringDetector : AbstractDetector {
+    public sealed class HandGatheringDetector : AbstractDetector {
         [SerializeField]
         bool isPrimary = false;
 

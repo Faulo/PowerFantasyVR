@@ -2,7 +2,7 @@
 
 
 namespace PFVR.Spells.FireBall {
-    public class Anchor : MonoBehaviour {
+    public sealed class Anchor : MonoBehaviour {
         [SerializeField, Range(0, 100)]
         float maximumSpeed = 10;
         [SerializeField, Range(0, 100)]

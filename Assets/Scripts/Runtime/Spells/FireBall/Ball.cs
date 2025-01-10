@@ -2,7 +2,7 @@
 using UnityEngine;
 
 namespace PFVR.Spells.FireBall {
-    public class Ball : ScalableObject, IDestroyable {
+    public sealed class Ball : ScalableObject, IDestroyable {
         [SerializeField]
         GameObject regularExplosionPrefab = default;
         [SerializeField]

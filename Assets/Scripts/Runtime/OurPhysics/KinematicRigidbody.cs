@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 namespace PFVR.OurPhysics {
-    public class KinematicRigidbody : MonoBehaviour {
+    public sealed class KinematicRigidbody : MonoBehaviour {
         [HideInInspector]
         public float mass = 1;
         [HideInInspector]

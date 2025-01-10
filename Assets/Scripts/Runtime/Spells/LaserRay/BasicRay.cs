@@ -5,7 +5,7 @@ using Slothsoft.UnityExtensions;
 using UnityEngine;
 
 namespace PFVR.Spells.LaserRay {
-    public class BasicRay : MonoBehaviour {
+    public sealed class BasicRay : MonoBehaviour {
         [SerializeField, Range(1, 1000)]
         float rayRange = 1;
         [SerializeField, Range(0, 100)]

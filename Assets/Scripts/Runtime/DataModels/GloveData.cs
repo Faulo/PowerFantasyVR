@@ -7,7 +7,7 @@ namespace PFVR.DataModels {
     /// A model for ManusVR glove data. Can be converted to <see cref="GestureModel"/>.
     /// </summary>
     [Serializable]
-    public class GloveData {
+    public sealed class GloveData {
         public device_type_t device;
         public GloveLaterality laterality;
         public double pinkyProximal;

@@ -8,7 +8,7 @@ using Slothsoft.UnityExtensions;
 using UnityEngine;
 
 namespace PFVR.Player {
-    public class PlayerHandBehaviour : MonoBehaviour {
+    public sealed class PlayerHandBehaviour : MonoBehaviour {
         public PlayerBehaviour owner { get; private set; }
         public GloveLaterality laterality { get; private set; }
         public Transform tracker => transform;

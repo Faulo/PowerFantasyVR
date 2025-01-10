@@ -2,7 +2,7 @@
 
 namespace PFVR.OurPhysics {
     [RequireComponent(typeof(MeshFilter))]
-    public class ReverseNormals : MonoBehaviour {
+    public sealed class ReverseNormals : MonoBehaviour {
         void Start() {
             var filter = GetComponent<MeshFilter>();
             if (filter != null) {

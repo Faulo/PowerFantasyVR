@@ -2,7 +2,7 @@
 using UnityEngine;
 
 namespace PFVR.Spells.Shield {
-    public class KnightShield : MonoBehaviour, IShield {
+    public sealed class KnightShield : MonoBehaviour, IShield {
         public event Action<GameObject> onCollision;
 
         public void Explode() {

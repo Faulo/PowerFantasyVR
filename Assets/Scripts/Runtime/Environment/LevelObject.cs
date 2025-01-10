@@ -9,7 +9,7 @@ namespace PFVR.Environment {
     /// All visible objects in a scene should have this as one of their root components.
     /// </summary>
     [ExecuteAlways]
-    public class LevelObject : MonoBehaviour {
+    public sealed class LevelObject : MonoBehaviour {
         enum LevelObjectType {
             Intangible,
             StaticCollider,

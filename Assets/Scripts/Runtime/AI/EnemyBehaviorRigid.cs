@@ -4,7 +4,7 @@ namespace PFVR.AI {
     /**
      * <summary>Implements the <c>EnemyBehavior</c> base class.</summary>
      **/
-    public class EnemyBehaviorRigid : EnemyBehavior {
+    public sealed class EnemyBehaviorRigid : EnemyBehavior {
         Rigidbody thisRigidbody;
 
         protected override void Start() {

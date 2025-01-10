@@ -6,7 +6,7 @@ namespace PFVR.Disaster {
     /// <summary>
     /// Fires stuff into the game world!
     /// </summary>
-    public class ObjectCannon : MonoBehaviour {
+    public sealed class ObjectCannon : MonoBehaviour {
         [SerializeField]
         GameObject[] projectilePrefabs = default;
 

@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace PFVR.VFX {
     [RequireComponent(typeof(ParticleSystem))]
-    public class TracerParticles : MonoBehaviour {
+    public sealed class TracerParticles : MonoBehaviour {
         [SerializeField, Range(0, 10)]
         float minimumSpeed = 0;
         [SerializeField]

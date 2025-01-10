@@ -2,7 +2,7 @@
 using PFVR.ScriptableObjects;
 using UnityEngine;
 
-public class StoneActivator : MonoBehaviour {
+public sealed class StoneActivator : MonoBehaviour {
     public Gesture gesture;
     public GameObject stone;
 

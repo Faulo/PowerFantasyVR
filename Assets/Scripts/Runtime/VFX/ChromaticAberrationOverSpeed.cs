@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 
 namespace PFVR.VFX {
-    public class ChromaticAberrationOverSpeed : MonoBehaviour {
+    public sealed class ChromaticAberrationOverSpeed : MonoBehaviour {
         [SerializeField, Range(1, 100)]
         float maxSpeed = 1;
         [SerializeField]

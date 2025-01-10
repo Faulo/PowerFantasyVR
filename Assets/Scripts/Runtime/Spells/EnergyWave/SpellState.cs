@@ -5,7 +5,7 @@ using Slothsoft.UnityExtensions;
 using UnityEngine;
 
 namespace PFVR.Spells.EnergyWave {
-    public class SpellState : MonoBehaviour, ISpellState {
+    public sealed class SpellState : MonoBehaviour, ISpellState {
         [SerializeField]
         GameObject wavePrefab = default;
 

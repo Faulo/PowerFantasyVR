@@ -9,7 +9,7 @@ using UnityEngine;
 
 
 namespace PFVR.Player {
-    public class GestureConnector : MonoBehaviour, IGestureDictionary {
+    public sealed class GestureConnector : MonoBehaviour, IGestureDictionary {
         public static GestureConnector instance { get; private set; }
 
         [SerializeField]

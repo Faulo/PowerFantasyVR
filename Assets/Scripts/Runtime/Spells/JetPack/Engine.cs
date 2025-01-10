@@ -5,7 +5,7 @@ using UnityEngine;
 namespace PFVR.Spells.JetPack {
     [RequireComponent(typeof(AudioSource))]
     [RequireComponent(typeof(AudioLowPassFilter))]
-    public class Engine : MonoBehaviour {
+    public sealed class Engine : MonoBehaviour {
         [SerializeField]
         float maximumVolume = 1;
 

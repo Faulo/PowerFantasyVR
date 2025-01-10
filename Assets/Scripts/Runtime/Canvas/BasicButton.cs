@@ -7,7 +7,7 @@ namespace PFVR.Canvas {
     /// <summary>
     /// A wrapper for <see cref="Button"/>. 
     /// </summary>
-    public class BasicButton : MonoBehaviour {
+    public sealed class BasicButton : MonoBehaviour {
         public bool selected {
             set {
                 if (value) {

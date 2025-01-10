@@ -2,7 +2,7 @@
 
 namespace PFVR.Environment {
     [RequireComponent(typeof(Collider))]
-    public class Magnetic : MonoBehaviour {
+    public sealed class Magnetic : MonoBehaviour {
         [SerializeField]
         Transform root = default;
         [SerializeField]

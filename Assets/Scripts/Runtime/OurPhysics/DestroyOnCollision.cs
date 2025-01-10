@@ -3,7 +3,7 @@ using Slothsoft.UnityExtensions;
 using UnityEngine;
 
 namespace PFVR.OurPhysics {
-    public class DestroyOnCollision : MonoBehaviour {
+    public sealed class DestroyOnCollision : MonoBehaviour {
         [SerializeField]
         Material destruction = default;
 

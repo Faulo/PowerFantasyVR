@@ -4,7 +4,7 @@ using ManusVR.Core.Apollo;
 using UnityEngine;
 
 namespace PFVR.Player {
-    public class RumbleMixer {
+    public sealed class RumbleMixer {
         GloveLaterality side;
         ushort interval;
         bool mix;

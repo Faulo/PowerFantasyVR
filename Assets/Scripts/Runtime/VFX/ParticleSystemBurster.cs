@@ -2,7 +2,7 @@
 
 namespace PFVR.VFX {
     [RequireComponent(typeof(ParticleSystem))]
-    public class ParticleSystemBurster : MonoBehaviour {
+    public sealed class ParticleSystemBurster : MonoBehaviour {
         [SerializeField, Range(0, 10)]
         public float burstMultiplier = 1;
 

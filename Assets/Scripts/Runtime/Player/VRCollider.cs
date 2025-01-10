@@ -2,7 +2,7 @@
 
 namespace PFVR.Player {
     [RequireComponent(typeof(CapsuleCollider))]
-    public class VRCollider : MonoBehaviour {
+    public sealed class VRCollider : MonoBehaviour {
         [SerializeField]
         Camera headMountedDisplay = default;
         new CapsuleCollider collider;

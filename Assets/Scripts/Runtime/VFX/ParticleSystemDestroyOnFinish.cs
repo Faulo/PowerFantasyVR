@@ -2,7 +2,7 @@
 using UnityEngine;
 
 namespace PFVR.VFX {
-    public class ParticleSystemDestroyOnFinish : MonoBehaviour {
+    public sealed class ParticleSystemDestroyOnFinish : MonoBehaviour {
         [SerializeField]
         GameObject targetObject = default;
 

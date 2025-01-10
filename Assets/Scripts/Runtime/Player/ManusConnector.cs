@@ -4,7 +4,7 @@ using PFVR.DataModels;
 using UnityEngine;
 
 namespace PFVR.Player {
-    public class ManusConnector : MonoBehaviour {
+    public sealed class ManusConnector : MonoBehaviour {
         public delegate void NewGloveData(GloveData hand);
 
         public static event NewGloveData onLeftGloveData;

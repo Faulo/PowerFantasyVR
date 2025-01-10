@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 namespace PFVR.OurPhysics {
-    public class CenterOfMass : MonoBehaviour {
+    public sealed class CenterOfMass : MonoBehaviour {
         [SerializeField]
         Rigidbody targetRigidbody = default;
         void Start() {

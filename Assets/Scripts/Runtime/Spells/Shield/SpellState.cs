@@ -2,7 +2,7 @@
 using UnityEngine;
 
 namespace PFVR.Spells.Shield {
-    public class SpellState : MonoBehaviour, ISpellState {
+    public sealed class SpellState : MonoBehaviour, ISpellState {
         [SerializeField]
         GameObject shieldPrefab = default;
 

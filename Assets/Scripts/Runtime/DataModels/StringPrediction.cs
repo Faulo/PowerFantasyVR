@@ -5,7 +5,7 @@ namespace PFVR.DataModels {
     /// <summary>
     /// The target data model used by <see cref="MLContext"/>.
     /// </summary>
-    public class StringPrediction {
+    public sealed class StringPrediction {
         [ColumnName("PredictedLabel")]
 #pragma warning disable IDE1006 // Benennungsstile
         public string Prediction { get; set; }

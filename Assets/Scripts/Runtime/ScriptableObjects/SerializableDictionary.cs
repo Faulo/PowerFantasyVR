@@ -9,7 +9,7 @@ namespace PFVR.ScriptableObjects {
     /// </summary>
     /// <typeparam name="TKey"><seealso cref="Dictionary&lt;TKey, TValue>"/></typeparam>
     /// <typeparam name="TValue"><seealso cref="Dictionary&lt;TKey, TValue>"/></typeparam>
-    public class SerializableDictionary<TKey, TValue> : Dictionary<TKey, TValue>, ISerializationCallbackReceiver {
+    public sealed class SerializableDictionary<TKey, TValue> : Dictionary<TKey, TValue>, ISerializationCallbackReceiver {
         [SerializeField]
         List<TKey> keys = new List<TKey>();
 

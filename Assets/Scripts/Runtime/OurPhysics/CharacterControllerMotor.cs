@@ -2,7 +2,7 @@
 
 namespace PFVR.OurPhysics {
     [RequireComponent(typeof(CharacterController))]
-    public class CharacterControllerMotor : MonoBehaviour, IMotor {
+    public sealed class CharacterControllerMotor : MonoBehaviour, IMotor {
         CharacterController characterController;
 
         [SerializeField, Range(0, 1)]

@@ -7,7 +7,7 @@ namespace PFVR.DataModels {
     /// The source data model used by <see cref="MLContext"/>.
     /// </summary>
     [Serializable]
-    public class GestureModel {
+    public sealed class GestureModel {
         [ColumnName("pinkyProximal"), LoadColumn(0)]
         public float pinkyProximal { get; set; }
 

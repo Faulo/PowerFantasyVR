@@ -8,7 +8,7 @@ namespace PFVR.DataModels {
     /// A logger for data models. Takes any class and writes all their properties to a .csv file.
     /// </summary>
     /// <typeparam name="T">A <see cref="MLContext"/>-compatible source model, like <see cref="GestureModel"/>.</typeparam>
-    public class ModelWriter<T> {
+    public sealed class ModelWriter<T> {
         const string SEPARATOR = ",";
         string fileName;
         StreamWriter writer;

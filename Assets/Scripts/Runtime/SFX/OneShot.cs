@@ -5,7 +5,7 @@ namespace PFVR.SFX {
     /// <summary>
     /// Plays a sound file upon object instantiation, or possibly at some other point in time.
     /// </summary>
-    public class OneShot : MonoBehaviour {
+    public sealed class OneShot : MonoBehaviour {
         [SerializeField]
         AudioClip[] audioClips = default;
         [SerializeField]

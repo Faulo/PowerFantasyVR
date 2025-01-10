@@ -12,7 +12,7 @@ namespace PFVR.Backend {
     /// <summary>
     /// A widget for displaying raw Manus glove data. Requires a working <see cref="ManusConnector"/>.
     /// </summary>
-    public class StatusScreen : MonoBehaviour {
+    public sealed class StatusScreen : MonoBehaviour {
         TextMeshProUGUI mesh;
         string format;
         Dictionary<string, Vector3> args = new Dictionary<string, Vector3>();
