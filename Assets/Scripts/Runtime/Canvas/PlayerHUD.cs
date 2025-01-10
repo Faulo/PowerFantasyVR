@@ -45,6 +45,7 @@ namespace PFVR.Canvas {
                 var icon = Instantiate(iconPrefab, button.transform);
                 icon.GetComponent<Image>().sprite = gesture.icon;
             }
+
             var colors = button.GetComponent<Button>().colors;
             colors.selectedColor = gesture.spellColor;
             button.GetComponent<Button>().colors = colors;

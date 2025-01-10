@@ -4,7 +4,7 @@ using UnityEngine.XR;
 using Valve.VR;
 
 namespace PFVR.Player {
-    public partial class SpawnPoint : MonoBehaviour {
+    public sealed class SpawnPoint : MonoBehaviour {
         InterfaceType playerType => GameSettings.instance.interfaceType;
         [SerializeField]
         GameObject basicPlayerPrefab = default;
@@ -19,6 +19,7 @@ namespace PFVR.Player {
                     case InterfaceType.ManusVR:
                         return "OpenVR";
                 }
+
                 throw new System.Exception("???" + playerType);
             }
         }
@@ -31,6 +32,7 @@ namespace PFVR.Player {
                     case InterfaceType.ManusVR:
                         return vrPlayerPrefab;
                 }
+
                 throw new System.Exception("???" + playerType);
             }
         }
@@ -45,15 +47,16 @@ namespace PFVR.Player {
                     if (XRSettings.loadedDeviceName != xrDevice) {
                         XRSettings.LoadDeviceByName(xrDevice);
                     }
+
                     break;
                 case InterfaceType.ManusVR:
                     if (XRSettings.loadedDeviceName != xrDevice) {
                         XRSettings.LoadDeviceByName(xrDevice);
                         SteamVR.Initialize(true);
                     }
+
                     break;
             }
-
         }
     }
 }

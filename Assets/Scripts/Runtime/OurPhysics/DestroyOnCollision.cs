@@ -13,6 +13,7 @@ namespace PFVR.OurPhysics {
                 if (body.GetComponentInParent<PlayerBehaviour>()) {
                     return;
                 }
+
                 if (destruction != null) {
                     body.GetComponents<MeshRenderer>()
                         .ForAll(renderer => {
@@ -20,6 +21,7 @@ namespace PFVR.OurPhysics {
                         });
                     Destroy(body.gameObject, 2);
                 }
+
                 gameObject.SetActive(false);
                 Destroy(gameObject);
             }

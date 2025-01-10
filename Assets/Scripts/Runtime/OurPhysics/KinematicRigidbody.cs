@@ -10,8 +10,7 @@ namespace PFVR.OurPhysics {
         public bool transferForce = true;
 
         void Start() {
-            var body = GetComponent<Rigidbody>();
-            if (body != null) {
+            if (TryGetComponent<Rigidbody>(out var body)) {
                 mass = body.mass;
                 velocity = body.velocity;
                 body.isKinematic = true;

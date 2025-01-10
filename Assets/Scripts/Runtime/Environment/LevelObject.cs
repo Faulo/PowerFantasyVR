@@ -120,6 +120,7 @@ namespace PFVR.Environment {
                         UnityEditor.EditorApplication.delayCall += CreateWaterPlaneCall;
 #endif
                     }
+
                     break;
                 case LevelObjectType.Waterfall:
                     SetStatic(false);
@@ -134,6 +135,7 @@ namespace PFVR.Environment {
                         UnityEditor.EditorApplication.delayCall += CreateWaterfallFoamCall;
 #endif
                     }
+
                     break;
                 case LevelObjectType.Collectable:
                     SetStatic(false);
@@ -143,13 +145,13 @@ namespace PFVR.Environment {
                     SetLayer("Collectable");
                     break;
             }
+
             if (levelOfDetail) {
                 EnableLevelOfDetail();
             } else {
                 DisableLevelOfDetail();
             }
         }
-
 
         void SetStatic(bool value) {
             GetComponentsInChildren<Transform>().ForAll(transform => transform.gameObject.isStatic = value);
@@ -194,6 +196,7 @@ namespace PFVR.Environment {
             if (!rigidbody) {
                 rigidbody = gameObject.AddComponent<Rigidbody>();
             }
+
             rigidbody.mass = rigidbodyDensity * volume;
             rigidbody.drag = rigidbodyDrag;
             rigidbody.useGravity = true;
@@ -204,6 +207,7 @@ namespace PFVR.Environment {
             if (!rigidbody) {
                 rigidbody = gameObject.AddComponent<Rigidbody>();
             }
+
             rigidbody.mass = rigidbodyDensity * volume;
             rigidbody.drag = rigidbodyDrag;
             rigidbody.useGravity = false;
@@ -220,6 +224,7 @@ namespace PFVR.Environment {
             if (!lodGroup) {
                 lodGroup = gameObject.AddComponent<LODGroup>();
             }
+
             var lods = new LOD[1];
             lods[0].renderers = GetComponentsInChildren<Renderer>();
             lods[0].screenRelativeTransitionHeight = levelOfDetailCutoff;
@@ -232,12 +237,12 @@ namespace PFVR.Environment {
             }
         }
 
-
         void AddDestroyable() {
             var destroyable = GetComponent<BasicDestroyable>();
             if (!destroyable) {
                 destroyable = gameObject.AddComponent<BasicDestroyable>();
             }
+
             destroyable.maxHP = destroyableHPDensity * volume;
             destroyable.damageTakenPrefab = destroyableDamageTakenPrefab;
             destroyable.damageHealedPrefab = destroyableDamageHealedPrefab;
@@ -250,23 +255,22 @@ namespace PFVR.Environment {
             }
         }
 
-
-
-
-
         void CreateWaterPlaneCall() {
             if (!this || !gameObject || !transform) {
                 return;
             }
+
             if (waterPlaneWidth > 0 && waterPlaneHeight > 0) {
                 if (transform.localScale.x != 1) {
                     waterPlaneWidth = (int)(waterPlaneWidth * transform.localScale.x);
                     transform.localScale = transform.localScale.WithX(1);
                 }
+
                 if (transform.localScale.y != 1) {
                     waterPlaneHeight = (int)(waterPlaneHeight * transform.localScale.y);
                     transform.localScale = transform.localScale.WithY(1);
                 }
+
                 CreateWaterPlane(waterPlaneWidth, waterPlaneHeight, waterPlaneWaveWidth, waterPlaneWaveHeight);
             }
         }
@@ -274,12 +278,14 @@ namespace PFVR.Environment {
             if (!this || !gameObject || !transform) {
                 return;
             }
+
             if (waterPlaneWidth > 0 && waterPlaneHeight > 0) {
                 if (waterfallTopFoam) {
                     var shape = waterfallTopFoam.shape;
                     shape.scale = new Vector3(waterPlaneWidth, 1, 1);
                     shape.position = new Vector3(0, waterPlaneHeight / 2, 0);
                 }
+
                 if (waterfallBottomFoam) {
                     var shape = waterfallBottomFoam.shape;
                     shape.scale = new Vector3(waterPlaneWidth, waterPlaneWidth / 5, waterPlaneWidth / 5);
@@ -336,7 +342,7 @@ namespace PFVR.Environment {
                     //Generate the vertices
                     for (float y = 0.0f; y < vCount2; y++) {
                         for (float x = 0.0f; x < hCount2; x++) {
-                            vertices[index] = new Vector3(x * scaleX - planeWidth / 2f - anchorOffset.x, 0.0f, y * scaleY - planeHeight / 2f - anchorOffset.y);
+                            vertices[index] = new Vector3((x * scaleX) - (planeWidth / 2f) - anchorOffset.x, 0.0f, (y * scaleY) - (planeHeight / 2f) - anchorOffset.y);
 
                             tangents[index] = tangent;
                             uvs[index++] = new Vector2(x * uvFactorX, y * uvFactorY);

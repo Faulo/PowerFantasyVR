@@ -13,6 +13,7 @@ namespace PFVR.Settings {
                 if (instanceCache == null) {
                     instanceCache = FindObjectOfType<GameManager>();
                 }
+
                 return instanceCache;
             }
         }
@@ -28,6 +29,7 @@ namespace PFVR.Settings {
                     LoadMainMenu();
                 }
             }
+
             if (Input.GetKeyDown(settings.screenshotKey)) {
                 TakeScreenshot();
             }

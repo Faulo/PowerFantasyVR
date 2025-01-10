@@ -9,6 +9,7 @@ namespace PFVR.Player {
                 if (instanceCache == null) {
                     instanceCache = FindObjectOfType<PlayerBehaviour>();
                 }
+
                 return instanceCache;
             }
         }
@@ -29,6 +30,7 @@ namespace PFVR.Player {
                 leftHand.Init(this, GloveLaterality.GLOVE_LEFT);
                 GestureConnector.onLeftGesture += leftHand.SetGesture;
             }
+
             if (rightHand) {
                 rightHand.Init(this, GloveLaterality.GLOVE_RIGHT);
                 GestureConnector.onRightGesture += rightHand.SetGesture;

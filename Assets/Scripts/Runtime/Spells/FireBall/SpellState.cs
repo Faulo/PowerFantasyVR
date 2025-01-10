@@ -45,6 +45,7 @@ namespace PFVR.Spells.FireBall {
             if (anchor == null) {
                 anchor = Instantiate(anchorPrefab, hand.wrist).GetComponent<Anchor>();
             }
+
             ball = Instantiate(ballPrefab, player.transform).GetComponent<Ball>();
             anchor.ConnectTo(ball);
             chargeTime = 0;
@@ -59,6 +60,7 @@ namespace PFVR.Spells.FireBall {
                 ball.rigidbody.gameObject.AddComponent<KinematicRigidbody>();
                 ball = null;
             }
+
             if (rumbleRoutine != null) {
                 StopCoroutine(rumbleRoutine);
             }
@@ -72,6 +74,7 @@ namespace PFVR.Spells.FireBall {
                 if (ball != null) {
                     ManusConnector.Rumble(hand.laterality, rumbleInterval, rumbleForceOverSize.Evaluate(ball.scaling));
                 }
+
                 yield return new WaitForSeconds(rumbleInterval / 1000f);
             }
         }

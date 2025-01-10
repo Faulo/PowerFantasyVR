@@ -51,9 +51,11 @@ namespace PFVR.Player {
                 if (currentSpellPrefab == null) {
                     return Enumerable.Empty<ISpellState>();
                 }
+
                 if (!allStates.ContainsKey(currentSpellPrefab)) {
                     allStates[currentSpellPrefab] = Instantiate(currentSpellPrefab, transform);
                 }
+
                 return allStates[currentSpellPrefab].GetComponents<ISpellState>();
             }
         }
@@ -64,6 +66,7 @@ namespace PFVR.Player {
                 if (rendererCache == null) {
                     rendererCache = GetComponentInChildren<Renderer>();
                 }
+
                 return rendererCache;
             }
         }
@@ -91,9 +94,11 @@ namespace PFVR.Player {
             if (enableDebugging) {
                 statusText = gestureName + ":\n" + spellName;
             }
+
             if (currentSpellPrefab == gesture.spellPrefab) {
                 return;
             }
+
             currentStates.ForAll(state => state.OnExit(owner, this));
             currentSpellPrefab = gesture.spellPrefab;
             currentStates.ForAll(state => state.OnEnter(owner, this));

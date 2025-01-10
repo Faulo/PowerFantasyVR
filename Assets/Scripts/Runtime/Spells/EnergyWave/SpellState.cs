@@ -17,7 +17,6 @@ namespace PFVR.Spells.EnergyWave {
         [SerializeField, Range(0, 1000)]
         float directionLaunchMultiplier = 1;
 
-
         [SerializeField, Range(1, 1000)]
         ushort rumbleInterval = 100;
 
@@ -78,9 +77,10 @@ namespace PFVR.Spells.EnergyWave {
                     .ForAll(renderer => renderer.enabled = true);
                 wave.transform.parent = wave.transform.parent.parent;
                 wave.explodable = true;
-                wave.rigidbody.velocity = handLaunchMultiplier * (player.leftHand.velocity + player.rightHand.velocity) + directionLaunchMultiplier * (leftChargeCenter.position - player.leftHand.wrist.position + rightChargeCenter.position - player.rightHand.wrist.position);
+                wave.rigidbody.velocity = (handLaunchMultiplier * (player.leftHand.velocity + player.rightHand.velocity)) + (directionLaunchMultiplier * (leftChargeCenter.position - player.leftHand.wrist.position + rightChargeCenter.position - player.rightHand.wrist.position));
                 wave = null;
             }
+
             if (rumbleRoutine != null) {
                 StopCoroutine(rumbleRoutine);
             }
@@ -95,6 +95,7 @@ namespace PFVR.Spells.EnergyWave {
             if (wave != null) {
                 wave.transform.position = Vector3.Lerp(wave.transform.position, chargeCenter, followSpeed * Time.deltaTime);
             }
+
             player.motor.Break(breakSpeed * Time.deltaTime);
         }
 
@@ -104,6 +105,7 @@ namespace PFVR.Spells.EnergyWave {
                     ManusConnector.Rumble(GloveLaterality.GLOVE_LEFT, rumbleInterval, rumbleForceOverSize.Evaluate(wave.scaling));
                     ManusConnector.Rumble(GloveLaterality.GLOVE_RIGHT, rumbleInterval, rumbleForceOverSize.Evaluate(wave.scaling));
                 }
+
                 yield return new WaitForSeconds(rumbleInterval / 1000f);
             }
         }

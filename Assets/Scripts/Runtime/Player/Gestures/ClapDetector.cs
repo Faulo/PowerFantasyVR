@@ -4,14 +4,13 @@ namespace PFVR.Player.Gestures {
     /// <summary>
     /// A script to detect when hands are in a clapping position, i.e., palms facing each other and touching.
     /// </summary>
-    public abstract class ClapDetector : AbstractDetector {
+    public sealed class ClapDetector : AbstractDetector {
         [SerializeField]
         bool isPrimary = false;
 
         void OnTriggerEnter(Collider other) {
             if (isPrimary) {
-                var otherDetector = other.GetComponent<ClapDetector>();
-                if (otherDetector != null) {
+                if (other.TryGetComponent<ClapDetector>(out var otherDetector)) {
                     if (isOn) {
                         isTurningOff = false;
                     } else {
@@ -23,8 +22,7 @@ namespace PFVR.Player.Gestures {
 
         void OnTriggerExit(Collider other) {
             if (isPrimary) {
-                var otherDetector = other.GetComponent<ClapDetector>();
-                if (otherDetector != null) {
+                if (other.TryGetComponent<ClapDetector>(out var otherDetector)) {
                     if (isOn) {
                         isTurningOff = true;
                     } else {

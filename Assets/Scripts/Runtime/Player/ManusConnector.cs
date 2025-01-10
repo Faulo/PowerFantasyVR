@@ -40,11 +40,11 @@ namespace PFVR.Player {
             if (onLeftGloveData != null && TryToFetch(device_type_t.GLOVE_LEFT, GloveLaterality.GLOVE_LEFT, SteamConnector.leftTracker, out var glove)) {
                 onLeftGloveData(glove);
             }
+
             if (onRightGloveData != null && TryToFetch(device_type_t.GLOVE_RIGHT, GloveLaterality.GLOVE_RIGHT, SteamConnector.rightTracker, out glove)) {
                 onRightGloveData(glove);
             }
         }
-
 
         bool TryToFetch(device_type_t gloveType, GloveLaterality laterality, Transform tracker, out GloveData output) {
             try {
@@ -72,6 +72,7 @@ namespace PFVR.Player {
             } catch (System.NullReferenceException e) {
                 Debug.Log(e);
             }
+
             output = null;
             return false;
         }

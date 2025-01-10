@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 
-
 namespace PFVR.OurPhysics {
     public interface IDestroyable {
         float currentHP { get; set; }

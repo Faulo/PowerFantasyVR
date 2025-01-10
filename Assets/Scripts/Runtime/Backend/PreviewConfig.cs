@@ -21,6 +21,7 @@ namespace PFVR.Backend {
                         renderer.material = gloveMaterial;
                     });
             }
+
             if (trackerMaterial != null) {
                 GetComponentsInChildren<MeshRenderer>()
                     .ForAll(renderer => {

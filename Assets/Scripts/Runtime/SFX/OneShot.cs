@@ -36,12 +36,12 @@ namespace PFVR.SFX {
                     audioSource = gameObject.AddComponent<AudioSource>();
                 }
             }
+
             audioSource.spatialBlend = spatialBlend;
             if (playOnStart) {
                 Play();
             }
         }
-
 
         public void Play() {
             //randomly apply a volume between the volume min max

@@ -40,13 +40,14 @@ namespace PFVR.Disaster {
                 burstTimer -= burstInterval;
                 burstCountdown += burstCount;
             }
+
             if (burstCountdown > 0) {
                 burstCountdown--;
                 Burst();
             }
         }
         void Burst() {
-            var direction = transform.forward * launchVelocity + Random.insideUnitSphere * launchDiffusion;
+            var direction = (transform.forward * launchVelocity) + (Random.insideUnitSphere * launchDiffusion);
             var projectile = Instantiate(projectilePrefabs.RandomElement(), transform.position, Quaternion.identity);
             projectile.transform.position += direction;
             var rigidbody = projectile.GetComponent<Rigidbody>();
@@ -54,11 +55,11 @@ namespace PFVR.Disaster {
                 rigidbody.velocity = direction;
                 rigidbody.drag *= Random.value + 0.5f;
             }
+
             var scalable = projectile.GetComponent<ScalableObject>();
             if (scalable) {
                 scalable.scaling = projectileScale.Evaluate(Random.value);
             }
         }
     }
-
 }

@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 
-
 namespace PFVR.Spells.FireBall {
     public sealed class Anchor : MonoBehaviour {
         [SerializeField, Range(0, 100)]

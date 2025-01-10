@@ -15,7 +15,6 @@ namespace PFVR.Environment {
 
         Transform target;
 
-
         void Update() {
             if (target) {
                 velocity = Vector3.Lerp(velocity, maximumSpeed * (target.position - root.position).normalized, accelerationSpeed * Time.deltaTime);

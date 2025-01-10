@@ -9,7 +9,8 @@ namespace PFVR.AI {
             if (s == 0) {
                 return Next();
             }
-            return validDouble.x * Mathf.Sqrt((-2 * Mathf.Log(s)) / s);
+
+            return validDouble.x * Mathf.Sqrt(-2 * Mathf.Log(s) / s);
         }
 
         public static Vector3 NextVector3() {

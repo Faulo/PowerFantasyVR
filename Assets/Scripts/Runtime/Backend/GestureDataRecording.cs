@@ -61,10 +61,12 @@ namespace PFVR.Backend {
                 log.text = "Select a gesture set first!";
                 return;
             }
+
             if (currentRoutine != null) {
                 log.text = "Wait for the last recording to finish!";
                 return;
             }
+
             var gestures = gestureManager.elements
                 .Where(gesture => !gesture.isComplex && currentGestureSet.gestureNames.Contains(gesture.name));
             currentRoutine = StartCoroutine(RecordGesturesRoutine(gestures.ToArray()));
@@ -74,10 +76,12 @@ namespace PFVR.Backend {
                 log.text = "Select a gesture first!";
                 return;
             }
+
             if (currentRoutine != null) {
                 log.text = "Wait for the last recording to finish!";
                 return;
             }
+
             currentRoutine = StartCoroutine(RecordGesturesRoutine(currentGesture));
         }
         IEnumerator RecordGesturesRoutine(params Gesture[] gestures) {
@@ -85,6 +89,7 @@ namespace PFVR.Backend {
                 currentRecorder = new GestureRecorder(currentProfile, gesture, recordingTime, log);
                 yield return currentRecorder.Record();
             }
+
             currentRoutine = null;
         }
         public void CreateGestureSetCSV() {
@@ -92,10 +97,12 @@ namespace PFVR.Backend {
                 log.text = "Select a gesture set first!";
                 return;
             }
+
             if (currentRoutine != null) {
                 log.text = "Wait for the last recording to finish!";
                 return;
             }
+
             var merger = new ModelMerger(currentGestureSet.gestureNames.Select(name => "TrackingData/" + currentProfile.name + "/" + name));
             merger.Put(currentProfile.trackingDataPath);
             log.text = "Created gesture set model '" + Path.GetFileName(currentProfile.trackingDataPath) + "'!";
@@ -105,10 +112,12 @@ namespace PFVR.Backend {
                 log.text = "Select a gesture set first!";
                 return;
             }
+
             if (currentRoutine != null) {
                 log.text = "Wait for the last recording to finish!";
                 return;
             }
+
             try {
                 string batchFile = Application.dataPath + "/../trainModel.bat";
                 string name = currentProfile.name;

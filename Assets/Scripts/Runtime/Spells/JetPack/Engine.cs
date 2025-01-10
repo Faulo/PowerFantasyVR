@@ -50,6 +50,7 @@ namespace PFVR.Spells.JetPack {
                         if (playSoundsRoutine != null) {
                             StopCoroutine(playSoundsRoutine);
                         }
+
                         playSoundsRoutine = StartCoroutine(PlayEngineSounds());
                     } else {
                         particleSystem.Stop();

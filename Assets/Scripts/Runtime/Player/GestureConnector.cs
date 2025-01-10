@@ -7,7 +7,6 @@ using PFVR.ScriptableObjects;
 using Slothsoft.UnityExtensions;
 using UnityEngine;
 
-
 namespace PFVR.Player {
     public sealed class GestureConnector : MonoBehaviour, IGestureDictionary {
         public static GestureConnector instance { get; private set; }
@@ -65,6 +64,7 @@ namespace PFVR.Player {
                         nextLeftGestureId = gestureId;
                         nextLeftGestureCount = 0;
                     }
+
                     nextLeftGestureCount++;
                     if (nextLeftGestureCount >= gestureTriggerFrames) {
                         var gesture = gestureProfile.gestureSet[gestureId];
@@ -82,6 +82,7 @@ namespace PFVR.Player {
                         nextRightGestureId = gestureId;
                         nextRightGestureCount = 0;
                     }
+
                     nextRightGestureCount++;
                     if (nextRightGestureCount >= gestureTriggerFrames) {
                         var gesture = gestureProfile.gestureSet[gestureId];

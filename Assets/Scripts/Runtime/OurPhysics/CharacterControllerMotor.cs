@@ -33,8 +33,9 @@ namespace PFVR.OurPhysics {
                 //apply air drag
                 Break(airDrag);
                 //apply gravity
-                AddVelocity(gravityMultiplier * Physics.gravity * Time.deltaTime);
+                AddVelocity(gravityMultiplier * Time.deltaTime * Physics.gravity);
             }
+
             characterController.Move(velocity * Time.deltaTime);
         }
 
@@ -48,5 +49,4 @@ namespace PFVR.OurPhysics {
             velocity = Vector3.Lerp(velocity, targetVelocity, factor);
         }
     }
-
 }

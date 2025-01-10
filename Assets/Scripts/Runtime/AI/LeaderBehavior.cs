@@ -49,6 +49,7 @@ namespace PFVR.AI {
             if (num < 0) {
                 num = arrayOfTargets.Length - 1;
             }
+
             currentTarget = arrayOfTargets[num].transform.position;
 
             currentDistance = Vector3.Distance(currentTarget, transform.position);
@@ -78,10 +79,10 @@ namespace PFVR.AI {
             transformationVector = new Vector3(currentTarget.x, currentTarget.y, currentTarget.z) - transform.position;
             if (normalize) {
                 Vector3.Normalize(transformationVector);
-                transformationVector = transformationVector * 0.4f;
+                transformationVector *= 0.4f;
             }
             //rigidBody.AddRelativeForce(transformationVector * alphaFactorUsed);
-            transform.Translate(transformationVector * alphaFactorUsed * Time.deltaTime);
+            transform.Translate(alphaFactorUsed * Time.deltaTime * transformationVector);
         }
     }
 }

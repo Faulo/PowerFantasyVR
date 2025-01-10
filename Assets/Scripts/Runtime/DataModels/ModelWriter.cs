@@ -22,11 +22,13 @@ namespace PFVR.DataModels {
             if (model == null) {
                 return;
             }
+
             var data = ToData(model);
             if (writer == null) {
                 writer = File.CreateText(fileName);
                 writer.WriteLine(string.Join(SEPARATOR, data.Keys));
             }
+
             writer.WriteLine(string.Join(SEPARATOR, data.Values));
             writer.Flush();
         }
@@ -35,12 +37,14 @@ namespace PFVR.DataModels {
             foreach (var property in properties) {
                 dict[property.Name] = property.GetValue(model, null).ToString().Replace(",", "."); //hackity-hack
             }
+
             return dict;
         }
         public void Finish() {
             if (writer == null) {
                 return;
             }
+
             writer.Dispose();
             writer = null;
 

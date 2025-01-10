@@ -33,6 +33,7 @@ namespace PFVR.Player {
                         Apollo.rumble(side, interval, (ushort)(ushort.MaxValue * power));
                         rumbles[rumbleIndex] = 0;
                     }
+
                     rumbleIndex = (rumbleIndex + 1) % rumbles.Length;
                     yield return wait;
                 }

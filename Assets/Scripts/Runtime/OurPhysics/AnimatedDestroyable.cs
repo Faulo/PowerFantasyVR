@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 
-
 namespace PFVR.OurPhysics {
     [RequireComponent(typeof(Animator))]
     public sealed class AnimatedDestroyable : MonoBehaviour, IDestroyable {
@@ -15,6 +14,7 @@ namespace PFVR.OurPhysics {
                     } else {
                         animator.SetTrigger("DamageHealed");
                     }
+
                     currentHPCache = value;
                 }
             }

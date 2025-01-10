@@ -28,6 +28,7 @@ namespace PFVR.Spells.LaserRay {
                 Destroy(ray.gameObject);
                 ray = null;
             }
+
             if (rayRoutine != null) {
                 StopCoroutine(rayRoutine);
                 rayRoutine = null;

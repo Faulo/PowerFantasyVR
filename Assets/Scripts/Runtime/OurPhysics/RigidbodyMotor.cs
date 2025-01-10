@@ -27,9 +27,11 @@ namespace PFVR.OurPhysics {
             if (upwardsDrag > 0 && velocity.y > 0) {
                 LerpVelocity(new Vector3(velocity.x, 0, velocity.z), upwardsDrag * Time.deltaTime);
             }
+
             if (downwardsDrag > 0 && velocity.y < 0) {
                 LerpVelocity(new Vector3(velocity.x, 0, velocity.z), downwardsDrag * Time.deltaTime);
             }
+
             if (horizontalDrag > 0) {
                 LerpVelocity(new Vector3(0, velocity.y, 0), horizontalDrag * Time.deltaTime);
             }

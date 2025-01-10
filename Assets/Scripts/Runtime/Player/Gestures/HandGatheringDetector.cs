@@ -16,8 +16,7 @@ namespace PFVR.Player.Gestures {
 
         void OnTriggerEnter(Collider other) {
             if (isPrimary) {
-                var otherDetector = other.GetComponent<HandGatheringDetector>();
-                if (otherDetector != null) {
+                if (other.TryGetComponent<HandGatheringDetector>(out var otherDetector)) {
                     if (isOn) {
                         isTurningOff = false;
                     } else {
@@ -29,8 +28,7 @@ namespace PFVR.Player.Gestures {
 
         void OnTriggerExit(Collider other) {
             if (isPrimary) {
-                var otherDetector = other.GetComponent<HandGatheringDetector>();
-                if (otherDetector != null) {
+                if (other.TryGetComponent<HandGatheringDetector>(out var otherDetector)) {
                     if (isOn) {
                         isTurningOff = true;
                     } else {

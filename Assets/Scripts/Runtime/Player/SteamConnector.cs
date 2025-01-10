@@ -11,6 +11,7 @@ namespace PFVR.Player {
                         Debug.Log("Scene is missing either 'SteamVR_ControllerManager' or its left field, help!");
                     }
                 }
+
                 return leftTrackerCache;
             }
         }
@@ -24,6 +25,7 @@ namespace PFVR.Player {
                         Debug.Log("Scene is missing either 'SteamVR_ControllerManager' or its right field!");
                     }
                 }
+
                 return rightTrackerCache;
             }
         }

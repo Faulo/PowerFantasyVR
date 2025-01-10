@@ -18,9 +18,11 @@ namespace PFVR.DataModels {
                 if (assets.Count() == 0) {
                     return "";
                 }
+
                 for (int i = 1; i < assets.Length; i++) {
                     assets[i] = assets[i].Substring(assets[i].IndexOf("\n") + 1);
                 }
+
                 return string.Join("", assets);
             }
         }

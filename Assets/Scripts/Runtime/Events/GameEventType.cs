@@ -16,6 +16,7 @@ namespace PFVR.Events {
             if (!listeners.ContainsKey(type)) {
                 listeners[type] = new HashSet<GameEventResponse>();
             }
+
             listeners[type].Add(response);
         }
         public static void RemoveEventListener(this GameEventType type, GameEventResponse response) {

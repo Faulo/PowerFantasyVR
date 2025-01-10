@@ -65,7 +65,6 @@ namespace PFVR.AI {
         // Animation
         Animator animator;
 
-
         // Start is called before the first frame update
         protected virtual void Start() {
             // Retrieve all Beacons
@@ -89,6 +88,7 @@ namespace PFVR.AI {
                 } else {
                     animator.SetBool("Alerted", false);
                 }
+
                 yield return wait;
             }
         }
@@ -110,6 +110,7 @@ namespace PFVR.AI {
                         nearestGoalPosition = nearestGoal.position;
                     }
                 }
+
                 yield return wait;
             }
         }
@@ -128,6 +129,7 @@ namespace PFVR.AI {
                     evadePlayer = false;
                     evadeVector = new Vector3();
                 }
+
                 yield return wait;
             }
         }
@@ -140,7 +142,7 @@ namespace PFVR.AI {
 
         // Update is called once per frame
         // Guidance System for agents is implemented here
-        void FixedUpdate() {
+        protected void FixedUpdate() {
             transformPosition = transform.position;
             if (!nearestGoal) {
                 return;
@@ -157,6 +159,7 @@ namespace PFVR.AI {
                 if (evadeVector.magnitude <= 0) {
                     evadeVector = evadeBehavior(playerMotor.position, transformPosition);
                 }
+
                 transformationVector = evadeVector * 7.0f;
                 alphaFactorUsed = alphaFactor + 30.0f;
             }
@@ -164,7 +167,7 @@ namespace PFVR.AI {
             // *** Create diffusion ***
             randomVector = MarsagliaGenerator.NextVector3();
             // Diffusion vector: position of goal + position of diffusion vector minus the position of the agent
-            diffusionVector = transformationVector + randomVector * Vector3.Distance(nearestGoal.position, transformPosition) * betaFactor;
+            diffusionVector = transformationVector + (betaFactor * Vector3.Distance(nearestGoal.position, transformPosition) * randomVector);
 
             // Additional chasing behavior
             // Diffuse more when not chasing player
@@ -177,7 +180,7 @@ namespace PFVR.AI {
             }
 
             // *** Put together the parts ***
-            finalMovementVector = transformationVector * alphaFactorUsed + diffusionVector;
+            finalMovementVector = (transformationVector * alphaFactorUsed) + diffusionVector;
 
             // *** Move the object ***
             MoveObject();

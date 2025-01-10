@@ -60,6 +60,7 @@ namespace PFVR.Spells.JetPack {
             if (engine == null) {
                 engine = Instantiate(enginePrefab, hand.wrist).GetComponent<Engine>();
             }
+
             engine.isTurnedOn = true;
             rumbleRoutine = StartCoroutine(CreateRumbleRoutine(hand.laterality));
             runTime = 0;
@@ -76,15 +77,17 @@ namespace PFVR.Spells.JetPack {
             if (hand.isShaking) {
                 boostTime = boostDuration;
             }
+
             engine.isBoosting = boostTime > 0;
 
             var turn = player.motor.velocity + hand.wrist.up;
             if (turn.magnitude < player.motor.speed) {
                 player.motor.LerpVelocity(turn, turnSpeed * Time.deltaTime);
             }
+
             var direction = new Vector3(hand.wrist.up.x, hand.wrist.up.y * propulsionOverAltitude.Evaluate(normalizedAltitude), hand.wrist.up.z);
-            player.motor.AddVelocity(direction * (engine.isBoosting ? boostForce : propulsionForce) * Time.deltaTime * engine.propulsion);
-            player.motor.AddVelocity(Physics.gravity * gravityNegation * Time.deltaTime);
+            player.motor.AddVelocity((engine.isBoosting ? boostForce : propulsionForce) * engine.propulsion * Time.deltaTime * direction);
+            player.motor.AddVelocity(gravityNegation * Time.deltaTime * Physics.gravity);
         }
         IEnumerator CreateRumbleRoutine(GloveLaterality side) {
             while (true) {

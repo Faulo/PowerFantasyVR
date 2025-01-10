@@ -17,6 +17,7 @@ namespace PFVR.Spells.LaserBolt {
             if ((LayerMask.GetMask(LayerMask.LayerToName(collision.gameObject.layer)) & LayerMask.GetMask("Default", "Spell", "Obstacle", "Ground", "Enemy")) == 0) {
                 return;
             }
+
             var explosion = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
             explosion.GetComponent<Explosion>().scaling = explosionSize;
             Destroy(gameObject);

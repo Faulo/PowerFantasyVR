@@ -10,6 +10,7 @@ namespace PFVR.VFX {
             if (!targetObject) {
                 targetObject = gameObject;
             }
+
             float duration = GetComponentsInChildren<ParticleSystem>()
                 .Select(ps => ps.main.duration)
                 .Max();

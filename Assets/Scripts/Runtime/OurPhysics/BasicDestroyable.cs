@@ -1,7 +1,6 @@
 ﻿using PFVR.VFX;
 using UnityEngine;
 
-
 namespace PFVR.OurPhysics {
     public sealed class BasicDestroyable : MonoBehaviour, IDestroyable {
         [SerializeField, Range(1, 100)]
@@ -13,6 +12,7 @@ namespace PFVR.OurPhysics {
                     if (value < currentHPCache) {
                         damageTakenBurster.Burst(currentHPCache - value);
                     }
+
                     currentHPCache = value;
                 }
             }
@@ -30,7 +30,6 @@ namespace PFVR.OurPhysics {
         [SerializeField]
         public GameObject deadPrefab = default;
 
-
         void Start() {
             currentHPCache = maxHP;
             rigidbody = GetComponent<Rigidbody>();
@@ -43,6 +42,7 @@ namespace PFVR.OurPhysics {
                 if (deadPrefab) {
                     AnimateState(deadPrefab);
                 }
+
                 Destroy(gameObject);
             }
         }
